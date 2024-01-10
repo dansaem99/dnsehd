@@ -40,6 +40,22 @@ dependencies {
     implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
     implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
 	
+	// JSON 
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.1'
+    
+    // security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+	
+	// excel export
+	implementation 'org.apache.poi:poi:5.2.2'
+	implementation 'org.apache.poi:poi-ooxml:5.2.2'
+	
+	// log4jdbc
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16' 
+	
+	// lombok
+	implementation 'org.projectlombok:lombok'
+	
 	// javax.servlet
 	implementation 'javax.servlet:javax.servlet-api:4.0.1'
 	

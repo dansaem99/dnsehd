@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.application.dnsehd.member.dao.MemberDAO">
+
+	<insert id="insertMember" parameterType="MemberDTO">
+		INSERT INTO MEMBER (
+			MEMBER_ID,
+ 			MEMBER_NM,
+    		MEMBER_PW,
+    		SEX,
+    		DATE_BIRTH,
+   			HP,
+    		SMS_CONSENT,
+    		EMAIL,
+    		EMAIL_CONSENT,
+    		ZIPCODE,
+    		ROAD_ADDRESS,
+    		JIBUN_ADDRESS,
+    		OTHER_ADDRESS
+		)
+		VALUE (
+			#{memberId},
+			#{memberNm},
+			#{memberPw},
+			#{sex},
+			#{dateBirth},
+			#{hp},
+			#{smsConsent},
+			#{email},
+			#{emailConsent},
+			#{zipcode},
+			#{roadAddress},
+			#{jibunAddress},
+			#{otherAddress}
+		)
+	</insert>
+	
+	<select id="selectOneCheckValidId" parameterType="String" resultType="String">
+		SELECT
+				MEMBER_ID
+		FROM	
+				MEMBER
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
+
+</mapper>
