@@ -12,6 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.application.dnsehd.dto.MemberDTO;
 import com.application.dnsehd.service.MemberService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class MemberController {
 
@@ -43,7 +46,25 @@ public class MemberController {
 	@GetMapping("/login")
 	public ModelAndView login() {
 		return new ModelAndView("user/member/login");
-	}	
+	}
+	
+	@PostMapping("/login")
+	@ResponseBody
+	public String loginMember(MemberDTO memberDTO, HttpServletRequest request) {
+		
+		String isValidMember = "n";
+		if (memberService.loginMember(memberDTO)) {
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("memberId", memberDTO.getMemberId());
+			
+			isValidMember = "y";
+			
+		}
+		
+		return isValidMember;
+		
+	}
 	
 	@GetMapping("/mypage")
 	public String mypage() {

@@ -6,4 +6,6 @@ public interface MemberService {
 
 	public void addMember(MemberDTO memberDTO);
 	public String checkValidId(String memberId);
+	public boolean loginMember(MemberDTO memberDTO);
+	
 }

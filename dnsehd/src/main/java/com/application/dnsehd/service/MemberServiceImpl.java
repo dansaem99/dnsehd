@@ -41,4 +41,19 @@ public class MemberServiceImpl implements MemberService {
 		
 		return isValidId;
 	}
+
+	@Override
+	public boolean loginMember(MemberDTO memberDTO) {
+		// TODO Auto-generated method stub
+		MemberDTO validateData = memberDAO.selectOneloginMember(memberDTO.getMemberId());
+		
+		if (validateData != null) {
+			if (passwordEncoder.matches(memberDTO.getMemberPw(), validateData.getMemberPw()) && !validateData.getActiveYn().equals("n")) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 }

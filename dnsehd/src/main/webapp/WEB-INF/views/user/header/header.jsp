@@ -163,40 +163,37 @@
                                   <a href="register">회원가입</a>
                               </c:when>
                               <c:otherwise>
-                                  <a href="#">수정하기</a>
-                                  <a href="#">탈퇴하기</a>
-                                  <a href="#">로그아웃</a>
+		                          <ul class="header__right__widget">
+		                              <li>
+		                                 <i class="fa fa-solid fa-bell" data-bs-toggle="dropdown"></i>
+		                                 <ul class="dropdown-menu dropdown-menu-end">
+		                                   <li>
+		                                 <div class="alert alert-primary alert-dismissible" role="alert">
+		                                        This is a primary dismissible alert — check it out!
+		                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		                                      </div>
+		                                   </li>
+		                                   <li>
+		                                 <div class="alert alert-primary alert-dismissible" role="alert">
+		                                        This is a primary dismissible alert — check it out!
+		                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		                                      </div>
+		                                   </li>
+		                                   <li>
+		                               <div class="alert alert-primary alert-dismissible" role="alert">
+		                                        This is a primary dismissible alert — check it out!
+		                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		                                      </div>
+		                                   </li>
+		                                 </ul>
+		                              </li>
+		                              <li><a href="mypage"><i class="fa fa-solid fa-user"></i>
+		                                  <div class="tip">2</div>
+		                              </a></li>
+		                          </ul>
                               </c:otherwise>
                             </c:choose>
                         </div>
-                        <ul class="header__right__widget">
-                            <li>
-                               <i class="fa fa-solid fa-bell" data-bs-toggle="dropdown"></i>
-                               <ul class="dropdown-menu dropdown-menu-end">
-                                 <li>
-                               <div class="alert alert-primary alert-dismissible" role="alert">
-                                      This is a primary dismissible alert — check it out!
-                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>
-                                 </li>
-                                 <li>
-                               <div class="alert alert-primary alert-dismissible" role="alert">
-                                      This is a primary dismissible alert — check it out!
-                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>
-                                 </li>
-                                 <li>
-                             <div class="alert alert-primary alert-dismissible" role="alert">
-                                      This is a primary dismissible alert — check it out!
-                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>
-                                 </li>
-                               </ul>
-                            </li>
-                            <li><a href="mypage"><i class="fa fa-solid fa-user"></i>
-                                <div class="tip">2</div>
-                            </a></li>
-                        </ul>
                     </div>
                 </div>
             </div>

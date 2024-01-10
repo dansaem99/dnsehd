@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>register</title>
   
-  <script src="/ckeditor/ckeditor.js"></script>
   <script src="/jquery/jquery-3.6.1.min.js"></script>
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
   <script>
@@ -148,7 +147,7 @@ function checkFormValidation() {
 	                <p class="text-center">Your Healthy Exercise</p>
 	                <form action="/register" onsubmit="return checkFormValidation();" method="post" enctype="multipart/form-data">
 	                  <div class="mb-3">
-	                    <label for="exampleInputtext1" class="form-label">아이디</label>
+	                    <label for="element1" class="form-label">아이디</label>
 	                  	<div class="d-flex">
 		                    <input type="text" class="form-control" name="memberId" id="memberId" placeholder="아이디" aria-describedby="textHelp" required maxlength="20" style="width: 200px;"/>&emsp;
 		                    <input type="button" class="btn btn-primary w-60 py-8 fs-4 rounded-2" id="isValidId" value="중복확인" />
@@ -156,41 +155,41 @@ function checkFormValidation() {
 	                 	    <span id="isValidIdMsg"></span>
 	                  </div>
 	                  <div class="mb-3">
-	                    <label for="exampleInputPassword1" class="form-label">비밀번호</label>
+	                    <label for="element2" class="form-label">비밀번호</label>
 	                    <input type="password" class="form-control" name="memberPw" id="memberPw" placeholder="비밀번호" required/>
 	                  </div>
 	                  <div class="mb-4">
-	                    <label for="exampleInputPassword1" class="form-label">비밀번호 확인</label>
+	                    <label for="element3" class="form-label">비밀번호 확인</label>
 	                    <input type="password" class="form-control" id="confirmPasswd" placeholder="비밀번호확인" required/>&emsp;
 	                    <span id="isValidPasswdMsg"></span>
 	                  </div>
 	                  <div class="mb-3">
-	                    <label for="exampleInputtext1" class="form-label">회원 이름</label>
+	                    <label for="element4" class="form-label">회원 이름</label>
 	                    <input type="text" class="form-control" name="memberNm" id="memberNm" placeholder="이름" aria-describedby="textHelp" required/>
 	                  </div>
 	                  <div class="mb-3">
-	                    <label for="exampleInputtext1" class="form-label">성별</label><br> 
+	                    <label for="element5" class="form-label">성별</label><br> 
 	                    <input type="radio" name="sex" id="sex" value="m" aria-describedby="textHelp" checked="checked" /> 남성&emsp;&emsp;&emsp;
-	                    <input type="radio" name="sex" id="sex" value="w" aria-describedby="textHelp" /> 여성&emsp;&emsp;&emsp;
+	                    <input type="radio" name="sex" id="sex" value="w" aria-describedby="textHelp" /> 여성
 	                  </div>
 	                  <div class="mb-3">
-	                    <label for="exampleInputtext1" class="form-label">생년월일</label>
+	                    <label for="element6" class="form-label">생년월일</label>
 	                    <input type="text" class="form-control" name="dateBirth" id="dateBirth" placeholder="yyyy-MM-dd" aria-describedby="textHelp" required/>
 	                  </div>			
 	                  <div class="mb-3">
-	                    <label for="exampleInputtext1" class="form-label">핸드폰 번호</label>
+	                    <label for="element7" class="form-label">핸드폰 번호</label>
 	                    <input type="text" class="form-control" name="hp" id="hp" placeholder="010-0000-0000" aria-describedby="textHelp" required/>
 	                    <input type="checkbox" id="smsConsent" name="smsConsent" value="y" checked/>
 	                    DNSEHD에서 발송하는 SMS 소식을 수신합니다.
 	                  </div>			
 	                  <div class="mb-3">
-	                    <label for="exampleInputEmail1" class="form-label">이메일</label>
+	                    <label for="element8" class="form-label">이메일</label>
 	                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required/>
 	                    <input type="checkbox" id="emailConsent" name="emailConsent" value="y" checked/>
 	                    DNSEHD에서 발송하는 E-mail을 수신합니다.
 	                  </div>
 	                  <div class="mb-3">
-	                    <label for="exampleInputtext1" class="form-label">주소</label>
+	                    <label for="element9" class="form-label">주소</label>
 	                    <div class="d-flex">
 		                    <input type="text" class="form-control" name="zipcode" id="zipcode" placeholder="우편번호 입력" aria-describedby="textHelp" required style="width: 200px;"/>&emsp;
 		                    <input type="button" class="btn btn-primary w-30 py-8 fs-4 rounded-2" onclick="javascript:execDaumPostcode()" value="검색">
@@ -200,7 +199,7 @@ function checkFormValidation() {
 	                    지번 주소 : <input type="text" class="form-control" name="jibunAddress" id="jibunAddress"> <br>
 	                    나머지 주소 : <input type="text" class="form-control" name="otherAddress" id="otherAddress"> <br>
 	                  </div>
-	                  <a href="main"><input type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" value="회원가입"></a>
+	                  <input type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" value="회원가입">
 	                  <div class="d-flex align-items-center justify-content-center">
 	                    <p class="fs-4 mb-0 fw-bold">이미 아이디가 있으신가요?</p>
 	                    <a class="text-primary fw-bold ms-2" href="login">로그인</a>
