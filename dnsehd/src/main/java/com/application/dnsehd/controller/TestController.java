@@ -199,34 +199,124 @@ public class TestController {
 //		return "admin/sneat/..";
 //	}
 	
-	@GetMapping("/admain")
+	@GetMapping("/adTable")
+	public String  adTable() {
+		return "admin/sneat/table";
+	}
+	
+	@GetMapping("/adMain")
 	public String  adminMain() {
 		return "admin/sneat/main";
 	}
 	
-	@GetMapping("/admember")
+	@GetMapping("/adMember")
 	public String  adminMember() {
 		return "admin/sneat/member";
 	}
 	
-	@GetMapping("/adlogin")
+	@GetMapping("/adLogin")
 	public String  adminLogin() {
 		return "admin/sneat/login";
 	}
 	
-	@GetMapping("/adclass")
+	@GetMapping("/adClass")
 	public String  adminClass() {
 		return "admin/sneat/class";
 	}
 	
-	@GetMapping("/adtest")
-	public String  admintest() {
-		return "admin/sneat/test";
+	@GetMapping("/adModifyMember")
+	public String  adminModifyMember() {
+		return "admin/sneat/modifyMember";
 	}
 	
-	@GetMapping("/admodifyMember")
-	public String  adminmodifyMember() {
-		return "admin/sneat/modifyMember";
+	@GetMapping("/adAddClass")
+	public String  adminAddClass() {
+		return "admin/sneat/addClass";
+	} 
+	
+	@GetMapping("/adModifyClass")
+	public String  adminModifyClass() {
+		return "admin/sneat/modifyClass";
+	}
+	
+	@GetMapping("/adTeacher")
+	public String  adminTeacher() {
+		return "admin/sneat/teacher";
+	}
+	
+	@GetMapping("/adAddTeacher")
+	public String adminAddTeacher() {
+		return "admin/sneat/addTeacher";
+	}
+	
+	@GetMapping("/adModifyTeacher")
+	public String  adminModifyTeacher() {
+		return "admin/sneat/modifyTeacher";
+	}
+	
+	@GetMapping("/adReview")
+	public String  adminReview() {
+		return "admin/sneat/review";
+	} 
+	
+	@GetMapping("/adReviewDetail")
+	public String  adminReviewDetail() {
+		return "admin/sneat/reviewDetail";
+	}
+	
+	@GetMapping("/adEvent")
+	public String  adminEvent() {
+		return "admin/sneat/event";
+	}
+	
+	@GetMapping("/adAddEvent")
+	public String adminAddEvent() {
+		return "admin/sneat/addEvent";
+	}
+	
+	@GetMapping("/adModifyEvent")
+	public String  adminModifyEvent() {
+		return "admin/sneat/modifyEvent";
+	}
+	
+	@GetMapping("/adReservation")
+	public String  adminReservation() {
+		return "admin/sneat/reservation";
+	}
+	
+	@GetMapping("/adReservationDetail")
+	public String  adminReservationDetail() {
+		return "admin/sneat/reservationDetail";
+	}
+	
+	@GetMapping("/adNotice")
+	public String  adminNotice() {
+		return "admin/sneat/notice";
+	}
+	
+	@GetMapping("/adAddNotice")
+	public String adminAddNotice() {
+		return "admin/sneat/addNotice";
+	}
+	
+	@GetMapping("/adModifyNotice")
+	public String  adminModifyNotice() {
+		return "admin/sneat/modifyNotice";
+	}
+	
+	@GetMapping("/adFaq")
+	public String  adminFaq() {
+		return "admin/sneat/faq";
+	}
+	
+	@GetMapping("/adAddFaq")
+	public String adminAddFaq() {
+		return "admin/sneat/addFaq";
+	}
+	
+	@GetMapping("/adModifyFaq")
+	public String  adminModifyFaq() {
+		return "admin/sneat/modifyFaq";
 	}
 	
 }
