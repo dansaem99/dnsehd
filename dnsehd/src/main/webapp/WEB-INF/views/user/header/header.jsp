@@ -29,16 +29,16 @@
     
     <!-- Change Text Color and Shadow Start --> 
     <style>
-	    .categories__text h1,
-	    .categories__text h4,
-	    .categories__text p,
-	    .categories__text a {
-	        color: #ffffff; 
-	        text-shadow: 1px 1px 1px #000000;
-	    }
-	</style>
-	
-	<!-- Sneat's Static files for Alarm Start -->
+       .categories__text h1,
+       .categories__text h4,
+       .categories__text p,
+       .categories__text a {
+           color: #ffffff; 
+           text-shadow: 1px 1px 1px #000000;
+       }
+   </style>
+   
+   <!-- Sneat's Static files for Alarm Start -->
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/admin/sneat/assets/img/favicon/favicon.ico" />
 
@@ -89,8 +89,8 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    	
-	<!-- Sneat's Static files for Alarm End -->
+       
+   <!-- Sneat's Static files for Alarm End -->
 
 </head>
 
@@ -140,15 +140,15 @@
                             <li><a href="teacher">강사조회</a></li>
                             <li><a href="calendar">일정관리</a></li>
                             <li>수업후기
-                            	<ul class="dropdown">
-                            		<li><a href="addReview">수업후기등록</a></li>
-                            		<li><a href="review">전체수업후기</a></li>
-                            	</ul>
+                               <ul class="dropdown">
+                                  <li><a href="addReview">수업후기등록</a></li>
+                                  <li><a href="review">전체수업후기</a></li>
+                               </ul>
                             </li>
                             <li>공지 & FAQ
                                 <ul class="dropdown">
-                        		    <li><a href="notice">공지사항</a></li>
-                        		    <li><a href="faq">자주묻는질문</a></li>
+                                  <li><a href="notice">공지사항</a></li>
+                                  <li><a href="faq">자주묻는질문</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -157,49 +157,41 @@
                 <div class="col-lg-3">
                     <div class="header__right">
                         <div class="header__right__auth">
-                        	<c:choose>
-                        		<c:when test="${sessionScope.memberId eq null}">
-		                            <a href="login">로그인</a>
-        		                    <a href="register">회원가입</a>
-		                        </c:when>
-                        		<c:otherwise>
-		                            <a href="#">수정하기</a>
-        		                    <a href="#">탈퇴하기</a>
-        		                    <a href="#">로그아웃</a>
-		                        </c:otherwise>
+                           <c:choose>
+                              <c:when test="${sessionScope.memberId eq null}">
+                                  <a href="login">로그인</a>
+                                  <a href="register">회원가입</a>
+                              </c:when>
+                              <c:otherwise>
+                                  <a href="#">수정하기</a>
+                                  <a href="#">탈퇴하기</a>
+                                  <a href="#">로그아웃</a>
+                              </c:otherwise>
                             </c:choose>
                         </div>
                         <ul class="header__right__widget">
                             <li>
-
-				                          <button
-				                            type="button"
-				                            data-bs-toggle="dropdown"
-				                            aria-expanded="false"
-				                          >
-				                            <i class="fa fa-solid fa-bell"></i>
-				                          </button>
-				                          <ul class="dropdown-menu dropdown-menu-end">
-				                            <li>
-												<div class="alert alert-primary alert-dismissible" role="alert">
-				                        			This is a primary dismissible alert — check it out!
-				                        			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				                      			</div>
-				                            </li>
-				                            <li>
-												<div class="alert alert-primary alert-dismissible" role="alert">
-				                        			This is a primary dismissible alert — check it out!
-				                        			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				                      			</div>
-				                            </li>
-				                            <li>
-												<div class="alert alert-primary alert-dismissible" role="alert">
-				                        			This is a primary dismissible alert — check it out!
-				                        			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				                      			</div>
-				                            </li>
-				                          </ul>
-				                                           
+                               <i class="fa fa-solid fa-bell" data-bs-toggle="dropdown"></i>
+                               <ul class="dropdown-menu dropdown-menu-end">
+                                 <li>
+                               <div class="alert alert-primary alert-dismissible" role="alert">
+                                      This is a primary dismissible alert — check it out!
+                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                 </li>
+                                 <li>
+                               <div class="alert alert-primary alert-dismissible" role="alert">
+                                      This is a primary dismissible alert — check it out!
+                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                 </li>
+                                 <li>
+                             <div class="alert alert-primary alert-dismissible" role="alert">
+                                      This is a primary dismissible alert — check it out!
+                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                 </li>
+                               </ul>
                             </li>
                             <li><a href="mypage"><i class="fa fa-solid fa-user"></i>
                                 <div class="tip">2</div>
