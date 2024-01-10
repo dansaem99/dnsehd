@@ -127,9 +127,11 @@
                         <td>user@gmail.com</td>
                         <td>
                            <div>
-                               <button type="button" class="btn btn-outline-primary">
-                                 <a href="admodifyMember">수정 & 삭제</a>
-                               </button>
+                           		<a href="adModifyMember">
+	                               <button type="button" class="btn btn-outline-primary">
+	                                 수정 & 삭제
+	                               </button>
+                                </a>
                           </div>
                         </td>
                       </tr>
@@ -140,9 +142,11 @@
                         <td>user@gmail.com</td>
                         <td>
                              <div>
-                               <button type="button" class="btn btn-outline-primary">
-                                 <a href="admodifyMember">수정 & 삭제</a>
-                               </button>
+                               <a href="adModifyMember">
+	                               <button type="button" class="btn btn-outline-primary">
+	                                 수정 & 삭제
+	                               </button>
+                                </a>
                           </div>
                         </td>
                       </tr>
@@ -153,9 +157,11 @@
                         <td>user@gmail.com</td>
                         <td>
                              <div>
-                               <button type="button" class="btn btn-outline-primary">
-                                 <a href="admodifyMember">수정 & 삭제</a>
-                               </button>
+                               <a href="adModifyMember">
+	                               <button type="button" class="btn btn-outline-primary">
+	                                 수정 & 삭제
+	                               </button>
+                                </a>
                           </div>
                         </td>
                       </tr>
@@ -166,9 +172,11 @@
                         <td>user@gmail.com</td>
                         <td>
                              <div>
-                               <button type="button" class="btn btn-outline-primary">
-                                 <a href="admodifyMember">수정 & 삭제</a>
-                               </button>
+                               <a href="adModifyMember">
+	                               <button type="button" class="btn btn-outline-primary">
+	                                 수정 & 삭제
+	                               </button>
+                                </a>
                           </div>
                         </td>
                       </tr>
@@ -179,9 +187,11 @@
                         <td>user@gmail.com</td>
                         <td>
                              <div>
-                               <button type="button" class="btn btn-outline-primary">
-                                 <a href="admodifyMember">수정 & 삭제</a>
-                               </button>
+                               <a href="adModifyMember">
+	                               <button type="button" class="btn btn-outline-primary">
+	                                 수정 & 삭제
+	                               </button>
+                                </a>
                           </div>
                         </td>
                       </tr>
@@ -192,9 +202,11 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                               <button type="button" class="btn btn-outline-primary">
-                                 <a href="admodifyMember">수정 & 삭제</a>
-                               </button>
+                               <a href="adModifyMember">
+	                               <button type="button" class="btn btn-outline-primary">
+	                                 수정 & 삭제
+	                               </button>
+                                </a>
                           </div>
                         </td>
                       </tr>
@@ -205,9 +217,11 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                               <button type="button" class="btn btn-outline-primary">
-                                 <a href="admodifyMember">수정 & 삭제</a>
-                               </button>
+                               <a href="adModifyMember">
+	                               <button type="button" class="btn btn-outline-primary">
+	                                 수정 & 삭제
+	                               </button>
+                                </a>
                           </div>
                         </td>
                       </tr>
@@ -218,9 +232,11 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                               <button type="button" class="btn btn-outline-primary">
-                                 <a href="admodifyMember">수정 & 삭제</a>
-                               </button>
+                              <a href="adModifyMember">
+	                               <button type="button" class="btn btn-outline-primary">
+	                                 수정 & 삭제
+	                               </button>
+                                </a>
                           </div>
                         </td>
                       </tr>
@@ -231,9 +247,11 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                               <button type="button" class="btn btn-outline-primary">
-                                 <a href="admodifyMember">수정 & 삭제</a>
-                               </button>
+                               <a href="adModifyMember">
+	                               <button type="button" class="btn btn-outline-primary">
+	                                 수정 & 삭제
+	                               </button>
+                                </a>
                           </div>
                         </td>
                       </tr>
@@ -244,9 +262,11 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                               <button type="button" class="btn btn-outline-primary">
-                                 <a href="admodifyMember">수정 & 삭제</a>
-                               </button>
+                               <a href="adModifyMember">
+	                               <button type="button" class="btn btn-outline-primary">
+	                                 수정 & 삭제
+	                               </button>
+                                </a>
                           </div>
                         </td>
                       </tr>

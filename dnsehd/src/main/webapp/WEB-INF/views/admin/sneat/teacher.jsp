@@ -17,7 +17,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>수업관리</title>
+    <title>강사관리</title>
 
     <meta name="description" content="" />
 
@@ -68,8 +68,8 @@
 
               <!-- Bootstrap Table with Caption -->
               <div class="card">
-                 <h5 class="card-header">수업관리
-                 <a href="adAddClass">
+                 <h5 class="card-header">강사관리
+                 <a href="adAddTeacher">
                    <button type="button" class="btn btn-outline-primary btn-pinned">
                      <span class="tf-icons bx bx-plus"></span>&nbsp; 추가하기
                    </button>
@@ -126,7 +126,7 @@
                         <td>수업내용들적는다.</td>
                         <td>
                           <div>
-                           		<a href="adModifyClass">
+                           		<a href="adModifyTeacher">
 	                               <button type="button" class="btn btn-outline-primary">
 	                                 수정 & 삭제
 	                               </button>
@@ -141,7 +141,7 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                           		<a href="adModifyClass">
+                           		<a href="adModifyTeacher">
 	                               <button type="button" class="btn btn-outline-primary">
 	                                 수정 & 삭제
 	                               </button>
@@ -156,7 +156,7 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                           		<a href="adModifyClass">
+                           		<a href="adModifyTeacher">
 	                               <button type="button" class="btn btn-outline-primary">
 	                                 수정 & 삭제
 	                               </button>
@@ -171,7 +171,7 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                           		<a href="adModifyClass">
+                           		<a href="adModifyTeacher">
 	                               <button type="button" class="btn btn-outline-primary">
 	                                 수정 & 삭제
 	                               </button>
@@ -186,7 +186,7 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                           		<a href="adModifyClass">
+                           		<a href="adModifyTeacher">
 	                               <button type="button" class="btn btn-outline-primary">
 	                                 수정 & 삭제
 	                               </button>
@@ -201,7 +201,7 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                           		<a href="adModifyClass">
+                           		<a href="adModifyTeacher">
 	                               <button type="button" class="btn btn-outline-primary">
 	                                 수정 & 삭제
 	                               </button>
@@ -216,7 +216,7 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                           		<a href="adModifyClass">
+                           		<a href="adModifyTeacher">
 	                               <button type="button" class="btn btn-outline-primary">
 	                                 수정 & 삭제
 	                               </button>
@@ -231,7 +231,7 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                           		<a href="adModifyClass">
+                           		<a href="adModifyTeacher">
 	                               <button type="button" class="btn btn-outline-primary">
 	                                 수정 & 삭제
 	                               </button>
@@ -246,7 +246,7 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                           		<a href="adModifyClass">
+                           		<a href="adModifyTeacher">
 	                               <button type="button" class="btn btn-outline-primary">
 	                                 수정 & 삭제
 	                               </button>
@@ -261,7 +261,7 @@
                         <td>user@gmail.com</td>
                         <td>
                           <div>
-                           		<a href="adModifyClass">
+                           		<a href="adModifyTeacher">
 	                               <button type="button" class="btn btn-outline-primary">
 	                                 수정 & 삭제
 	                               </button>

@@ -241,8 +241,8 @@
                           </div>
                         </div>
                         <div class="mt-2">
-                          <button type="submit" class="btn btn-outline-primary me-2"><a href="admember">수정하기</a></button>
-                          <button type="reset" class="btn btn-outline-secondary"><a href="admember">뒤로가기</a></button>
+                          <button type="submit" class="btn btn-outline-primary me-2"><a href="adMember">수정하기</a></button>
+                          <button type="reset" class="btn btn-outline-secondary"><a href="adMember">뒤로가기</a></button>
                         </div>
                       </form>
                     </div>
@@ -269,7 +269,7 @@
                             >계정 비활성화를 확인합니다</label
                           >
                         </div>
-                        <button type="submit" class="btn btn-danger deactivate-account">계정 비활성화</button>
+                        <button type="submit" class="btn btn-outline-secondary deactivate-account"><a href="adMember">계정 비활성화</a></button>
                       </form>
                     </div>
                   </div>
