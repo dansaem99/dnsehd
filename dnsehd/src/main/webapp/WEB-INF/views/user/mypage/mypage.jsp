@@ -107,7 +107,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>회원 비밀번호 변경 <span>*</span></p>
-                                    <input type="text" id="memberPw">
+                                    <input type="text" id="memberPw" name="memberPw">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
