@@ -101,7 +101,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>회원 아이디 <span>*</span></p>
-                                    <input type="text" id="memberId" name="memberId" placeholder="${memberDTO.memberId }" readonly/>
+                                    <input type="text" id="memberId" name="memberId" value="${memberDTO.memberId }" readonly/>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -113,7 +113,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>회원 이름 <span>*</span></p>
-                                    <input type="text" id="memberNm" name="memberNm" placeholder="${memberDTO.memberNm }">
+                                    <input type="text" id="memberNm" name="memberNm" value="${memberDTO.memberNm }">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -134,38 +134,52 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>회원 생년월일 <span>*</span></p>
-                                    <input type="text" id="dateBirth" name="dateBirth" placeholder="${memberDTO.dateBirth }">
+                                    <input type="text" id="dateBirth" name="dateBirth" value="${memberDTO.dateBirth }">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>회원 전화번호 <span>*</span></p>
-                                    <input type="text" id="hp" name="hp" placeholder="${memberDTO.hp }">
+                                    <input type="text" id="hp" name="hp" value="${memberDTO.hp }">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>회원 이메일 <span>*</span></p>
-                                    <input type="email" id="email" name="email" placeholder="${memberDTO.email }">
+                                    <input type="email" id="email" name="email" value="${memberDTO.email }">
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                 	<p>E-mail 수신 동의 <span>*</span></p>
                                 </div>
-                                <input type="checkbox" id="emailConsent" name="emailConsent" value="y" checked/>
+                                <c:choose>
+                                	<c:when test="${memberDTO.emailConsent eq 'y'}">
+		                                <input type="checkbox" id="emailConsent" name="emailConsent" value="y" checked/>
+                                	</c:when>
+                                	<c:otherwise>
+		                                <input type="checkbox" id="emailConsent" name="emailConsent" value="n" />
+                                	</c:otherwise>
+                                </c:choose>
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                 	<p>SMS 수신 동의 <span>*</span></p>
                                 </div>
-                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" checked/>
+                                <c:choose>
+                                	<c:when test="${memberDTO.smsConsent eq 'y'}">
+		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" checked/>
+                                	</c:when>
+                                	<c:otherwise>
+		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="n" />
+                                	</c:otherwise>
+                                </c:choose>                                
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6">
 			                    <div class="checkout__form__input">
 			                    	<p>주소 <span>*</span></p>
 				                    <div class="d-flex">
-					                    <input type="text" name="zipcode" id="zipcode" placeholder="${memberDTO.zipcode }" aria-describedby="textHelp" style="width: 200px;"/>&emsp;
+					                    <input type="text" name="zipcode" id="zipcode" value="${memberDTO.zipcode }" aria-describedby="textHelp" style="width: 200px;"/>&emsp;
 					                    <input type="button" class="site-btn" onclick="javascript:execDaumPostcode()" value="검색">
 				                    </div>
 			                    </div>
@@ -173,15 +187,15 @@
                             <div class="col-lg-12 col-md-6 col-sm-6">
 			                    <div class="checkout__form__input">
 			                    	<p>도로명 주소 <span>*</span></p>
-				                    <input type="text" name="roadAddress" id="roadAddress" placeholder="${memberDTO.roadAddress }"> <br>
+				                    <input type="text" name="roadAddress" id="roadAddress" value="${memberDTO.roadAddress }"> <br>
 			                    </div>
 			                    <div class="checkout__form__input">
 			                    	<p>지번 주소 <span>*</span></p>
-				                    <input type="text" name="jibunAddress" id="jibunAddress" placeholder="${memberDTO.jibunAddress }"> <br>
+				                    <input type="text" name="jibunAddress" id="jibunAddress" value="${memberDTO.jibunAddress }"> <br>
 			                    </div>
 			                    <div class="checkout__form__input">
 			                    	<p>나머지 주소 <span>*</span></p>
-				                    <input type="text" name="otherAddress" id="otherAddress" placeholder="${memberDTO.otherAddress }"> <br>
+				                    <input type="text" name="otherAddress" id="otherAddress" value="${memberDTO.otherAddress }"> <br>
 			                    </div>
 			                </div>
                         </div>

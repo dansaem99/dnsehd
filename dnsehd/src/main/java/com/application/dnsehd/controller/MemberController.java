@@ -21,12 +21,6 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@GetMapping("/main")
-	public ModelAndView main() {
-		System.out.println("ttt");
-		return new ModelAndView("user/main");
-	}	
-	
 	@GetMapping("/register")
 	public ModelAndView register() {
 		return new ModelAndView("user/member/register");

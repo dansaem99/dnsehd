@@ -13,11 +13,8 @@
   <script src="/jquery/jquery-3.6.1.min.js"></script>
   <script>
   
-  	$(function(){
-  		
-  		$("#loginBtn").click(function(){
-  			
-  			let loginData = {
+  	function login(){
+  		let loginData = {
   				"memberId" : $("[name='memberId']").val(),
   				"memberPw" : $("[name='memberPw']").val(),
   			}
@@ -36,8 +33,8 @@
   					}
   				}
   			});
-  		});
-  	});
+  	}
+  
   </script>
 
 </head>
@@ -75,7 +72,7 @@
                     </div>
                     <a class="text-primary fw-bold" href="./index.html">비밀번호를 잊으셨나요?</a>
                   </div>
-                  <a href="main" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" id="loginBtn">로그인</a>
+                  <a href="javascript:login()" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" id="loginBtn">로그인</a>
                   <div class="d-flex align-items-center justify-content-center">
                     <p class="fs-4 mb-0 fw-bold">아이디가 없으신가요?</p>
                     <a class="text-primary fw-bold ms-2" href="register">회원가입</a>
