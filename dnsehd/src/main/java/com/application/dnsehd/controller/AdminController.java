@@ -41,8 +41,6 @@ public class AdminController {
 		
 		String isValidAdmin = "n";
 		
-		System.out.println(adminDTO);
-		
 		if (adminService.loginAdmin(adminDTO)) {
 			
 			HttpSession session = request.getSession();
@@ -50,6 +48,8 @@ public class AdminController {
 			isValidAdmin = "y";
 			
 		}
+		
+		System.out.println("isValidAdmin = " + isValidAdmin);
 		
 		return isValidAdmin;
 	}

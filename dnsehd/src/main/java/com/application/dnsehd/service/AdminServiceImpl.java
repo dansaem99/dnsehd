@@ -19,11 +19,14 @@ public class AdminServiceImpl implements AdminService {
 	public List<AdminDTO> getAdmin(String adminId) {
 		return adminDAO.selectAdmin(adminId);
 	}
+	
 
 	@Override
 	public boolean loginAdmin(AdminDTO adminDTO) {
 
-		AdminDTO validateData = adminDAO.loginAdmin(adminDTO.getAdminId(), adminDTO.getAdminPw());
+		AdminDTO validateData = adminDAO.loginAdmin(adminDTO.getAdminId());
+		
+		System.out.println("validateData = " + validateData);
 		
 		if (validateData == null) {
 			return false;

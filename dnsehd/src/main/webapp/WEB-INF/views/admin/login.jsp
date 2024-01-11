@@ -18,7 +18,6 @@
   				"adminId" : $("[name='adminId']").val(),
   				"adminPw" : $("[name='adminPw']").val(),
   			}
-  			alert(loginData);
   			$.ajax({
   				url : "/adMain",
   				type : "post",
@@ -49,7 +48,7 @@
           <div class="col-md-8 col-lg-6 col-xxl-3">
             <div class="card mb-0">
               <div class="card-body">
-                <a href="main" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                <a class="text-nowrap logo-img text-center d-block py-3 w-100">
                   <img src="/addedImg/dnsehd_small_logo.png" width="180" alt="">
                 </a>
                 <p class="text-center">Your Healthy Exercise</p>
@@ -63,20 +62,7 @@
                     <input type="password" class="form-control" name="adminPw"><br>
                     <span id="failMsg"></span>
                   </div>
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="form-check">
-                      <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
-                      <label class="form-check-label text-dark" for="flexCheckChecked">
-                        로그인 상태 유지
-                      </label>
-                    </div>
-                    <a class="text-primary fw-bold" href="./index.html">비밀번호를 잊으셨나요?</a>
-                  </div>
                   <a href="javascript:login()" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" id="loginBtn">로그인</a>
-                  <div class="d-flex align-items-center justify-content-center">
-                    <p class="fs-4 mb-0 fw-bold">아이디가 없으신가요?</p>
-                    <a class="text-primary fw-bold ms-2" href="register">회원가입</a>
-                  </div>
                 </form>
               </div>
             </div>
