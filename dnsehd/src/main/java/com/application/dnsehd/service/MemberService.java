@@ -8,4 +8,5 @@ public interface MemberService {
 	public String checkValidId(String memberId);
 	public boolean loginMember(MemberDTO memberDTO);
 	public MemberDTO getMemberDetail(String memberId);
+	public void modifyMember(MemberDTO memberDTO);
 }

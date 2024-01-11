@@ -165,7 +165,7 @@
 			                    <div class="checkout__form__input">
 			                    	<p>주소 <span>*</span></p>
 				                    <div class="d-flex">
-					                    <input type="text" name="zipcode" id="zipcode" placeholder="${memberDTO.zipcode }" aria-describedby="textHelp" required style="width: 200px;"/>&emsp;
+					                    <input type="text" name="zipcode" id="zipcode" placeholder="${memberDTO.zipcode }" aria-describedby="textHelp" style="width: 200px;"/>&emsp;
 					                    <input type="button" class="site-btn" onclick="javascript:execDaumPostcode()" value="검색">
 				                    </div>
 			                    </div>

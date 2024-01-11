@@ -64,4 +64,48 @@
 				MEMBER_ID = #{memberId}
 	</select>
 
+	<update id="updateMember" parameterType="MemberDTO">
+		UPDATE
+				MEMBER
+		<set>
+			<if test='memberPw != null and !memberPw.equals("")'>
+				MEMBER_PW = #{memberPw},
+			</if>
+			<if test='memberNm != null and !memberNm.equals("")'>
+				MEMBER_NM = #{memberNm},
+			</if>
+			<if test='sex != null and !sex.equals("")'>
+				SEX = #{sex},
+			</if>
+			<if test='dateBirth != null and !dateBirth.equals("")'>
+				DATE_BIRTH = #{dateBirth},
+			</if>
+			<if test='hp != null and !hp.equals("")'>
+				HP = #{hp},
+			</if>
+			<if test='email != null and !email.equals("")'>
+				EMAIL = #{email},
+			</if>
+			<if test='smsConsent != null and !smsConsent.equals("")'>
+				SMS_CONSENT = #{smsConsent},
+			</if>
+			<if test='emailConsent != null and !emailConsent.equals("")'>
+				EMAIL_CONSNET = #{emailConsent},
+			</if>
+			<if test='zipcode != null and !zipcode.equals("")'>
+				ZIPCODE = #{zipcode},
+			</if>
+			<if test='roadAddress != null and !roadAddress.equals("")'>
+				ROAD_ADDRESS = #{roadAddress},
+			</if>
+			<if test='jibunAddress != null and !jibunAddress.equals("")'>
+				JIBUN_ADDRESS = #{jibunAddress},
+			</if>
+			<if test='otherAddress != null and !otherAddress.equals("")'>
+				OTHER_ADDRESS = #{otherAddress}
+			</if>
+		</set>
+		WHERE
+				MEMBER_ID = #{memberId}
+	</update>
 </mapper>
