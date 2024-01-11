@@ -153,8 +153,8 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-3">
-                    <div class="header__right">
+                <div class="col-lg-3" align="center">
+                     <nav class="header__menu">
                         <div class="header__right__auth">
                            <c:choose>
                               <c:when test="${sessionScope.memberId eq null}">
@@ -188,24 +188,22 @@
 		                                 </ul>
 		                              </li>
 		                              <li>
-					                      <nav class="header__menu">
-					                          <ul>
-					                              <li><i class="fa fa-solid fa-user"></i>
-					                                 <ul class="dropdown">
-					                                    <li><a href="/mypage">마이페이지</a></li>
-					                                    <li><a href="/reservedClass">내가 예약한 수업</a></li>
-													    <li><a href="/myReview">내가 작성한 후기</a></li>
-													    <li><a href="/logout">로그아웃</a></li>
-					                                 </ul>
-					                              </li>
-					                          </ul>
-					                      </nav>		                                 
+				                          <ul>
+				                              <li><i class="fa fa-solid fa-user"></i>
+				                                 <ul class="dropdown">
+				                                    <li><a href="/mypage">마이페이지</a></li>
+				                                    <li><a href="/reservedClass">내가 예약한 수업</a></li>
+												    <li><a href="/myReview">내가 작성한 후기</a></li>
+												    <li><a href="/logout">로그아웃</a></li>
+				                                 </ul>
+				                              </li>
+				                          </ul>
 		                              </li>
 		                          </ul>
                               </c:otherwise>
                             </c:choose>
                         </div>
-                    </div>
+                    </nav>
                 </div>
             </div>
             <div class="canvas__open">
