@@ -225,7 +225,7 @@
                              <h5>회원정보 관리</h5>
                              <input type="submit" class="site-btn" value="회원정보 수정">
                              <div class="mb-4"></div>
-                             <button type="submit" class="site-btn" onclick="location.href='/removeMember'">탈퇴하기</button>
+                             <input type="button" class="site-btn" onclick="location.href='/removeMember'" value="탈퇴하기"/>
                          </div>   
                      </div>
                  </div>

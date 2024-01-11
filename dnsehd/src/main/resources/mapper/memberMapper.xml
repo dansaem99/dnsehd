@@ -133,4 +133,22 @@
 		WHERE
 				LEFT(JOIN_AT , 10) = #{today}	
 	</select>
+	
+	
+	<select id="selectListInActiveMember" resultType="MemberDTO">
+		<![CDATA[
+			SELECT MEMBER_ID
+			FROM   MEMBER
+			WHERE  INACTIVE_AT < (SELECT DATE_SUB(CURRENT_DATE , INTERVAL 90 DAY)
+		]]>
+	</select>
+	
+	
+	<delete id="deleteMember" parameterType="String">
+		DELETE FROM
+				MEMBER
+		WHERE
+				MEMBER_ID = #{memberId}
+	</delete>
+	
 </mapper>

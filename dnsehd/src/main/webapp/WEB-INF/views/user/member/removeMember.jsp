@@ -30,7 +30,7 @@
     	$(function() {
     		
     		$("#confirmDelete").keyup(function(){
-    			if ("/탈퇴" == $(this.val()) {
+    			if ("${sessionScope.memberId}/탈퇴" == $(this).val()) {
     				$("[type='submit']").prop("disabled" , false);
     			}
     			else {
@@ -62,24 +62,24 @@
 	<!-- Delete Account Section -->
     <section class="checkout spad">
         <div class="container">
-            <form action="/removeMember" class="checkout__form">
+            <form action="/removeMember" method="post" class="checkout__form">
                 <div class="row">
                     <div class="col-lg-12">
                         <h5>DNSEHD 서비스의 회원을 정말로 <span style="color:red;">탈퇴</span>하시겠습니까?</h5>
                        	<div class="row">
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
-                                    <p>진한 글씨(<strong>/탈퇴</strong>)를 입력하세요.</p>
+                                    <p>진한 글씨(<strong>${sessionScope.memberId}/탈퇴</strong>)를 입력하세요.</p>
                                     <p>
-                                    	<input type="text" id="confirmDelete" name="confirmDelete" placeholder="위의 글자를 입력하세요.">
+                                    	<input type="text" id="confirmDelete" name="confirmDelete" placeholder="위의 글자를 입력하세요." />
                                 	</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-6 mx-auto" >
 		                        <div class="checkout__order__deleteAccount">
-		                            <button type="submit" class="site-btn" disabled>탈퇴하기</button>
+		                            <input type="submit" class="site-btn" value="탈퇴하기" disabled>
 		                            <div class="mb-4"></div>
-		                            <button type="button" class="site-btn" onclick="location.href='/mypage'">취소하기</button>
+		                            <input type="button" class="site-btn" value="취소하기" onclick="location.href='/mypage'">
 		                        </div>   
                             </div>
                         </div>

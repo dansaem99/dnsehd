@@ -2,6 +2,7 @@ package com.application.dnsehd.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -84,8 +85,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void deleteMemberScheduler() {
-		
-		
+		List<MemberDTO> deleteMemberList = memberDAO.selectListInActiveMember();
+		if (!deleteMemberList.isEmpty()) {
+			for (MemberDTO memberDTO : deleteMemberList) {
+				memberDAO.deleteMember(memberDTO.getMemberId());
+			}
+		}	
 	}
 	
 }
