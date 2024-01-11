@@ -1,8 +1,12 @@
 package com.application.dnsehd.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +26,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void addMember(MemberDTO memberDTO) {
-		// TODO Auto-generated method stub
 		
 		if (memberDTO.getSmsConsent() == null) memberDTO.setSmsConsent("n");
 		if (memberDTO.getEmailConsent() == null) memberDTO.setEmailConsent("n");
@@ -33,7 +36,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public String checkValidId(String memberId) {
-		// TODO Auto-generated method stub
+
 		String isValidId = "y";
 		if (memberDAO.selectOneCheckValidId(memberId) != null) {
 			isValidId = "n";
@@ -44,7 +47,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public boolean loginMember(MemberDTO memberDTO) {
-		// TODO Auto-generated method stub
+
 		MemberDTO validateData = memberDAO.selectOneloginMember(memberDTO.getMemberId());
 		
 		if (validateData != null) {
@@ -58,14 +61,31 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberDTO getMemberDetail(String memberId) {
-		// TODO Auto-generated method stub
 		return memberDAO.selectOneMember(memberId);
 	}
 
 	@Override
 	public void modifyMember(MemberDTO memberDTO) {
-		// TODO Auto-generated method stub
 		memberDAO.updateMember(memberDTO);
+	}
+
+	@Override
+	public void modifyInactiveMember(String memberId) {
+		memberDAO.updateInactiveMember(memberId);
+	}
+
+	@Override
+	@Scheduled(cron="59 59 23 * * *")
+	public void getTodayNewMemberCnt() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String today = sdf.format(new Date());
+		logger.info("(" + today + ") 신규회원수 : " + memberDAO.selectOneTodayNewMemberCnt(today));
+	}
+
+	@Override
+	public void deleteMemberScheduler() {
+		
+		
 	}
 	
 }
