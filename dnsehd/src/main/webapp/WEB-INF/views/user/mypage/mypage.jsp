@@ -158,7 +158,7 @@
 		                                <input type="checkbox" id="emailConsent" name="emailConsent" value="y" checked/>
                                 	</c:when>
                                 	<c:otherwise>
-		                                <input type="checkbox" id="emailConsent" name="emailConsent" value="n" />
+		                                <input type="checkbox" id="emailConsent" name="emailConsent" value="y" />
                                 	</c:otherwise>
                                 </c:choose>
                             </div>
@@ -171,7 +171,7 @@
 		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" checked/>
                                 	</c:when>
                                 	<c:otherwise>
-		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="n" />
+		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" />
                                 	</c:otherwise>
                                 </c:choose>                                
                             </div>

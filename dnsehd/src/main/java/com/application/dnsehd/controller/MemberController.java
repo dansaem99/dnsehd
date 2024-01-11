@@ -83,11 +83,6 @@ public class MemberController {
 		return mv;
 	}
 	
-	@GetMapping("/removeMember")
-	public ModelAndView remove() {
-		return new ModelAndView("user/member/removeMember");
-	}
-	
 	@PostMapping("/mypage")
 	public String mypage(@ModelAttribute MemberDTO memberDTO) {
 		
@@ -99,5 +94,11 @@ public class MemberController {
 		return "redirect:mypage";
 		
 	}
+
+	@GetMapping("/removeMember")
+	public ModelAndView remove() {
+		return new ModelAndView("user/member/removeMember");
+	}
+	
 	
 }
