@@ -187,10 +187,19 @@
 		                                   </li>
 		                                 </ul>
 		                              </li>
-		                              <li><a href="mypage"><i class="fa fa-solid fa-user"></i>
-		                                  <div class="tip">2</div>
-		                              </a></li>
-		                              <li><a href="logout"><i class="fa fa-solid fa-ban"></i></a>
+		                              <li>
+					                      <nav class="header__menu">
+					                          <ul>
+					                              <li><i class="fa fa-solid fa-user"></i>
+					                                 <ul class="dropdown">
+					                                    <li><a href="/mypage">마이페이지</a></li>
+					                                    <li><a href="/reservedClass">내가 예약한 수업</a></li>
+													    <li><a href="/myReview">내가 작성한 후기</a></li>
+													    <li><a href="/logout">로그아웃</a></li>
+					                                 </ul>
+					                              </li>
+					                          </ul>
+					                      </nav>		                                 
 		                              </li>
 		                          </ul>
                               </c:otherwise>
