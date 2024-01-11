@@ -90,35 +90,6 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
        
    <!-- Sneat's Static files for Alarm End -->
-   
-   <!-- deskapp start -->
-   <!-- Site favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="deskapp/vendors/images/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="deskapp/vendors/images/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="deskapp/vendors/images/favicon-16x16.png">
-
-	<!-- Mobile Specific Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-	<!-- Google Font -->
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="deskapp/vendors/styles/core.css">
-	<link rel="stylesheet" type="text/css" href="deskapp/vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="deskapp/vendors/styles/style.css">
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-119386393-1');
-	</script>
-   
-   <!-- deskapp end -->
-   
 
 </head>
 
@@ -194,60 +165,27 @@
 		                          <ul class="header__right__widget">
 		                          	  <li>"${sessionScope.memberId}"님 환영합니다.</li>
 		                              <li>
-		                                 <div class="dropdown">
-					<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
-						<i class="icon-copy dw dw-notification"></i>
-						<span class="badge notification-active"></span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right">
-						<div class="notification-list mx-h-350 customscroll">
-							<ul>
-								<li>
-									<a href="#">
-										<img src="deskapp/vendors/images/img.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="deskapp/vendors/images/photo1.jpg" alt="">
-										<h3>Lea R. Frith</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="deskapp/vendors/images/photo2.jpg" alt="">
-										<h3>Erik L. Richards</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="deskapp/vendors/images/photo3.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="deskapp/vendors/images/photo4.jpg" alt="">
-										<h3>Renee I. Hansen</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="deskapp/vendors/images/img.jpg" alt="">
-										<h3>Vicki M. Coleman</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
+		                                 <i class="fa fa-solid fa-bell" data-bs-toggle="dropdown"></i>
+		                                 <ul class="dropdown-menu dropdown-menu-end">
+		                                   <li>
+		                                 <div class="alert alert-primary alert-dismissible" role="alert">
+		                                        This is a primary dismissible alert — check it out!
+		                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		                                      </div>
+		                                   </li>
+		                                   <li>
+		                                 <div class="alert alert-primary alert-dismissible" role="alert">
+		                                        This is a primary dismissible alert — check it out!
+		                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		                                      </div>
+		                                   </li>
+		                                   <li>
+		                               <div class="alert alert-primary alert-dismissible" role="alert">
+		                                        This is a primary dismissible alert — check it out!
+		                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		                                      </div>
+		                                   </li>
+		                                 </ul>
 		                              </li>
 		                              <li><a href="mypage"><i class="fa fa-solid fa-user"></i>
 		                                  <div class="tip">2</div>
@@ -267,14 +205,6 @@
         </div>
     </header>
     <!-- Header Section End -->
-    
-    <!-- deskapp js start -->
-    
-    <!-- js -->
-	<script src="deskapp/vendors/scripts/core.js"></script>
-	<script src="deskapp/vendors/scripts/script.min.js"></script>
-	<script src="deskapp/vendors/scripts/process.js"></script>
-	<script src="deskapp/vendors/scripts/layout-settings.js"></script>
 
 </body>
 </html>
