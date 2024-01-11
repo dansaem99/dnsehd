@@ -93,7 +93,7 @@
     <!-- Modify Member's Information -->
     <section class="checkout spad">
         <div class="container">
-            <form action="#" class="checkout__form">
+            <form action="/mypage" method="post" class="checkout__form">
                 <div class="row">
                     <div class="col-lg-8">
                         <h5>회원 정보</h5>
@@ -158,7 +158,7 @@
 		                                <input type="checkbox" id="emailConsent" name="emailConsent" value="y" checked/>
                                 	</c:when>
                                 	<c:otherwise>
-		                                <input type="checkbox" id="emailConsent" name="emailConsent" value="n" />
+		                                <input type="checkbox" id="emailConsent" name="emailConsent" value="y" />
                                 	</c:otherwise>
                                 </c:choose>
                             </div>
@@ -171,7 +171,7 @@
 		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" checked/>
                                 	</c:when>
                                 	<c:otherwise>
-		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="n" />
+		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" />
                                 	</c:otherwise>
                                 </c:choose>                                
                             </div>

@@ -90,7 +90,7 @@
 				SMS_CONSENT = #{smsConsent},
 			</if>
 			<if test='emailConsent != null and !emailConsent.equals("")'>
-				EMAIL_CONSNET = #{emailConsent},
+				EMAIL_CONSENT = #{emailConsent},
 			</if>
 			<if test='zipcode != null and !zipcode.equals("")'>
 				ZIPCODE = #{zipcode},
