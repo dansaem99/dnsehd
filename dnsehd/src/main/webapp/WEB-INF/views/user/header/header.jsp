@@ -74,9 +74,6 @@
     <!-- build:js assets/vendor/js/core.js -->
     <script src="/admin/sneat/assets/vendor/libs/jquery/jquery.js"></script>
     <script src="/admin/sneat/assets/vendor/libs/popper/popper.js"></script>
-    <!-- 캘린더 모달때문에 지웠습니다.
-    	<script src="/admin/sneat/assets/vendor/js/bootstrap.js"></script> 
-    -->
     <script src="/admin/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
     <script src="/admin/sneat/assets/vendor/js/menu.js"></script>
