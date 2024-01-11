@@ -164,6 +164,7 @@
                               </c:when>
                               <c:otherwise>
 		                          <ul class="header__right__widget">
+		                          	  <li>"${sessionScope.memberId}"님 환영합니다.</li>
 		                              <li>
 		                                 <i class="fa fa-solid fa-bell" data-bs-toggle="dropdown"></i>
 		                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -190,6 +191,8 @@
 		                              <li><a href="mypage"><i class="fa fa-solid fa-user"></i>
 		                                  <div class="tip">2</div>
 		                              </a></li>
+		                              <li><a href="logout"><i class="fa fa-solid fa-ban"></i></a>
+		                              </li>
 		                          </ul>
                               </c:otherwise>
                             </c:choose>

@@ -54,5 +54,14 @@
 		WHERE
 				MEMBER_ID = #{memberId}
 	</select>
+	
+	<select id="selectOneMember" parameterType="String" resultType="MemberDTO">
+		SELECT
+				*
+		FROM
+				MEMBER
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
 
 </mapper>

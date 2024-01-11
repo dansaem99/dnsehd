@@ -66,10 +66,27 @@ public class MemberController {
 		
 	}
 	
+	@GetMapping("/logout")
+	public String logoutMember(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		session.invalidate();
+		
+		return "redirect:main";
+		
+	}
+	
 	@GetMapping("/mypage")
-	public String mypage() {
-		return "user/mypage/mypage";
-	}	
+	public ModelAndView mypage(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("user/mypage/mypage");
+		mv.addObject("memberDTO" , memberService.getMemberDetail((String)session.getAttribute("memberId")));
+		
+		return mv;
+	}
 	
 	@GetMapping("/removeMember")
 	public ModelAndView remove() {

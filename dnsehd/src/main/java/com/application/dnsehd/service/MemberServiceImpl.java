@@ -55,5 +55,11 @@ public class MemberServiceImpl implements MemberService {
 		
 		return false;
 	}
+
+	@Override
+	public MemberDTO getMemberDetail(String memberId) {
+		// TODO Auto-generated method stub
+		return memberDAO.selectOneMember(memberId);
+	}
 	
 }
