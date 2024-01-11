@@ -93,7 +93,7 @@ public class MemberController {
 		
 		if (memberDTO.getSmsConsent() == null)	memberDTO.setSmsConsent("n");
 		if (memberDTO.getEmailConsent() == null) memberDTO.setEmailConsent("n");
-		
+		System.out.println(memberDTO);
 		memberService.modifyMember(memberDTO);
 		
 		return "redirect:mypage";

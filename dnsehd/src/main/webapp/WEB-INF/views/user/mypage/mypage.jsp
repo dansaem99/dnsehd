@@ -93,7 +93,7 @@
     <!-- Modify Member's Information -->
     <section class="checkout spad">
         <div class="container">
-            <form action="#" class="checkout__form">
+            <form action="/mypage" method="post" class="checkout__form">
                 <div class="row">
                     <div class="col-lg-8">
                         <h5>회원 정보</h5>
