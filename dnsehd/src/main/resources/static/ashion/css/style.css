@@ -2355,7 +2355,7 @@ ol {
 	color: #666666;
 }
 
-.checkout__form__mypage {
+.checkout__form__mypage .checkout__form__mypage__input input {
     border: 1px solid #e1e1e1;
     border-radius: 2px;
     margin-bottom: 25px;
