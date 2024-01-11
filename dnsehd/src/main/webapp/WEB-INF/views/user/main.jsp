@@ -30,7 +30,7 @@
 
 <body>
 	<!-- header section -->
-	<jsp:include page="../header/header.jsp"></jsp:include>
+	<jsp:include page="header/header.jsp"></jsp:include>
 
     <!-- Categories Section Begin -->
     <section class="categories">
@@ -370,6 +370,6 @@
 <!-- Banner Section End -->
 
 	<!-- footer section -->
-	<jsp:include page="../footer/footer.jsp"></jsp:include>
+	<jsp:include page="footer/footer.jsp"></jsp:include>
 </body>
 </html>
