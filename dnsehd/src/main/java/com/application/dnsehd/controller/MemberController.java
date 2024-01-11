@@ -23,6 +23,7 @@ public class MemberController {
 	
 	@GetMapping("/main")
 	public ModelAndView main() {
+		System.out.println("ttt");
 		return new ModelAndView("user/member/main");
 	}	
 	

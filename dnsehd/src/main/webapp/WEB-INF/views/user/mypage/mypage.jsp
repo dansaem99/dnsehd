@@ -106,8 +106,8 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
-                                    <p>회원 비밀번호 <span>*</span></p>
-                                    <input type="text" id="memberPw" name="memberPw" placeholder="${memberDTO.memberPw }">
+                                    <p>회원 비밀번호 변경 <span>*</span></p>
+                                    <input type="text" id="memberPw">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -209,7 +209,7 @@
                          </div>
                          <div class="checkout__order">
                              <h5>회원정보 관리</h5>
-                             <button type="submit" class="site-btn">회원정보 수정</button>
+                             <input type="submit" class="site-btn" value="회원정보 수정">
                              <div class="mb-4"></div>
                              <button type="submit" class="site-btn" onclick="location.href='/removeMember'">탈퇴하기</button>
                          </div>   

@@ -29,7 +29,7 @@
   				success : function(isValidMember) {
   					
   					if (isValidMember == "y") {
-  						location.href = "/member/main";
+  						location.href = "/main";
   					}
   					else {
   						$("#failMsg").html("<span style='color:red;'>아이디와 패스워드를 확인하세요.</span>");
