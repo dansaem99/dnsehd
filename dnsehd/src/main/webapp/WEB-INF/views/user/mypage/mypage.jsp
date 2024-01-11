@@ -117,7 +117,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="checkout__form__mypage">
+                                <div class="checkout__form__mypage__input">
                                     <p>회원 성별 <span>*</span></p>
                                     <c:choose>
                                     	<c:when test="${memberDTO.sex eq 'm'}">
