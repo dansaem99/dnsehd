@@ -12,4 +12,9 @@ public interface MemberDAO {
 	public MemberDTO selectOneloginMember(String memberId);
 	public MemberDTO selectOneMember(String memberId);
 	public void updateMember(MemberDTO memberDTO);
+	public void updateInactiveMember(String memberId);
+	
+	public int selectOneTodayNewMemberCnt(String today);
+	
+	
 }

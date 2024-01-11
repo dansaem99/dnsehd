@@ -9,4 +9,8 @@ public interface MemberService {
 	public boolean loginMember(MemberDTO memberDTO);
 	public MemberDTO getMemberDetail(String memberId);
 	public void modifyMember(MemberDTO memberDTO);
+	public void modifyInactiveMember(String memberId);
+	
+	public void getTodayNewMemberCnt();
+	public void deleteMemberScheduler();
 }

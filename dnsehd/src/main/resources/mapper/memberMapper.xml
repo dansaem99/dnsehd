@@ -36,6 +36,7 @@
 		)
 	</insert>
 	
+	
 	<select id="selectOneCheckValidId" parameterType="String" resultType="String">
 		SELECT
 				MEMBER_ID
@@ -44,6 +45,7 @@
 		WHERE
 				MEMBER_ID = #{memberId}
 	</select>
+	
 	
 	<select id="selectOneloginMember" parameterType="String" resultType="MemberDTO">
 		SELECT
@@ -55,6 +57,7 @@
 				MEMBER_ID = #{memberId}
 	</select>
 	
+	
 	<select id="selectOneMember" parameterType="String" resultType="MemberDTO">
 		SELECT
 				*
@@ -63,6 +66,7 @@
 		WHERE
 				MEMBER_ID = #{memberId}
 	</select>
+
 
 	<update id="updateMember" parameterType="MemberDTO">
 		UPDATE
@@ -108,4 +112,25 @@
 		WHERE
 				MEMBER_ID = #{memberId}
 	</update>
+	
+	
+	<update id = "updateInactiveMember" parameterType="MemberDTO">
+		UPDATE
+				MEMBER
+		SET
+				ACTIVE_YN = 'n',
+				INACTIVE_AT = NOW()
+		WHERE
+				MEMBER_ID = #{memberId}
+	</update>
+	
+	
+	<select id="selectOneTodayNewMemberCnt" parameterType="String" resultType="int">
+		SELECT
+				COUNT(MEMBER_ID)
+		FROM	
+				MEMBER
+		WHERE
+				LEFT(JOIN_AT , 10) = #{today}	
+	</select>
 </mapper>

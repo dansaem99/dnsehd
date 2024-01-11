@@ -100,5 +100,17 @@ public class MemberController {
 		return new ModelAndView("user/member/removeMember");
 	}
 	
+	@PostMapping("/removeMember")
+	public String remove(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		memberService.modifyInactiveMember((String)session.getAttribute("memberId"));
+		
+		session.invalidate();
+		
+		return "redirect:main";
+	}
+	
+	
 	
 }
