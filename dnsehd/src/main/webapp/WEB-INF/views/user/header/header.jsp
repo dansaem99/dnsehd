@@ -37,8 +37,8 @@
            text-shadow: 1px 1px 1px #000000;
        }
    </style>
-   
-   <!-- Sneat's Static files for Alarm Start -->
+
+    <!-- Sneat's Static files for Alarm Start -->
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/admin/sneat/assets/img/favicon/favicon.ico" />
 
@@ -70,7 +70,7 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/sneat/assets/js/config.js"></script>
     
-        <!-- Core JS -->
+    <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="/admin/sneat/assets/vendor/libs/jquery/jquery.js"></script>
     <script src="/admin/sneat/assets/vendor/libs/popper/popper.js"></script>
