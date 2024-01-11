@@ -10,5 +10,6 @@ import com.application.dnsehd.dto.AdminDTO;
 public interface AdminDAO {
 
 	public List<AdminDTO> selectAdmin(String adminId);
+	public AdminDTO loginAdmin(String adminId);
 	
 }

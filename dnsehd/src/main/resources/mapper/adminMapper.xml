@@ -4,4 +4,13 @@
 
 <mapper namespace="com.application.dnsehd.dao.AdminDAO">
 
+	<select id="loginAdmin" parameterType="String" resultType="AdminDTO">
+		SELECT
+				*
+		FROM
+				ADMIN
+		WHERE
+				ADMIN_ID = #{adminId} AND ADMIN_PW = #{adminPw}
+	</select>
+
 </mapper>
