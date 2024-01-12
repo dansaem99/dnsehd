@@ -37,7 +37,7 @@
 	      headerToolbar: {
 	        left: 'prevYear,prev,next,nextYear today',
 	        center: 'title',
-	        right: 'dayGridMonth,dayGridWeek,dayGridDay'
+	        right: 'dayGridMonth'
 	      },
 	      initialDate: '2023-01-12',
 	      navLinks: true, // can click day/week names to navigate views
@@ -45,6 +45,7 @@
 	      selectMirror: true,
 	      select: function(arg) {
 	        var title = prompt('Event Title:');
+	        
 	        if (title) {
 	          calendar.addEvent({
 	            title: title,
@@ -165,7 +166,9 @@
     <div class="mb-4"></div>
     
 	<!-- Calendar Section Start -->
-	<div id='calendar'></div>
+	<div class="col-lg-6 px-5">
+		<div id='calendar'></div>
+	</div>
 	<!-- Calendar Section End -->
 
 	<!-- footer section -->
