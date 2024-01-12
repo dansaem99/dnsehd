@@ -90,7 +90,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
        
    <!-- Sneat's Static files for Alarm End -->
-
+    
 </head>
 
 <body>
@@ -165,27 +165,16 @@
 		                          <ul class="header__right__widget">
 		                          	  <li>"${sessionScope.memberId}"님 환영합니다.</li>
 		                              <li>
-		                                 <i class="fa fa-solid fa-bell" data-bs-toggle="dropdown"></i>
-		                                 <ul class="dropdown-menu dropdown-menu-end">
-		                                   <li>
-		                                 <div class="alert alert-primary alert-dismissible" role="alert">
-		                                        새로운 이벤트가 등록되었습니다.
-		                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		                                      </div>
-		                                   </li>
-		                                   <li>
-		                                 <div class="alert alert-primary alert-dismissible" role="alert">
-		                                        관심 운동 목록을 확인하십시오.
-		                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		                                      </div>
-		                                   </li>
-		                                   <li>
-		                               <div class="alert alert-primary alert-dismissible" role="alert">
-		                                        ㅇㅇ 강사님의 수업을 확인해보십시오.
-		                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		                                      </div>
-		                                   </li>
-		                                 </ul>
+				                          <ul>
+				                              <li><i class="fa fa-solid fa-bell"></i>
+				                                 <ul class="dropdown">
+													 <li><a href="#">새로운 수업</a></li>
+                                         	     	 <li><a href="#">필독 공지사항 확인 바랍니다.</a></li>
+                                           	  		 <li><a href="#">후기 게시판에 글을 남겨보십시오.</a></li>
+                                         			 <li><a href="#">가입일로부터 1년이 지났습니다.</a></li>
+				                                 </ul>
+				                              </li>
+				                          </ul>
 		                              </li>
 		                              <li>
 				                          <ul>

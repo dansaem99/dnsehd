@@ -11,4 +11,5 @@ public class MainController {
 	public ModelAndView main() {
 		return new ModelAndView("user/main");
 	}	
+
 }
