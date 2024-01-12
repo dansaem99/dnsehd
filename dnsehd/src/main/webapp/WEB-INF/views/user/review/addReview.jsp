@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AddReview</title>
-    <script src="/ckeditor/ckeditor.js"></script>  
+    <script src="/ckeditor5-build-classic/ckeditor.js"></script>  
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
@@ -97,8 +97,20 @@
 								</div><br>
                                 <div class="checkout__form__input">
                                     <p>* 수업, 운동시설, 강사님 등 자세한 이야기를 들려주세요. (욕설, 비방글은 삭제됩니다.)</p>
+                                    <!-- 
 									<textarea rows="10" cols="120" name="reviewContent" required></textarea>
 									<script>CKEDITOR.replace("reviewContent");</script>
+									 -->
+								    <div id="editor">
+								      <p></p>
+							  	    </div>
+								    <script>
+								      ClassicEditor
+								        .create( document.querySelector( '#editor' ) )
+								        .catch( error => {
+								          console.error( error );
+								        } );
+								    </script>
                                 </div>
                                 <br><br>
 							    <div class="col-lg-12 text-center">
