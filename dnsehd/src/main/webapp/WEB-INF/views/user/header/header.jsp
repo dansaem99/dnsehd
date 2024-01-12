@@ -75,7 +75,7 @@
     <script src="/admin/sneat/assets/vendor/libs/jquery/jquery.js"></script>
     <script src="/admin/sneat/assets/vendor/libs/popper/popper.js"></script>
     <script src="/admin/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
+	<script src="/admin/sneat/assets/vendor/js/bootstrap.js"></script>
     <script src="/admin/sneat/assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
@@ -169,19 +169,19 @@
 		                                 <ul class="dropdown-menu dropdown-menu-end">
 		                                   <li>
 		                                 <div class="alert alert-primary alert-dismissible" role="alert">
-		                                        This is a primary dismissible alert — check it out!
+		                                        새로운 이벤트가 등록되었습니다.
 		                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		                                      </div>
 		                                   </li>
 		                                   <li>
 		                                 <div class="alert alert-primary alert-dismissible" role="alert">
-		                                        This is a primary dismissible alert — check it out!
+		                                        관심 운동 목록을 확인하십시오.
 		                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		                                      </div>
 		                                   </li>
 		                                   <li>
 		                               <div class="alert alert-primary alert-dismissible" role="alert">
-		                                        This is a primary dismissible alert — check it out!
+		                                        ㅇㅇ 강사님의 수업을 확인해보십시오.
 		                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		                                      </div>
 		                                   </li>
