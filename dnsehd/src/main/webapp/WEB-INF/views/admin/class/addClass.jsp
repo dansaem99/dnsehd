@@ -103,9 +103,18 @@
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">내용</label>
-                        <textarea rows="10" cols="50" name="sportContent" required></textarea>
-						<script>CKEDITOR.replace("sportContent");</script>
+                        <div id="editor">
+					      <p>여기에 입력하세요</p>
+				  	    </div>
+					    <script>
+					      ClassicEditor
+					        .create( document.querySelector( '#editor' ) )
+					        .catch( error => {
+					          console.error( error );
+					        } );
+					    </script>
                       </div>
+                      
                       <div class="mb-3 col-md-6">
                         <label for="formFileMultiple" class="form-label">사진</label>
                         <input class="form-control" type="file" id="formFileMultiple" multiple />

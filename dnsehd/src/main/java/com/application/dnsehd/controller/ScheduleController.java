@@ -12,4 +12,9 @@ public class ScheduleController {
 		return "user/schedule/calendar";
 	}	
 	
+	@GetMapping("/calendar2")
+	public String schedule2() {
+		return "user/schedule/calendar2";
+	}
+	
 }
