@@ -27,142 +27,153 @@
     <link rel="stylesheet" href="/ashion/css/style.css" type="text/css">
     
     <!-- Calendar Config Begin -->
-    <!-- Site favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/deskapp/vendors/images/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/deskapp/vendors/images/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/deskapp/vendors/images/favicon-16x16.png">
-
-	<!-- Mobile Specific Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-	<!-- Google Font -->
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="/deskapp/vendors/styles/core.css">
-	<link rel="stylesheet" type="text/css" href="/deskapp/vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="/deskapp/src/plugins/fullcalendar/fullcalendar.css">
-	<link rel="stylesheet" type="text/css" href="/deskapp/vendors/styles/style.css">
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<script src='fullcalendar-6.1.10/dist/index.global.js'></script>
 	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-119386393-1');
+	
+	  document.addEventListener('DOMContentLoaded', function() {
+	    var calendarEl = document.getElementById('calendar');
+	
+	    var calendar = new FullCalendar.Calendar(calendarEl, {
+	      headerToolbar: {
+	        left: 'prevYear,prev,next,nextYear today',
+	        center: 'title',
+	        right: 'dayGridMonth'
+	      },
+	      initialDate: '2023-01-12',
+	      navLinks: true, // can click day/week names to navigate views
+	      selectable: true,
+	      selectMirror: true,
+	      select: function(arg) {
+	        var title = prompt('Event Title:');
+	        
+	        if (title) {
+	          calendar.addEvent({
+	            title: title,
+	            start: arg.start,
+	            end: arg.end,
+	            allDay: arg.allDay
+	          })
+	        }
+	        calendar.unselect()
+	      },
+	      eventClick: function(arg) {
+	        if (confirm('Are you sure you want to delete this event?')) {
+	          arg.event.remove()
+	        }
+	      },
+	      editable: true,
+	      dayMaxEvents: true, // allow "more" link when too many events
+	      events: [
+	        {
+	          title: 'All Day Event',
+	          start: '2023-01-01'
+	        },
+	        {
+	          title: 'Long Event',
+	          start: '2023-01-07',
+	          end: '2023-01-10'
+	        },
+	        {
+	          groupId: 999,
+	          title: 'Repeating Event',
+	          start: '2023-01-09T16:00:00'
+	        },
+	        {
+	          groupId: 999,
+	          title: 'Repeating Event',
+	          start: '2023-01-16T16:00:00'
+	        },
+	        {
+	          title: 'Conference',
+	          start: '2023-01-11',
+	          end: '2023-01-13'
+	        },
+	        {
+	          title: 'Meeting',
+	          start: '2023-01-12T10:30:00',
+	          end: '2023-01-12T12:30:00'
+	        },
+	        {
+	          title: 'Lunch',
+	          start: '2023-01-12T12:00:00'
+	        },
+	        {
+	          title: 'Meeting',
+	          start: '2023-01-12T14:30:00'
+	        },
+	        {
+	          title: 'Happy Hour',
+	          start: '2023-01-12T17:30:00'
+	        },
+	        {
+	          title: 'Dinner',
+	          start: '2023-01-12T20:00:00'
+	        },
+	        {
+	          title: 'Birthday Party',
+	          start: '2023-01-13T07:00:00'
+	        },
+	        {
+	          title: 'Click for Google',
+	          url: 'http://google.com/',
+	          start: '2023-01-28'
+	        }
+	      ]
+	    });
+	
+	    calendar.render();
+	  });
+	
 	</script>
+
+<style>
+
+  body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+</style>
 	<!-- Calendar Config End -->
 </head>
 
 <body>
 	<!-- header section -->
 	<jsp:include page="../header/header.jsp"></jsp:include>
-	
-	<!-- Calendar Section Start -->
-	<div class="main-container">
-		<div class="pd-ltr-20 xs-pd-20-10">
-			<div class="min-height-200px">
-				<div class="pd-20 card-box mb-30">
-					<div class="calendar-wrap">
-						<div id='calendar'></div>
-					</div>
-					<!-- calendar modal -->
-					<div id="modal-view-event" class="modal modal-top fade calendar-modal">
-						<div class="modal-dialog modal-dialog-centered">
-							<div class="modal-content">
-								<div class="modal-body">
-									<h4 class="h4"><span class="event-icon weight-400 mr-3"></span><span class="event-title"></span></h4>
-									<div class="event-body"></div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					      <div id="modal-view-event-add" class="modal modal-top fade calendar-modal">
-					         <div class="modal-dialog modal-dialog-centered">
-					            <div class="modal-content">
-					               <form id="add-event">
-					                  <div class="modal-body">
-					                     <div style="text-align: center;">
-					                     	<h4 class="text-blue h4 mb-10"><b>오늘의 운동 & 식단 추가하기</b></h4>
-					                     </div>
-					                     <div class="form-group">
-					                        <label>날짜</label>
-					                        <input type='text' class="datetimepicker form-control" name="edate">
-					                     </div>
-					                     <div class="form-group">
-					                        <label>수업명</label>
-					                        <input type="text" class="form-control" name="ename">
-					                     </div>
-					                     <div class="form-group">
-					                        <label>수업 후 간단한 소감을 적어볼까요?</label>
-					                        <textarea class="form-control" name="edesc"></textarea>
-					                     </div>
-					                     <div class="form-group">
-					                        <label>아침</label>
-					                        <input type="text" class="form-control" name="ename">
-					                     </div>
-					                     <div class="form-group">
-					                        <label>점심</label>
-					                        <input type="text" class="form-control" name="ename">
-					                     </div>
-					                     <div class="form-group">
-					                        <label>저녁</label>
-					                        <input type="text" class="form-control" name="ename">
-					                     </div>
-					                     <div class="form-group">
-					                        <label>간식</label>
-					                        <input type="text" class="form-control" name="ename">
-					                     </div>
-					                     <div class="form-group">
-					                        <label>아이콘 색상 선택</label>
-					                        <select class="form-control" name="ecolor">
-					                           <option value="fc-bg-default">기본</option>
-					                           <option value="fc-bg-blue">파란색</option>
-					                           <option value="fc-bg-lightgreen">연두색</option>
-					                           <option value="fc-bg-pinkred">분홍색</option>
-					                           <option value="fc-bg-deepskyblue">하늘색</option>
-					                        </select>
-					                     </div>
-					                     <div class="form-group">
-					                        <label>아이콘 모양 선택</label>
-					                        <select class="form-control" name="eicon">
-					                           <option value="circle">원</option>
-					                           <option value="cog">톱니바퀴</option>
-					                           <option value="group">그룹</option>
-					                           <option value="suitcase">서류가방</option>
-					                           <option value="calendar">캘린더</option>
-					                        </select>
-					                     </div>
-					                  </div>
-					                  <div class="modal-footer">
-					                     <button type="submit" class="btn btn-primary" >저장</button>
-					                     <button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="main"><i class="fa fa-home"></i> Home</a>
+                        <span>Callendar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->	
+    
+    <div class="mb-4"></div>
+    
+	<!-- Calendar Section Start -->
+	<div class="col-lg-6 px-5">
+		<div id='calendar'></div>
+	</div>
 	<!-- Calendar Section End -->
 
 	<!-- footer section -->
 	<jsp:include page="../footer/footer.jsp"></jsp:include>
-	
-	<!-- Js For Calendar -->
-	<script src="/deskapp/vendors/scripts/core.js"></script>
-	<script src="/deskapp/vendors/scripts/script.min.js"></script>
-	<script src="/deskapp/vendors/scripts/process.js"></script>
-	<script src="/deskapp/vendors/scripts/layout-settings.js"></script>
-	<script src="/deskapp/src/plugins/fullcalendar/fullcalendar.min.js"></script>
-	<script src="/deskapp/vendors/scripts/calendar-setting.js"></script>
+
 </body>
 
 </html>
