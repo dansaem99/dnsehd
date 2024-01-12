@@ -45,7 +45,6 @@
 	      selectMirror: true,
 	      select: function(arg) {
 	        var title = prompt('Event Title:');
-	        
 	        if (title) {
 	          calendar.addEvent({
 	            title: title,
