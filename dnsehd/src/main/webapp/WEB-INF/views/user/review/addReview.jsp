@@ -26,7 +26,12 @@
     <link rel="stylesheet" href="/ashion/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/ashion/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/ashion/css/style.css" type="text/css">
-    
+ 
+ 	<style>
+ 	.ck-editor__editable {
+ 		min-height: 300px;
+ 	}
+ 	</style>    
 </head>
 
 <body>
@@ -102,7 +107,7 @@
 									<script>CKEDITOR.replace("reviewContent");</script>
 									 -->
 								    <div id="editor">
-								      <p></p>
+								      <p>여기에 입력하세요</p>
 							  	    </div>
 								    <script>
 								      ClassicEditor
