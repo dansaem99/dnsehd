@@ -121,4 +121,13 @@ public class MemberController {
 		return new ModelAndView("user/mypage/myReview");
 	}
 	
+	@GetMapping("/findPassword")
+	public ModelAndView findPassword() {
+		return new ModelAndView("user/member/findPassword");
+	}
+
+	@GetMapping("/modifyPassword")
+	public ModelAndView modifyPassword() {
+		return new ModelAndView("user/member/modifyPassword");
+	}
 }

@@ -70,7 +70,7 @@
                         로그인 상태 유지
                       </label>
                     </div>
-                    <a class="text-primary fw-bold" href="./index.html">비밀번호를 잊으셨나요?</a>
+                    <a class="text-primary fw-bold" href="findPassword">비밀번호를 잊으셨나요?</a>
                   </div>
                   <a href="javascript:login()" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" id="loginBtn">로그인</a>
                   <div class="d-flex align-items-center justify-content-center">
