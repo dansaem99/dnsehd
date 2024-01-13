@@ -52,52 +52,45 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/sneat/assets/js/config.js"></script>
     <script src="/ckeditor/ckeditor.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- Layout wrapper -->
 
-        <jsp:include page="../header/header.jsp"></jsp:include>
+    <jsp:include page="../header/header.jsp"></jsp:include>
 
-          <!-- Content wrapper -->
-          <div class="content-wrapper">
-            <!-- Content -->
-
-            <div class="container-xxl flex-grow-1 container-p-y">
-				<div class="row">
+    <div class="content-wrapper">
+        <div class="container-xxl flex-grow-1 container-p-y">
+            <div class="row">
                 <div class="col-md-12">
-              <!-- Bootstrap Table with Caption -->
-                  <div class="card mb-4">
-                    <h2 class="card-header">FAQ추가</h2>
-                    <hr class="my-0" />
-                    <div class="card-body row">
-                      <div class="mb-3">
-                        <label for="defaultInput" class="form-label">제목</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3">
-                        <label for="defaultInput" class="form-label">답변</label>
-                        <textarea rows="10" cols="50" name="sportContent" required></textarea>
-						<script>CKEDITOR.replace("sportContent");</script>
-                      </div>
-                      <div class="mt-2">
-                          <button type="submit" class="btn btn-outline-primary me-2"><a href="adFaq">추가하기</a></button>
-                          <button type="submit" class="btn btn-outline-secondary"><a href="adFaq">뒤로가기</a></button>
-                      </div>
+                    <div class="card mb-4">
+                        <h2 class="card-header">FAQ추가</h2>
+                        <hr class="my-0" />
+                        <div class="card-body row">
+                            <form action="/adAddFaq" method="post"> 
+                                <div class="mb-3">
+                                    <label for="defaultInput" class="form-label">제목</label>
+                                    <input type="text" name="faqQuestion" class="form-control" placeholder="Default input" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="defaultInput" class="form-label">답변</label>
+                                    <textarea rows="10" cols="50" name="faqAnswer" required></textarea>
+                                    <script>CKEDITOR.replace("faqAnswer");</script>
+                                </div>
+                                <div class="mt-2">
+                                    <input type="submit" class="btn btn-outline-primary me-2" value="추가하기" />
+                                    <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adFaq'">
+                                </div>
+                            </form> 
+                        </div>
                     </div>
-                  </div>
                 </div>
-                </div>
-                </div>
-              <!-- Bootstrap Table with Caption -->
-
-              <hr class="my-5" />
-
-            <!-- footer section -->
-         <jsp:include page="../footer/footer.jsp"></jsp:include>
-
-            <div class="content-backdrop fade"></div>
-          </div>
+            </div>
+        </div>
+        <hr class="my-5" />
+        <jsp:include page="../footer/footer.jsp"></jsp:include>
+        <div class="content-backdrop fade"></div>
+    </div>
           <!-- Content wrapper -->
         <!-- / Layout page -->
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.application.dnsehd.dao.FaqDAO">
+
+	<insert id="insertFaq" parameterType="FaqDTO">
+		INSERT INTO FAQS (
+			FAQ_QUESTION,
+			FAQ_ANSWER
+		)
+		VALUES (
+			#{faqQuestion},
+			#{faqAnswer}
+		)
+	</insert>
+	
+	
+	<select id="selectFaqList" resultType="FaqDTO">
+		SELECT
+				*
+		FROM 
+				FAQS
+	</select>
+
+
+
+</mapper>
