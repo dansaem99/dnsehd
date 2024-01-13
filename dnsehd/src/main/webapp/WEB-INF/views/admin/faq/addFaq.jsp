@@ -51,7 +51,6 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/sneat/assets/js/config.js"></script>
-    <script src="/ckeditor/ckeditor.js"></script>
 </head>
 
 <body>
@@ -70,12 +69,11 @@
                             <form action="/adAddFaq" method="post"> 
                                 <div class="mb-3">
                                     <label for="defaultInput" class="form-label">제목</label>
-                                    <input type="text" name="faqQuestion" class="form-control" placeholder="Default input" required />
+                                    <input type="text" name="faqQuestion" class="form-control" placeholder="자주 묻는 질문을 입력하세요." required />
                                 </div>
                                 <div class="mb-3">
                                     <label for="defaultInput" class="form-label">답변</label>
-                                    <textarea rows="10" cols="50" name="faqAnswer" required></textarea>
-                                    <script>CKEDITOR.replace("faqAnswer");</script>
+                                    <textarea rows="10" cols="50" name="faqAnswer" class="form-control" placeholder="답변을 입력하세요." required></textarea>
                                 </div>
                                 <div class="mt-2">
                                     <input type="submit" class="btn btn-outline-primary me-2" value="추가하기" />
