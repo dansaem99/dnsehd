@@ -70,17 +70,17 @@
               <h2 class="card-header">FAQ수정</h2>
               <hr class="my-0" />
               <div class="card-body row">
-                <form action="/adAddFaq" method="post"> 
+                <form action="/adModifyFaq" method="post"> 
                     <div class="mb-3">
                         <label for="defaultInput" class="form-label">제목</label>
-                        <input type="text" name="faqQuestion" class="form-control" value="수정필" required />
+                        <input type="text" name="faqQuestion" class="form-control" value="${faqDTO.faqQuestion }" required />
                     </div>
                     <div class="mb-3">
                         <label for="defaultInput" class="form-label">답변</label>
-                        <textarea rows="10" cols="50" name="faqAnswer" class="form-control" required>수정필</textarea>
+                        <textarea rows="10" cols="50" name="faqAnswer" class="form-control" required>${faqDTO.faqAnswer }</textarea>
                     </div>
                     <div class="mt-2">
-                        <input type="submit" class="btn btn-outline-primary me-2" value="추가하기" />
+                        <input type="submit" class="btn btn-outline-primary me-2" value="수정하기" />
                         <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adFaq'">
                     </div>
                 </form> 
@@ -91,7 +91,7 @@
               <div class="card-body">
                 <div class="mb-3 col-12 mb-0">
                   <div class="alert alert-warning">
-                    <h6 class="alert-heading fw-bold mb-1">정말로 FAQ를 삭제하시겠습니까?</h6>
+                   	<h6 class="alert-heading fw-bold mb-1">정말로 FAQ를 삭제하시겠습니까?</h6>
                     <p class="mb-0">FAQ를 삭제하면 되돌릴 수 없습니다. 확실하게 해주세요.</p>
                   </div>
                 </div>

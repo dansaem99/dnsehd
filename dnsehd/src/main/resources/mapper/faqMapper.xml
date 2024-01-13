@@ -21,6 +21,16 @@
 		FROM 
 				FAQS
 	</select>
+	
+	
+	<select id="selectFaqDetail" parameterType="String" resultType="FaqDTO">
+		SELECT
+				*
+		FROM
+				FAQS
+		WHERE
+				FAQ_QUESTION = #{faqQuestion}
+	</select>
 
 
 

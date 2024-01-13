@@ -8,5 +8,6 @@ public interface FaqService {
 
 	public void addFaqDetail(FaqDTO faqDTO);
 	public List<FaqDTO> getFaqList();
+	public FaqDTO getFaqDetail(String faqQuestion);
 	
 }

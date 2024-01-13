@@ -51,6 +51,18 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/sneat/assets/js/config.js"></script>
+    
+	<style>
+	  .fixed-table {
+	    table-layout: fixed;
+	  }
+	
+	  .fixed-table th, .fixed-table td {
+	    overflow: hidden; 
+	    text-overflow: ellipsis;
+	  }
+	</style>    
+    
 </head>
 
 <body>
@@ -72,38 +84,8 @@
                     </a>
                 </h5>
                 <div class="table-responsive text-nowrap">
-                    <table class="table">
-                        <caption class="ms-4">
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item prev">
-                                        <a class="page-link" href="javascript:void(0);"
-                                            ><i class="tf-icon bx bx-chevrons-left"></i
-                                        ></a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a class="page-link" href="javascript:void(0);">1</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0);">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0);">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0);">4</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0);">5</a>
-                                    </li>
-                                    <li class="page-item next">
-                                        <a class="page-link" href="javascript:void(0);"
-                                            ><i class="tf-icon bx bx-chevrons-right"></i
-                                        ></a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </caption>
+                    <table class="table fixed-table">
+                        <caption class="ms-4"></caption>
                         <thead>
                             <tr>
                                 <th>제목</th>
@@ -115,14 +97,10 @@
                         	<c:forEach var="faqDTO" items="${faqList }">
 	                            <tr>
 	                                <td>${faqDTO.faqQuestion }</td>
-	                                <td>${faqDTO.faqQuestion }</td>
+	                                <td>${faqDTO.faqAnswer }</td>
 	                                <td>
 	                                    <div>
-	                                        <a href="adModifyFaq">
-	                                            <button type="button" class="btn btn-outline-primary">
-	                                                수정 & 삭제
-	                                            </button>
-	                                        </a>
+                                            <input type="button" value="수정 & 삭제" class="btn btn-outline-primary" onclick="location.href='/adModifyFaq?faqQuestion=${faqDTO.faqQuestion }'">
 	                                    </div>
 	                                </td>
 	                            </tr>
