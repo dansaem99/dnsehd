@@ -27,8 +27,8 @@ public class FaqServiceImpl implements FaqService {
 
 	@Override
 	@Transactional
-	public FaqDTO getFaqDetail(String faqQuestion) {
-		return faqDAO.selectFaqDetail(faqQuestion);
+	public FaqDTO getFaqDetail(int faqNo) {
+		return faqDAO.selectFaqDetail(faqNo);
 	}
 
 	@Override

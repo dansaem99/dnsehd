@@ -23,13 +23,13 @@
 	</select>
 	
 	
-	<select id="selectFaqDetail" parameterType="String" resultType="FaqDTO">
+	<select id="selectFaqDetail" parameterType="int" resultType="FaqDTO">
 		SELECT
 				*
 		FROM
 				FAQS
 		WHERE
-				FAQ_QUESTION = #{faqQuestion}
+				FAQ_NO = #{faqNo}
 	</select>
 	
 	<update id="updateFaq" parameterType="FaqDTO">

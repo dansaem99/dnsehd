@@ -42,11 +42,11 @@ public class FaqController {
 	}
 	
 	@GetMapping("/adModifyFaq")
-	public ModelAndView modifyFaq(@RequestParam("faqQuestion") String faqQuestion) {
+	public ModelAndView modifyFaq(@RequestParam("faqNo") int faqNo) {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/faq/modifyFaq");
-		mv.addObject("faqDTO", faqService.getFaqDetail(faqQuestion));
+		mv.addObject("faqDTO", faqService.getFaqDetail(faqNo));
 		
 		return mv;
 	}

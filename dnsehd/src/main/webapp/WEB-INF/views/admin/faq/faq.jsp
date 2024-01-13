@@ -100,7 +100,7 @@
 	                                <td>${faqDTO.faqAnswer }</td>
 	                                <td>
 	                                    <div>
-                                            <input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyFaq?faqQuestion=${faqDTO.faqQuestion }'">
+                                            <input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyFaq?faqNo=${faqDTO.faqNo }'">
                                             <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveFaq?faqNo=${faqDTO.faqNo }'">
 	                                    </div>
 	                                </td>

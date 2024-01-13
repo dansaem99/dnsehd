@@ -10,7 +10,7 @@ import com.application.dnsehd.dto.FaqDTO;
 public interface FaqDAO {
 	public void insertFaq(FaqDTO faqDTO);
 	public List<FaqDTO> selectFaqList();
-	public FaqDTO selectFaqDetail(String faqQuestion);
+	public FaqDTO selectFaqDetail(int faqNo);
 	public void updateFaq(FaqDTO faqDTO);
 	public void deleteFaq(int faqNo);
 }
