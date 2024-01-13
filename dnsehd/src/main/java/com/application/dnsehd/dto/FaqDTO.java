@@ -8,6 +8,7 @@ import lombok.Data;
 @Component
 public class FaqDTO {
 
+	int faqNo;
 	String faqQuestion;
 	String faqAnswer;
 

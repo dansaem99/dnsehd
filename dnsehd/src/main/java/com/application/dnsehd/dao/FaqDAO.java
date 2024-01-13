@@ -11,4 +11,6 @@ public interface FaqDAO {
 	public void insertFaq(FaqDTO faqDTO);
 	public List<FaqDTO> selectFaqList();
 	public FaqDTO selectFaqDetail(String faqQuestion);
+	public void updateFaq(FaqDTO faqDTO);
+	public void deleteFaq(int faqNo);
 }

@@ -51,9 +51,26 @@ public class FaqController {
 		return mv;
 	}
 	
+	@PostMapping("/adModifyFaq")
+	public String modifyFaq(FaqDTO faqDTO) {
+		faqService.modifyFaqDetail(faqDTO);
+		return "redirect:/adFaq";
+	}
+	
 	@GetMapping("/adRemoveFaq")
-	public String removeFaq() {
-		return "admin/faq/modifyFaq";
+	public ModelAndView removeFaq(@RequestParam("faqNo") int faqNo) {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/faq/removeFaq");
+		mv.addObject("faqNo", faqNo);
+		
+		return mv;
+	}
+	
+	@PostMapping("/adRemoveFaq")
+	public String postRemoveFaq(@RequestParam("faqNo") int faqNo) {
+		faqService.removeOneFaq(faqNo);
+		return "redirect:/adFaq";
 	}
 	
 	// For user

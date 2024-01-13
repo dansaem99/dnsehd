@@ -30,5 +30,15 @@ public class FaqServiceImpl implements FaqService {
 	public FaqDTO getFaqDetail(String faqQuestion) {
 		return faqDAO.selectFaqDetail(faqQuestion);
 	}
+
+	@Override
+	public void modifyFaqDetail(FaqDTO faqDTO) {
+		faqDAO.updateFaq(faqDTO);
+	}
+
+	@Override
+	public void removeOneFaq(int faqNo) {
+		faqDAO.deleteFaq(faqNo);
+	}
 	
 }

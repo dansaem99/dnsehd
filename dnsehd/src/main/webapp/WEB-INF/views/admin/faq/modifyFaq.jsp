@@ -80,24 +80,11 @@
                         <textarea rows="10" cols="50" name="faqAnswer" class="form-control" required>${faqDTO.faqAnswer }</textarea>
                     </div>
                     <div class="mt-2">
+                    	<input type="hidden" name="faqNo" value="${faqDTO.faqNo }"/>
                         <input type="submit" class="btn btn-outline-primary me-2" value="수정하기" />
                         <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adFaq'">
                     </div>
                 </form> 
-              </div>
-            </div>
-            <div class="card">
-              <h5 class="card-header">FAQ삭제</h5>
-              <div class="card-body">
-                <div class="mb-3 col-12 mb-0">
-                  <div class="alert alert-warning">
-                   	<h6 class="alert-heading fw-bold mb-1">정말로 FAQ를 삭제하시겠습니까?</h6>
-                    <p class="mb-0">FAQ를 삭제하면 되돌릴 수 없습니다. 확실하게 해주세요.</p>
-                  </div>
-                </div>
-                <form id="formAccountDeactivation" onsubmit="return false">
-                  <button type="submit" class="btn btn-outline-secondary deactivate-account"><a href="adFaq">삭제</a></button>
-                </form>
               </div>
             </div>
           </div>
