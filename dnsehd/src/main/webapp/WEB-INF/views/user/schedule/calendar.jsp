@@ -26,13 +26,17 @@
     <link rel="stylesheet" href="/ashion/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/ashion/css/style.css" type="text/css">
     
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.10/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/web-component@6.1.10/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.10/index.global.min.js'></script>	
+    
     <!-- Calendar Config Begin -->
 	<script src='fullcalendar-6.1.10/dist/index.global.js'></script>
 	<script>
-	
+		
 	  document.addEventListener('DOMContentLoaded', function() {
 	    var calendarEl = document.getElementById('calendar');
-	
+		
 	    var calendar = new FullCalendar.Calendar(calendarEl, {
 	      headerToolbar: {
 	        left: 'prevYear,prev,next,nextYear today',

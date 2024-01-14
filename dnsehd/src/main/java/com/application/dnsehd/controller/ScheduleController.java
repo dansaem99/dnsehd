@@ -17,4 +17,14 @@ public class ScheduleController {
 		return "user/schedule/calendar2";
 	}
 	
+	@GetMapping("/calendar3")
+	public String schedule3() {
+		return "user/schedule/calendar3";
+	}
+	
+	@GetMapping("/calendar4")
+	public String schedule4() {
+		return "user/schedule/calendar4";
+	}
+	
 }
