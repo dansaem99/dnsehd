@@ -71,19 +71,21 @@
                     <h2 class="card-header">공지추가</h2>
                     <hr class="my-0" />
                     <div class="card-body row">
-                      <div class="mb-3">
-                        <label for="defaultInput" class="form-label">제목</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3">
-                        <label for="defaultInput" class="form-label">내용</label>
-                        <textarea rows="10" cols="50" name="sportContent" required></textarea>
-						<script>CKEDITOR.replace("sportContent");</script>
-                      </div>
-                      <div class="mt-2">
-                          <button type="submit" class="btn btn-outline-primary me-2"><a href="adNoice">추가하기</a></button>
-                          <button type="submit" class="btn btn-outline-secondary"><a href="adNoice">뒤로가기</a></button>
-                      </div>
+                      <form action="adAddNotice" method="post">
+	                      <div class="mb-3">
+	                        <label for="defaultInput" class="form-label">제목</label>
+	                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+	                      </div>
+	                      <div class="mb-3">
+	                        <label for="defaultInput" class="form-label">내용</label>
+	                        <textarea rows="10" cols="50" name="sportContent" required></textarea>
+							<script>CKEDITOR.replace("sportContent");</script>
+	                      </div>
+	                      <div class="mt-2">
+	                          <button type="submit" class="btn btn-outline-primary me-2"><a href="adNoice">추가하기</a></button>
+	                          <button type="submit" class="btn btn-outline-secondary"><a href="adNoice">뒤로가기</a></button>
+	                      </div>
+                      </form>
                     </div>
                   </div>
                 </div>
