@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -38,7 +39,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
                         <a href="main"><i class="fa fa-home"></i> Home</a>
-                        <span>Notice</span>
+                        <span>공지사항</span>
                     </div>
                 </div>
             </div>
@@ -62,63 +63,15 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="notice__no">1</td>
-                                    <td class="notice__item">
-                                        <div class="notice__item__title">
-                                            <h6><a href="noticeDetail">신규 회원은 알림 확인 바랍니다.</a></h6>
-                                        </div>
-                                    </td>
-                                    <td class="notice__item">
-                                        <div class="notice__item__writer">
-                                            <h6>최고 관리자</h6>
-                                        </div>
-                                    </td>
-                                    <td class="notice__date">2024-01-01</td>
-                                </tr>
-                                <tr>
-                                    <td class="notice__no">2</td>
-                                    <td class="notice__item">
-                                        <div class="notice__item__title">
-                                            <h6><a href="#">휴면 회원 개인정보 약관입니다.</a></h6>
-                                        </div>
-                                    </td>
-                                    <td class="notice__item">
-                                        <div class="notice__item__writer">
-                                            <h6>최고 관리자</h6>
-                                        </div>
-                                    </td>
-                                    <td class="notice__date">2024-01-02</td>
-                                </tr>
-                                <tr>
-                                    <td class="notice__no">3</td>
-                                    <td class="notice__item">
-                                        <div class="notice__item__title">
-                                            <h6><a href="#">1월 할인 이벤트 모음입니다.</a></h6>
-                                        </div>
-                                    </td>
-                                    <td class="notice__item">
-                                        <div class="notice__item__writer">
-                                            <h6>최고 관리자</h6>
-                                        </div>
-                                    </td>
-                                    <td class="notice__date">2024-01-03</td>
-                                </tr>
-                                <tr>
-                                    <td class="notice__no">4</td>
-                                    <td class="notice__item">
-                                        <div class="notice__item__title">
-                                            <h6><a href="#">장기고객 감사 할인 혜택 안내입니다.</a></h6>
-                                        </div>
-                                    </td>
-                                    <td class="notice__item">
-                                        <div class="notice__item__writer">
-                                            <h6>최고 관리자</h6>
-                                        </div>
-                                    </td>
-                                    <td class="notice__date">2024-01-04</td>
-                                </tr>
+                            <tbody id="noticeList">
+                            	<c:forEach var="noticeDTO" items="${noticeList }">
+	                                <tr>
+	                                    <td>${noticeDTO.noticeNo }</td>
+	                                    <td><a href="noticeDetail?noticeNo=${noticeDTO.noticeNo }">${noticeDTO.noticeTitle }</a></td>
+	                                    <td>${noticeDTO.adminId }</td>
+	                                    <td><fmt:formatDate value="${noticeDTO.noticeDate }" pattern="yyyy-MM-dd"/></td>
+	                                </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </div>

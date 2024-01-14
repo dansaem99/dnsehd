@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -38,8 +39,8 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
                         <a href="main"><i class="fa fa-home"></i> Home</a>
-                        <a href="notice">Notice</a>
-                        <span>Notice Detail</span>
+                        <a href="notice">공지사항</a>
+                        <span>상세정보</span>
                     </div>
                 </div>
             </div>
@@ -59,24 +60,24 @@
                                     <th>제목</th>
                                     <td class="notice__item">
                                         <div class="notice__item__title">
-                                            <h6>신규 회원은 알림 확인 바랍니다.</h6>
+                                            <h6>${noticeDTO.noticeTitle }</h6>
                                         </div>
                                     </td>
                                     <th>공지번호</th>
-                                    <td class="notice__no">1</td>
+                                    <td class="notice__no">${noticeDTO.noticeNo }</td>
                                 </tr>
                                 <tr>
                                     <th>작성자</th>
                                     <td class="notice__item">
                                         <div class="notice__item__writer">
-                                            <h6>최고 관리자</h6>
+                                            <h6>${noticeDTO.adminId }</h6>
                                         </div>
                                     </td>
                                     <th>작성일</th>
-                                    <td class="notice__date">2024-01-01</td>
+                                    <td class="notice__date"><fmt:formatDate value="${noticeDTO.noticeDate }" pattern="yyyy-MM-dd"/></td>
                                 </tr>
                                 <tr>
-                                	<td colspan="4">가입을 축하드립니다.<br>관리자 ㅇㅇㅇ 입니다.<br>알림 확인 부탁드립니다.</td>
+                                	<td colspan="4">${noticeDTO.noticeContent }</td>
                                 </tr>
                             </tbody>
                         </table>

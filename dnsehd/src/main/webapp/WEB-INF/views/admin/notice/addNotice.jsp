@@ -71,19 +71,19 @@
                     <h2 class="card-header">공지추가</h2>
                     <hr class="my-0" />
                     <div class="card-body row">
-                      <form action="adAddNotice" method="post">
+                      <form action="/adAddNotice" method="post">
 	                      <div class="mb-3">
 	                        <label for="defaultInput" class="form-label">제목</label>
-	                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+	                        <input name="noticeTitle" class="form-control" type="text" placeholder="공지제목을 입력하세요." required/>
 	                      </div>
 	                      <div class="mb-3">
 	                        <label for="defaultInput" class="form-label">내용</label>
-	                        <textarea rows="10" cols="50" name="sportContent" required></textarea>
+	                        <textarea rows="10" cols="50" name="noticeContent" required></textarea>
 							<script>CKEDITOR.replace("sportContent");</script>
 	                      </div>
 	                      <div class="mt-2">
-	                          <button type="submit" class="btn btn-outline-primary me-2"><a href="adNoice">추가하기</a></button>
-	                          <button type="submit" class="btn btn-outline-secondary"><a href="adNoice">뒤로가기</a></button>
+	                          <input type="submit" class="btn btn-outline-primary me-2" value="추가하기"/>
+	                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adNotice'"/>
 	                      </div>
                       </form>
                     </div>

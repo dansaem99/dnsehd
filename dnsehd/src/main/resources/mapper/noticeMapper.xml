@@ -3,20 +3,51 @@
 <mapper namespace="com.application.dnsehd.dao.NoticeDAO">
 	
 	<insert id="insertNotice" parameterType="NoticeDTO">
-		INSERT INTI NOTICE (
-			NOTICE_NO,
+		INSERT INTO NOTICE (
 			NOTICE_TITLE,
 			NOTICE_CONTENT,
 			NOTICE_DATE,
 			ADMIN_ID
 		)
 		VALUES (
-			NOTICE_NO_SEQ.NEXTVAL,
 			#{noticeTitle},
 			#{noticeContent},
-			#{noticeDate},
+			DATE_FORMAT(NOW(), '%Y-%m-%d'),
 			#{adminId}
 		)
 	</insert>
+	
+	<select id="selectNoticeList" resultType="NoticeDTO">
+		SELECT 
+				*
+		FROM
+				NOTICE
+	</select>
+	
+	<select id="selectNoticeDetail" parameterType="int" resultType="NoticeDTO">
+		SELECT
+				*
+		FROM 
+				NOTICE
+		WHERE
+				NOTICE_NO = #{noticeNo}
+	</select>
+	
+	<update id="updateNotice" parameterType="NoticeDTO">
+		UPDATE
+				NOTICE
+		SET
+				NOTICE_TITLE = #{noticeTitle},
+				NOTICE_CONTENT = #{noticeContent}
+		WHERE
+				NOTICE_NO = #{noticeNo}
+	</update>
+	
+	<delete id="deleteNotice" parameterType="int">
+		DELETE FROM
+				NOTICE
+		WHERE
+				NOTICE_NO = #{noticeNo}
+	</delete>
 	
 </mapper>

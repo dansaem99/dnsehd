@@ -71,42 +71,27 @@
                     <h2 class="card-header">공지사항</h2>
                     <hr class="my-0" />
                     <div class="card-body row">
+                    	<form action="/adModifyNotice" method="post">
                       <div class="mb-3">
                         <label for="defaultInput" class="form-label">제목</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                        <input name="noticeTitle" class="form-control" type="text" value="${noticeDTO.noticeTitle }" />
                       </div>
                       <div class="mb-3">
                         <label for="defaultInput" class="form-label">내용</label>
-                        <textarea rows="10" cols="50" name="sportContent" required></textarea>
-						<script>CKEDITOR.replace("sportContent");</script>
+                        <textarea rows="10" cols="50" name="noticeContent" required>${noticeDTO.noticeContent }</textarea>
                       </div>
                       <div class="mt-2">
-                          <button type="submit" class="btn btn-outline-primary me-2"><a href="adNotice">수정하기</a></button>
-                          <button type="reset" class="btn btn-outline-secondary"><a href="adNotice">뒤로가기</a></button>
+                      	  <input type="hidden" name="noticeNo" value="${noticeDTO.noticeNo }">
+                          <input type="submit" class="btn btn-outline-primary me-2" value="수정하기">
+                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='adNotice'">
                         </div>
+                        </form>
                         </div>    
-                      </form>
                     </div>
                     <!-- /Account -->
                   </div>
-                  <div class="card">
-                    <h5 class="card-header">공지삭제</h5>
-                    <div class="card-body">
-                      <div class="mb-3 col-12 mb-0">
-                        <div class="alert alert-warning">
-                          <h6 class="alert-heading fw-bold mb-1">정말로 공지를 삭제하시겠습니까?</h6>
-                          <p class="mb-0">공지를 삭제하면 되돌릴 수 없습니다. 확실하게 해주세요.</p>
-                        </div>
-                      </div>
-                      <form id="formAccountDeactivation" onsubmit="return false">
-                        <button type="submit" class="btn btn-outline-secondary deactivate-account"><a href="adNotice">삭제</a></button>
-                      </form>
                     </div>
                   </div>
-                    </div>
-                  </div>
-                </div>
-                </div>
                 </div>
               <!-- Bootstrap Table with Caption -->
 
@@ -116,7 +101,6 @@
          <jsp:include page="../footer/footer.jsp"></jsp:include>
 
             <div class="content-backdrop fade"></div>
-          </div>
           <!-- Content wrapper -->
         <!-- / Layout page -->
 

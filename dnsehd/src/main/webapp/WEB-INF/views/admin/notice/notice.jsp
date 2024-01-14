@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -118,157 +120,21 @@
                         <th>ACTIONS</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>00001</td>
-                        <td>신규 회원은 알림 확인 바랍니다.</td>
-                        <td>2024-01-01</td>
-                        <td>공지내용을 적는다.</td>
-                        <td>
-                          <div>
-                           		<a href="adModifyNotice">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adModifyNotice">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adModifyNotice">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adModifyNotice">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adModifyNotice">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adModifyNotice">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adModifyNotice">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adModifyNotice">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adModifyNotice">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adModifyNotice">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
+                    <tbody id="noticeList">
+                    	<c:forEach var="noticeDTO" items="${noticeList }">
+                    		<tr>
+                    			<td>${noticeDTO.noticeNo }</td>
+                    			<td>${noticeDTO.noticeTitle }</td>
+                    			<td><fmt:formatDate value="${noticeDTO.noticeDate }" pattern="yyyy-MM-dd"/></td>
+                    			<td>${noticeDTO.noticeContent }</td>
+                    			<td>
+                                    <div>
+                                        <input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyNotice?noticeNo=${noticeDTO.noticeNo }'">
+                                        <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveNotice?noticeNo=${noticeDTO.noticeNo }'">
+                                    </div>
+                                </td>
+                    		</tr>
+                    	</c:forEach>
                     </tbody>
                   </table>
                 </div>
@@ -285,11 +151,9 @@
           <!-- Content wrapper -->
         </div>
         <!-- / Layout page -->
-      </div>
 
       <!-- Overlay -->
       <div class="layout-overlay layout-menu-toggle"></div>
-    </div>
     <!-- / Layout wrapper -->
 
     <!-- Core JS -->
