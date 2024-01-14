@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -59,76 +60,17 @@
 
     <!-- sbadminPro fluid layout Start --> 
     
-    <div class="faq">
+    <div class="faq" id="faqList">
 	    <div class="container-fluid">
 	        <div class="row">
 	            <div class="col-lg-8 col-md-4 col-sm-4 mx-auto">
-	            	<div class="mb-4"></div>
-			        <div class="card mt-n300">
-			            <div class="card-header">Fluid Layout Example</div>
-			            <div class="card-body">
-			                This is a second layout option that uses the
-			                <code>.container-fluid</code>
-			                grid element for the page header and main page content containers. If you expand the width of this page, the content will keep expanding with the screen, regardless of the screen width. On smaller screens, this will look no different than the default boxed layout which uses default
-			                <code>.container</code>
-			                grid elements.
-			            </div>
-			        </div>
-			        <div class="mb-4"></div>
-			        <div class="card mt-n300">
-			            <div class="card-header">Fluid Layout Example</div>
-			            <div class="card-body">
-			                This is a second layout option that uses the
-			                <code>.container-fluid</code>
-			                grid element for the page header and main page content containers. If you expand the width of this page, the content will keep expanding with the screen, regardless of the screen width. On smaller screens, this will look no different than the default boxed layout which uses default
-			                <code>.container</code>
-			                grid elements.
-			            </div>
-			        </div>
-			        <div class="mb-4"></div>
-			        <div class="card mt-n300">
-			            <div class="card-header">Fluid Layout Example</div>
-			            <div class="card-body">
-			                This is a second layout option that uses the
-			                <code>.container-fluid</code>
-			                grid element for the page header and main page content containers. If you expand the width of this page, the content will keep expanding with the screen, regardless of the screen width. On smaller screens, this will look no different than the default boxed layout which uses default
-			                <code>.container</code>
-			                grid elements.
-			            </div>
-			        </div>
-			        <div class="mb-4"></div>
-			        <div class="card mt-n300">
-			            <div class="card-header">Fluid Layout Example</div>
-			            <div class="card-body">
-			                This is a second layout option that uses the
-			                <code>.container-fluid</code>
-			                grid element for the page header and main page content containers. If you expand the width of this page, the content will keep expanding with the screen, regardless of the screen width. On smaller screens, this will look no different than the default boxed layout which uses default
-			                <code>.container</code>
-			                grid elements.
-			            </div>
-			        </div>
-			        <div class="mb-4"></div>
-			        <div class="card mt-n300">
-			            <div class="card-header">Fluid Layout Example</div>
-			            <div class="card-body">
-			                This is a second layout option that uses the
-			                <code>.container-fluid</code>
-			                grid element for the page header and main page content containers. If you expand the width of this page, the content will keep expanding with the screen, regardless of the screen width. On smaller screens, this will look no different than the default boxed layout which uses default
-			                <code>.container</code>
-			                grid elements.
-			            </div>
-			        </div>
-			        <div class="mb-4"></div>
-			        <div class="card mt-n300">
-			            <div class="card-header">Fluid Layout Example</div>
-			            <div class="card-body">
-			                This is a second layout option that uses the
-			                <code>.container-fluid</code>
-			                grid element for the page header and main page content containers. If you expand the width of this page, the content will keep expanding with the screen, regardless of the screen width. On smaller screens, this will look no different than the default boxed layout which uses default
-			                <code>.container</code>
-			                grid elements.
-			            </div>
-			        </div>
+		            <c:forEach var="faqDTO" items="${faqList }">
+		            	<div class="mb-4"></div>
+				        <div class="card mt-n300">
+				            <div class="card-header">${faqDTO.faqQuestion }</div>
+				            <div class="card-body">${faqDTO.faqAnswer }</div>
+				        </div>
+				    </c:forEach>
 		        </div>
 		     </div>
 	    </div>
