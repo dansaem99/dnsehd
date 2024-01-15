@@ -112,16 +112,16 @@
                     <thead>
                       <tr>
                         <th>수업명</th>
-                        <th>강사명</th>
-                        <th>가격</th>
                         <th>수업내용</th>
+                        <th>가격</th>
+                        <th>카테고리</th>
                         <th>ACTIONS</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>근력 향상 1:1 PT</td>
-                        <td>기보배</td>
+                        <td>${sportDTO.sportNm }</td>
+                        <td>${sportDTO.sportContent }</td>
                         <td>350,000원</td>
                         <td>수업내용들적는다.</td>
                         <td>

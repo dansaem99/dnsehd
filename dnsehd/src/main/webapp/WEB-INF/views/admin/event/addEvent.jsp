@@ -82,17 +82,17 @@
                         <input name="eventCost" class="form-control" type="text" placeholder="Default input" />
                       </div>
                       <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">이벤트 시작하는 날짜</label>
+                        <label for="defaultInput" class="form-label">시작날짜</label>
                         <input name="eventStartDt" class="form-control" type="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${eventStartDt }" />"/>
                       </div>
                       <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">이벤트 끝나는 날짜</label>
+                        <label for="defaultInput" class="form-label">종료날짜</label>
                         <input name="eventEndDt" class="form-control" type="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${eventStartDt }" />"/>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">운동명</label>
                         <select name="eventTitle" class="form-select">
-                          <option>헬스</option>
+                          <option>손흥민축구교실</option>
                           <option>개인래슨</option>
                           <option>그룹수업</option>
                           <option>시설이용</option>
@@ -100,16 +100,20 @@
                         </select>
                       </div>
                       <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">내용</label>
-                        <textarea rows="10" cols="50" name="eventTitle" required></textarea>
-                      </div>
-                      <div class="mb-3 col-md-6">
                         <label for="formFileMultiple" class="form-label">사진</label>
                         <input class="form-control" type="file" name="eventTitle" multiple />
                       </div>
+                      <div class="mb-3 col-md-6">
+                        <label for="defaultInput" class="form-label">내용</label>
+                        <textarea class="form-control" rows="10" cols="50" name="eventTitle" required></textarea>
+                      </div>
                       <div class="mt-2">
-                          <button type="submit" class="btn btn-outline-primary me-2"><a href="adEvent">추가하기</a></button>
-                          <button type="submit" class="btn btn-outline-secondary"><a href="adEvent">뒤로가기</a></button>
+	                   	  <div class="mt-2">
+	                      	  <input type="hidden" name="adminId" value="${sessionScope.adminId }"/>
+	                      	  <input type="hidden" name="sportNo" value="${event.sportNo }"/>
+	                          <input type="submit" class="btn btn-outline-primary me-2" value="추가하기"/>
+	                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adEvent'"/>
+	                      </div>
                       </div>
                     </div>
                   </div>
