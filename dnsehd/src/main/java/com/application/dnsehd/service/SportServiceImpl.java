@@ -19,4 +19,10 @@ public class SportServiceImpl implements SportService {
 		return sportDAO.selectClassList();
 	}
 
+	@Override
+	public String admin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
