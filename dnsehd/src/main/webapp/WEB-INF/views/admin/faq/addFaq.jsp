@@ -76,6 +76,7 @@
                                     <textarea rows="10" cols="50" name="faqAnswer" class="form-control" placeholder="답변을 입력하세요." required></textarea>
                                 </div>
                                 <div class="mt-2">
+	                                <input type="hidden" name="adminId" value="${sessionScope.adminId}">
                                     <input type="submit" class="btn btn-outline-primary me-2" value="추가하기" />
                                     <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adFaq'">
                                 </div>

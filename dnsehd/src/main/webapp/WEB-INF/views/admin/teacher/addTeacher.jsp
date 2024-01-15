@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -73,19 +74,19 @@
                     <div class="card-body row">
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">강사이름</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                        <input id="teacherNm" class="form-control" type="text" placeholder="강사 이름을 입력하세요." />
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">생년월일</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                        <input id="teacherBirth" class="form-control" type="date" placeholder="생년월일을 입력하세요." value="<fmt:formatDate pattern="yyyy-MM-dd" value="${teacherBirth }" />"/>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">강사전화번호</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                        <input id="teacherHp" class="form-control" type="text" placeholder="강사전화번호" />
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultSelect" class="form-label">진행수업</label>
-                        <select id="defaultSelect" class="form-select">
+                        <select id="teacherClass" class="form-select" placeholder="진행 중인 수업을 입력하세요.">
                           <option>헬스</option>
                           <option>스쿼시</option>
                           <option>요가</option>
@@ -94,16 +95,15 @@
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">강사이력</label>
-                        <textarea rows="10" cols="50" name="sportContent" required></textarea>
-						<script>CKEDITOR.replace("sportContent");</script>
+                        <textarea rows="10" cols="50" name="teacherCareer" class="form-select" placeholder="강사 이력을 자세히 입력하세요." required></textarea>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="formFileMultiple" class="form-label">사진</label>
                         <input class="form-control" type="file" id="formFileMultiple" multiple />
                       </div>
                       <div class="mt-2">
-                          <button type="submit" class="btn btn-outline-primary me-2"><a href="adTeacher">추가하기</a></button>
-                          <button type="submit" class="btn btn-outline-secondary"><a href="adTeacher">뒤로가기</a></button>
+                          <input type="submit" value="추가하기" class="btn btn-outline-primary me-2">
+                          <input type="button" value="뒤로가기" class="btn btn-outline-secondary" onclick="location.href='/adTeacher'">
                       </div>
                     </div>
                   </div>

@@ -11,5 +11,5 @@ public class FaqDTO {
 	private int faqNo;
 	private String faqQuestion;
 	private String faqAnswer;
-
+	private String adminId;
 }
