@@ -123,9 +123,9 @@
                     <tbody id="noticeList">
                     	<c:forEach var="noticeDTO" items="${noticeList }">
                     		<tr>
-                    			<td>${noticeDTO.noticeNo }</td>
+                    			<td><fmt:formatNumber value="${noticeDTO.noticeNo}" pattern="000" /></td>
                     			<td>${noticeDTO.noticeTitle }</td>
-                    			<td><fmt:formatDate value="${noticeDTO.noticeDate }" pattern="yyyy-MM-dd"/></td>
+                    			<td><fmt:formatDate value="${noticeDTO.noticeDt }" pattern="yyyy-MM-dd"/></td>
                     			<td>${noticeDTO.noticeContent }</td>
                     			<td>
                                     <div>

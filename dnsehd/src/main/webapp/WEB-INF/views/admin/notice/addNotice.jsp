@@ -51,7 +51,6 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/sneat/assets/js/config.js"></script>
-    <script src="/ckeditor/ckeditor.js"></script>
   </head>
 
   <body>
@@ -78,10 +77,10 @@
 	                      </div>
 	                      <div class="mb-3">
 	                        <label for="defaultInput" class="form-label">내용</label>
-	                        <textarea rows="10" cols="50" name="noticeContent" required></textarea>
-							<script>CKEDITOR.replace("sportContent");</script>
+	                        <textarea rows="10" cols="50" name="noticeContent" class="form-control" required></textarea>
 	                      </div>
 	                      <div class="mt-2">
+	                      	  <input type="hidden" name="adminId" value="${sessionScope.adminId }"/>
 	                          <input type="submit" class="btn btn-outline-primary me-2" value="추가하기"/>
 	                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adNotice'"/>
 	                      </div>

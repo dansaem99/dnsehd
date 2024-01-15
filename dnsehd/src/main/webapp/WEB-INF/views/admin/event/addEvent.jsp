@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -73,32 +75,24 @@
                     <div class="card-body row">
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">제목</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                        <input name="eventTitle" class="form-control" type="text" placeholder="Default input" />
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">가격</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                        <input name="eventCost" class="form-control" type="text" placeholder="Default input" />
                       </div>
                       <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">이벤트날짜</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                        <label for="defaultInput" class="form-label">이벤트 시작하는 날짜</label>
+                        <input name="eventStartDt" class="form-control" type="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${eventStartDt }" />"/>
+                      </div>
+                      <div class="mb-3 col-md-6">
+                        <label for="defaultInput" class="form-label">이벤트 끝나는 날짜</label>
+                        <input name="eventEndDt" class="form-control" type="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${eventStartDt }" />"/>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">운동명</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">운동시간</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">수강제한인원</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultSelect" class="form-label">수업방식</label>
-                        <select id="defaultSelect" class="form-select">
-                          <option>전체수업</option>
+                        <select name="eventTitle" class="form-select">
+                          <option>헬스</option>
                           <option>개인래슨</option>
                           <option>그룹수업</option>
                           <option>시설이용</option>
@@ -106,17 +100,12 @@
                         </select>
                       </div>
                       <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">강사이름</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">내용</label>
-                        <textarea rows="10" cols="50" name="sportContent" required></textarea>
-						<script>CKEDITOR.replace("sportContent");</script>
+                        <textarea rows="10" cols="50" name="eventTitle" required></textarea>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="formFileMultiple" class="form-label">사진</label>
-                        <input class="form-control" type="file" id="formFileMultiple" multiple />
+                        <input class="form-control" type="file" name="eventTitle" multiple />
                       </div>
                       <div class="mt-2">
                           <button type="submit" class="btn btn-outline-primary me-2"><a href="adEvent">추가하기</a></button>

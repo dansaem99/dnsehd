@@ -13,7 +13,7 @@ public class NoticeDTO {
 	private int noticeNo;
 	private String noticeTitle;
 	private String noticeContent;
-	private Date noticeDate;
+	private Date noticeDt;
 	private String adminId;
 	
 }

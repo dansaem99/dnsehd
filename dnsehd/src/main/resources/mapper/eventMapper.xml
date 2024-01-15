@@ -1,0 +1,31 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.application.dnsehd.dao.EventDAO">
+	
+	<select id="selectEventList" resultType="EventDTO">
+		SELECT	*
+		FROM 	EVENT
+	</select>
+	
+	<insert id="insertEvent" parameterType="EventDTO">
+		INSERT INTO EVENT (
+			EVENT_TITLE,
+			EVENT_CONTENT,
+			EVENT_COST,
+			EVENT_START_DT,
+			EVENT_END_DT,
+			SPORT_NO,
+			ADMIN_ID
+		)
+		VALUES (
+			#{eventTitle},
+			#{eventContent},
+			#{eventCost},
+			#{eventStartDt},
+			#{eventEndDt},
+			#{sportNo},
+			#{adminId}
+		)
+	</insert>
+	
+</mapper>
