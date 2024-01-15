@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -89,29 +90,29 @@
                   </ul>
                 </nav>
               </caption>
-
               <thead>
                 <tr>
-                  <th>수업명</th>
                   <th>강사명</th>
-                  <th>가격</th>
-                  <th>수업내용</th>
-                  <th>ACTIONS</th>
+                  <th>생년월일</th>
+                  <th>강사 전화번호</th>
+                  <th>강사이력</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>근력 향상 1:1 PT</td>
-                  <td>기보배</td>
-                  <td>350,000원</td>
-                  <td>수업내용들적는다.</td>
-                  <td>
-                    <div>
-	                    <input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/teacher/adModifyTeacher'">
-	                    <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/teacher/adRemoveTeacher'">
-                    </div>
-                  </td>
-                </tr>
+              <tbody id="teacherList">
+              	<c:forEach var="teacherDTO" items="${teacherList }">
+	                <tr>
+	                  <td>${teacherDTO.teacherNm }</td>
+	                  <td>${teacherDTO.teacherBirth }</td>
+	                  <td>${teacherDTO.teacherHp }</td>
+	                  <td>${teacherDTO.teacherCareer }</td>
+	                  <td>
+	                    <div>
+		                    <input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyTeacher?teacherNo=${teacherDTO.teacherNo }'">
+		                    <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveTeacher?teacherNo=${teacherDTO.teacherNo }'">
+	                    </div>
+	                  </td>
+	                </tr>
+	              </c:forEach>
               </tbody>
             </table>
           </div>

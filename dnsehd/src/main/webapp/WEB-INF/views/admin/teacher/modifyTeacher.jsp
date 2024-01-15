@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -64,42 +65,35 @@
               <h2 class="card-header">강사수정</h2>
               <!-- 회원수정 -->
               <hr class="my-0" />
-              <div class="card-body row">
-                <div class="mb-3 col-md-6">
-                  <label for="defaultInput" class="form-label">강사이름</label>
-                  <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                </div>
-                <div class="mb-3 col-md-6">
-                  <label for="defaultInput" class="form-label">생년월일</label>
-                  <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                </div>
-                <div class="mb-3 col-md-6">
-                  <label for="defaultInput" class="form-label">강사전화번호</label>
-                  <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                </div>
-                <div class="mb-3 col-md-6">
-                  <label for="defaultSelect" class="form-label">진행수업</label>
-                  <select id="defaultSelect" class="form-select">
-                    <option>헬스</option>
-                    <option>스쿼시</option>
-                    <option>요가</option>
-                    <option>필라테스</option>
-                  </select>
-                </div>
-                <div class="mb-3 col-md-6">
-                  <label for="defaultInput" class="form-label">강사이력</label>
-                  <textarea rows="10" cols="50" name="sportContent" required></textarea>
-                  <script>CKEDITOR.replace("sportContent");</script>
-                </div>
-                <div class="mb-3 col-md-6">
-                  <label for="formFileMultiple" class="form-label">사진</label>
-                  <input class="form-control" type="file" id="formFileMultiple" multiple />
-                </div>
-                <div class="mt-2">
-                  <button type="submit" class="btn btn-outline-primary me-2"><a href="adTeacher">추가하기</a></button>
-                  <button type="submit" class="btn btn-outline-secondary"><a href="adTeacher">뒤로가기</a></button>
-                </div>
-              </div>
+              <form action="/adModifyTeacher" method="post">
+              	<div class="card-body row">
+	                <div class="mb-3 col-md-6">
+	                  <label for="defaultInput" class="form-label">강사이름</label>
+	                  <input id="teacherNm" name="teacherNm" class="form-control" type="text" value="${teacherDTO.teacherNm }" required/>
+	                </div>
+	                <div class="mb-3 col-md-6">
+	                  <label for="defaultInput" class="form-label">생년월일</label>
+	                  <input id="teacherBirth" name="teacherBirth" class="form-control" type="date" value="${teacherDTO.teacherBirth }" required/>
+	                </div>
+	                <div class="mb-3 col-md-6">
+	                  <label for="defaultInput" class="form-label">강사전화번호</label>
+	                  <input id="teacherHp" name="teacherHp" class="form-control" type="text" value="${teacherDTO.teacherHp }" required/>
+	                </div>
+	                <div class="mb-3 col-md-6">
+	                  <label for="formFileMultiple" class="form-label">사진</label>
+	                  <input class="form-control" type="file" id="formFileMultiple" multiple />
+	                </div>
+	                <div class="mb-3">
+	                  <label for="defaultInput" class="form-label">강사이력</label>
+	                  <textarea rows="10" cols="50" id="teacherCareer" name="teacherCareer" class="form-control" required>${teacherDTO.teacherCareer }</textarea>
+	                </div>
+	                <div class="mt-2">
+	                  <input type="hidden" name="teacherNo" value="${teacherDTO.teacherNo }"/>
+	                  <input type="submit" class="btn btn-outline-primary me-2" value="수정하기" />
+	                  <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adTeacher'">
+	                </div>
+              	</div>
+	          </form>
               <!-- /Account -->
             </div>
           </div>
