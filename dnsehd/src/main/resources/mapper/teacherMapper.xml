@@ -3,7 +3,24 @@
 
 <mapper namespace="com.application.dnsehd.dao.TeacherDAO">
 
-
+	<insert id="insertTeacher" parameterType="TeacherDTO">
+		INSERT INTO TEACHER (
+				TEACHER_NO,
+				TEACHER_NM,
+				TEACHER_BIRTH,
+				TEACHER_HP,
+				TEACHER_CAREER,
+				ADMIN_ID
+		)
+		VALUES (
+				#{teacherNo},
+				#{teacherNm},
+				#{teacherBirth},
+				#{teacherHp},
+				#{teacherCareer},
+				#{adminId}
+		)
+	</insert>
 
 
 

@@ -85,21 +85,12 @@
                         <input id="teacherHp" class="form-control" type="text" placeholder="강사전화번호" />
                       </div>
                       <div class="mb-3 col-md-6">
-                        <label for="defaultSelect" class="form-label">진행수업</label>
-                        <select id="teacherClass" class="form-select" placeholder="진행 중인 수업을 입력하세요.">
-                          <option>헬스</option>
-                          <option>스쿼시</option>
-                          <option>요가</option>
-                          <option>필라테스</option>
-                        </select>
+                        <label for="formFileMultiple" class="form-label">사진</label>
+                        <input class="form-control" type="file" id="formFileMultiple" multiple />
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">강사이력</label>
                         <textarea rows="10" cols="50" name="teacherCareer" class="form-select" placeholder="강사 이력을 자세히 입력하세요." required></textarea>
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="formFileMultiple" class="form-label">사진</label>
-                        <input class="form-control" type="file" id="formFileMultiple" multiple />
                       </div>
                       <div class="mt-2">
                           <input type="submit" value="추가하기" class="btn btn-outline-primary me-2">

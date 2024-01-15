@@ -88,7 +88,7 @@
                         <ul>
                             <li class="active"><a href="/main">Home</a></li>
                             <li><a href="/class">수업조회</a></li>
-                            <li><a href="/teacher/teacher">강사조회</a></li>
+                            <li><a href="/teacher">강사조회</a></li>
                             <li><a href="/calendar">일정관리</a></li>
                             <li>수업후기
                                <ul class="dropdown">
