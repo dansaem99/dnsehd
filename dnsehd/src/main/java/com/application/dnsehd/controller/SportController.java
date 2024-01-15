@@ -17,7 +17,7 @@ public class SportController {
 	// admin
 	
 	@GetMapping("/adClass")
-	public ModelAndView adClass(ModelAndView mv) {
+	public ModelAndView adClassList(ModelAndView mv) {
 		
 		mv.setViewName("admin/class/class");
 		mv.addObject("class", sportService.getClassList());

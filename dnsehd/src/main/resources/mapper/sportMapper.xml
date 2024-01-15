@@ -2,7 +2,7 @@
 
 <mapper namespace="com.application.dnsehd.dao.classDAO">
 	
-	<select id="selectClassList" resultType="ClassDTO">
+	<select id="selectClassList" resultType="SportDTO">
 		SELECT 	*
 		FROM	SPORT
 	</select>
