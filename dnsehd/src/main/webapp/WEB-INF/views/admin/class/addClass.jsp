@@ -71,58 +71,58 @@
                     <h2 class="card-header">수업추가</h2>
                     <hr class="my-0" />
                     <div class="card-body row">
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">운동명</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">가격</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">운동시간</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">수강제한인원</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultSelect" class="form-label">수업방식</label>
-                        <select id="defaultSelect" class="form-select">
-                          <option>전체수업</option>
-                          <option>개인래슨</option>
-                          <option>그룹수업</option>
-                          <option>시설이용</option>
-                          <option>할인혜택수업</option>
-                        </select>
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">강사이름</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">내용</label>
-                        <div id="editor">
-					      <p>여기에 입력하세요</p>
-				  	    </div>
-					    <script>
-					      ClassicEditor
-					        .create( document.querySelector( '#editor' ) )
-					        .catch( error => {
-					          console.error( error );
-					        } );
-					    </script>
-                      </div>
-                      
-                      <div class="mb-3 col-md-6">
-                        <label for="formFileMultiple" class="form-label">사진</label>
-                        <input class="form-control" type="file" id="formFileMultiple" multiple />
-                      </div>
-                      <div class="mt-2">
-                          <button type="submit" class="btn btn-outline-primary me-2"><a href="adClass">추가하기</a></button>
-                          <button type="submit" class="btn btn-outline-secondary"><a href="adClass">뒤로가기</a></button>
-                      </div>
+                      <form action="/adAddClass" method="post">
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">운동명</label>
+	                        <input name="sportNm" class="form-control" type="text" placeholder="운동명을 입력하세요." required />
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">가격</label>
+	                        <input name="sportPrice" class="form-control" type="number" min="200000" step="10000" placeholder="가격을 입력하세요." required />
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">운동시간</label>
+	                        <input name="sportTime" class="form-control" type="text" placeholder="운동시간을 00:00 ~ 00:00으로 입력하세요." required/>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">수강제한인원</label>
+	                        <input name="sportLimit" class="form-control" type="number" min="1" max="30" placeholder="수강제한인원을 입력하세요." required/>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultSelect" class="form-label">수업방식</label>
+	                        <select name="sportCategory" class="form-select">
+	                          <option>전체수업</option>
+	                          <option>개인래슨</option>
+	                          <option>그룹수업</option>
+	                          <option>시설이용</option>
+	                          <option>할인혜택수업</option>
+	                        </select>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">강사이름</label>
+	                        <select name="teacherNm" class="form-select">
+	                          <option>전체수업</option>
+	                          <option>개인래슨</option>
+	                          <option>그룹수업</option>
+	                          <option>시설이용</option>
+	                          <option>할인혜택수업</option>
+	                        </select>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">내용</label>
+	                        <textarea rows="10" cols="50" name="sportContent" class="form-control" placeholder="내용을 입력하세요." required></textarea>
+	                      </div>
+	                      
+	                      <div class="mb-3 col-md-6">
+	                        <label for="formFileMultiple" class="form-label">사진</label>
+	                        <input class="form-control" type="file" id="formFileMultiple" multiple />
+	                      </div>
+	                      <div class="mt-2">
+	                      	  <input type="hidden" name="adminId" value="${sessionScope.adminId }"/>
+	                          <input type="submit" class="btn btn-outline-primary me-2" value="추가하기"/>
+	                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adClass'"/>
+	                      </div>
+                      </form>
                     </div>
                   </div>
                 </div>

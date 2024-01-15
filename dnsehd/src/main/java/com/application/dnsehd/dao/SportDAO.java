@@ -10,5 +10,9 @@ import com.application.dnsehd.dto.SportDTO;
 public interface SportDAO {
 
 	public List<SportDTO> selectClassList();
+	public void insertClass(SportDTO sportDTO);
+	public SportDTO selectClassDetail(int sportNo);
+	public void updateClass(SportDTO sportDTO);
+	public void deleteClass(int sportNo);
 
 }
