@@ -81,8 +81,13 @@ public class TeacherController {
 	
 	
 	@GetMapping("/teacher")
-	public String teacherList() {
-		return "user/teacher/teacher";
+	public ModelAndView teacherList() {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("user/teacher/teacher");
+		mv.addObject("teacherList", teacherService.getTeacherList());
+		
+		return mv;
 	}	
 
 	
