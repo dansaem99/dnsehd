@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -111,28 +113,30 @@
                     
                     <thead>
                       <tr>
+                      	<th>수업번호</th>
                         <th>수업명</th>
                         <th>수업내용</th>
                         <th>가격</th>
-                        <th>카테고리</th>
                         <th>ACTIONS</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>${sportDTO.sportNm }</td>
-                        <td>${sportDTO.sportContent }</td>
-                        <td>${sportDTO.sportPrice }</td>
-                        <td>${sportDTO.sportCategory }</td>
-                        <td>
-                          <div>
-                  			<div>
-                                <input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyClass?SportNo=${SportDTO.sportNo }'">
-                                <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveClass?SportNo=${SportDTO.sportNo }'">
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
+                    <tbody id="classList">
+                      <c:forEach var="sportDTO" items="${classList }">
+	                      <tr>
+	                      	<td><fmt:formatNumber value="${sportDTO.sportNo }" pattern="000" /></td>
+	                        <td>${sportDTO.sportNm }</td>
+	                        <td>${sportDTO.sportContent }</td>
+	                        <td>${sportDTO.sportPrice }</td>
+	                        <td>
+	                          <div>
+	                  			<div>
+	                                <input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyClass?sportNo=${sportDTO.sportNo }'">
+	                                <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveClass?sportNo=${sportDTO.sportNo }'">
+	                            </div>
+	                          </div>
+	                        </td>
+	                      </tr>
+	                   </c:forEach>
                     </tbody>
                   </table>
                 </div>
