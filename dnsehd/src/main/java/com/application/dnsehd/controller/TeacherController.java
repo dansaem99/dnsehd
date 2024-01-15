@@ -3,12 +3,13 @@ package com.application.dnsehd.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.application.dnsehd.dto.TeacherDTO;
 import com.application.dnsehd.service.TeacherService;
 
 @Controller
-@RequestMapping("/teacher")
 public class TeacherController {
 	
 	@Autowired
@@ -18,6 +19,14 @@ public class TeacherController {
 	public String addTeacher() {
 		return "admin/teacher/addTeacher";
 	}	
+	
+	@PostMapping("/adAddTeacher")
+	public String addTeacher(TeacherDTO teacherDTO){
+		
+		teacherService.addTeacherDetail(teacherDTO);
+		return "redirect:/adTeacher";
+		
+	}
 	
 	@GetMapping("/adTeacher")
 	public String adminTeacherList() {
