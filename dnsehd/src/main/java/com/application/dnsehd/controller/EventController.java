@@ -29,8 +29,12 @@ public class EventController {
 	}
 	
 	@GetMapping("/adAddEvent")
-	public String addEvent() {
-		return "admin/event/addEvent";
+	public ModelAndView addEvent(ModelAndView mv) {
+		
+		mv.setViewName("admin/event/addEvent");
+		mv.addObject("sportList", eventService.getSportList());
+		
+		return mv;
 	}
 	
 	@PostMapping("/adAddEvent")

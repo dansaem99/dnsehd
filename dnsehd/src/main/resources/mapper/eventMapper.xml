@@ -7,6 +7,12 @@
 		FROM 	EVENT
 	</select>
 	
+	<select id="selectSportList" resultType="SportDTO">
+		SELECT  S.SPORT_NO, S.SPORT_NM
+		FROM 	EVENT E, SPORT S
+		WHERE 	E.SPORT_NO, S.SPORT_NO
+	</select>
+	
 	<insert id="insertEvent" parameterType="EventDTO">
 		INSERT INTO EVENT (
 			EVENT_TITLE,
