@@ -94,7 +94,7 @@
               		</a>
             	</li>
             	<li class="menu-item px-3">
-              		<a href="/teacher/adTeacher" class="menu-link">
+              		<a href="adTeacher" class="menu-link">
                 		<div>강사관리</div>
               		</a>
             	</li>
@@ -119,7 +119,7 @@
               		</a>
             	</li>
             	<li class="menu-item px-3">
-              		<a href="/adFaq" class="menu-link">
+              		<a href="adFaq" class="menu-link">
                 		<div>FAQ</div>
               		</a>
             	</li>

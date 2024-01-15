@@ -6,11 +6,13 @@
 	<insert id="insertFaq" parameterType="FaqDTO">
 		INSERT INTO FAQS (
 			FAQ_QUESTION,
-			FAQ_ANSWER
+			FAQ_ANSWER,
+			ADMIN_ID
 		)
 		VALUES (
 			#{faqQuestion},
-			#{faqAnswer}
+			#{faqAnswer},
+			#{adminId}
 		)
 	</insert>
 	

@@ -152,11 +152,11 @@
                                  <ul>
                                      <li>
 	                                    <label>수업명</label>
-				                        <input type="text" class="form-control" name="ename">
+				                        <input type="text" class="form-control" name="ename" id="a">
                                      </li>
                                      <li>
 									 	<label>수업 후 간단한 소감을 적어볼까요?</label>
-				                        <textarea class="form-control" name="edesc"></textarea>
+				                        <textarea class="form-control" name="edesc" id="b"></textarea>
 									 </li>
                                      <li>
                                      	<label>식사</label>
@@ -187,16 +187,80 @@
 	<!-- Js For Calendar -->
 	<script src="adminkit-3.1.0/static/js/app.js"></script>
 	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var date = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
-			var defaultDate = date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate();
-			document.getElementById("datetimepicker-dashboard").flatpickr({
-				inline: true,
-				prevArrow: "<span title=\"Previous month\">&laquo;</span>",
-				nextArrow: "<span title=\"Next month\">&raquo;</span>",
-				defaultDate: defaultDate
-			});
-		});
+	document.addEventListener("DOMContentLoaded", function() {
+
+	    var date = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
+
+	    var defaultDate = date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate();
+
+
+
+	    // 특정 날짜를 배열로 정의합니다 (예시: 'YYYY-MM-DD' 형식)
+
+	    var specialDates = ["2024-01-10", "2024-01-12", "2024-01-13"];
+
+
+
+	    document.getElementById("datetimepicker-dashboard").flatpickr({
+
+	        inline: true,
+
+	        prevArrow: "<span title='Previous month'>&laquo;</span>",
+
+	        nextArrow: "<span title='Next month'>&raquo;</span>",
+
+	        defaultDate: defaultDate,
+
+	        onDayCreate: function(dObj, dStr, fp, dayElem) {
+
+	            // 각 날짜에 대해 실행
+
+	            var date = dayElem.dateObj;
+
+	            var formattedDate = date.getFullYear() + "-" + (date.getMonth() + 1).toString().padStart(2, '0') + "-" + date.getDate().toString().padStart(2, '0');
+
+
+
+	            // 특정 날짜 배열에 있는지 확인
+
+	            if (specialDates.includes(formattedDate)) {
+
+	                // 특정 날짜에 클래스 추가
+
+	                dayElem.classList.add("special-date");
+
+	                // 필요하다면 텍스트나 HTML 요소 추가
+
+	                dayElem.innerHTML += "<span class='special-marker' style='color:red;'>*</span>";
+
+	            }
+
+	        },
+
+	        onChange: function(selectedDates, dateStr, instance) {
+
+	            // selectedDates: 선택된 날짜들의 배열 (Date 객체들)
+
+	            // dateStr: 선택된 날짜의 문자열 표현 ('YYYY-MM-DD' 형식)
+
+	            // instance: flatpickr 인스턴스
+
+
+
+	            // 이곳에서 원하는 로직을 수행합니다.
+
+	            // 예: 선택된 날짜를 콘솔에 출력
+
+	            console.log("Selected date: " + dateStr);
+				document.getElementById("a").value = "ㅔㅔㅔㅔㅔ";
+				document.getElementById("b").value = "bbbbb";
+	        }
+
+       	});
+
+     });
+
+
 	</script>
 </body>
 
