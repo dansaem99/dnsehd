@@ -67,6 +67,8 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void modifyMember(MemberDTO memberDTO) {
+		
+		memberDTO.setMemberPw(passwordEncoder.encode(memberDTO.getMemberPw()));
 		memberDAO.updateMember(memberDTO);
 	}
 
