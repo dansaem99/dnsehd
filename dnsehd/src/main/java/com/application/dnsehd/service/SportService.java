@@ -3,6 +3,7 @@ package com.application.dnsehd.service;
 import java.util.List;
 
 import com.application.dnsehd.dto.SportDTO;
+import com.application.dnsehd.dto.TeacherDTO;
 
 public interface SportService {
 
@@ -11,5 +12,6 @@ public interface SportService {
 	public SportDTO getClassDetail(int sportNo);
 	public void modifyClassDetail(SportDTO sportDTO);
 	public void removeOneClass(int sportNo);
+	public List<TeacherDTO> getTeacherList();
 
 }

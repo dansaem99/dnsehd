@@ -5,6 +5,8 @@
 	<select id="selectClassList" resultType="SportDTO">
 		SELECT 	*
 		FROM	SPORT
+		
+		
 	</select>
 	
 	<insert id="insertClass" parameterType="SportDTO">
@@ -15,7 +17,8 @@
 			SPORT_TIME,
 			SPORT_CATEGORY,
 			SPORT_LIMIT,
-			ADMIN_ID
+			ADMIN_ID,
+			TEACHER_NO
 		)
 		VALUES (
 			#{sportNm},
@@ -24,7 +27,8 @@
 			#{sportTime},
 			#{sportCategory},
 			#{sportLimit},
-			#{adminId}
+			#{adminId},
+			#{teacherNo}
 		)
 	</insert>
 	
@@ -49,5 +53,10 @@
 		DELETE FROM SPORT
 		WHERE 		SPORT_NO = #{sportNo}
 	</delete>
+	
+	<select id="selectTeacherList" parameterType="int" resultType="teacherDTO">
+		SELECT 	TEACHER_NO ,TEACHER_NM
+		FROM 	TEACHER	
+	</select>
 		
 </mapper>

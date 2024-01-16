@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.application.dnsehd.dao.SportDAO;
 import com.application.dnsehd.dto.SportDTO;
+import com.application.dnsehd.dto.TeacherDTO;
 
 @Service
 public class SportServiceImpl implements SportService {
@@ -40,5 +41,12 @@ public class SportServiceImpl implements SportService {
 	public void removeOneClass(int sportNo) {
 		sportDAO.deleteClass(sportNo);
 	}
+
+	@Override
+	public List<TeacherDTO> getTeacherList() {
+		return sportDAO.selectTeacherList();
+	}
+	
+	
 
 }

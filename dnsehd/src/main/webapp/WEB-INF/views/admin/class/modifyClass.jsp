@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -100,7 +101,7 @@
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultSelect" class="form-label">수업방식</label>
-	                        <select name="sportCategory" class="form-select" onchange="selectBoxChange(${sportDTO.sportCategory })">
+	                        <select name="sportCategory" class="form-select">
 	                          <option>전체수업</option>
 	                          <option>개인래슨</option>
 	                          <option>그룹수업</option>
@@ -109,6 +110,7 @@
 	                        </select>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
+	                      	
 	                        <label for="defaultInput" class="form-label">강사이름</label>
 	                        <select name="teacherNm" class="form-select">
 	                          <option>전체수업</option>

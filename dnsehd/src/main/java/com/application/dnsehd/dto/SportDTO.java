@@ -16,6 +16,6 @@ public class SportDTO {
 	private String sportCategory;
 	private int sportLimit;
 	private String adminId;
-	private int teacher_no;
+	private int teacherNo;
 	
 }

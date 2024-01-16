@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.application.dnsehd.dto.SportDTO;
+import com.application.dnsehd.dto.TeacherDTO;
 
 @Mapper
 public interface SportDAO {
@@ -14,5 +15,6 @@ public interface SportDAO {
 	public SportDTO selectClassDetail(int sportNo);
 	public void updateClass(SportDTO sportDTO);
 	public void deleteClass(int sportNo);
+	public List<TeacherDTO> selectTeacherList();
 
 }
