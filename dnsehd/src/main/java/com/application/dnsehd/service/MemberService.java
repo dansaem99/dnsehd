@@ -1,5 +1,7 @@
 package com.application.dnsehd.service;
 
+import java.util.List;
+
 import com.application.dnsehd.dto.MemberDTO;
 
 public interface MemberService {
@@ -13,4 +15,6 @@ public interface MemberService {
 	
 	public void getTodayNewMemberCnt();
 	public void deleteMemberScheduler();
+	
+	public List<MemberDTO> getMemberList();
 }

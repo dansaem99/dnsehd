@@ -11,4 +11,5 @@ public interface TeacherService {
 	public TeacherDTO getTeacherDetail(int teacherNo);
 	public void modifyTeacherDetail(TeacherDTO teacherDTO);
 	public void removeOneTeacher(int teacherNo);
+	
 }

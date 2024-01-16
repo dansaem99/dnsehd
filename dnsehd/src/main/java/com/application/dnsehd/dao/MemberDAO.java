@@ -20,4 +20,6 @@ public interface MemberDAO {
 	public List<MemberDTO> selectListInActiveMember();
 	public void deleteMember(String memberId);
 	
+	public List<MemberDTO> selectMemberList();
+	
 }

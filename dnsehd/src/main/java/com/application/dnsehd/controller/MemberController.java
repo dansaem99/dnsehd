@@ -21,6 +21,7 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	// for user
 	@GetMapping("/register")
 	public ModelAndView register() {
 		return new ModelAndView("user/member/register");
@@ -129,4 +130,28 @@ public class MemberController {
 	public ModelAndView modifyPassword() {
 		return new ModelAndView("user/member/modifyPassword");
 	}
+	
+	// for admin
+	@GetMapping("/adMember")
+	public ModelAndView adMemberList() {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/member/member");
+		mv.addObject("memberList", memberService.getMemberList());
+		
+		return mv;
+	}
+	
+	@GetMapping("/adModifyMember")
+	public ModelAndView modifyMember(@RequestParam("memberId") String memberId) {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/member/modifyMember");
+		mv.addObject("memberDTO", memberService.getMemberDetail(memberId));
+		
+		return mv;
+	}
+	
+//	@PostMapping("/adModifyMember")
+//	public String modify
 }
