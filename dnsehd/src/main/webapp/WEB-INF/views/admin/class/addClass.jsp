@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -99,14 +101,12 @@
 	                        </select>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
-	                        <label for="defaultInput" class="form-label">강사이름</label>
-	                        <select name="teacherNm" class="form-select">
-	                          <option>전체수업</option>
-	                          <option>개인래슨</option>
-	                          <option>그룹수업</option>
-	                          <option>시설이용</option>
-	                          <option>할인혜택수업</option>
-	                        </select>
+		                        <label for="defaultInput" class="form-label">강사이름</label>
+		                        <select name="teacherNo" class="form-select">
+		                          <c:forEach var="teacherDTO" items="${teacherList }">
+		                            <option value="${teacherDTO.teacherNo }">${teacherDTO.teacherNm }</option>
+		                          </c:forEach>
+		                        </select>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">내용</label>
@@ -118,6 +118,7 @@
 	                        <input class="form-control" type="file" id="formFileMultiple" multiple />
 	                      </div>
 	                      <div class="mt-2">
+	                      	  <input type="hidden" name="teacherNo" value="${sportDTO.teacherNo }">
 	                      	  <input type="hidden" name="adminId" value="${sessionScope.adminId }"/>
 	                          <input type="submit" class="btn btn-outline-primary me-2" value="추가하기"/>
 	                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adClass'"/>

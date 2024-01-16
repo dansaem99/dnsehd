@@ -20,8 +20,9 @@ public class SportController {
 	// admin
 	
 	@GetMapping("/adClass")
-	public ModelAndView adClassList(ModelAndView mv) {
-		
+	public ModelAndView adClassList() {
+	
+		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/class/class");
 		mv.addObject("classList", sportService.getClassList());
 		
@@ -30,8 +31,12 @@ public class SportController {
 	}
 	
 	@GetMapping("/adAddClass")
-	public String addClass() {
-		return "admin/class/addClass";
+	public ModelAndView addClass() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/class/addClass");
+		mv.addObject("teacherList", sportService.getTeacherList());
+		
+		return mv;
 	}
 	
 	@PostMapping("/adAddClass")
