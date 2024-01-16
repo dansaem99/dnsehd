@@ -16,6 +16,5 @@ public class TeacherDTO {
 	String teacherIntro;
 	String teacherClass;
 	String adminId;
-//	int sportNo;
 	
 }
