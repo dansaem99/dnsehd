@@ -151,4 +151,12 @@
 				MEMBER_ID = #{memberId}
 	</delete>
 	
+	
+	<select id= "selectMemberList" resultType="MemberDTO">
+		SELECT 
+				*
+		FROM
+				MEMBER
+	</select>
+	
 </mapper>

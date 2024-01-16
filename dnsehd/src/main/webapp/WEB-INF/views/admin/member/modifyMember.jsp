@@ -119,60 +119,33 @@
                     <!-- 회원수정 -->
                     <hr class="my-0" />
                     <div class="card-body">
-                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                      <form action="/modifyMember" method="post">
                         <div class="row">
                           <div class="mb-3 col-md-6">
                             <label for="memberId" class="form-label">회원 아이디</label>
-                            <input
-                              class="form-control"
-                              type="text"
-                              id="memberId"
-                              name="memberId"
-                              autofocus
-                            />
+                            <input class="form-control" type="text" id="memberId" name="memberId" value="${memberDTO.memberId }"/>
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="organization" class="form-label">회원 이름</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="memberNm"
-                              name="memberNm"
-                              value="유저"
-                            />
+                            <input type="text" class="form-control" id="memberNm" name="memberNm" value=${memberDTO.memberNm }/>
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="organization" class="form-label">성별</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="sex"
-                              name="sex"
-                              value="여"
-                            />
+                            <input type="text" class="form-control" id="sex" name="sex" value="${memberDTO.sex }"/>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="organization" class="form-label">생년월일</label>
+                            <input type="date" class="form-control" id="dateBirth" name="dateBirth" value="${memberDTO.dateBirth }"/>
                           </div>
                           <div class="mb-3 col-md-6">
                             <label class="form-label" for="phoneNumber">회원 전화번호</label>
                             <div class="input-group input-group-merge">
-                              <input
-                                type="text"
-                                id="hp"
-                                name="hp"
-                                class="form-control"
-                                placeholder="010-1234-5678"
-                              />
+                              <input type="text" id="hp" name="hp" class="form-control" value="${memberDTO.hp }"/>
                             </div>
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="email" class="form-label">회원 이메일</label>
-                            <input
-                              class="form-control"
-                              type="text"
-                              id="email"
-                              name="email"
-                              value="john.doe@example.com"
-                              placeholder="john.doe@example.com"
-                            />
+                            <input class="form-control" type="text" id="email" name="email" value="${memberDTO.email }"/>
                           </div>
                           <div class="col-lg-3 col-md-6 ">
                                 <div class="checkout__form__input">
@@ -190,84 +163,31 @@
                           </div>
                             <div class="mb-3 col-md-6">
                                <label for="email" class="form-label">주소</label>
-                            <input
-                              class="form-control"
-                              type="text"
-                              id="zipcode"
-                              name="zipcode"
-                              placeholder="231465"
-                            />
-                            
-                             </div>
+                            <input class="form-control" type="text" id="zipcode" name="zipcode" value="${memberDTO.zipcode }"/>
+                          </div>
                              <div class="mb-3 col-md-6 mt-4">
                              <input type="button" class="site-btn btn btn-primary me-2" onclick="javascript:execDaumPostcode()" value="검색">
-                             </div>
-                          <div class="mb-3 col-md-6">
+                          </div>
+                          <div class="mb-3">
                             <label for="zipCode" class="form-label">도로명 주소</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="roadAddress"
-                              name="roadAddress"
-                              placeholder="231465"
-                              maxlength="6"
-                            />
+                            <input type="text" class="form-control" id="roadAddress" name="roadAddress" value="${memberDTO.roadAddress }" maxlength="6"/>
                           </div>
-                          <div class="mb-3 col-md-6">
+                          <div class="mb-3">
                             <label for="zipCode" class="form-label">지번 주소</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="jibunAddress"
-                              name="jibunAddress"
-                              placeholder="231465"
-                              maxlength="6"
-                            />
+                            <input type="text" class="form-control" id="jibunAddress" name="jibunAddress" value="${memberDTO.jibunAddress }" maxlength="6"/>
                           </div>
-                          <div class="mb-3 col-md-6">
+                          <div class="mb-3">
                             <label for="zipCode" class="form-label">나머지 주소</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="otherAddress"
-                              name="otherAddress"
-                              placeholder="231465"
-                              maxlength="6"
-                            />
+                            <input type="text" class="form-control" id="otherAddress" name="otherAddress" value="${memberDTO.otherAddress }" maxlength="6"/>
                           </div>
                         </div>
                         <div class="mt-2">
-                          <button type="submit" class="btn btn-outline-primary me-2"><a href="adMember">수정하기</a></button>
-                          <button type="reset" class="btn btn-outline-secondary"><a href="adMember">뒤로가기</a></button>
+                          <input type="submit" class="btn btn-outline-primary me-2" value="수정하기" />
+                          <input type="button" class="btn btn-outline-secondary" onclick="location.href='/adMember'" value="뒤로가기" />
                         </div>
                       </form>
                     </div>
                     <!-- /Account -->
-                  </div>
-                  <div class="card">
-                    <h5 class="card-header">회원 삭제</h5>
-                    <div class="card-body">
-                      <div class="mb-3 col-12 mb-0">
-                        <div class="alert alert-warning">
-                          <h6 class="alert-heading fw-bold mb-1">정말로 계정을 삭제하시겠습니까?</h6>
-                          <p class="mb-0">계정을 삭제하면 되돌릴 수 없습니다. 확실하게 해주세요.</p>
-                        </div>
-                      </div>
-                      <form id="formAccountDeactivation" onsubmit="return false">
-                        <div class="form-check mb-3">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            name="accountActivation"
-                            id="accountActivation"
-                          />
-                          <label class="form-check-label" for="accountActivation"
-                            >계정 비활성화를 확인합니다</label
-                          >
-                        </div>
-                        <button type="submit" class="btn btn-outline-secondary deactivate-account"><a href="adMember">계정 비활성화</a></button>
-                      </form>
-                    </div>
                   </div>
                 </div>
               </div>

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -119,157 +120,21 @@
                         <th>ACTIONS</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                           <div>
-                           		<a href="adModifyMember">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                             <div>
-                               <a href="adModifyMember">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                             <div>
-                               <a href="adModifyMember">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                             <div>
-                               <a href="adModifyMember">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                             <div>
-                               <a href="adModifyMember">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                               <a href="adModifyMember">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                               <a href="adModifyMember">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                              <a href="adModifyMember">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                               <a href="adModifyMember">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                               <a href="adModifyMember">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
+                    <tbody id="memberList">
+                      <c:forEach var="memberDTO" items="${memberList }">
+	                      <tr>
+	                        <td>${memberDTO.memberId }</td>
+	                        <td>${memberDTO.memberNm }</td>
+	                        <td>${memberDTO.dateBirth }</td>
+	                        <td>${memberDTO.email }</td>
+	                        <td>
+		                        <div>
+		                            <input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyMember?memberId=${memberDTO.memberId }'">
+		                            <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveMember?memberId=${memberDTO.memberId }'">
+		                         </div>
+	                        </td>
+	                      </tr>
+                      </c:forEach>
                     </tbody>
                   </table>
                 </div>
