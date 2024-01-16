@@ -83,6 +83,10 @@
 	                  <label for="formFileMultiple" class="form-label">사진</label>
 	                  <input class="form-control" type="file" id="formFileMultiple" multiple />
 	                </div>
+               	    <div class="mb-3">
+                       <label for="defaultInput" class="form-label">강사 한줄 소개</label>
+                       <input id="teacherIntro" name="teacherIntro" class="form-control" type="text" value="${teacherDTO.teacherIntro }" />
+                     </div>
 	                <div class="mb-3">
 	                  <label for="defaultInput" class="form-label">강사이력</label>
 	                  <textarea rows="10" cols="50" id="teacherCareer" name="teacherCareer" class="form-control" required>${teacherDTO.teacherCareer }</textarea>

@@ -62,24 +62,10 @@
                 </div> 
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>${teacherDTO.teacherNm } 트레이너 <span>${teacherDTO.teacherBirth }</span></h3>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <span>( 138 reviews )</span>
-                        </div>
-                        <div class="product__details__price">아무말</span></div>
-                        <p>Nemo enim ipsam voluptatem quia aspernatur aut odit aut loret fugit, sed quia consequuntur
-                        magni lores eos qui ratione voluptatem sequi nesciunt.</p>
-                        <div class="product__details__button">
-                            <a href="#" class="cart-btn"><span class="icon_heart_alt"></span> 관심 강사 등록</a>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-solid fa-phone"></i></a></li>
-                            </ul>
-                        </div>
+                        <h3>${teacherDTO.teacherNm } 트레이너 </h3>
+                        <div class="product__details__price" style="color: blue;">${teacherDTO.teacherBirth}</div>
+                        <span>* 강사 한줄 소개</span>
+                        <p>${teacherDTO.teacherIntro }</p>
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -105,7 +91,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="related__title">
-                        <h5>${teacherDTO.teacherNm }님이 진행중인 수업을 알아보세요!</h5>
+                        <h5>${teacherDTO.teacherNm } 트레이너 님이 진행중인 수업을 알아보세요!</h5>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">

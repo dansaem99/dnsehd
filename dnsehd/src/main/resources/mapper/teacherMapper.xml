@@ -10,6 +10,7 @@
 				TEACHER_BIRTH,
 				TEACHER_HP,
 				TEACHER_CAREER,
+				TEACHER_INTRO,
 				ADMIN_ID
 		)
 		VALUES (
@@ -18,6 +19,7 @@
 				#{teacherBirth},
 				#{teacherHp},
 				#{teacherCareer},
+				#{teacherIntro},
 				#{adminId}
 		)
 	</insert>
@@ -49,7 +51,8 @@
 				TEACHER_NM = #{teacherNm},
 				TEACHER_BIRTH = #{teacherBirth},
 				TEACHER_HP = #{teacherHp},
-				TEACHER_CAREER = #{teacherCareer}			
+				TEACHER_CAREER = #{teacherCareer},	
+				TEACHER_INTRO = #{teacherIntro}		
 		WHERE
 				TEACHER_NO = #{teacherNo}
 	</update>

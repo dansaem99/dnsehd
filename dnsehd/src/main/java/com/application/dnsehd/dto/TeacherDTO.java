@@ -13,6 +13,7 @@ public class TeacherDTO {
 	String teacherBirth;
 	String teacherHp;
 	String teacherCareer;
+	String teacherIntro;
 	String teacherClass;
 	String adminId;
 //	int sportNo;

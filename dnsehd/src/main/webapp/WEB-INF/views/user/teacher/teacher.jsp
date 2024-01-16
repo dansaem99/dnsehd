@@ -128,7 +128,7 @@
 	                                    </ul>
 	                                </div>
 	                                <div class="product__item__text">
-	                                    <h6>${teacherDTO.teacherCareer } </h6>
+	                                    <h6>${teacherDTO.teacherIntro } </h6>
 	                                    <div class="rating">
 	                                        <i class="fa fa-star"></i>
 	                                        <i class="fa fa-star"></i>

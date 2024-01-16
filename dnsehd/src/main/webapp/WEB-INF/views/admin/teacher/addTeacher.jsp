@@ -90,6 +90,10 @@
 	                        <input class="form-control" type="file" id="formFileMultiple" multiple />
 	                      </div>
 	                      <div class="mb-3">
+	                        <label for="defaultInput" class="form-label">강사 한줄 소개</label>
+	                        <input id="teacherIntro" name="teacherIntro" class="form-control" type="text" placeholder="강사 한줄 소개를 입력하세요." />
+	                      </div>
+	                      <div class="mb-3">
 	                        <label for="defaultInput" class="form-label">강사이력</label>
 	                        <textarea rows="10" cols="50" name="teacherCareer" class="form-select" placeholder="강사 이력을 자세히 입력하세요." required></textarea>
 	                      </div>
