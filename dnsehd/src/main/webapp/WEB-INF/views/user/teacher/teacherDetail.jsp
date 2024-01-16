@@ -39,7 +39,7 @@
                     <div class="breadcrumb__links">
                         <a href="main"><i class="fa fa-home"></i> Home</a>
                         <a href="teacher">Teacher </a>
-                        <span>양학선 트레이너</span>
+                        <span>${teacherDTO.teacherNm } 트레이너</span>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">양학선 강사의 이력</a>
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">${teacherDTO.teacherNm } 강사의 이력</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -105,7 +105,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="related__title">
-                        <h5>양학선 강사님이 진행중인 수업을 알아보세요!</h5>
+                        <h5>${teacherDTO.teacherNm }님이 진행중인 수업을 알아보세요!</h5>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
