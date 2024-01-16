@@ -9,6 +9,6 @@ public interface EventService {
 
 	public List<EventDTO> getEventList();
 	public void addEvent(EventDTO eventDTO);
-	public List<ClassDTO> getSportList();
+	public List<ClassDTO> getClassList();
 
 }

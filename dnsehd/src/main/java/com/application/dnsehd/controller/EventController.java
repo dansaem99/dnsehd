@@ -32,7 +32,7 @@ public class EventController {
 	public ModelAndView addEvent(ModelAndView mv) {
 		
 		mv.setViewName("admin/event/addEvent");
-		mv.addObject("classList", eventService.getSportList());
+		mv.addObject("classList", eventService.getClassList());
 		
 		return mv;
 	}

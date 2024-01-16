@@ -7,7 +7,7 @@
 		FROM 	EVENT
 	</select>
 	
-	<select id="selectSportList" resultType="SportDTO">
+	<select id="selectClassList" resultType="ClassDTO">
 		SELECT  S.CLASS_NO, S.CLASS_NM
 		FROM 	EVENT E, CLASS S
 		WHERE 	E.CLASS_NO, S.CLASS_NO

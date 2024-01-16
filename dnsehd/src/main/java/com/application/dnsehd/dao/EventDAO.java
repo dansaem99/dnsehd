@@ -12,6 +12,6 @@ public interface EventDAO {
 
 	public List<EventDTO> selectEventList();
 	public void insertEvent(EventDTO eventDTO);
-	public List<ClassDTO> selectSportList();
+	public List<ClassDTO> selectClassList();
 
 }

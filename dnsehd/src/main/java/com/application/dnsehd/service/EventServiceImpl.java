@@ -26,8 +26,8 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
-	public List<ClassDTO> getSportList() {
-		return eventDAO.selectSportList();
+	public List<ClassDTO> getClassList() {
+		return eventDAO.selectClassList();
 	}
 
 }
