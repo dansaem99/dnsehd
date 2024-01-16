@@ -83,19 +83,9 @@
                           <p class="mb-0">계정을 삭제하면 되돌릴 수 없습니다. 확실하게 해주세요.</p>
                         </div>
                       </div>
-                      <form id="formAccountDeactivation" onsubmit="return false">
-                        <div class="form-check mb-3">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            name="accountActivation"
-                            id="accountActivation"
-                          />
-                          <label class="form-check-label" for="accountActivation"
-                            >계정 비활성화를 확인합니다</label
-                          >
-                        </div>
-                        <button type="submit" class="btn btn-outline-secondary deactivate-account"><a href="adMember">계정 비활성화</a></button>
+                      <form action="adRemoveMember" method="post">
+                      	<input type="hidden" name="memberId" value="${memberId }">
+                        <input type="submit" value="계정 비활성화" class="btn btn-outline-secondary deactivate-account">
                       </form>
                     </div>
                   </div>

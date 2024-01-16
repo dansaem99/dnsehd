@@ -152,6 +152,28 @@ public class MemberController {
 		return mv;
 	}
 	
-//	@PostMapping("/adModifyMember")
-//	public String modify
+	@PostMapping("/adModifyMember")
+	public String modifyMember(MemberDTO memberDTO) {
+		memberService.modifyMember(memberDTO);
+		return "redirect:/adMember";
+	}
+	
+	@GetMapping("/adRemoveMember")
+	public ModelAndView removeMember(@RequestParam("memberId") String memberId) {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/member/removeMember");
+		mv.addObject("memberId", memberId);
+		
+		return mv;
+		
+	}
+	
+	@PostMapping("/adRemoveMember")
+	public String postRemoveMember(@RequestParam("memberId") String memberId) {
+		memberService.modifyInactiveMember(memberId);
+		
+		return "redirect:/adMember";
+	}
+	
 }
