@@ -16,7 +16,7 @@ public class EventDTO {
 	private int eventCost;
 	private Date eventStartDt;
 	private Date eventEndDt;
-	private int sportNo;
+	private int classNo;
 	private String adminId;
 	
 }

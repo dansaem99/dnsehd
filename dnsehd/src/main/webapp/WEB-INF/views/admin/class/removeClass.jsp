@@ -76,7 +76,7 @@
                         </div>
                       </div>
                       <form action="/adRemoveClass" method="post">
-	                    <input type="hidden" name="sportNo" value="${sportNo }">
+	                    <input type="hidden" name="classNo" value="${classNo }">
 	                    <input type="submit" value="삭제하기" class="btn btn-outline-secondary deactivate-account">
 	                  </form>
                     </div>

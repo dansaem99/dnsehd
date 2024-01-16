@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.application.dnsehd.dto.SportDTO;
-import com.application.dnsehd.service.SportService;
+import com.application.dnsehd.dto.ClassDTO;
+import com.application.dnsehd.service.ClassService;
 
 @Controller
-public class SportController {
+public class ClassController {
 	
 	@Autowired
-	public SportService sportService;
+	public ClassService classService;
 
 	// admin
 	
@@ -24,7 +24,7 @@ public class SportController {
 	
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/class/class");
-		mv.addObject("classList", sportService.getClassList());
+		mv.addObject("classList", classService.getClassList());
 		
 		return mv;
 		
@@ -34,59 +34,59 @@ public class SportController {
 	public ModelAndView addClass() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/class/addClass");
-		mv.addObject("teacherList", sportService.getTeacherList());
+		mv.addObject("teacherList", classService.getTeacherList());
 		
 		return mv;
 	}
 	
 	@PostMapping("/adAddClass")
-	public String addClass(SportDTO sportDTO) {
-		sportService.addClass(sportDTO);
+	public String addClass(ClassDTO classDTO) {
+		classService.addClass(classDTO);
 		return "redirect:/adClass";
 	}
 	
 	@GetMapping("/adModifyClass")
-	public ModelAndView modifyClass(@RequestParam("sportNo") int sportNo) {
+	public ModelAndView modifyClass(@RequestParam("classNo") int classNo) {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/class/modifyClass");
-		mv.addObject("sportDTO", sportService.getClassDetail(sportNo));
+		mv.addObject("classDTO", classService.getClassDetail(classNo));
 		
 		return mv;
 		
 	}
 	
 	@PostMapping("/adModifyClass") 
-	public String modifyClass(SportDTO sportDTO) {
-		sportService.modifyClassDetail(sportDTO);
+	public String modifyClass(ClassDTO classDTO) {
+		classService.modifyClassDetail(classDTO);
 		return "redirect:/adClass";
 	}
 	
 	@GetMapping("/adRemoveClass")
-	public ModelAndView removeClass(@RequestParam("sportNo") int sportNo) {
+	public ModelAndView removeClass(@RequestParam("classNo") int classNo) {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/class/removeClass");
-		mv.addObject("sportNo", sportNo);
+		mv.addObject("classNo", classNo);
 		
 		return mv;
 		
 	}
 	
 	@PostMapping("/adRemoveClass")
-	public String postRemveClass(@RequestParam("sportNo") int sportNo) {
-		sportService.removeOneClass(sportNo);
+	public String postRemveClass(@RequestParam("classNo") int classNo) {
+		classService.removeOneClass(classNo);
 		return "redirect:/adClass";
 	}
 	
 	// user
 	@GetMapping("/class")
 	public String classList() {
-		return "user/sport/class";
+		return "user/class/class";
 	}	
 
 	@GetMapping("/classDetail")
 	public String classDetail() {
-		return "user/sport/classDetail";
+		return "user/class/classDetail";
 	}	
 }

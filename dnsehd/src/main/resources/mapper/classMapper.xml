@@ -1,0 +1,62 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.application.dnsehd.dao.ClassDAO">
+	
+	<select id="selectClassList" resultType="ClassDTO">
+		SELECT 	*
+		FROM	CLASS
+		
+		
+	</select>
+	
+	<insert id="insertClass" parameterType="ClassDTO">
+		INSERT INTO CLASS (
+			CLASS_NM,
+			CLASS_CONTENT,
+			CLASS_PRICE,
+			CLASS_TIME,
+			CLASS_CATEGORY,
+			CLASS_LIMIT,
+			ADMIN_ID,
+			TEACHER_NO
+		)
+		VALUES (
+			#{classNm},
+			#{classContent},
+			#{classPrice},
+			#{classTime},
+			#{classCategory},
+			#{classLimit},
+			#{adminId},
+			#{teacherNo}
+		)
+	</insert>
+	
+	<select id="selectClassDetail" parameterType="int" resultType="ClassDTO">
+		SELECT	*
+		FROM 	CLASS
+		WHERE	CLASS_NO = #{classNo}
+	</select>
+	
+	<update id="updateClass" parameterType="ClassDTO">
+		UPDATE	CLASS
+		SET		CLASS_NM = #{classNm},
+				CLASS_CONTENT = #{classContent},
+				CLASS_PRICE = #{classPrice},
+				CLASS_TIME = #{classTime},
+				CLASS_CATEGORY = #{classCategory},
+				CLASS_LIMIT = #{classLimit}
+		WHERE 	CLASS_NO = #{classNo}
+	</update>
+	
+	<delete id="deleteClass" parameterType="int">
+		DELETE FROM CLASS
+		WHERE 		CLASS_NO = #{classNo}
+	</delete>
+	
+	<select id="selectTeacherList" parameterType="int" resultType="teacherDTO">
+		SELECT 	TEACHER_NO ,TEACHER_NM
+		FROM 	TEACHER	
+	</select>
+		
+</mapper>

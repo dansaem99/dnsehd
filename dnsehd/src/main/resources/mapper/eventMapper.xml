@@ -8,9 +8,9 @@
 	</select>
 	
 	<select id="selectSportList" resultType="SportDTO">
-		SELECT  S.SPORT_NO, S.SPORT_NM
-		FROM 	EVENT E, SPORT S
-		WHERE 	E.SPORT_NO, S.SPORT_NO
+		SELECT  S.CLASS_NO, S.CLASS_NM
+		FROM 	EVENT E, CLASS S
+		WHERE 	E.CLASS_NO, S.CLASS_NO
 	</select>
 	
 	<insert id="insertEvent" parameterType="EventDTO">
@@ -20,7 +20,7 @@
 			EVENT_COST,
 			EVENT_START_DT,
 			EVENT_END_DT,
-			SPORT_NO,
+			CLASS_NO,
 			ADMIN_ID
 		)
 		VALUES (
@@ -29,7 +29,7 @@
 			#{eventCost},
 			#{eventStartDt},
 			#{eventEndDt},
-			#{sportNo},
+			#{classNo},
 			#{adminId}
 		)
 	</insert>

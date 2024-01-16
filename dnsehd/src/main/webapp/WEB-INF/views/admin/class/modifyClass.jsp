@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-
 <!-- beautify ignore:start -->
 <html
   lang="en"
@@ -85,23 +84,23 @@
                         <div class="row">
                           <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">운동명</label>
-	                        <input name="sportNm" class="form-control" type="text" placeholder="${sportDTO.sportNm }" required />
+	                        <input name="classNm" class="form-control" type="text" placeholder="${classDTO.classNm }" required />
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">가격</label>
-	                        <input name="sportPrice" class="form-control" type="number" min="200000" step="10000" placeholder="${sportDTO.sportPrice }" required />
+	                        <input name="classPrice" class="form-control" type="number" min="200000" step="10000" placeholder="${classDTO.classPrice }" required />
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">운동시간</label>
-	                        <input name="sportTime" class="form-control" type="text" placeholder="${sportDTO.sportTime }" required/>
+	                        <input name="classTime" class="form-control" type="text" placeholder="${classDTO.classTime }" required/>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">수강제한인원</label>
-	                        <input name="sportLimit" class="form-control" type="number" min="1" max="30" placeholder="${sportDTO.sportLimit }" required/>
+	                        <input name="classLimit" class="form-control" type="number" min="1" max="30" placeholder="${classDTO.classLimit }" required/>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultSelect" class="form-label">수업방식</label>
-	                        <select name="sportCategory" class="form-select">
+	                        <select name="classCategory" class="form-select">
 	                          <option>전체수업</option>
 	                          <option>개인래슨</option>
 	                          <option>그룹수업</option>
@@ -122,7 +121,7 @@
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">내용</label>
-	                        <textarea rows="10" cols="50" name="sportContent" class="form-control" placeholder="${sportDTO.sportContent }" required></textarea>
+	                        <textarea rows="10" cols="50" name="classContent" class="form-control" placeholder="${classDTO.classContent }" required></textarea>
 	                      </div>
                       
 	                      <div class="mb-3 col-md-6">

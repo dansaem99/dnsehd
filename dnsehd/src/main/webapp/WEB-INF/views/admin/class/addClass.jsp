@@ -76,23 +76,23 @@
                       <form action="/adAddClass" method="post">
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">운동명</label>
-	                        <input name="sportNm" class="form-control" type="text" placeholder="운동명을 입력하세요." required />
+	                        <input name="classNm" class="form-control" type="text" placeholder="운동명을 입력하세요." required />
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">가격</label>
-	                        <input name="sportPrice" class="form-control" type="number" min="200000" step="10000" placeholder="가격을 입력하세요." required />
+	                        <input name="classPrice" class="form-control" type="number" min="200000" step="10000" placeholder="가격을 입력하세요." required />
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">운동시간</label>
-	                        <input name="sportTime" class="form-control" type="text" placeholder="운동시간을 00:00 ~ 00:00으로 입력하세요." required/>
+	                        <input name="classTime" class="form-control" type="text" placeholder="운동시간을 00:00 ~ 00:00으로 입력하세요." required/>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">수강제한인원</label>
-	                        <input name="sportLimit" class="form-control" type="number" min="1" max="30" placeholder="수강제한인원을 입력하세요." required/>
+	                        <input name="classLimit" class="form-control" type="number" min="1" max="30" placeholder="수강제한인원을 입력하세요." required/>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultSelect" class="form-label">수업방식</label>
-	                        <select name="sportCategory" class="form-select">
+	                        <select name="classCategory" class="form-select">
 	                          <option>전체수업</option>
 	                          <option>개인래슨</option>
 	                          <option>그룹수업</option>
@@ -110,7 +110,7 @@
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">내용</label>
-	                        <textarea rows="10" cols="50" name="sportContent" class="form-control" placeholder="내용을 입력하세요." required></textarea>
+	                        <textarea rows="10" cols="50" name="classContent" class="form-control" placeholder="내용을 입력하세요." required></textarea>
 	                      </div>
 	                      
 	                      <div class="mb-3 col-md-6">
@@ -118,7 +118,7 @@
 	                        <input class="form-control" type="file" id="formFileMultiple" multiple />
 	                      </div>
 	                      <div class="mt-2">
-	                      	  <input type="hidden" name="teacherNo" value="${sportDTO.teacherNo }">
+	                      	  <input type="hidden" name="teacherNo" value="${classDTO.teacherNo }">
 	                      	  <input type="hidden" name="adminId" value="${sessionScope.adminId }"/>
 	                          <input type="submit" class="btn btn-outline-primary me-2" value="추가하기"/>
 	                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adClass'"/>

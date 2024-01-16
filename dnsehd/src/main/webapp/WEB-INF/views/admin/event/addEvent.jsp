@@ -110,7 +110,7 @@
                       <div class="mt-2">
 	                   	  <div class="mt-2">
 	                      	  <input type="hidden" name="adminId" value="${sessionScope.adminId }"/>
-	                      	  <input type="hidden" name="sportNo" value="${event.sportNo }"/>
+	                      	  <input type="hidden" name="classNo" value="${event.classNo }"/>
 	                          <input type="submit" class="btn btn-outline-primary me-2" value="추가하기"/>
 	                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adEvent'"/>
 	                      </div>
