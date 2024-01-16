@@ -122,8 +122,8 @@
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">내용</label>
-                        <textarea rows="10" cols="50" name="sportContent" required></textarea>
-						<script>CKEDITOR.replace("sportContent");</script>
+                        <textarea rows="10" cols="50" name="classContent" required></textarea>
+						<script>CKEDITOR.replace("classContent");</script>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="formFileMultiple" class="form-label">사진</label>
@@ -133,7 +133,7 @@
                           <button type="submit" class="btn btn-outline-primary me-2"><a href="adEvent">수정하기</a></button>
                           <button type="reset" class="btn btn-outline-secondary"><a href="adEvent">뒤로가기</a></button>
                         </div>
-                        </div>    
+                        </div>
                       </form>
                     </div>
                     <!-- /Account -->

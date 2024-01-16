@@ -121,17 +121,17 @@
                       </tr>
                     </thead>
                     <tbody id="classList">
-                      <c:forEach var="sportDTO" items="${classList }">
+                      <c:forEach var="classDTO" items="${classList }">
 	                      <tr>
-	                      	<td><fmt:formatNumber value="${sportDTO.sportNo }" pattern="000" /></td>
-	                        <td>${sportDTO.sportNm }</td>
-	                        <td>${sportDTO.sportContent }</td>
-	                        <td>${sportDTO.sportPrice }</td>
+	                      	<td><fmt:formatNumber value="${classDTO.classNo }" pattern="000" /></td>
+	                        <td>${classDTO.classNm }</td>
+	                        <td>${classDTO.classContent }</td>
+	                        <td>${classDTO.classPrice }</td>
 	                        <td>
 	                          <div>
 	                  			<div>
-	                                <input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyClass?sportNo=${sportDTO.sportNo }'">
-	                                <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveClass?sportNo=${sportDTO.sportNo }'">
+	                                <input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyClass?classNo=${classDTO.classNo }'">
+	                                <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveClass?classNo=${classDTO.classNo }'">
 	                            </div>
 	                          </div>
 	                        </td>

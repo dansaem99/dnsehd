@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.application.dnsehd.dao.EventDAO;
 import com.application.dnsehd.dto.EventDTO;
-import com.application.dnsehd.dto.SportDTO;
+import com.application.dnsehd.dto.ClassDTO;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -26,8 +26,8 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
-	public List<SportDTO> getSportList() {
-		return eventDAO.selectSportList();
+	public List<ClassDTO> getClassList() {
+		return eventDAO.selectClassList();
 	}
 
 }
