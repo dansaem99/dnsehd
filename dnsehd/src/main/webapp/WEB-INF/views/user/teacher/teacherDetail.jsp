@@ -62,7 +62,7 @@
                 </div> 
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>양학선 트레이너 <span>전직 도마 국가대표</span></h3>
+                        <h3>${teacherDTO.teacherNm } 트레이너 <span>${teacherDTO.teacherBirth }</span></h3>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -71,7 +71,7 @@
                             <i class="fa fa-star"></i>
                             <span>( 138 reviews )</span>
                         </div>
-                        <div class="product__details__price">강남 피트니스 센터 근무</span></div>
+                        <div class="product__details__price">아무말</span></div>
                         <p>Nemo enim ipsam voluptatem quia aspernatur aut odit aut loret fugit, sed quia consequuntur
                         magni lores eos qui ratione voluptatem sequi nesciunt.</p>
                         <div class="product__details__button">
@@ -92,7 +92,7 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <h6>강사 이력</h6>
-                                <p>2010 광저우 아시안 게임 도마 종목에서 금메달</p>
+                                <p>${teacherDTO.teacherCareer }</p>
                                 <p>2011 세계선수권에서 항목 3번의 기술을 처음 선보이며 1위</p>
                                 <p>2012 런던 올림픽 도마 종목에서 만 19세의 나이로 대한민국 체조 역사상 최초로 금메달을 획득</p>
                             	<p>2018 선수 생활을 재개하여 전국체육대회와 제주 국제체조대회에서 금메달</p>

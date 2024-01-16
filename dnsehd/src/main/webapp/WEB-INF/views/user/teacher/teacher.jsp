@@ -136,7 +136,7 @@
 	                                        <i class="fa fa-star"></i>
 	                                        <i class="fa fa-star"></i>
 	                                    </div>
-	                                    <div class="product__price"><a href="teacherDetail">${teacherDTO.teacherNm } 트레이너</a></div>
+	                                    <div class="product__price"><a href="/teacherDetail?teacherNo=${teacherDTO.teacherNo }">${teacherDTO.teacherNm } 트레이너</a></div>
 	                                </div>
 	                            </div>
 	                        </div>

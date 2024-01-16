@@ -92,8 +92,13 @@ public class TeacherController {
 
 	
 	@GetMapping("/teacherDetail")
-	public String teacherDetail() {
-		return "user/teacher/teacherDetail";
+	public ModelAndView teacherDetail(@RequestParam("teacherNo") int teacherNo) {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("user/teacher/teacherDetail");
+		mv.addObject("teacherDTO", teacherService.getTeacherDetail(teacherNo));
+		
+		return mv;
 	}	
 	
 }
