@@ -17,6 +17,7 @@ public class TeacherController {
 	@Autowired
 	private TeacherService teacherService;
 	
+	// for admin
 	@GetMapping("/adAddTeacher")
 	public String addTeacher() {
 		return "admin/teacher/addTeacher";
@@ -80,6 +81,7 @@ public class TeacherController {
 	}
 	
 	
+	// for user
 	@GetMapping("/teacher")
 	public ModelAndView teacherList() {
 		
