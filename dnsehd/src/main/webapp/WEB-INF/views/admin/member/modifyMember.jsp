@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -119,19 +120,28 @@
                     <!-- 회원수정 -->
                     <hr class="my-0" />
                     <div class="card-body">
-                      <form action="/modifyMember" method="post">
+                      <form action="/adModifyMember" method="post">
                         <div class="row">
                           <div class="mb-3 col-md-6">
                             <label for="memberId" class="form-label">회원 아이디</label>
-                            <input class="form-control" type="text" id="memberId" name="memberId" value="${memberDTO.memberId }"/>
+                            <input class="form-control" type="text" id="memberId" name="memberId" value="${memberDTO.memberId }" readonly/>
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="organization" class="form-label">회원 이름</label>
-                            <input type="text" class="form-control" id="memberNm" name="memberNm" value=${memberDTO.memberNm }/>
+                            <input type="text" class="form-control" id="memberNm" name="memberNm" value="${memberDTO.memberNm }"/>
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="organization" class="form-label">성별</label>
-                            <input type="text" class="form-control" id="sex" name="sex" value="${memberDTO.sex }"/>
+                            <label for="organization" class="form-label">성별</label><br>
+                            <c:choose>
+	                           	<c:when test="${memberDTO.sex eq 'm'}">
+	                            	<input type="radio" id="sex" name="sex" value="m" checked="checked"/>남성&emsp;&emsp;&emsp;
+	                            	<input type="radio" id="sex" name="sex" value="w" />여성  
+	                           	</c:when>
+	                           	<c:otherwise>
+	                            	<input type="radio" id="sex" name="sex" value="m" />남성&emsp;&emsp;&emsp;
+	                            	<input type="radio" id="sex" name="sex" value="w" checked="checked"/>여성  
+	                           	</c:otherwise>
+                           </c:choose>
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="organization" class="form-label">생년월일</label>
@@ -151,13 +161,27 @@
                                 <div class="checkout__form__input">
                                    <p>E-mail 수신 동의</p>
                                 </div>
-                                <input type="checkbox" id="emailConsent" name="emailConsent" value="y" checked/>
+                                <c:choose>
+                                	<c:when test="${memberDTO.emailConsent eq 'y'}">
+                                		<input type="checkbox" id="emailConsent" name="emailConsent" value="y" checked/>
+                                	</c:when>
+                                	<c:otherwise>
+                                		<input type="checkbox" id="emailConsent" name="emailConsent" value="y" />
+                                	</c:otherwise>
+                                </c:choose>
                             </div>
                             <div class="col-lg-3 col-md-6 ">
                                 <div class="checkout__form__input">
                                    <p>SMS 수신 동의</p>
                                 </div>
-                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" checked/>
+                                <c:choose>
+                                	<c:when test="${memberDTO.smsConsent eq 'y'}">
+		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" checked/>
+                                	</c:when>
+                                	<c:otherwise>
+		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" />
+                                	</c:otherwise>
+                                </c:choose>   
                             </div>
                             <div class="mb-3 col-md-6">
                           </div>
@@ -182,8 +206,9 @@
                           </div>
                         </div>
                         <div class="mt-2">
+                          <input type="hidden" name="memberPw" value="${memberDTO.memberPw }"/>
                           <input type="submit" class="btn btn-outline-primary me-2" value="수정하기" />
-                          <input type="button" class="btn btn-outline-secondary" onclick="location.href='/adMember'" value="뒤로가기" />
+                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adMember'" >
                         </div>
                       </form>
                     </div>
