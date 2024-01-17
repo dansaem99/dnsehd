@@ -43,7 +43,8 @@ public class MemberController {
 	}
 
 	@GetMapping("/login")
-	public ModelAndView login(@CookieValue(name = "userId", required = false) String userId) {
+	public ModelAndView login(@CookieValue(name = "userId", required = false) String userId,
+			@CookieValue(name = "userPw", required = false) String userPw) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/member/login");
 		
