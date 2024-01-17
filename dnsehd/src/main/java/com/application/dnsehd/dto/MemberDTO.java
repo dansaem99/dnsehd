@@ -16,7 +16,6 @@ public class MemberDTO {
 	private String sex;
 	private String dateBirth;
 	private String hp;
-	private String smsConsent;
 	private String email;
 	private String emailConsent;
 	private String zipcode;

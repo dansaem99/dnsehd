@@ -179,8 +179,6 @@ function checkFormValidation() {
 	                  <div class="mb-3">
 	                    <label for="element7" class="form-label">핸드폰 번호</label>
 	                    <input type="text" class="form-control" name="hp" id="hp" placeholder="010-0000-0000" aria-describedby="textHelp" required/>
-	                    <input type="checkbox" id="smsConsent" name="smsConsent" value="y" checked/>
-	                    DNSEHD에서 발송하는 SMS 소식을 수신합니다.
 	                  </div>			
 	                  <div class="mb-3">
 	                    <label for="element8" class="form-label">이메일</label>

@@ -28,7 +28,6 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void addMember(MemberDTO memberDTO) {
 		
-		if (memberDTO.getSmsConsent() == null) memberDTO.setSmsConsent("n");
 		if (memberDTO.getEmailConsent() == null) memberDTO.setEmailConsent("n");
 		
 		memberDTO.setMemberPw(passwordEncoder.encode(memberDTO.getMemberPw()));

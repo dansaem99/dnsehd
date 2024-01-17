@@ -170,19 +170,6 @@
                                 	</c:otherwise>
                                 </c:choose>
                             </div>
-                            <div class="col-lg-3 col-md-6 ">
-                                <div class="checkout__form__input">
-                                   <p>SMS 수신 동의</p>
-                                </div>
-                                <c:choose>
-                                	<c:when test="${memberDTO.smsConsent eq 'y'}">
-		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" checked/>
-                                	</c:when>
-                                	<c:otherwise>
-		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" />
-                                	</c:otherwise>
-                                </c:choose>   
-                            </div>
                             <div class="mb-3 col-md-6">
                           </div>
                             <div class="mb-3 col-md-6">

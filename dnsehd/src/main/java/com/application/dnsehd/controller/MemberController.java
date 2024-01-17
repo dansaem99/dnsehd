@@ -133,7 +133,6 @@ public class MemberController {
 	@PostMapping("/mypage")
 	public String mypage(@ModelAttribute MemberDTO memberDTO) {
 		
-		if (memberDTO.getSmsConsent() == null)	memberDTO.setSmsConsent("n");
 		if (memberDTO.getEmailConsent() == null) memberDTO.setEmailConsent("n");
 		memberService.modifyMember(memberDTO);
 		
