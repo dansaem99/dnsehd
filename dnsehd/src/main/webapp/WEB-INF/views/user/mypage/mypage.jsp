@@ -149,7 +149,7 @@
                                     <input type="email" id="email" name="email" value="${memberDTO.email }">
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                 	<p>E-mail 수신 동의 <span>*</span></p>
                                 </div>
@@ -161,19 +161,6 @@
 		                                <input type="checkbox" id="emailConsent" name="emailConsent" value="y" />
                                 	</c:otherwise>
                                 </c:choose>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="checkout__form__input">
-                                	<p>SMS 수신 동의 <span>*</span></p>
-                                </div>
-                                <c:choose>
-                                	<c:when test="${memberDTO.smsConsent eq 'y'}">
-		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" checked/>
-                                	</c:when>
-                                	<c:otherwise>
-		                                <input type="checkbox" id="smsConsent" name="smsConsent" value="y" />
-                                	</c:otherwise>
-                                </c:choose>                                
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6">
 			                    <div class="checkout__form__input">

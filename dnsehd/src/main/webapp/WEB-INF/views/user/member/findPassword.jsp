@@ -13,30 +13,27 @@
   <script src="/jquery/jquery-3.6.1.min.js"></script>
   <script>
 
-  
-  <!-- 나중에 삭제할것!!!!
-  	function login(){
-  		let loginData = {
+  	function authentication(){
+  		let authData = {
   				"memberId" : $("[name='memberId']").val(),
-  				"memberPw" : $("[name='memberPw']").val(),
+  				"email" : $("[name='email']").val(),
   			}
   			
   			$.ajax({
-  				url : "/login",
+  				url : "/findPassword",
   				type : "post",
-  				data : loginData,
+  				data : authData,
   				success : function(isValidMember) {
   					
   					if (isValidMember == "y") {
-  						location.href = "/main";
+  						$("#failMsg").html("<span style='color:green;'>아이디와 이메일 정보가 일치합니다.</span>");
   					}
   					else {
-  						$("#failMsg").html("<span style='color:red;'>아이디와 패스워드를 확인하세요.</span>");
+  						$("#failMsg").html("<span style='color:red;'>아이디와 이메일을 확인하세요.</span>");
   					}
   				}
   			});
   	}
-  -->
   
   </script>
 
@@ -54,7 +51,7 @@
               <div class="card-body">
                 <form>
                   <div class="mb-3" style="text-align: center;">
-                    <label for="element0" class="form-label" style="font-size: 30px;">비밀번호 찾기 </label>
+                    <label for="element0" class="form-label" style="font-size: 30px;">비밀번호 찾기 </label><br>
                     <label for="element0" class="form-label">회원가입 시 등록한 정보와 일치하면, </label>
                     <label for="element0" class="form-label">새로운 비밀번호를 설정할 수 있습니다. </label>
                   </div>
@@ -67,7 +64,7 @@
                     <input type="email" class="form-control" name="email" placeholder="등록한 이메일을 입력하세요." ><br>
                     <span id="failMsg"></span>
                   </div>
-                  <input type="button" class="btn btn-primary w-50 py-8 fs-4 mb-4 rounded-2 mx-auto d-block" id="authenticationBtn" value="인증번호 발송"/>
+                  <a href="javascript:authentication()" class="btn btn-primary w-50 py-8 fs-4 mb-4 rounded-2 mx-auto d-block" id="authenticationBtn">인증번호 받기</a>
                   <div class="mb-4">
                     <label for="element3" class="form-label">인증번호</label>
                     <input type="text" class="form-control" name="authenticationNo" placeholder="이메일로 수신한 인증번호를 입력하세요." ><br>

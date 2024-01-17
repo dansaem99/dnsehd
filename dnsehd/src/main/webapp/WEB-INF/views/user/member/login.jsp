@@ -12,11 +12,43 @@
 
   <script src="/jquery/jquery-3.6.1.min.js"></script>
   <script>
-  
+	 $(document).ready(function () {
+	     var userIdFromCookie = getCookie("userId");
+	     if (userIdFromCookie) {
+	         $("input[name='memberId']").val(userIdFromCookie);
+	     }
+	     var userPwFromCookie = getCookie("userPw");
+	     if (userPwFromCookie) {
+	         $("input[name='memberPw']").val(userPwFromCookie);
+	     }
+	 });
+	
+	 function getCookie(name) {
+	     var value = "; " + document.cookie;
+	     var parts = value.split("; " + name + "=");
+	     if (parts.length === 2) return parts.pop().split(";").shift();
+	 }  
+
+	 function maintainIdYn() {
+  	 	 $("input[name='maintainLogin']").val($("input[name='maintainLogin']").prop("checked") ? "y" : "n");
+  	 	 
+		 let cookieData = {
+		 	"maintainLogin" : $("[name='maintainLogin']").val()
+		 	}
+		 
+		 $.ajax({
+			 url : "/removeCookie",
+			 type : "post",
+			 data : cookieData
+		 });
+	 }
+
+	 
   	function login(){
   		let loginData = {
   				"memberId" : $("[name='memberId']").val(),
   				"memberPw" : $("[name='memberPw']").val(),
+  				"maintainLogin" : $("[name='maintainLogin']").val()
   			}
   			
   			$.ajax({
@@ -65,7 +97,7 @@
                   </div>
                   <div class="d-flex align-items-center justify-content-between mb-4">
                     <div class="form-check">
-                      <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
+                      <input class="form-check-input primary" type="checkbox" id="maintainLogin" name="maintainLogin" onchange="maintainIdYn()" value="y" checked/>
                       <label class="form-check-label text-dark" for="flexCheckChecked">
                         로그인 상태 유지
                       </label>

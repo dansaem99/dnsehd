@@ -11,7 +11,6 @@
     		SEX,
     		DATE_BIRTH,
    			HP,
-    		SMS_CONSENT,
     		EMAIL,
     		EMAIL_CONSENT,
     		ZIPCODE,
@@ -26,7 +25,6 @@
 			#{sex},
 			#{dateBirth},
 			#{hp},
-			#{smsConsent},
 			#{email},
 			#{emailConsent},
 			#{zipcode},
@@ -89,9 +87,6 @@
 			</if>
 			<if test='email != null and !email.equals("")'>
 				EMAIL = #{email},
-			</if>
-			<if test='smsConsent != null and !smsConsent.equals("")'>
-				SMS_CONSENT = #{smsConsent},
 			</if>
 			<if test='emailConsent != null and !emailConsent.equals("")'>
 				EMAIL_CONSENT = #{emailConsent},
