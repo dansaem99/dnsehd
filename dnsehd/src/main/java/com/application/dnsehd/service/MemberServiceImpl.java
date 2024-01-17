@@ -98,5 +98,18 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberDTO> getMemberList() {
 		return memberDAO.selectMemberList();
 	}
+
+	@Override
+	public boolean authenticateMember(MemberDTO memberDTO) {
+		MemberDTO validateData = memberDAO.selectOneAuthenticateMember(memberDTO.getMemberId());
+		
+		if (validateData != null) {
+			if (memberDTO.getEmail().equals(validateData.getEmail()) && !validateData.getActiveYn().equals("n")) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 	
 }

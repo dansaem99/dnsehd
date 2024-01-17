@@ -160,6 +160,18 @@ public class MemberController {
 		return new ModelAndView("user/member/findPassword");
 	}
 
+	@PostMapping("/findPassword")
+	@ResponseBody
+	public String findPassword(MemberDTO memberDTO) {
+		
+		String isValidMember = "n";
+		if (memberService.authenticateMember(memberDTO)) {
+			isValidMember = "y";		
+		}
+		
+		return isValidMember;		
+	}
+
 	@GetMapping("/modifyPassword")
 	public ModelAndView modifyPassword() {
 		return new ModelAndView("user/member/modifyPassword");

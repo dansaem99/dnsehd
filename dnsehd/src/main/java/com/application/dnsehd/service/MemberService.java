@@ -17,4 +17,7 @@ public interface MemberService {
 	public void deleteMemberScheduler();
 	
 	public List<MemberDTO> getMemberList();
+	
+	// 비밀번호 분실, 변경 절차
+	public boolean authenticateMember(MemberDTO memberDTO);
 }

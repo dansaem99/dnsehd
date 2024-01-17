@@ -147,11 +147,21 @@
 	</delete>
 	
 	
-	<select id= "selectMemberList" resultType="MemberDTO">
+	<select id="selectMemberList" resultType="MemberDTO">
 		SELECT 
 				*
 		FROM
 				MEMBER
+	</select>
+	
+	<select id="selectOneAuthenticateMember" resultType="MemberDTO">
+		SELECT 
+				EMAIL,
+				ACTIVE_YN
+		FROM
+				MEMBER
+		WHERE
+				MEMBER_ID = #{memberId}
 	</select>
 	
 </mapper>
