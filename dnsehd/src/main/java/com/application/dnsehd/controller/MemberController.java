@@ -58,7 +58,6 @@ public class MemberController {
 	@PostMapping("/login")
 	@ResponseBody
 	public String loginMember(MemberDTO memberDTO, HttpServletRequest request, HttpServletResponse response, @RequestParam("maintainLogin") String maintainLogin) {
-//	public String loginMember(MemberDTO memberDTO, HttpServletRequest request) {
 		
 		String isValidMember = "n";
 		if (memberService.loginMember(memberDTO)) {
@@ -71,42 +70,31 @@ public class MemberController {
 			if (maintainLogin.equals("y")) {
 				
 				Cookie idCookie = new Cookie("userId", String.valueOf(memberDTO.getMemberId()));
+				Cookie pwCookie = new Cookie("userPw", String.valueOf(memberDTO.getMemberPw()));
 				idCookie.setMaxAge(60 * 60 * 24 * 90);  // 유효 시간 90일
+				pwCookie.setMaxAge(60 * 60 * 24 * 90);  // 유효 시간 90일
 				response.addCookie(idCookie);
-			}
-			else {
-				Cookie idCookie = new Cookie("userId", null);
-				idCookie.setMaxAge(0);
-				response.addCookie(idCookie);
-//				Cookie[] cookies = request.getCookies();
-//				if (cookies != null) {
-//					for (Cookie cookie : cookies) {
-//						if (cookie.getName().equals("userId")) {
-//							cookie.setAttribute("userId", null);
-//							cookie.setMaxAge(0);
-//							response.addCookie(cookie);
-//							break;
-//						}
-//					}
-//				}
-			}
-			
+				response.addCookie(pwCookie);
+			}			
 		}
 		
 		return isValidMember;
 		
 	}
 	
-//	@PostMapping("/removeCookie")
-//	public void removeCookie(HttpServletResponse response, @RequestParam("maintainLogin") String maintainLogin) {
-//		if (!maintainLogin.equals("y")) {	
-//			
-//			Cookie idCookie = new Cookie("userId", null);
-//			idCookie.setMaxAge(0);
-//			response.addCookie(idCookie);		
-//		
-//		}
-//	}
+	@PostMapping("/removeCookie")
+	public void removeCookie(HttpServletResponse response, @RequestParam("maintainLogin") String maintainLogin) {
+		if (!maintainLogin.equals("y")) {	
+			
+			Cookie idCookie = new Cookie("userId", null);
+			Cookie pwCookie = new Cookie("userPw", null);
+			idCookie.setMaxAge(0);
+			pwCookie.setMaxAge(0);
+			response.addCookie(idCookie);		
+			response.addCookie(pwCookie);		
+		
+		}
+	}
 	
 	@GetMapping("/logout")
 	public String logoutMember(HttpServletRequest request) {
