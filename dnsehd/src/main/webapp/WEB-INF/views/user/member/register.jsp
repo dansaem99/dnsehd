@@ -204,7 +204,6 @@ function checkFormValidation() {
 	                    <p class="fs-4 mb-0 fw-bold">이미 아이디가 있으신가요?</p>
 	                    <a class="text-primary fw-bold ms-2" href="login">로그인</a>
 	                  </div>
-	                  <input type="hidden" name="memberId" value="${memberDTO.memberId }">
 	                </form>
 	              </div>
 	            </div>

@@ -2,6 +2,7 @@ package com.application.dnsehd.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.application.dnsehd.dto.MemberDTO;
 import com.application.dnsehd.service.MemberService;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -40,13 +43,22 @@ public class MemberController {
 	}
 
 	@GetMapping("/login")
-	public ModelAndView login() {
-		return new ModelAndView("user/member/login");
+	public ModelAndView login(@CookieValue(name = "userId", required = false) String userId) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("user/member/login");
+		
+	    if (userId != null) {
+	        mv.addObject("loginType", "cookie-login");
+	        mv.addObject("pageName", "쿠키 로그인");
+	    } 
+		
+		return mv;
 	}
 	
 	@PostMapping("/login")
 	@ResponseBody
-	public String loginMember(MemberDTO memberDTO, HttpServletRequest request) {
+	public String loginMember(MemberDTO memberDTO, HttpServletRequest request, HttpServletResponse response, @RequestParam("maintainLogin") String maintainLogin) {
+//	public String loginMember(MemberDTO memberDTO, HttpServletRequest request) {
 		
 		String isValidMember = "n";
 		if (memberService.loginMember(memberDTO)) {
@@ -56,16 +68,50 @@ public class MemberController {
 			
 			isValidMember = "y";
 			
+			if (maintainLogin.equals("y")) {
+				
+				Cookie idCookie = new Cookie("userId", String.valueOf(memberDTO.getMemberId()));
+				idCookie.setMaxAge(60 * 60 * 24 * 90);  // 유효 시간 90일
+				response.addCookie(idCookie);
+			}
+			else {
+				Cookie idCookie = new Cookie("userId", null);
+				idCookie.setMaxAge(0);
+				response.addCookie(idCookie);
+//				Cookie[] cookies = request.getCookies();
+//				if (cookies != null) {
+//					for (Cookie cookie : cookies) {
+//						if (cookie.getName().equals("userId")) {
+//							cookie.setAttribute("userId", null);
+//							cookie.setMaxAge(0);
+//							response.addCookie(cookie);
+//							break;
+//						}
+//					}
+//				}
+			}
+			
 		}
 		
 		return isValidMember;
 		
 	}
 	
+//	@PostMapping("/removeCookie")
+//	public void removeCookie(HttpServletResponse response, @RequestParam("maintainLogin") String maintainLogin) {
+//		if (!maintainLogin.equals("y")) {	
+//			
+//			Cookie idCookie = new Cookie("userId", null);
+//			idCookie.setMaxAge(0);
+//			response.addCookie(idCookie);		
+//		
+//		}
+//	}
+	
 	@GetMapping("/logout")
 	public String logoutMember(HttpServletRequest request) {
 		
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();		
 		session.invalidate();
 		
 		return "redirect:main";
