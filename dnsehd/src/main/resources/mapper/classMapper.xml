@@ -4,7 +4,7 @@
 	
 	<select id="selectClassList" resultType="ClassDTO">
 		SELECT 	*
-		FROM	CLASS
+		FROM		CLASS
 	</select>
 	
 	<insert id="insertClass" parameterType="ClassDTO">
@@ -52,9 +52,20 @@
 		WHERE 		CLASS_NO = #{classNo}
 	</delete>
 	
-	<select id="selectTeacherList" parameterType="int" resultType="teacherDTO">
+	<select id="selectTeacherList" resultType="teacherDTO">
 		SELECT 	TEACHER_NO ,TEACHER_NM
 		FROM 	TEACHER	
+	</select>
+	
+	<select id="selectTeacherDetail" resultType="teacherDTO">
+		SELECT	TEACHER_NM, TEACHER_CAREER
+		FROM 	TEACHER
+	</select>
+	
+	<select id="selectListSearchClass" resultType="ClassDTO" parameterType="hashMap">
+		SELECT 	*
+		FROM		CLASS
+		WHERE	CLASS_NM LIKE CONCAT ('%' , #{searchWord}, '%')
 	</select>
 		
 </mapper>

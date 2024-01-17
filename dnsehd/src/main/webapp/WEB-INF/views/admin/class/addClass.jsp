@@ -93,11 +93,10 @@
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultSelect" class="form-label">수업방식</label>
 	                        <select name="classCategory" class="form-select">
-	                          <option>전체수업</option>
-	                          <option>개인래슨</option>
-	                          <option>그룹수업</option>
+	                          <option>단체수업</option>
+	                          <option>소그룹수업</option>
+	                          <option>개인수업</option>
 	                          <option>시설이용</option>
-	                          <option>할인혜택수업</option>
 	                        </select>
 	                      </div>
 	                      <div class="mb-3 col-md-6">

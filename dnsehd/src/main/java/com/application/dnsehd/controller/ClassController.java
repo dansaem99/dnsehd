@@ -1,11 +1,14 @@
 package com.application.dnsehd.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.application.dnsehd.dto.ClassDTO;
@@ -94,6 +97,14 @@ public class ClassController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/class/classDetail");
 		mv.addObject("classDTO", classService.getClassDetail(classNo));
+		mv.addObject("teacherDTO", classService.getTeacherDetail());
 		return mv;
-	}	
+	}
+	
+	@GetMapping("/searchClassList")
+	@ResponseBody
+	public List<ClassDTO> searchClassList(@RequestParam Map<String, String> searchMap) {
+		return classService.getClassSearchList(searchMap);
+	}
+	
 }

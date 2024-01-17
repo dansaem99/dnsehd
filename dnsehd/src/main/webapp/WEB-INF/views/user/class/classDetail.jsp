@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -71,23 +71,17 @@
                             <i class="fa fa-star"></i>
                             <span>( 138 reviews )</span>
                         </div>
-                        <div class="product__details__price">${classDTO.classPrice }</div>
-                        <p>수업 핵심 정보 간단히! Nemo enim ipsam voluptatem quia aspernatur aut odit aut loret fugit, sed quia consequuntur
-                        magni lores eos qui.</p>
-                        <div class="product__details__button">
-                            <a href="#" class="cart-btn"><span class="icon_bag_alt"></span> 수강 신청하기</a>
-                            <a href="#" class="cart-btn"><span class="icon_heart_alt"></span> 관심 수업 등록</a>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-solid fa-phone"></i></a></li>
-                            </ul>
+                        <div class="product__details__price" style="color: blue;">
+                        		<fmt:formatNumber value="${classDTO.classPrice }"/>
                         </div>
+                        <h4>${classDTO.classTime }</h4><br>
                         <div class="product__details__widget">
                             <ul>
                                 <li>
-                                    <span>사전 상담 신청 여부:</span>
+                                    <span>수업 1시간전 알람:</span>
                                     <div class="stock__checkbox">
                                         <label for="counselYn">
-                                            사전 상담을 신청하겠습니다.
+                                            수업 1시간전에 알람을 받겠습니다.
                                             <input type="checkbox" id="counselYn">
                                             <span class="checkmark"></span>
                                         </label>
@@ -98,6 +92,10 @@
                                     <p>24 / ${classDTO.classLimit }</p>
                                 </li>
                             </ul>
+                        </div>
+                        <br>
+                        <div class="product__details__button">
+                            <a href="#" class="cart-btn"><span class="icon_bag_alt"></span> 수강 신청하기</a>
                         </div>
                     </div>
                 </div>
