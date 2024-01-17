@@ -1,7 +1,5 @@
 package com.application.dnsehd.dto;
 
-import java.util.Date;
-
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
@@ -14,8 +12,8 @@ public class EventDTO {
 	private String eventTitle;
 	private String eventContent;
 	private int eventCost;
-	private Date eventStartDt;
-	private Date eventEndDt;
+	private String eventStartDt;
+	private String eventEndDt;
 	private int classNo;
 	private String adminId;
 	

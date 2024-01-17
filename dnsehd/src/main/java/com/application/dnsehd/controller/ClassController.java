@@ -32,6 +32,7 @@ public class ClassController {
 	
 	@GetMapping("/adAddClass")
 	public ModelAndView addClass() {
+		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/class/addClass");
 		mv.addObject("teacherList", classService.getTeacherList());
@@ -81,12 +82,18 @@ public class ClassController {
 	
 	// user
 	@GetMapping("/class")
-	public String classList() {
-		return "user/class/class";
+	public ModelAndView classList() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("user/class/class");
+		mv.addObject("classList", classService.getClassList());
+		return mv;
 	}	
 
 	@GetMapping("/classDetail")
-	public String classDetail() {
-		return "user/class/classDetail";
+	public ModelAndView classDetail(@RequestParam("classNo") int classNo) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("user/class/classDetail");
+		mv.addObject("classDTO", classService.getClassDetail(classNo));
+		return mv;
 	}	
 }

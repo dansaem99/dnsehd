@@ -5,8 +5,6 @@
 	<select id="selectClassList" resultType="ClassDTO">
 		SELECT 	*
 		FROM	CLASS
-		
-		
 	</select>
 	
 	<insert id="insertClass" parameterType="ClassDTO">

@@ -73,48 +73,54 @@
                     <h2 class="card-header">이벤트추가</h2>
                     <hr class="my-0" />
                     <div class="card-body row">
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">제목</label>
-                        <input name="eventTitle" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">가격</label>
-                        <input name="eventCost" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">시작날짜</label>
-                        <input name="eventStartDt" class="form-control" type="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${eventStartDt }" />"/>
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">종료날짜</label>
-                        <input name="eventEndDt" class="form-control" type="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${eventStartDt }" />"/>
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">운동명</label>
-                        <select name="eventTitle" class="form-select">
-                          <option>손흥민축구교실</option>
-                          <option>개인래슨</option>
-                          <option>그룹수업</option>
-                          <option>시설이용</option>
-                          <option>할인혜택수업</option>
-                        </select>
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="formFileMultiple" class="form-label">사진</label>
-                        <input class="form-control" type="file" name="eventTitle" multiple />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">내용</label>
-                        <textarea class="form-control" rows="10" cols="50" name="eventTitle" required></textarea>
-                      </div>
-                      <div class="mt-2">
-	                   	  <div class="mt-2">
-	                      	  <input type="hidden" name="adminId" value="${sessionScope.adminId }"/>
-	                      	  <input type="hidden" name="classNo" value="${event.classNo }"/>
-	                          <input type="submit" class="btn btn-outline-primary me-2" value="추가하기"/>
-	                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adEvent'"/>
+                       <form action="/adAddEvent" method="post">
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">제목</label>
+	                        <input name="eventTitle" class="form-control" type="text" placeholder="제목을 입력하세요." required/>
 	                      </div>
-                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">할인가격</label>
+	                        <input name="eventCost" class="form-control" type="number" min="200000" step="10000" placeholder="가격을 입력하세요." required />
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">가격</label>
+	                        <c:forEach var="classDTO" items="${classList }">
+	                        	<input name="classPrice" class="form-control" type="number" value="${classDTO.classPrice }" min="${classDTO.classPrice }" max="${classDTO.classPrice }" required />
+	                        </c:forEach>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">시작날짜</label>
+	                        <input name="eventStartDt" class="form-control" type="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${eventStartDt }" />"/>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">종료날짜</label>
+	                        <input name="eventEndDt" class="form-control" type="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${eventStartDt }" />"/>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">운동명</label>
+	                        <select name="classNo" class="form-select">
+	                          <c:forEach var="classDTO" items="${classList }">
+	                            <option value="${classDTO.classNo }">${classDTO.classNm }</option>
+	                          </c:forEach>
+	                        </select>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">내용</label>
+	                        <textarea class="form-control" rows="10" cols="50" name="eventContent" required></textarea>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="formFileMultiple" class="form-label">사진</label>
+	                        <input class="form-control" type="file" multiple />
+	                      </div>
+	                      <div class="mt-2">
+		                   	  <div class="mt-2">
+		                      	  <input type="hidden" name="adminId" value="${sessionScope.adminId }"/>
+		                      	  <input type="hidden" name="classNo" value="${eventDTO.classNo }"/>
+		                          <input type="submit" class="btn btn-outline-primary me-2" value="추가하기"/>
+		                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adEvent'"/>
+		                      </div>
+	                      </div>
+                       </form>
                     </div>
                   </div>
                 </div>

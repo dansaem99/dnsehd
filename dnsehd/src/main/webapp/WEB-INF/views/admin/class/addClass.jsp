@@ -101,12 +101,12 @@
 	                        </select>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
-		                        <label for="defaultInput" class="form-label">강사이름</label>
-		                        <select name="teacherNo" class="form-select">
-		                          <c:forEach var="teacherDTO" items="${teacherList }">
-		                            <option value="${teacherDTO.teacherNo }">${teacherDTO.teacherNm }</option>
-		                          </c:forEach>
-		                        </select>
+	                        <label for="defaultInput" class="form-label">강사이름</label>
+	                        <select name="teacherNo" class="form-select">
+	                          <c:forEach var="teacherDTO" items="${teacherList }">
+	                            <option value="${teacherDTO.teacherNo }">${teacherDTO.teacherNm }</option>
+	                          </c:forEach>
+	                        </select>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">내용</label>

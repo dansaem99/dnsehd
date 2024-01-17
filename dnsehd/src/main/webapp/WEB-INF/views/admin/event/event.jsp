@@ -113,20 +113,20 @@
                     
                     <thead>
                       <tr>
+                      	<th>이벤트번호</th>
                         <th>제목</th>
                         <th>내용</th>
                         <th>가격</th>
-                        <th>작성일</th>
                         <th>ACTIONS</th>
                       </tr>
                     </thead>
                     <tbody id="eventList">
                     	<c:forEach var="eventDTO" items="${eventList }">
                     		<tr>
+                    			<td>${eventDTO.eventNo }</td>
 		                        <td>${eventDTO.eventTitle }</td>
 		                        <td>${eventDTO.eventContent }</td>
 		                        <td>${eventDTO.eventCost }</td>
-		                        <td><fmt:formatDate value="${evnetDTO.eventDate }" pattern="yyyy-MM-dd"/></td>
 		                        <td>
 		                          <div>
 		                           		<input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyEvent?eventNo=${eventDTO.eventNo }'">

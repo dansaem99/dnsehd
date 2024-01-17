@@ -29,8 +29,9 @@ public class EventController {
 	}
 	
 	@GetMapping("/adAddEvent")
-	public ModelAndView addEvent(ModelAndView mv) {
+	public ModelAndView addEvent() {
 		
+		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/event/addEvent");
 		mv.addObject("classList", eventService.getClassList());
 		
@@ -40,7 +41,7 @@ public class EventController {
 	@PostMapping("/adAddEvent")
 	public String addEvent(EventDTO eventDTO) {
 		eventService.addEvent(eventDTO);
-		return "redirect:adEvnet";
+		return "redirect:adEvent";
 	}
 	
 }

@@ -39,7 +39,7 @@
                     <div class="breadcrumb__links">
                         <a href="main"><i class="fa fa-home"></i> Home</a>
                         <a href="class">Class </a>
-                        <span>근력 향상 1:1 PT</span>
+                        <span>${classDTO.classNm }</span>
                     </div>
                 </div>
             </div>
@@ -51,35 +51,18 @@
     <section class="product-details spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="product__details__pic">
-                        <div class="product__details__pic__left product__thumb nice-scroll">
-                            <a class="pt active" href="#product-1">
-                                <img src="/addedImg/pt_1.jpg" alt="">
-                            </a>
-                            <a class="pt" href="#product-2">
-                                <img src="/addedImg/pt_2.jpg" alt="">
-                            </a>
-                            <a class="pt" href="#product-3">
-                                <img src="/addedImg/pt_3.jpg" alt="">
-                            </a>
-                            <a class="pt" href="#product-4">
-                                <img src="/addedImg/pt_4.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="product__details__slider__content">
-                            <div class="product__details__pic__slider owl-carousel">
-                                <img data-hash="product-1" class="product__big__img" src="/addedImg/pt_1.jpg" alt="">
-                                <img data-hash="product-2" class="product__big__img" src="/addedImg/pt_2.jpg" alt="">
-                                <img data-hash="product-3" class="product__big__img" src="/addedImg/pt_3.jpg" alt="">
-                                <img data-hash="product-4" class="product__big__img" src="/addedImg/pt_4.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
+	                <div class="product__item">
+	                    <div class="product__item__trainer__pic set-bg" data-setbg="/addedImg/pt_1.jpg">
+	                        <ul class="product__hover">
+	                            <li><a href="/addedImg/pt_1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
+	                        </ul>
+	                    </div>
+	                </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>근력 향상 1:1 PT <span>강사명: 기보배 트레이너</span></h3>
+                        <h3>${classDTO.classNm } <span>강사명: ${teacherDTO.teacherNm }</span></h3>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -88,7 +71,7 @@
                             <i class="fa fa-star"></i>
                             <span>( 138 reviews )</span>
                         </div>
-                        <div class="product__details__price">35만원/월 <span>40만원/월</span></div>
+                        <div class="product__details__price">${classDTO.classPrice }</div>
                         <p>수업 핵심 정보 간단히! Nemo enim ipsam voluptatem quia aspernatur aut odit aut loret fugit, sed quia consequuntur
                         magni lores eos qui.</p>
                         <div class="product__details__button">
@@ -112,7 +95,7 @@
                                 </li>
                                 <li>
                                     <span>현재 수강신청 인원:</span>
-                                    <p>24 / 40</p>
+                                    <p>24 / ${classDTO.classLimit }</p>
                                 </li>
                             </ul>
                         </div>
@@ -134,29 +117,11 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <h6>수업 상세 정보</h6>
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed
-                                    quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret.
-                                    Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam
-                                    voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu
-                                    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla
-                                consequat massa quis enim.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-                                    dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                                    nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                                quis, sem.</p>
+                                <p>${classDTO.classContent }</p>
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <h6>강사 이력</h6>
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed
-                                    quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret.
-                                    Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam
-                                    voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu
-                                    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla
-                                consequat massa quis enim.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-                                    dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                                    nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                                quis, sem.</p>
+                                <p>${teacherDTO.teacherCareer }</p>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <h6>리뷰 ( 2 )</h6>
@@ -166,10 +131,6 @@
                                     voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu
                                     consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla
                                 consequat massa quis enim.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-                                    dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                                    nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                                quis, sem.</p>
                             </div>
                         </div>
                     </div>
