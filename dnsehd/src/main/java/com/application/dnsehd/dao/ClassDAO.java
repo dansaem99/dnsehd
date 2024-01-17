@@ -1,6 +1,7 @@
 package com.application.dnsehd.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,5 +17,7 @@ public interface ClassDAO {
 	public void updateClass(ClassDTO classDTO);
 	public void deleteClass(int classNo);
 	public List<TeacherDTO> selectTeacherList();
+	public TeacherDTO selectTeacherDetail();
+	public List<ClassDTO> selectListSearchClass(Map<String, String> searchMap);
 
 }

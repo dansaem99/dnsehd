@@ -126,7 +126,7 @@
                     			<td>${eventDTO.eventNo }</td>
 		                        <td>${eventDTO.eventTitle }</td>
 		                        <td>${eventDTO.eventContent }</td>
-		                        <td>${eventDTO.eventCost }</td>
+		                        <td><fmt:formatNumber value="${eventDTO.eventCost }"/></td>
 		                        <td>
 		                          <div>
 		                           		<input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyEvent?eventNo=${eventDTO.eventNo }'">

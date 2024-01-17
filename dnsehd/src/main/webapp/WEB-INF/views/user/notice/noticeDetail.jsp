@@ -74,7 +74,7 @@
                                         </div>
                                     </td>
                                     <th>작성일</th>
-                                    <td class="notice__date"><fmt:formatDate value="${noticeDTO.noticeDate }" pattern="yyyy-MM-dd"/></td>
+                                    <td class="notice__date"><fmt:formatDate value="${noticeDTO.noticeDt }" pattern="yyyy-MM-dd"/></td>
                                 </tr>
                                 <tr>
                                 	<td colspan="4">${noticeDTO.noticeContent }</td>

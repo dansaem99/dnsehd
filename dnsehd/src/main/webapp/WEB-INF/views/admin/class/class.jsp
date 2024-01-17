@@ -126,7 +126,7 @@
 	                      	<td><fmt:formatNumber value="${classDTO.classNo }" pattern="000" /></td>
 	                        <td>${classDTO.classNm }</td>
 	                        <td>${classDTO.classContent }</td>
-	                        <td>${classDTO.classPrice }</td>
+	                        <td><fmt:formatNumber value="${classDTO.classPrice }"/></td>
 	                        <td>
 	                          <div>
 	                  			<div>

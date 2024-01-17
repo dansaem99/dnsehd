@@ -69,7 +69,7 @@
 	                                    <td>${noticeDTO.noticeNo }</td>
 	                                    <td><a href="noticeDetail?noticeNo=${noticeDTO.noticeNo }">${noticeDTO.noticeTitle }</a></td>
 	                                    <td>${noticeDTO.adminId }</td>
-	                                    <td><fmt:formatDate value="${noticeDTO.noticeDate }" pattern="yyyy-MM-dd"/></td>
+	                                    <td><fmt:formatDate value="${noticeDTO.noticeDt }" pattern="yyyy-MM-dd"/></td>
 	                                </tr>
                                 </c:forEach>
                             </tbody>

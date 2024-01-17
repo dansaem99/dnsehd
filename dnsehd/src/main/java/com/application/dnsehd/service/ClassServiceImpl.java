@@ -1,6 +1,7 @@
 package com.application.dnsehd.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,17 @@ public class ClassServiceImpl implements ClassService {
 	@Override
 	public List<TeacherDTO> getTeacherList() {
 		return classDAO.selectTeacherList();
+	}
+
+	@Override
+	@Transactional
+	public TeacherDTO getTeacherDetail() {
+		return classDAO.selectTeacherDetail();
+	}
+
+	@Override
+	public List<ClassDTO> getClassSearchList(Map<String, String> searchMap) {
+		return classDAO.selectListSearchClass(searchMap);
 	}
 	
 	
