@@ -64,7 +64,7 @@
             <form action="/addReview" class="checkout__form">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h5>user1 님의 후기</h5>
+                        <h5>${memberId } 님의 후기</h5>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="checkout__form__input">
