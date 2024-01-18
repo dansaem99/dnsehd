@@ -16,7 +16,6 @@ import com.application.dnsehd.dto.MemberDTO;
 
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import java.util.Random;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -107,10 +106,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean authenticateMember(MemberDTO memberDTO) {
+	public boolean authenticateMember(MemberDTO memberDTO, String authenticationNo) {
 		MemberDTO validateData = memberDAO.selectOneAuthenticateMember(memberDTO.getMemberId());
-		Random random = new Random();
-		int authenticationNo = 100000 + random.nextInt(900000);
 		
 		if (validateData != null) {
 			if (memberDTO.getEmail().equals(validateData.getEmail()) && !validateData.getActiveYn().equals("n")) {

@@ -1,5 +1,9 @@
 package com.application.dnsehd.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -17,6 +21,8 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
+import java.util.Random;
 
 @Controller
 public class MemberController {
@@ -156,20 +162,34 @@ public class MemberController {
 	}
 	
 	@GetMapping("/findPassword")
-	public ModelAndView findPassword() {
-		return new ModelAndView("user/member/findPassword");
+	public ModelAndView findPassword(HttpServletRequest request) {
+		
+	    Random random = new Random();
+	    String authenticationNo = Integer.toString(100000 + random.nextInt(900000));
+
+	    HttpSession session = request.getSession();
+	    session.setAttribute("authenticationNo", authenticationNo);
+
+	    return new ModelAndView("user/member/findPassword");
 	}
 
 	@PostMapping("/findPassword")
 	@ResponseBody
-	public String findPassword(MemberDTO memberDTO) {
-		
-		String isValidMember = "n";
-		if (memberService.authenticateMember(memberDTO)) {
-			isValidMember = "y";		
-		}
-		
-		return isValidMember;		
+	public Map<String, String> findPassword(MemberDTO memberDTO, HttpServletRequest request) {
+	    Map<String, String> authInfo = new HashMap<>();
+
+	    HttpSession session = request.getSession();
+	    String authenticationNo = (String) session.getAttribute("authenticationNo");
+
+	    String isValidMember = "n";
+	    if (memberService.authenticateMember(memberDTO, authenticationNo)) {
+	        isValidMember = "y";
+	    }
+
+	    authInfo.put("isValidMember", isValidMember);
+	    authInfo.put("authenticationNo", authenticationNo);
+
+	    return authInfo;
 	}
 
 	@GetMapping("/modifyPassword")

@@ -23,13 +23,36 @@
   				url : "/findPassword",
   				type : "post",
   				data : authData,
-  				success : function(isValidMember) {
+  				success : function(authinfo) {
   					
-  					if (isValidMember == "y") {
+  					if (authinfo.isValidMember == "y") {
   						$("#failMsg").html("<span style='color:green;'>아이디와 이메일 정보가 일치합니다.</span>");
   					}
   					else {
   						$("#failMsg").html("<span style='color:red;'>아이디와 이메일을 확인하세요.</span>");
+  					}
+  				}
+  			});
+  	}
+  	
+  	function matchAuthNo(){
+  		let authNumberData = {
+  				"authInputNo" : $("[name='authInputNo']").val()
+  			}
+  			
+  			$.ajax({
+  				url : "/findPassword",
+  				type : "post",
+  				data : authNumberData,
+  				success : function(authinfo) {
+  					console.log('authinfo.authenticationNo:', authinfo.authenticationNo);
+  					console.log('authNumberData.authInputNo:', authNumberData.authInputNo);
+  					
+  					if (authNumberData.authInputNo === authinfo.authenticationNo) {
+  						window.location.href = '/modifyPassword';
+  					}
+  					else {
+  						$("#notMatchMsg").html("<span style='color:red;'>인증번호가 일치하지 않습니다.</span>");
   					}
   				}
   			});
@@ -67,12 +90,12 @@
                   <a href="javascript:authentication()" class="btn btn-primary w-50 py-8 fs-4 mb-4 rounded-2 mx-auto d-block" id="authenticationBtn">인증번호 받기</a>
                   <div class="mb-4">
                     <label for="element3" class="form-label">인증번호</label>
-                    <input type="text" class="form-control" name="authenticationNo" placeholder="이메일로 수신한 인증번호를 입력하세요." ><br>
-                    <span id="failMsg"></span>
+                    <input type="text" class="form-control" name="authInputNo" placeholder="이메일로 수신한 인증번호를 입력하세요." ><br>
+                    <span id="notMatchMsg"></span>
                   </div>
 			      <div class="d-flex align-items-center justify-content-center">
 				  	<input type="button" class="btn btn-primary w-30 py-8 fs-4 mb-4 rounded-2 mx-2" id="cancelBtn" value="취소" onclick="location.href='/login'"/>
-				    <input type="button" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2 mx-2" id="nextBtn" value="확인" onclick="location.href='/modifyPassword'"/>
+				    <a href="javascript:matchAuthNo()" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2 mx-2" id="authNoDoneBtn">확인</a>
 				  </div>
                 </form>
               </div>
