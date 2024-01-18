@@ -119,13 +119,6 @@
 	                                </div>
 	                                <div class="product__item__text">
 	                                    <h6>${teacherDTO.teacherIntro } </h6>
-	                                    <div class="rating">
-	                                        <i class="fa fa-star"></i>
-	                                        <i class="fa fa-star"></i>
-	                                        <i class="fa fa-star"></i>
-	                                        <i class="fa fa-star"></i>
-	                                        <i class="fa fa-star"></i>
-	                                    </div>
 	                                    <div class="product__price"><a href="/teacherDetail?teacherNo=${teacherDTO.teacherNo }">${teacherDTO.teacherNm } 트레이너</a></div>
 	                                </div>
 	                            </div>
