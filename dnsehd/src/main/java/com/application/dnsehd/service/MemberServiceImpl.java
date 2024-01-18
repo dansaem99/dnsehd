@@ -118,8 +118,8 @@ public class MemberServiceImpl implements MemberService {
 				    SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
 				    try{
 				        // 1. 메일 수신자 설정
-				        String[] receiveList = {"yr0955@naver.com"};
-				        simpleMailMessage.setTo(receiveList);
+				        String receiveEmail = memberDTO.getEmail();
+				        simpleMailMessage.setTo(receiveEmail);
 
 				        // 2. 메일 제목 설정
 				        simpleMailMessage.setSubject("DNSEHD 서비스 비밀번호 찾기 인증번호입니다.");
