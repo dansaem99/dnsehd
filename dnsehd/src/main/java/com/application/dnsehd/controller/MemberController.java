@@ -183,6 +183,7 @@ public class MemberController {
 
 	    String isValidMember = "n";
 	    if (memberService.authenticateMember(memberDTO, authenticationNo)) {
+	    	session.setAttribute("tempMemberId", memberDTO.getMemberId());
 	        isValidMember = "y";
 	    }
 
@@ -193,8 +194,23 @@ public class MemberController {
 	}
 
 	@GetMapping("/modifyPassword")
-	public ModelAndView modifyPassword() {
-		return new ModelAndView("user/member/modifyPassword");
+	public ModelAndView modifyPassword(HttpServletRequest request) {
+	    HttpSession session = request.getSession();
+	    
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("user/member/modifyPassword");
+		mv.addObject("memberDTO" , memberService.getMemberDetail((String)session.getAttribute("tempMemberId")));
+		
+		return mv;
+	}
+	
+	@PostMapping("/modifyPassword")
+	public String modifyPassword(@ModelAttribute MemberDTO memberDTO) {
+		System.out.println(memberDTO);
+		memberService.modifyMemberPw(memberDTO);
+		
+		return "redirect:login";
+		
 	}
 	
 	// for admin

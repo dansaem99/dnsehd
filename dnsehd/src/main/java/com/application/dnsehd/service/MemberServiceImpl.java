@@ -135,6 +135,13 @@ public class MemberServiceImpl implements MemberService {
 			}
 		return false;
 	}
+
+	@Override
+	public void modifyMemberPw(MemberDTO memberDTO) {
+		
+		memberDTO.setMemberPw(passwordEncoder.encode(memberDTO.getMemberPw()));
+		memberDAO.updateMemberPw(memberDTO);
+	}
 	
 }
 

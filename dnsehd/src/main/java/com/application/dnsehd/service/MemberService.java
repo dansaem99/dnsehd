@@ -20,4 +20,5 @@ public interface MemberService {
 	
 	// 비밀번호 분실, 변경 절차
 	public boolean authenticateMember(MemberDTO memberDTO, String authenticationNo);
+	public void modifyMemberPw(MemberDTO memberDTO);
 }

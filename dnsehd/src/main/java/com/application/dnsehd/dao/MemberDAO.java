@@ -24,5 +24,5 @@ public interface MemberDAO {
 	
 	// 비밀번호 분실, 변경 절차
 	public MemberDTO selectOneAuthenticateMember(String memberId);
-	
+	public void updateMemberPw(MemberDTO memberDTO);
 }

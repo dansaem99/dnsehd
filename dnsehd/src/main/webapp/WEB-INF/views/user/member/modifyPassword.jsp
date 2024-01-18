@@ -13,30 +13,28 @@
   <script src="/jquery/jquery-3.6.1.min.js"></script>
   <script>
   
-  <!-- 나중에 삭제할 것!
-  	function login(){
-  		let loginData = {
-  				"memberId" : $("[name='memberId']").val(),
-  				"memberPw" : $("[name='memberPw']").val(),
-  			}
-  			
-  			$.ajax({
-  				url : "/login",
-  				type : "post",
-  				data : loginData,
-  				success : function(isValidMember) {
-  					
-  					if (isValidMember == "y") {
-  						location.href = "/main";
-  					}
-  					else {
-  						$("#failMsg").html("<span style='color:red;'>아이디와 패스워드를 확인하세요.</span>");
-  					}
-  				}
-  			});
-  	}
-  
-  -->
+	var isPassId = false;
+	var isPassPasswd = false;
+	
+	$().ready(function() {
+		
+		$("#confirmPasswd").blur(function(){
+			
+			let memberPw = $("#memberPw").val();
+			let confirmPasswd = $("#confirmPasswd").val();
+			
+			if (memberPw == confirmPasswd) {
+				$("#isValidPasswdMsg").html("<span style='color:green;'>패스워드가 일치합니다.</span>");
+				isPassPasswd = true;
+			}
+			else {
+				$("#isValidPasswdMsg").html("<span style='color:red;'>패스워드가 일치하지 않습니다.</span>");
+				isPassPasswd = false;
+			}
+			
+		});	
+		
+	});
   
   </script>
 
@@ -52,7 +50,7 @@
           <div class="col-md-8 col-lg-6 col-xxl-3">
             <div class="card mb-0">
               <div class="card-body">
-                <form>
+                <form action="/modifyPassword" method="post">
                   <div class="mb-3" style="text-align: center;">
                     <label for="element0" class="form-label" style="font-size: 30px;">비밀번호 변경 </label>
                     <label for="element0" class="form-label">변경하려는 비밀번호를 입력하세요. </label>
@@ -67,8 +65,9 @@
                     <span id="isValidPasswdMsg"></span>
                   </div>                  
 			      <div class="d-flex align-items-center justify-content-center">
+			      	<input type="hidden" name="memberId" id="memberId" value="${memberDTO.memberId }"/>
 				  	<input type="button" class="btn btn-primary w-30 py-8 fs-4 mb-4 rounded-2 mx-2" id="cancelBtn" value="취소" onclick="location.href='/findPassword'"/>
-				    <input type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2 mx-2" id="nextBtn" value="확인" onclick="location.href='/login'"/>
+				    <input type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2 mx-2" id="nextBtn" value="확인" />
 				  </div>
                 </form>
               </div>

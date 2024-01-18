@@ -164,4 +164,16 @@
 				MEMBER_ID = #{memberId}
 	</select>
 	
+	<update id="updateMemberPw" parameterType="MemberDTO">
+		UPDATE
+				MEMBER
+		<set>
+			<if test='memberPw != null and !memberPw.equals("")'>
+				MEMBER_PW = #{memberPw},
+			</if>
+		</set>
+		WHERE
+				MEMBER_ID = #{memberId}
+	</update>
+	
 </mapper>
