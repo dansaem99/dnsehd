@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
 import com.application.dnsehd.dao.MemberDAO;
 import com.application.dnsehd.dto.MemberDTO;
 
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import java.util.Random;
+
 @Service
 public class MemberServiceImpl implements MemberService {
 	
@@ -22,6 +26,9 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+    private JavaMailSender javaMailSender;
 	
 	private static Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
 
@@ -102,14 +109,35 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean authenticateMember(MemberDTO memberDTO) {
 		MemberDTO validateData = memberDAO.selectOneAuthenticateMember(memberDTO.getMemberId());
+		Random random = new Random();
+		int authenticationNo = 100000 + random.nextInt(900000);
 		
 		if (validateData != null) {
 			if (memberDTO.getEmail().equals(validateData.getEmail()) && !validateData.getActiveYn().equals("n")) {
-				return true;
-			}
-		}
+				// 이메일 전송
+				    SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+				    try{
+				        // 1. 메일 수신자 설정
+				        String[] receiveList = {"yr0955@naver.com"};
+				        simpleMailMessage.setTo(receiveList);
+
+				        // 2. 메일 제목 설정
+				        simpleMailMessage.setSubject("DNSEHD 서비스 비밀번호 찾기 인증번호입니다.");
+
+				        // 3. 메일 내용 설정
+				        simpleMailMessage.setText("인증번호는 "+ authenticationNo + " 입니다.");
+
+				        // 4. 메일 전송
+				        javaMailSender.send(simpleMailMessage);
+				    } catch(Exception e){
+				        logger.info(e.toString());
+				    }
 		
+				    return true;
+				}
+			}
 		return false;
 	}
 	
 }
+

@@ -51,6 +51,9 @@ dependencies {
 	// lombok
 	implementation 'org.projectlombok:lombok'
 	
+	// send mail
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
