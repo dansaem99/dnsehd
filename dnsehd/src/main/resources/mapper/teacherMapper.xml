@@ -3,6 +3,25 @@
 
 <mapper namespace="com.application.dnsehd.dao.TeacherDAO">
 
+	<select id="getAllTeacherCnt" parameterType="String" resultType="int">
+		<choose>
+			<when test='searchWord.equals("")'>
+				SELECT
+						COUNT(*)
+				FROM
+						TEACHER
+			</when>
+			<otherwise>
+				SELECT
+						COUNT(*)
+				FROM 
+						TEACHER
+				WHERE
+						TEACHER_NM LIKE CONCAT('%',#{searchWord},'%')
+			</otherwise>
+		</choose>
+	</select>
+	
 	<insert id="insertTeacher" parameterType="TeacherDTO">
 		INSERT INTO TEACHER (
 				TEACHER_NO,
@@ -24,12 +43,38 @@
 		)
 	</insert>
 
-
-	<select id="selectTeacherList" resultType="TeacherDTO">
-		SELECT 
+	<select id="selectAdminTeacherList" resultType="TeacherDTO">
+		SELECT
 				*
 		FROM
 				TEACHER
+	</select>
+
+	<select id="selectTeacherList" parameterType="hashmap" resultType="TeacherDTO">
+		<choose>
+			<when test='searchWord.equals("")'>
+				SELECT
+						*
+				FROM
+						TEACHER
+				ORDER BY
+						TEACHER_NO DESC
+				LIMIT
+						#{startTeacherIdx},#{onePageViewCnt}
+			</when>
+			<otherwise>
+				SELECT
+						*
+				FROM
+						TEACHER
+				WHERE
+						TEACHER_NM LIKE CONCAT('%' , #{searchWord} , '%')
+				ORDER BY
+						TEACHER_NO DESC
+				LIMIT
+						#{startTeacherIdx},#{onePageViewCnt}
+			</otherwise>
+		</choose>
 	</select>
 	
 	
@@ -65,4 +110,26 @@
 				TEACHER_NO = #{teacherNo}
 	</delete>
 
+	<insert id="insertTeacherDummy">
+		INSERT INTO TEACHER (
+				TEACHER_NM,
+				TEACHER_BIRTH,
+				TEACHER_HP,
+				TEACHER_CAREER,
+				TEACHER_INTRO,
+				ADMIN_ID
+		)
+		VALUES
+		<foreach collection="list" item="teacherDTO" separator=","> 
+			(
+				#{teacherDTO.teacherNm},
+				#{teacherDTO.teacherBirth},
+				#{teacherDTO.teacherHp},
+				#{teacherDTO.teacherCareer},
+				#{teacherDTO.teacherIntro},
+				#{teacherDTO.adminId}
+			)	
+		</foreach>
+	</insert>
+	
 </mapper>

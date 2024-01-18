@@ -27,6 +27,27 @@
     <link rel="stylesheet" href="/ashion/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/ashion/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/ashion/css/style.css" type="text/css">
+    
+<script>
+	
+	$().ready(function(){
+		
+		$("#onePageViewCnt").val("${onePageViewCnt}");
+		$("#searchKeyword").val("${searchKeyword}");
+	});
+	
+	function getTeacherList(currentPageNumber) {
+		var url = "/teacher"
+			url += "?searchWord=" + $("#searchWord").val();
+			url += "&onePageViewCnt=" + $("#onePageViewCnt").val();
+			if (currentPageNumber != null) {
+				url += "&currentPageNumber=" + currentPageNumber;
+			}
+		
+			location.href = url;
+			
+	}
+</script>
 </head>
 
 <body>
@@ -48,6 +69,11 @@
     </div>
     <!-- Breadcrumb End -->
 
+	<!-- create test data -->
+	<p align="center">
+		<input type="button" value="테스트 데이터 생성" onclick="location.href='/addTeacherDummy'">
+	</p>
+    
     <!-- Shop Section Begin -->
     <section class="shop spad">
         <div class="container">
@@ -56,62 +82,26 @@
                     <div class="shop__sidebar">
                         <div class="sidebar__sizes">
                             <div class="section-title">
-                                <h4>수업 방식</h4>
+                                <h4>한 페이지 당 강사 수</h4>
                             </div>
-                            <div class="size__list">
-                                <label for="전체수업">
-                                    전체 수업
-                                    <input type="checkbox" id="전체수업">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="개인레슨">
-                                    개인 레슨
-                                    <input type="checkbox" id="개인레슨">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="그룹수업">
-                                    그룹 수업
-                                    <input type="checkbox" id="그룹수업">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="시설이용">
-                                    시설 이용
-                                    <input type="checkbox" id="시설이용">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="할인혜택 수업">
-                                    할인혜택 수업
-                                    <input type="checkbox" id="할인혜택 수업">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="sidebar__sizes">
+							<div class="footer__newslatter">
+								<select id="onePageViewCnt" onchange="getTeacherList()" >
+									<option>6</option>
+									<option>9</option>
+									<option>12</option>
+								</select>
+							</div>
                             <div class="section-title">
                                 <h4>원하는 강사명 검색</h4>
                             </div>
 			                <div class="footer__newslatter">
 			                    <form action="#">
-			                        <input type="text" class="form-control" name="searchTeacher" id="searchTeacher" placeholder="찾으시는 강사명" aria-describedby="textHelp" required/>
+			                        <input type="text" class="form-control" name="searchWord" id="searchWord" placeholder="찾으시는 강사명" value="${searchWord }"/>
 			                    </form>
 			                </div>
-                        </div>
-                        <div class="sidebar__filter">
-                            <div class="section-title">
-                                <h4>강사 연령대 선택</h4>
-                            </div>
-                            <div class="filter-range-wrap">
-                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                data-min="20" data-max="60"></div>
-                                <div class="range-slider">
-                                    <div class="price-input">
-                                        <p>Age:</p>
-                                        <input type="text" id="minamount">
-                                        <input type="text" id="maxamount">
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">필터</a>
+                        	<div class="col-lg-3 text-center">
+                        		<input type="button" value="검색" class="site-btn" onclick="getTeacherList()"/>
+               				</div>
                         </div>
                     </div>
                 </div>
@@ -144,10 +134,15 @@
                     </div>
                     <div class="col-lg-12 text-center">
                         <div class="pagination__option">
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#"><i class="fa fa-angle-right"></i></a>
+                        	<c:if test="${startPage > 10}">
+                            	<a href="javascript:getTeacherList(${startPage - 10})"><i class="fa fa-angle-left"></i></a>
+                            </c:if>
+                            <c:forEach var="i" begin="${startPage }" end="${endPage }">
+	                            <a href="javascript:getTeacherList(${i })">${i }</a>
+	                        </c:forEach>
+	                        <c:if test="${endPage != allPageCnt && endPage >= 10}">
+                            	<a href="javascript:getTeacherList(${startPage + 10})"><i class="fa fa-angle-right"></i></a>
+                            </c:if>
                         </div>
                     </div>
                 </div>

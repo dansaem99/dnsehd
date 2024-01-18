@@ -1,5 +1,8 @@
 package com.application.dnsehd.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +41,7 @@ public class TeacherController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/teacher/teacher");
-		mv.addObject("teacherList", teacherService.getTeacherList());
+		mv.addObject("teacherList", teacherService.adminTeacherList());
 		
 		return mv;
 	}	
@@ -83,11 +86,44 @@ public class TeacherController {
 	
 	// for user
 	@GetMapping("/teacher")
-	public ModelAndView teacherList() {
+	public ModelAndView teacherList(@RequestParam(name="searchWord" , defaultValue = "") String searchWord,
+									@RequestParam(name="onePageViewCnt" , defaultValue = "10") int onePageViewCnt,
+									@RequestParam(name="currentPageNumber" , defaultValue = "1") int currentPageNumber) {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/teacher/teacher");
-		mv.addObject("teacherList", teacherService.getTeacherList());
+		
+		int allTeacherCnt = teacherService.getAllTeacherCnt(searchWord);
+		
+		int allPageCnt = allTeacherCnt / onePageViewCnt + 1;
+		
+		if (allTeacherCnt % onePageViewCnt == 0) allPageCnt--;
+		
+		int startPage = (currentPageNumber - 1) / 10 * 10 + 1;
+		if (startPage == 0) {
+			startPage = 1;
+		}
+		
+		int endPage = startPage + 9;
+		
+		if (endPage > allPageCnt) endPage = allPageCnt;
+		
+		int startTeacherIdx = (currentPageNumber - 1) * onePageViewCnt;
+		
+		mv.addObject("startPage", startPage);
+		mv.addObject("endPage", endPage);
+		mv.addObject("allTeacherCnt", allTeacherCnt);
+		mv.addObject("allPageCnt", allPageCnt);
+		mv.addObject("onePageViewCnt", onePageViewCnt);
+		mv.addObject("currentPageNumber", currentPageNumber);
+		mv.addObject("startTeacherIdx", startTeacherIdx);
+		mv.addObject("searchWord", searchWord);
+		
+		Map<String, Object> searchMap = new HashMap<String, Object>();
+		searchMap.put("onePageViewCnt", onePageViewCnt);
+		searchMap.put("startTeacherIdx", startTeacherIdx);
+		searchMap.put("searchWord", searchWord);
+		mv.addObject("teacherList", teacherService.getTeacherList(searchMap));
 		
 		return mv;
 	}	
@@ -102,5 +138,11 @@ public class TeacherController {
 		
 		return mv;
 	}	
+	
+	@GetMapping("/addTeacherDummy")
+	public String addTeacherDummy() {
+		teacherService.addTeacherDummy();
+		return "redirect:/teacher";
+	}
 	
 }
