@@ -43,6 +43,21 @@
 		)
 	</insert>
 
+	<insert id="insertTeacherImg" parameterType="TeacherImgDTO">
+		INSERT INTO TEACHER_IMAGES (
+				TEACHER_IMG_NO,
+				TEACHER_IMG_NM,
+				TEACHER_IMG_UUID,
+				TEACHER_NO
+		)
+		VALUES (
+				#{teacherImgNo},
+				#{teacherImgNm},
+				#{teacherImgUUID},
+				#{teacherNo}
+		)
+	</insert>
+
 	<select id="selectAdminTeacherList" resultType="TeacherDTO">
 		SELECT
 				*

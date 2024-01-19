@@ -48,7 +48,6 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/sneat/assets/js/config.js"></script>
-    <script src="/ckeditor/ckeditor.js"></script>
   </head>
 
   <body>
@@ -65,7 +64,7 @@
               <h2 class="card-header">강사수정</h2>
               <!-- 회원수정 -->
               <hr class="my-0" />
-              <form action="/adModifyTeacher" method="post">
+              <form action="/adModifyTeacher" method="post" enctype="multipart/form-data">
               	<div class="card-body row">
 	                <div class="mb-3 col-md-6">
 	                  <label for="defaultInput" class="form-label">강사이름</label>
@@ -81,7 +80,10 @@
 	                </div>
 	                <div class="mb-3 col-md-6">
 	                  <label for="formFileMultiple" class="form-label">사진</label>
-	                  <input class="form-control" type="file" id="formFileMultiple" multiple />
+	                  <input class="form-control" type="file" name="uploadProfile" id="uploadProfile" />
+	                  <img src="/teacherImg?fileName=${teacherImgDTO.teacherImgUUID }" width="50" height="50" alt="사진">
+	                  <input type="hidden" name="teacherImgUUID" value="${teacherImgDTO.teacherImgUUID }"/>
+	                  <input type="hidden" name="teacherImgNm" value="${teacherImgDTO.teacherImgNm }"/>
 	                </div>
                	    <div class="mb-3">
                        <label for="defaultInput" class="form-label">강사 한줄 소개</label>

@@ -1,24 +1,41 @@
 package com.application.dnsehd.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.application.dnsehd.dto.TeacherDTO;
+import com.application.dnsehd.dto.TeacherImgDTO;
 import com.application.dnsehd.service.TeacherService;
 
 @Controller
 public class TeacherController {
 	
+	@Value("${file.repo.path}")
+	private String fileRepositoryPath;
+
 	@Autowired
 	private TeacherService teacherService;
+	
+	// image
+	@GetMapping("/teacherImg")
+	@ResponseBody
+	public Resource teacherImg(@RequestParam("fileName") String fileName) throws IOException{
+		return new UrlResource("file:" + fileRepositoryPath + fileName);
+	}
 	
 	// for admin
 	@GetMapping("/adAddTeacher")
@@ -28,9 +45,8 @@ public class TeacherController {
 	
 	
 	@PostMapping("/adAddTeacher")
-	public String addTeacher(TeacherDTO teacherDTO){
-		
-		teacherService.addTeacherDetail(teacherDTO);
+	public String addTeacher(@RequestParam("uploadProfile") MultipartFile uploadProfile, TeacherDTO teacherDTO, TeacherImgDTO teacherImgDTO) throws IllegalStateException, IOException{
+		teacherService.addTeacherDetail(uploadProfile, teacherDTO, teacherImgDTO);
 		return "redirect:/adTeacher";
 		
 	}
@@ -59,8 +75,8 @@ public class TeacherController {
 	
 	
 	@PostMapping("/adModifyTeacher")
-	public String modifyTeacher(TeacherDTO teacherDTO) {
-		teacherService.modifyTeacherDetail(teacherDTO);
+	public String modifyTeacher(@RequestParam("uploadProfile") MultipartFile uploadProfile, TeacherDTO teacherDTO, TeacherImgDTO teacherImgDTO) throws IllegalStateException, IOException {
+		teacherService.modifyTeacherDetail(uploadProfile, teacherDTO, teacherImgDTO);
 		return "redirect:/adTeacher";
 	}
 
