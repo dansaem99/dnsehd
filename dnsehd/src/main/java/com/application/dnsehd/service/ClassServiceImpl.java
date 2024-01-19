@@ -59,6 +59,9 @@ public class ClassServiceImpl implements ClassService {
 		return classDAO.selectListSearchClass(searchMap);
 	}
 	
-	
+	@Override
+	public List<ClassDTO> getClassCheckList(String[] categoryArray) {
+		return classDAO.selectcheckClass(categoryArray);
+	}
 
 }

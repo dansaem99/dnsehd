@@ -67,5 +67,14 @@
 		FROM		CLASS
 		WHERE	CLASS_NM LIKE CONCAT ('%' , #{searchWord}, '%')
 	</select>
+	
+	<select id="selectcheckClass" resultType="ClassDTO">
+        SELECT * 
+        FROM CLASS
+        WHERE CLASS_CATEGORY IN
+        <foreach collection="array" item="classCategory" open="(" separator="," close=")">
+            #{classCategory}
+        </foreach>
+    </select>
 		
 </mapper>

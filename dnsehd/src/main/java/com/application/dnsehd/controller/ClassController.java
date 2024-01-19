@@ -107,4 +107,23 @@ public class ClassController {
 		return classService.getClassSearchList(searchMap);
 	}
 	
+	@GetMapping("/checkClass")
+	@ResponseBody
+	public List<ClassDTO> checkClass(@RequestParam String param) {
+		
+		String[] categoryArray = new String[1];
+		List<ClassDTO> checkClassList = null;
+		if (!param.equals("")) {
+			
+			categoryArray = param.split(",");
+			checkClassList = classService.getClassCheckList(categoryArray);
+			for (ClassDTO classDTO : checkClassList) {
+				System.out.println(classDTO);
+			}
+		}
+		
+		return checkClassList;
+		
+	}
+
 }

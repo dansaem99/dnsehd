@@ -29,7 +29,6 @@
 	
 	<script src="/jquery/jquery-3.6.1.min.js"></script>
 	<script>
-		
 		$().ready(function() {
 			
 			$("[name='searchWord']").keyup(function(){
@@ -55,7 +54,8 @@
 								
 								classList += "<div class='col-lg-4 col-md-6'>";
 								classList += "<div class='product__item'>";
-								classList += "<div class='product__item__pic set-bg' data-setbg='/addedImg/pt_1.jpg'></div>";
+								//classList += "<div class='product__item__pic set-bg' data-setbg='/addedImg/pt_1.jpg'></div>";
+								classList += "<img src='/addedImg/pt_1.jpg'/>";
 								classList += "<div class='product__item__text'>";
 								classList += "<h6><a href='classDetail?classNo="+ this.classNo + "'>"+ this.classNm +"</a></h6>";
 								classList += "<div class='rating'>";
@@ -83,7 +83,69 @@
 				
 			});
 			
+			
+			classCategoryYn();
+			
 		});
+		
+		function classCategoryYn() {
+			
+			var param = "";
+
+			if ($("[name='bigGropClass']").is(":checked")) {
+				param += ",bigGropClass";
+			}
+			
+			if ($("[name='smallGroupClass']").is(":checked")) {
+				param += ",smallGroupClass";
+			}
+			
+			if ($("[name='individualClass']").is(":checked")) {
+				param += ",individualClass";
+			}
+			
+			if ($("[name='facilityUse']").is(":checked")) {
+				param += ",facilityUse";
+			}
+			alert(param);
+            $.ajax({
+                type: "get",
+                url: "/checkClass",
+                data: param,
+                traditional: true,
+                success: function(data) {
+                	
+                		var classList = "";
+                		
+                		$(data).each(function() {
+                			
+                            if (param == this.classCategory) {
+                                classList += "<div class='col-lg-4 col-md-6'>";
+                                classList += "<div class='product__item'>";
+                                classList += "<img src='/addedImg/pt_1.jpg'/>";
+                                classList += "<div class='product__item__text'>";
+                                classList += "<h6><a href='classDetail?classNo=" + this.classNo + "'>" + this.classNm + "</a></h6>";
+                                classList += "<div class='rating'>";
+                                classList += "<i class='fa fa-star'></i>";
+                                classList += "<i class='fa fa-star px-1'></i>";
+                                classList += "<i class='fa fa-star'></i>";
+                                classList += "<i class='fa fa-star px-1'></i>";
+                                classList += "<i class='fa fa-star'></i>";
+                                classList += "</div>";
+                                classList += "<div class='product__price'>";
+                                classList += this.classPrice;
+                                classList += "</div>";
+                                classList += "</div>";
+                                classList += "</div>";
+                                classList += "</div>";
+                            }
+                        });
+
+                        $("#classList").html(classList);
+                }
+            });
+
+		}
 	
 	</script>
 	
@@ -119,29 +181,24 @@
                                 <h4>수업 방식</h4>
                             </div>
                             <div class="size__list">
-                                <label for="전체수업">
-                                    전체 수업
-                                    <input type="checkbox" id="전체수업" checked="checked">
-                                    <span class="checkmark"></span>
-                                </label>
                                 <label for="단체수업">
                                     단체 수업
-                                    <input type="checkbox" id="단체수업">
+                                    <input type="checkbox" id="단체수업" name="bigGroupClass" onchange="classCategoryYn()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="소그룹수업">
                                     소그룹 수업
-                                    <input type="checkbox" id="소그룹수업">
+                                    <input type="checkbox" id="소그룹수업" name="smallGroupClass" onchange="classCategoryYn()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="개인수업">
                                     개인 수업
-                                    <input type="checkbox" id="개인수업">
+                                    <input type="checkbox" id="개인수업" name="individualClass" onchange="classCategoryYn()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="시설이용">
                                     시설 이용
-                                    <input type="checkbox" id="시설이용">
+                                    <input type="checkbox" id="시설이용" name="facilityUse" onchange="classCategoryYn()" value="facilityUse">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
