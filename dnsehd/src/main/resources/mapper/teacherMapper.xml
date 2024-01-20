@@ -103,20 +103,30 @@
 	
 	
 	<update id="updateTeacher" parameterType="teacherDTO">
-		UPDATE
-				TEACHER
-		SET
-				TEACHER_NO = #{teacherNo},
-				TEACHER_NM = #{teacherNm},
-				TEACHER_BIRTH = #{teacherBirth},
-				TEACHER_HP = #{teacherHp},
-				TEACHER_CAREER = #{teacherCareer},	
-				TEACHER_INTRO = #{teacherIntro}		
-		WHERE
-				TEACHER_NO = #{teacherNo}
+	    UPDATE 
+	    		TEACHER
+	    SET 
+	    		TEACHER_NM = #{teacherNm},
+	        	TEACHER_BIRTH = #{teacherBirth},
+	        	TEACHER_HP = #{teacherHp},
+	        	TEACHER_CAREER = #{teacherCareer},	
+	        	TEACHER_INTRO = #{teacherIntro}		
+	    WHERE 
+	    		TEACHER_NO = #{teacherNo}
 	</update>
-	
-	
+		
+		
+	<update id="updateTeacherImg" parameterType="TeacherImgDTO">
+	    UPDATE 
+	    		TEACHER_IMAGES
+	    SET 
+	    		TEACHER_IMG_NM = #{teacherImgNm},
+	        	TEACHER_IMG_UUID = #{teacherImgUUID}
+	    WHERE 
+	    		TEACHER_NO = #{teacherNo}
+	</update>
+
+
 	<delete id="deleteTeacher" parameterType="int">
 		DELETE FROM
 				TEACHER

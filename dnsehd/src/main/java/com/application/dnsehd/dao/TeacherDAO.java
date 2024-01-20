@@ -19,6 +19,7 @@ public interface TeacherDAO {
 	public List<TeacherDTO> selectTeacherList(Map<String, Object> searchMap);
 	public TeacherDTO selectTeacherDetail(int teacherNo);
 	public void updateTeacher(TeacherDTO teacherDTO);
+	public void updateTeacherImg(TeacherImgDTO teacherImgDTO);
 	public void deleteTeacher(int teacherNo);
 	public void insertTeacherDummy(List<TeacherDTO> dummyTeacherList);
 }

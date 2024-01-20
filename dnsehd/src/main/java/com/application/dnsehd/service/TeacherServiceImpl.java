@@ -89,6 +89,7 @@ public class TeacherServiceImpl implements TeacherService {
 		}
 			
 		teacherDAO.updateTeacher(teacherDTO);
+		teacherDAO.updateTeacherImg(teacherImgDTO);
 	}
 
 	@Override
