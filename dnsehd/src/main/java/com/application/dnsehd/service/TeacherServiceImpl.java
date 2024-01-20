@@ -42,12 +42,10 @@ public class TeacherServiceImpl implements TeacherService {
 			
 			uploadProfile.transferTo(new File(fileRepositoryPath + uploadFile));
 		}
+		
 		teacherDAO.insertTeacher(teacherDTO);
 		int teacherNo = teacherDTO.getTeacherNo();
-		
-		System.out.println(teacherNo);
 		teacherImgDTO.setTeacherNo(teacherNo);
-		System.out.println(teacherImgDTO);
 		teacherDAO.insertTeacherImg(teacherImgDTO);
 	}
 
