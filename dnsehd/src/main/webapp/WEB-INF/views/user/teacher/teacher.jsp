@@ -112,6 +112,7 @@
 	                            <div class="product__item">
 	                                <div class="product__item__pic set-bg" data-setbg="/addedImg/trainer_1.jpg">
 	                                <img src="/teacherImg?fileName=${teacherImgDTO.teacherImgUUID }" width="50" height="50" alt="사진">
+	                                <input type="hidden" name="teacherNo" value="${teacherDTO.teacherNo }"/>
 	                                    <ul class="product__hover">
 	                                        <li><a href="/addedImg/trainer_1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
 	                                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>

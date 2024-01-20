@@ -81,7 +81,6 @@
 	                <div class="mb-3 col-md-6">
 	                  <label for="formFileMultiple" class="form-label">사진</label>
 	                  <input class="form-control" type="file" name="uploadProfile" id="uploadProfile" />
-	                  <img src="/teacherImg?fileName=${teacherImgDTO.teacherImgUUID }" width="50" height="50" alt="사진">
 	                  <input type="hidden" name="teacherImgUUID" value="${teacherImgDTO.teacherImgUUID }"/>
 	                  <input type="hidden" name="teacherImgNm" value="${teacherImgDTO.teacherImgNm }"/>
 	                </div>
