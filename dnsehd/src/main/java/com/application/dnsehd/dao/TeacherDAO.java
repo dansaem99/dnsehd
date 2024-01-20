@@ -1,5 +1,6 @@
 package com.application.dnsehd.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import com.application.dnsehd.dto.TeacherImgDTO;
 public interface TeacherDAO {
 	
 	public int getAllTeacherCnt(String searchWord);
-	public void insertTeacher(TeacherDTO teacherDTO);
+	public int insertTeacher(TeacherDTO teacherDTO);
 	public void insertTeacherImg(TeacherImgDTO teacherImgDTO);
 	public List<TeacherDTO> selectAdminTeacherList();
 	public List<TeacherDTO> selectTeacherList(Map<String, Object> searchMap);

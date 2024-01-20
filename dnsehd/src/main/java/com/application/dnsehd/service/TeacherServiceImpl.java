@@ -3,6 +3,7 @@ package com.application.dnsehd.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -26,6 +27,7 @@ public class TeacherServiceImpl implements TeacherService {
 	@Autowired
 	private TeacherDAO teacherDAO;
 
+	@Transactional 
 	@Override
 	public void addTeacherDetail(MultipartFile uploadProfile , TeacherDTO teacherDTO, TeacherImgDTO teacherImgDTO) throws IllegalStateException, IOException {
 		
@@ -41,6 +43,11 @@ public class TeacherServiceImpl implements TeacherService {
 			uploadProfile.transferTo(new File(fileRepositoryPath + uploadFile));
 		}
 		teacherDAO.insertTeacher(teacherDTO);
+		int teacherNo = teacherDTO.getTeacherNo();
+		
+		System.out.println(teacherNo);
+		teacherImgDTO.setTeacherNo(teacherNo);
+		System.out.println(teacherImgDTO);
 		teacherDAO.insertTeacherImg(teacherImgDTO);
 	}
 

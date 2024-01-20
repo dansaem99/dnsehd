@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.application.dnsehd.dao.ReviewDAO">
+
+	<insert id="insertReview" parameterType="ReviewDTO">
+		INSERT INTO REVIEWS (
+			REVIEW_NO,
+			REVIEW_TITLE,
+			REVIEW_CONTENT,
+			REVIEW_DT,
+			MEMBER_ID,
+			CLASS_NO,
+			RESV_NO
+		)
+		VALUES (
+			#{reviewNo},
+		)
+	</insert>
+
+</mapper>

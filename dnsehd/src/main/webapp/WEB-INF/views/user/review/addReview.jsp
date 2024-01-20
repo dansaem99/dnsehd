@@ -102,20 +102,7 @@
 								</div><br>
                                 <div class="checkout__form__input">
                                     <p>* 수업, 운동시설, 강사님 등 자세한 이야기를 들려주세요. (욕설, 비방글은 삭제됩니다.)</p>
-                                    <!-- 
-									<textarea rows="10" cols="120" name="reviewContent" required></textarea>
-									<script>CKEDITOR.replace("reviewContent");</script>
-									 -->
-								    <div id="editor">
-								      <p>여기에 입력하세요</p>
-							  	    </div>
-								    <script>
-								      ClassicEditor
-								        .create( document.querySelector( '#editor' ) )
-								        .catch( error => {
-								          console.error( error );
-								        } );
-								    </script>
+									<textarea rows="10" cols="130" name="reviewContent" required></textarea>
                                 </div>
                                 <br><br>
 							    <div class="col-lg-12 text-center">

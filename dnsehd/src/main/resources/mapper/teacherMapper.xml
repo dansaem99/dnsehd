@@ -22,39 +22,38 @@
 		</choose>
 	</select>
 	
-	<insert id="insertTeacher" parameterType="TeacherDTO">
-		INSERT INTO TEACHER (
-				TEACHER_NO,
-				TEACHER_NM,
-				TEACHER_BIRTH,
-				TEACHER_HP,
-				TEACHER_CAREER,
-				TEACHER_INTRO,
-				ADMIN_ID
-		)
-		VALUES (
-				#{teacherNo},
-				#{teacherNm},
-				#{teacherBirth},
-				#{teacherHp},
-				#{teacherCareer},
-				#{teacherIntro},
-				#{adminId}
-		)
-	</insert>
+    <insert id="insertTeacher" parameterType="TeacherDTO" useGeneratedKeys="true" keyProperty="teacherNo">
+        INSERT INTO TEACHER (
+            TEACHER_NM,
+            TEACHER_BIRTH,
+            TEACHER_HP,
+            TEACHER_CAREER,
+            TEACHER_INTRO,
+            ADMIN_ID
+        )
+        VALUES (
+            #{teacherNm},
+            #{teacherBirth},
+            #{teacherHp},
+            #{teacherCareer},
+            #{teacherIntro},
+            #{adminId}
+        )
+		<selectKey keyColumn="GENERATED_KEY" keyProperty="teacherNo" order="AFTER" resultType="int">
+		    SELECT LAST_INSERT_ID()
+		</selectKey>
+    </insert>
 
 	<insert id="insertTeacherImg" parameterType="TeacherImgDTO">
 		INSERT INTO TEACHER_IMAGES (
-				TEACHER_IMG_NO,
+				TEACHER_NO,
 				TEACHER_IMG_NM,
-				TEACHER_IMG_UUID,
-				TEACHER_NO
+				TEACHER_IMG_UUID
 		)
 		VALUES (
-				#{teacherImgNo},
+				#{teacherNo},
 				#{teacherImgNm},
-				#{teacherImgUUID},
-				#{teacherNo}
+				#{teacherImgUUID}
 		)
 	</insert>
 
