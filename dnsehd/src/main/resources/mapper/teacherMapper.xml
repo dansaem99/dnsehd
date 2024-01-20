@@ -133,6 +133,13 @@
 		WHERE
 				TEACHER_NO = #{teacherNo}
 	</delete>
+	
+	<delete id="deleteTeacherImg" parameterType="int">
+		DELETE FROM
+				TEACHER_IMAGES
+		WHERE
+				TEACHER_NO = #{teacherNo}
+	</delete>
 
 	<insert id="insertTeacherDummy">
 		INSERT INTO TEACHER (

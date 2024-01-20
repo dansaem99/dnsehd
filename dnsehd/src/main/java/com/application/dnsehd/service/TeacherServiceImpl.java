@@ -94,6 +94,7 @@ public class TeacherServiceImpl implements TeacherService {
 
 	@Override
 	public void removeOneTeacher(int teacherNo) {
+		teacherDAO.deleteTeacherImg(teacherNo);
 		teacherDAO.deleteTeacher(teacherNo);
 	}
 
