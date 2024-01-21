@@ -5,17 +5,61 @@
 
 	<insert id="insertReview" parameterType="ReviewDTO">
 		INSERT INTO REVIEWS (
-			REVIEW_NO,
 			REVIEW_TITLE,
 			REVIEW_CONTENT,
 			REVIEW_DT,
-			MEMBER_ID,
-			CLASS_NO,
-			RESV_NO
+			MEMBER_ID
 		)
 		VALUES (
-			#{reviewNo},
+			#{reviewTitle},
+			#{reviewContent},
+			now(),
+			#{memberId}
 		)
 	</insert>
+	
+	<select id="selectReviewList" resultType="ReviewDTO">
+		SELECT 
+				*
+		FROM
+				REVIEWS
+	</select>
+	
+	<select id="selectReviewDetail" parameterType="int" resultType="ReviewDTO">
+		SELECT
+				*
+		FROM
+				REVIEWS
+		WHERE
+				REVIEW_NO = #{reviewNo}
+	</select>
+	
+	<select id="selectMyReviewList" parameterType="String" resultType="ReviewDTO">
+		SELECT
+				*
+		FROM
+				REVIEWS
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
+	
+	<update id="updateMyReview" parameterType="ReviewDTO">
+		UPDATE
+				REVIEWS
+		SET
+				REVIEW_TITLE = #{reviewTitle},
+				REVIEW_CONTENT = #{reviewContent},
+				REVIEW_DT = now(),
+				MEMBER_ID = #{memberId}
+		WHERE
+				REVIEW_NO = #{reviewNo}
+	</update>
+	
+	<delete id="deleteReview" parameterType="int">
+		DELETE FROM
+				REVIEWS
+		WHERE
+				REVIEW_NO = #{reviewNo}
+	</delete>
 
 </mapper>

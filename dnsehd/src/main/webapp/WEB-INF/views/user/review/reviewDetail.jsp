@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -39,7 +40,7 @@
                     <div class="breadcrumb__links">
                         <a href="main"><i class="fa fa-home"></i> Home</a>
                         <a href="review">Review</a>
-                        <span>강남역 필라테스 수업 듣고 체중 5Kg 감량!</span>
+                        <span>${reviewDTO.reviewTitle }</span>
                     </div>
                 </div>
             </div>
@@ -57,20 +58,18 @@
                             <img src="/addedImg/pilates_1.jpg" alt="">
                             <div class="blog__details__item__title">
                                 <span class="tip">Street style</span>
-                                <h4>강남역 필라테스 수업 듣고 체중 5Kg 감량!</h4>
+                                <h4>${reviewDTO.reviewTitle }</h4>
                                 <ul>
-                                    <li>by <span>Ema Timahe</span></li>
-                                    <li>Seb 17, 2019</li>
+                                    <li>작성자 <span>${reviewDTO.memberId }</span></li>
+                                    <li>
+	                                    <fmt:formatDate value="${reviewDTO.reviewDt }" pattern="yyyy-MM-dd" />
+                                    </li>
                                     <li>39 Comments</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="blog__details__desc">
-                            <p>맨날 야식으로 치킨 먹고, 족발 먹다가 살쪘는데 필라테스 다니면서 건강이 달라지네요.
-                            	몸의 자세가 매우 좋아져요. 어깨를 쭉 피려고 의식해도, 
-                            	근육이 없으면 굽어지게 되잖아요. 자세가 굉장히 좋아졌습니다.</p>
-                            <p>그리고 트레이너 분들도 이 사이트에서 많이 검색해봤는데
-                                친절하고 좋으세요.</p>
+                            <p>${reviewDTO.reviewContent }</p>
                         </div>
                         <div class="blog__details__btns">
                             <div class="row">

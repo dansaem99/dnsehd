@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -54,7 +55,7 @@
     <!-- List of Reviews -->
     <section class="checkout spad">
         <div class="container">
-            <form action="#" class="checkout__form">
+            <form action="/myReview" method="post" class="checkout__form">
                 <div class="row">
                     <div class="col-lg-12">
                         <h5>내가 쓴 후기 조회</h5>
@@ -66,67 +67,29 @@
 		                                    <th>후기 제목</th>
 		                                    <th>후기 평점</th>
 		                                    <th>후기 작성일</th>
-		                                    <th>후기 삭제</th>
+		                                    <th>후기 상세</th>
 		                                    <th></th>
 		                                </tr>
 		                            </thead>
 		                            <tbody>
-		                                <tr>
-		                                    <td class="notice__no" >강남역 필라테스 수업 듣고 체중 5Kg 감량!</td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__title">
-		                                            <h6>5점</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__writer">
-		                                            <h6>2024-01-01</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__date" style="text-align: center;"><i class="fa fa-solid fa-ban"></i></td>
-		                                </tr>
-		                                <tr>
-		                                    <td class="notice__no">강남역 필라테스 수업 듣고 체중 5Kg 감량!</td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__title">
-		                                            <h6>5점</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__writer">
-		                                            <h6>2024-01-01</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__date" style="text-align: center;"><i class="fa fa-solid fa-ban"></i></td>
-		                                </tr>
-		                                <tr>
-		                                    <td class="notice__no">강남역 필라테스 수업 듣고 체중 5Kg 감량!</td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__title">
-		                                            <h6>5점</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__writer">
-		                                            <h6>2024-01-01</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__date" style="text-align: center;"><i class="fa fa-solid fa-ban"></i></td>
-		                                </tr>
-		                                <tr>
-		                                    <td class="notice__no">강남역 필라테스 수업 듣고 체중 5Kg 감량!</td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__title">
-		                                            <h6>5점</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__writer">
-		                                            <h6>2024-01-01</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__date" style="text-align: center;"><i class="fa fa-solid fa-ban"></i></td>
-		                                </tr>
+		                            	<c:forEach var="reviewDTO" items="${myReviewList }">
+			                                <tr>
+			                                    <td class="notice__no" >${reviewDTO.reviewTitle }</td>
+			                                    <td class="notice__item">
+			                                        <div class="notice__item__title">
+			                                            <h6>5점</h6>
+			                                        </div>
+			                                    </td>
+			                                    <td class="notice__item">
+			                                        <div class="notice__item__writer">
+			                                            <h6><fmt:formatDate value="${reviewDTO.reviewDt }" pattern="yyyy-MM-dd" /></h6>
+			                                        </div>
+			                                    </td>
+			                                    <td class="notice__date" style="text-align: center;">
+			                                    	<input type="button" class="site-btn" value="상세조회" onclick="location.href='/modifyMyReview?reviewNo=${reviewDTO.reviewNo }'">
+			                                    </td>
+			                                </tr>
+			                             </c:forEach>
 		                            </tbody>
 		                        </table>
 		                    </div>
