@@ -20,7 +20,7 @@ public class ReviewController {
 	@Autowired
 	private ReviewService reviewService;
 	
-	// for user
+	// For user
 	@GetMapping("/addReview")
 	public ModelAndView addReview(HttpServletRequest request) {
 		
@@ -104,4 +104,43 @@ public class ReviewController {
 		reviewService.removeMyReview(reviewNo);
 		return "redirect:/myReview";
 	}
+	
+	// For admin
+	@GetMapping("/adReview")
+	public ModelAndView adReviewList() {
+	
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/review/review");
+		mv.addObject("reviewList", reviewService.getReviewList());
+		
+		return mv;		
+	}
+	
+	@GetMapping("/adReviewDetail")
+	public ModelAndView adReviewDetail(@RequestParam("reviewNo") int reviewNo) {
+	
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/review/reviewDetail");
+		mv.addObject("reviewDTO", reviewService.getReviewDetail(reviewNo));
+		
+		return mv;		
+	}
+
+	@GetMapping("/adRemoveReview")
+	public ModelAndView removeReview(@RequestParam("reviewNo") int reviewNo) {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/review/removeReview");
+		mv.addObject("reviewNo", reviewNo);
+		
+		return mv;
+		
+	}	
+	
+	@PostMapping("/adRemoveReview")
+	public String postRemoveReview(@RequestParam("reviewNo") int reviewNo) {
+		reviewService.removeMyReview(reviewNo);
+		return "redirect:/adReview";
+	}
+	
 }

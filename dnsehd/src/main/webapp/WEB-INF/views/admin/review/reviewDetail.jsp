@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -68,32 +69,33 @@
                 <div class="col-md-12">
               <!-- Bootstrap Table with Caption -->
                   <div class="card mb-4">
-                    <h2 class="card-header">리뷰상세정보</h2>
+                    <h2 class="card-header">리뷰 상세정보</h2>
                     <hr class="my-0" />
                     <div class="card-body row">
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">아이디</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                        <input id="defaultInput" class="form-control" type="text" value="${reviewDTO.memberId }" readonly/>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">후기제목</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                        <input id="defaultInput" class="form-control" type="text" value="${reviewDTO.reviewTitle }" readonly/>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">수업명</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                        <input id="defaultInput" class="form-control" type="text" value="수정필!!!!" readonly/>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultSelect" class="form-label">등록날짜</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                        <input id="defaultInput" class="form-control" type="text" value="<fmt:formatDate value='${reviewDTO.reviewDt}' pattern='yyyy-MM-dd' />" readonly/>
                       </div>
-                      <div class="mb-3 col-md-6">
+                      <div class="mb-3 col-md-12">
                         <label for="defaultInput" class="form-label">내용</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
+                        <textarea rows="10" cols="50" id="reviewContent" name="reviewContent" class="form-control" readonly>${reviewDTO.reviewContent }</textarea>
                       </div>
                       <div class="mt-2">
-                          <button type="submit" class="btn btn-outline-primary me-2"><a href="adReview">삭제하기</a></button>
-                          <button type="submit" class="btn btn-outline-secondary"><a href="adReview">뒤로가기</a></button>
+ 	                      <input type="hidden" name="reviewNo" value="${reviewDTO.reviewNo }"/>
+                          <input type="button" class="btn btn-outline-primary me-2" value="삭제하기" onclick="location.href='/adRemoveReview?reviewNo=${reviewDTO.reviewNo }'">
+                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adReview'">
                       </div>
                     </div>
                   </div>
