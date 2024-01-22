@@ -99,16 +99,16 @@
                 </tr>
               </thead>
               <tbody id="teacherList">
-              	<c:forEach var="teacherDTO" items="${teacherList }">
+              	<c:forEach var="teacherMap" items="${teacherList }">
 	                <tr>
-	                  <td>${teacherDTO.teacherNm }</td>
-	                  <td>${teacherDTO.teacherBirth }</td>
-	                  <td>${teacherDTO.teacherHp }</td>
-	                  <td>${teacherDTO.teacherCareer }</td>
+	                  <td>${teacherMap.teacherNm }</td>
+	                  <td>${teacherMap.teacherBirth }</td>
+	                  <td>${teacherMap.teacherHp }</td>
+	                  <td>${teacherMap.teacherCareer }</td>
 	                  <td>
 	                    <div>
-		                    <input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyTeacher?teacherNo=${teacherDTO.teacherNo }'">
-		                    <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveTeacher?teacherNo=${teacherDTO.teacherNo }'">
+		                    <input type="button" value="수정" class="btn btn-outline-primary" onclick="location.href='/adModifyTeacher?teacherNo=${teacherMap.teacherNo }'">
+		                    <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveTeacher?teacherNo=${teacherMap.teacherNo }'">
 	                    </div>
 	                  </td>
 	                </tr>

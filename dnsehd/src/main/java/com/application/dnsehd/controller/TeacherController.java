@@ -149,7 +149,7 @@ public class TeacherController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/teacher/teacherDetail");
-		mv.addObject("teacherDTO", teacherService.getTeacherDetail(teacherNo));
+		mv.addObject("teacherMap", teacherService.getTeacherDetail(teacherNo));
 		
 		return mv;
 	}	

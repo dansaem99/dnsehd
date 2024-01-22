@@ -54,7 +54,7 @@ public class TeacherServiceImpl implements TeacherService {
 	}
 	
 	@Override
-	public List<TeacherDTO> getTeacherList(Map<String, Object> searchMap) {
+	public List<Map<String, Object>> getTeacherList(Map<String, Object> searchMap) {
 		return teacherDAO.selectTeacherList(searchMap);
 	}
 
@@ -65,7 +65,7 @@ public class TeacherServiceImpl implements TeacherService {
 	
 	@Override
 	@Transactional
-	public TeacherDTO getTeacherDetail(int teacherNo) {
+	public Map<String, Object> getTeacherDetail(int teacherNo) {
 		return teacherDAO.selectTeacherDetail(teacherNo);
 	}
 	
