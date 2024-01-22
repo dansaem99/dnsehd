@@ -61,7 +61,7 @@
                     <h6 class="coupon__link">수강한 수업이나 운동 시설은 어떠셨나요? 고객님의 생생한 후기를 남겨주세요!</h6>
                 </div>
             </div>
-            <form action="/addReview" method="post" class="checkout__form">
+            <form action="/addReview" method="post" class="checkout__form" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-lg-12">
                         <h5>${memberId } 님의 후기</h5>
@@ -103,7 +103,11 @@
 								</div><br>
                                 <div class="checkout__form__input">
                                     <p>* 수업, 운동시설, 강사님 등 자세한 이야기를 들려주세요. (욕설, 비방글은 삭제됩니다.)</p>
-									<textarea rows="10" cols="130" name="reviewContent" id="reviewContent" required></textarea>
+									<textarea rows="10" cols="125" name="reviewContent" id="reviewContent" required></textarea>
+                                </div><br>
+                                <div class="checkout__form__input">
+                                    <p>사진 첨부</p>
+                                    <input class="form-control" type="file" name="uploadProfile" id="uploadProfile" />
                                 </div>
                                 <br><br>
 							    <div class="col-lg-12 text-center">
