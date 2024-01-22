@@ -143,15 +143,14 @@ public class MemberController {
 		return "redirect:main";
 	}
 	
-<<<<<<< HEAD
 	@GetMapping("/myReview")
 	public ModelAndView myReview() {
 		return new ModelAndView("user/mypage/myReview");
-=======
+	}
+	
 	@GetMapping("/reservedClass")
 	public ModelAndView reservedClass() {
 		return new ModelAndView("user/mypage/reservedClass");
->>>>>>> branch 'master' of https://github.com/dansaem99/dnsehd
 	}
 	
 	@GetMapping("/findPassword")
