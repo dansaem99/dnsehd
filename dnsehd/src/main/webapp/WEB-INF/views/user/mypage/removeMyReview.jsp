@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -11,7 +9,8 @@
     <meta name="keywords" content="Ashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>review</title>
+    <title>AddReview</title>
+    <script src="/ckeditor5-build-classic/ckeditor.js"></script>  
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
@@ -27,6 +26,12 @@
     <link rel="stylesheet" href="/ashion/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/ashion/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/ashion/css/style.css" type="text/css">
+ 
+ 	<style>
+ 	.ck-editor__editable {
+ 		min-height: 300px;
+ 	}
+ 	</style>    
 </head>
 
 <body>
@@ -40,44 +45,32 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
                         <a href="main"><i class="fa fa-home"></i> Home</a>
-                        <span>Review</span>
+                        <a href="/myReview"><span>My Reviews</span></a>
+                        <a href="/modifyMyReview"><span>Modify My Review</span></a>
+                    	<span>Delete My Review</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Breadcrumb End -->
+    <!-- Breadcrumb End -->    
 
-    <!-- Blog Section Begin -->
-    <section class="blog spad">
+	<!-- Delete Account Section -->
+    <section class="checkout spad">
         <div class="container">
-            <div class="row">
-            	<c:forEach var="reviewDTO" items="${reviewList }">
-	                <div class="col-lg-4 col-md-4 col-sm-6">
-	                    <div class="blog__item">
-	                        <div class="blog__item__pic large__item set-bg" data-setbg="/addedImg/pilates_1.jpg"></div>
-	                        <div class="blog__item__text">
-	                            <h6><a href="/reviewDetail?reviewNo=${reviewDTO.reviewNo }">${reviewDTO.reviewTitle }</a></h6>
-	                            <ul>
-	                                <li>작성자 <span>${reviewDTO.memberId }</span></li>
-	                                <li>
-	                                	<fmt:formatDate value="${reviewDTO.reviewDt }" pattern="yyyy-MM-dd" />
-	                                </li>
-	                            </ul>
-	                        </div>
-	                    </div>
-	                </div>
-	            </c:forEach>
-                <div class="col-lg-12 text-center">
-                    <a href="#" class="primary-btn load-btn">+ 더 많은 후기 보기</a>
+            <form action="/removeMyReview" method="post" class="checkout__form">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h5>회원님이 작성하신 후기를 정말로 <span style="color:red;">삭제</span>하시겠습니까?</h5>
+		                <input type="hidden" name="reviewNo" value="${reviewNo }">
+		                <input type="submit" class="site-btn" value="삭제하기">
+                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </section>
-    <!-- Blog Section End -->
-    
+
 	<!-- footer section -->
 	<jsp:include page="../footer/footer.jsp"></jsp:include>
 </body>
-
 </html>

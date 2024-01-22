@@ -13,9 +13,9 @@ public class ReviewDTO {
 	int reviewNo;
 	String reviewTitle;
 	String reviewContent;
-	Date reviewDT;
-	String memeberId;
-	int classNo;
-	int resvNo;
+	Date reviewDt;
+	String memberId;
+//	int classNo;
+//	int resvNo;
 	
 }

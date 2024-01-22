@@ -45,7 +45,8 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
                         <a href="main"><i class="fa fa-home"></i> Home</a>
-                        <span>Post New Review</span>
+                        <a href="/myReview"><span>My Reviews</span></a>
+                        <span>Modify My Review</span>
                     </div>
                 </div>
             </div>
@@ -61,7 +62,7 @@
                     <h6 class="coupon__link">수강한 수업이나 운동 시설은 어떠셨나요? 고객님의 생생한 후기를 남겨주세요!</h6>
                 </div>
             </div>
-            <form action="/addReview" method="post" class="checkout__form">
+            <form action="/modifyMyReview" method="post" class="checkout__form">
                 <div class="row">
                     <div class="col-lg-12">
                         <h5>${memberId } 님의 후기</h5>
@@ -69,7 +70,7 @@
                             <div class="col-lg-12">
                                 <div class="checkout__form__input">
                                     <p>후기 제목</p>
-                                    <input type="text" name="reviewTitle" id="reviewTitle" placeholder=" 후기 제목을 입력해주세요." required>
+                                    <input type="text" name="reviewTitle" id="reviewTitle" value="${reviewDTO.reviewTitle }" required>
                                     <input type="hidden" name="memberId" id="memberId" value="${sessionScope.memberId }">
                                 </div>
                                 <div class="checkout__form__input">
@@ -103,11 +104,13 @@
 								</div><br>
                                 <div class="checkout__form__input">
                                     <p>* 수업, 운동시설, 강사님 등 자세한 이야기를 들려주세요. (욕설, 비방글은 삭제됩니다.)</p>
-									<textarea rows="10" cols="130" name="reviewContent" id="reviewContent" required></textarea>
+									<textarea rows="10" cols="130" name="reviewContent" id="reviewContent" required>${reviewDTO.reviewContent}</textarea>
                                 </div>
                                 <br><br>
 							    <div class="col-lg-12 text-center">
-							        <a href="main"><button type="submit" class="site-btn">후기 등록</button></a>
+							    	<input type="hidden" name="reviewNo" value="${reviewDTO.reviewNo }">
+							        <input type="submit" value="후기 수정" class="site-btn">
+							        <input type="button" value="후기 삭제" class="site-btn" onclick="location.href='/removeMyReview?reviewNo=${reviewDTO.reviewNo }'">
 							    </div>
                             </div>
                         </div>

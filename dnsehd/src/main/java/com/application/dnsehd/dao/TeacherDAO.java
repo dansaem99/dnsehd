@@ -1,6 +1,5 @@
 package com.application.dnsehd.dao;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,5 +20,6 @@ public interface TeacherDAO {
 	public void updateTeacher(TeacherDTO teacherDTO);
 	public void updateTeacherImg(TeacherImgDTO teacherImgDTO);
 	public void deleteTeacher(int teacherNo);
+	public void deleteTeacherImg(int teacherNo);
 	public void insertTeacherDummy(List<TeacherDTO> dummyTeacherList);
 }

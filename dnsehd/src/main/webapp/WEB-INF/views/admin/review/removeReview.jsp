@@ -17,7 +17,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>수업삭제</title>
+    <title>후기삭제</title>
 
     <meta name="description" content="" />
 
@@ -76,16 +76,16 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="card">
-                    <h5 class="card-header">강사정보삭제</h5>
+                    <h5 class="card-header">후기정보삭제</h5>
                     <div class="card-body">
                       <div class="mb-3 col-12 mb-0">
                         <div class="alert alert-warning">
-                          <h6 class="alert-heading fw-bold mb-1">정말로 강사정보를 삭제하시겠습니까?</h6>
-                          <p class="mb-0">강사정보를 삭제하면 되돌릴 수 없습니다. 확실하게 해주세요.</p>
+                          <h6 class="alert-heading fw-bold mb-1">정말로 후기정보를 삭제하시겠습니까?</h6>
+                          <p class="mb-0">후기정보를 삭제하면 되돌릴 수 없습니다. 확실하게 해주세요.</p>
                         </div>
                       </div>
-                      <form action="/adRemoveTeacher" method="post" enctype="multipart/form-data">
-                      	<input type="hidden" name="teacherNo" value="${teacherNo }">
+                      <form action="/adRemoveReview" method="post" enctype="multipart/form-data">
+                      	<input type="hidden" name="reviewNo" value="${reviewNo }">
                         <input type="submit" value="삭제하기" class="btn btn-outline-secondary deactivate-account">
                       </form>
                     </div>

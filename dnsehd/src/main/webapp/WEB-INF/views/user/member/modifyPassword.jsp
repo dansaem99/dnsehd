@@ -34,6 +34,13 @@
 			
 		});	
 		
+		$("#nextBtn").click(function() {
+			if (!isPassPasswd) {
+				alert('입력한 패스워드가 불일치합니다. 다시 확인해주세요.');
+				return false;
+			}
+		});
+		
 	});
   
   </script>

@@ -49,8 +49,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/login")
-	public ModelAndView login(@CookieValue(name = "userId", required = false) String userId,
-			@CookieValue(name = "userPw", required = false) String userPw) {
+	public ModelAndView login(@CookieValue(name = "userId", required = false) String userId) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/member/login");
 		
@@ -77,11 +76,8 @@ public class MemberController {
 			if (maintainLogin.equals("y")) {
 				
 				Cookie idCookie = new Cookie("userId", String.valueOf(memberDTO.getMemberId()));
-				Cookie pwCookie = new Cookie("userPw", String.valueOf(memberDTO.getMemberPw()));
 				idCookie.setMaxAge(60 * 60 * 24 * 90);  // 유효 시간 90일
-				pwCookie.setMaxAge(60 * 60 * 24 * 90);  // 유효 시간 90일
 				response.addCookie(idCookie);
-				response.addCookie(pwCookie);
 			}			
 		}
 		
@@ -94,12 +90,8 @@ public class MemberController {
 		if (!maintainLogin.equals("y")) {	
 			
 			Cookie idCookie = new Cookie("userId", null);
-			Cookie pwCookie = new Cookie("userPw", null);
 			idCookie.setMaxAge(0);
-			pwCookie.setMaxAge(0);
 			response.addCookie(idCookie);		
-			response.addCookie(pwCookie);		
-		
 		}
 	}
 	
@@ -151,9 +143,15 @@ public class MemberController {
 		return "redirect:main";
 	}
 	
+<<<<<<< HEAD
 	@GetMapping("/myReview")
 	public ModelAndView myReview() {
 		return new ModelAndView("user/mypage/myReview");
+=======
+	@GetMapping("/reservedClass")
+	public ModelAndView reservedClass() {
+		return new ModelAndView("user/mypage/reservedClass");
+>>>>>>> branch 'master' of https://github.com/dansaem99/dnsehd
 	}
 	
 	@GetMapping("/findPassword")
