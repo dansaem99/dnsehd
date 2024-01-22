@@ -17,10 +17,6 @@
 	     if (userIdFromCookie) {
 	         $("input[name='memberId']").val(userIdFromCookie);
 	     }
-	     var userPwFromCookie = getCookie("userPw");
-	     if (userPwFromCookie) {
-	         $("input[name='memberPw']").val(userPwFromCookie);
-	     }
 	 });
 	
 	 function getCookie(name) {
