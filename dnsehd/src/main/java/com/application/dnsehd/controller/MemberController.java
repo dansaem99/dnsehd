@@ -143,16 +143,6 @@ public class MemberController {
 		return "redirect:main";
 	}
 	
-	@GetMapping("/myReview")
-	public ModelAndView myReview() {
-		return new ModelAndView("user/mypage/myReview");
-	}
-	
-	@GetMapping("/reservedClass")
-	public ModelAndView reservedClass() {
-		return new ModelAndView("user/mypage/reservedClass");
-	}
-	
 	@GetMapping("/findPassword")
 	public ModelAndView findPassword(HttpServletRequest request) {
 		
