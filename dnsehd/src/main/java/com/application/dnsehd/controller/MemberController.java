@@ -151,11 +151,6 @@ public class MemberController {
 		return "redirect:main";
 	}
 	
-	@GetMapping("/reservedClass")
-	public ModelAndView reservedClass() {
-		return new ModelAndView("user/mypage/reservedClass");
-	}
-	
 	@GetMapping("/myReview")
 	public ModelAndView myReview() {
 		return new ModelAndView("user/mypage/myReview");

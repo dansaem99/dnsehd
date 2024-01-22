@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -53,7 +52,6 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/sneat/assets/js/config.js"></script>
-    <script src="/ckeditor/ckeditor.js"></script>
   </head>
 
   <body>
@@ -73,44 +71,34 @@
                     <h2 class="card-header">이벤트추가</h2>
                     <hr class="my-0" />
                     <div class="card-body row">
-                       <form action="/adAddEvent" method="post">
+                       <form action="/adAddEvent" method="post" enctype="multipart/form-data">
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">제목</label>
 	                        <input name="eventTitle" class="form-control" type="text" placeholder="제목을 입력하세요." required/>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
-	                        <label for="defaultInput" class="form-label">할인가격</label>
-	                        <input name="eventCost" class="form-control" type="number" min="200000" step="10000" placeholder="가격을 입력하세요." required />
-	                      </div>
-	                      <div class="mb-3 col-md-6">
-	                        <label for="defaultInput" class="form-label">가격</label>
-	                        <c:forEach var="classDTO" items="${classList }">
-	                        	<input name="classPrice" class="form-control" type="number" value="${classDTO.classPrice }" min="${classDTO.classPrice }" max="${classDTO.classPrice }" required />
-	                        </c:forEach>
-	                      </div>
-	                      <div class="mb-3 col-md-6">
-	                        <label for="defaultInput" class="form-label">시작날짜</label>
-	                        <input name="eventStartDt" class="form-control" type="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${eventStartDt }" />"/>
-	                      </div>
-	                      <div class="mb-3 col-md-6">
-	                        <label for="defaultInput" class="form-label">종료날짜</label>
-	                        <input name="eventEndDt" class="form-control" type="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${eventStartDt }" />"/>
-	                      </div>
-	                      <div class="mb-3 col-md-6">
-	                        <label for="defaultInput" class="form-label">운동명</label>
+	                        <label for="defaultInput" class="form-label">운동명 / 가격</label>
 	                        <select name="classNo" class="form-select">
 	                          <c:forEach var="classDTO" items="${classList }">
-	                            <option value="${classDTO.classNo }">${classDTO.classNm }</option>
+	                            <option value="${classDTO.classNo }">운동명 : ${classDTO.classNm } &ensp; 가격 : ${classDTO.classPrice }</option>
 	                          </c:forEach>
 	                        </select>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
-	                        <label for="defaultInput" class="form-label">내용</label>
-	                        <textarea class="form-control" rows="10" cols="50" name="eventContent" required></textarea>
+	                        <label for="defaultInput" class="form-label">할인가격</label>
+	                        <input name="eventCost" class="form-control" type="number" min="150000" step="10000" placeholder="가격을 입력하세요." required />
 	                      </div>
 	                      <div class="mb-3 col-md-6">
-	                        <label for="formFileMultiple" class="form-label">사진</label>
-	                        <input class="form-control" type="file" multiple />
+	                        <label for="defaultInput" class="form-label">시작날짜</label>
+	                        <input name="eventStartDt" class="form-control" type="date" value="<fmt:formatDate pattern='yyyy-MM-dd' value='${eventStartDt }'/>"/>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">종료날짜</label>
+	                        <input name="eventEndDt" class="form-control" type="date" value="<fmt:formatDate pattern='yyyy-MM-dd' value='${eventEndDt }'/>"/>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">내용</label>
+	                        <textarea class="form-control" rows="10" cols="50" name="eventContent" required></textarea>
 	                      </div>
 	                      <div class="mt-2">
 		                   	  <div class="mt-2">

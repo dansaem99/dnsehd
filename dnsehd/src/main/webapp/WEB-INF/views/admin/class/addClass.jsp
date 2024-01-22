@@ -72,7 +72,7 @@
                   <div class="card mb-4">
                     <h2 class="card-header">수업추가</h2>
                     <hr class="my-0" />
-                    <div class="card-body row">
+                    <div class="card-body row" >
                       <form action="/adAddClass" method="post">
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">운동명</label>

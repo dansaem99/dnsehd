@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.application.dnsehd.dao.ReservationDAO">
+
+	<resultMap type="hashmap" id="reservation">
+		<result column="RESV_NO" property="resvNo"/>
+		<result column="PAYMENT" property="payment"/>
+		<result column="RESV_DT" property="resvDt"/>
+		<result column="MEMBER_ID" property="memberId"/>
+		<result column="CLASS_NO" property="classNo"/>
+		<result column="CLASS_NM" property="classNm"/>
+	</resultMap>
+
+	<select id="selectReservationList" resultMap="reservation" >
+		SELECT 	R.RESV_NO	AS RESV_NO,
+				R.PAYMENT	AS PAYMENT,
+				R.RESV_DT	AS RESV_DT,
+				R.MEMBER_ID	AS MEMBER_ID,
+				R.CLASS_NO	AS CLASS_NO,
+				C.CLASS_NM	AS CLASS_NM
+		FROM 	RESERVATIONS R, CLASS C 
+		WHERE	R.CLASS_NO = C.CLASS_NO
+	</select>
+	
+	<insert id="insertReservation" parameterType="ReservationDTO">
+		INSERT INTO RESERVATIONS (
+			PAYMENT,
+			RESV_ALARM,
+			RESV_DT,
+			CLASS_NO,
+			MEMBER_ID
+		)
+		VALUES (
+			#{payment},
+			#{resvAlarm},
+			DATE_FORMAT(NOW(), '%Y-%m-%d'),
+			#{classNo},
+			#{memberId}
+		)
+	</insert>
+	
+	<delete id="deleteReservation" parameterType="int">
+		DELETE FROM RESERVATIONS
+		WHERE 		RESV_NO = #{resvNo}
+	</delete>
+
+</mapper>

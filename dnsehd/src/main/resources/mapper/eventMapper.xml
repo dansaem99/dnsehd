@@ -33,4 +33,36 @@
 		)
 	</insert>
 	
+	<select id="selectEventDetail" parameterType="int" resultType="EventDTO">
+		SELECT	*
+		FROM		EVENT
+		WHERE 	EVENT_NO = #{eventNo}
+	</select>
+	
+	<update id="updateEvent" parameterType="EventDTO">
+		UPDATE	EVENT
+		SET		EVENT_TITLE = #{eventTitle},
+				EVENT_CONTENT = #{eventContent},
+				EVENT_COST = #{eventCost},
+				EVENT_START_DT = #{eventStartDt},
+				EVENT_END_DT = #{eventEndDt}
+		WHERE 	EVENT_NO = #{eventNo}
+	</update>
+	
+	<delete id="deleteEvent" parameterType="int">
+		DELETE FROM 	EVENT
+		WHERE		EVENT_NO = #{eventNo}	
+	</delete>
+	
+	<select id="selectTeacherDetail" resultType="teacherDTO">
+		SELECT 	TEACHER_NM, TEACHER_CAREER
+		FROM		TEACHER
+	</select>
+	
+	<select id="selectClassDetail" resultType="ClassDTO" parameterType="int">
+		SELECT	C.*
+		FROM 	CLASS C JOIN EVENT E ON C.CLASS_NO = E.CLASS_NO
+		WHERE 	E.EVENT_NO = #{eventNo}
+	</select>
+	
 </mapper>

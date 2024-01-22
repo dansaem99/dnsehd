@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -80,88 +81,54 @@
                     <!-- 회원수정 -->
                     <hr class="my-0" />
                     <div class="card-body">
-                      <form id="formAccountSettings" method="POST" onsubmit="return false">
                         <div class="row">
+                        <form action="/adModifyEvent" method="post">
                           <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">제목</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">가격</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">이벤트날짜</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                           <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">운동명</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">운동시간</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">수강제한인원</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultSelect" class="form-label">수업방식</label>
-                        <select id="defaultSelect" class="form-select">
-                          <option>전체수업</option>
-                          <option>개인래슨</option>
-                          <option>그룹수업</option>
-                          <option>시설이용</option>
-                          <option>할인혜택수업</option>
-                        </select>
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">강사이름</label>
-                        <input id="defaultInput" class="form-control" type="text" placeholder="Default input" />
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">내용</label>
-                        <textarea rows="10" cols="50" name="classContent" required></textarea>
-						<script>CKEDITOR.replace("classContent");</script>
-                      </div>
-                      <div class="mb-3 col-md-6">
-                        <label for="formFileMultiple" class="form-label">사진</label>
-                        <input class="form-control" type="file" id="formFileMultiple" multiple />
-                      </div>
-                      		<div class="mt-2">
-                          <button type="submit" class="btn btn-outline-primary me-2"><a href="adEvent">수정하기</a></button>
-                          <button type="reset" class="btn btn-outline-secondary"><a href="adEvent">뒤로가기</a></button>
-                        </div>
-                        </div>
-                      </form>
-                    </div>
+	                        <label for="defaultInput" class="form-label">제목</label>
+	                        <input id="eventTitle" class="form-control" type="text" value="${eventDTO.eventTitle }" required/>
+                      	  </div>
+                      	  <div class="mb-3 col-md-6">
+                        		<label for="defaultInput" class="form-label">운동명 / 가격</label>
+                        		<select name="classNo" class="form-select">
+                          		<c:forEach var="classDTO" items="${classList }">
+                            			<option value="${classDTO.classNo }">운동명 : ${classDTO.classNm } &ensp; 가격 : ${classDTO.classPrice }</option>
+                         		 </c:forEach>
+                        		</select>
+                      	  </div>
+                      	  <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">할인가격</label>
+	                        <input name="eventCost" class="form-control" type="number" min="150000" step="10000" value="${eventDTO.eventCost }" required />
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">시작날짜</label>
+	                        <input name="eventStartDt" class="form-control" type="date" value="${eventDTO.eventStartDt }"/>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">종료날짜</label>
+	                        <input name="eventEndDt" class="form-control" type="date" value="${eventDTO.eventEndDt }"/>
+	                      </div>
+	                      <div class="mb-3 col-md-6">
+	                        <label for="defaultInput" class="form-label">내용</label>
+	                        <textarea class="form-control" rows="10" cols="50" name="eventContent" required>${eventDTO.eventContent }</textarea>
+	                      </div>
+	                      <div class="mt-2">
+	                      	  <input type="hidden" name="adminId" value="${sessionScope.adminId }"/>
+	                      	  <input type="hidden" name="classNo" value="${eventDTO.classNo }"/>
+	                          <input type="submit" class="btn btn-outline-primary me-2" value="수정하기"/>
+	                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adEvent'"/>
+	                      </div>
+	                    </form>  
+	                    </div>
                     <!-- /Account -->
-                  </div>
-                  <div class="card">
-                    <h5 class="card-header">수업삭제</h5>
-                    <div class="card-body">
-                      <div class="mb-3 col-12 mb-0">
-                        <div class="alert alert-warning">
-                          <h6 class="alert-heading fw-bold mb-1">정말로 수업을 삭제하시겠습니까?</h6>
-                          <p class="mb-0">수업을 삭제하면 되돌릴 수 없습니다. 확실하게 해주세요.</p>
-                        </div>
-                      </div>
-                      <form id="formAccountDeactivation" onsubmit="return false">
-                        <button type="submit" class="btn btn-outline-secondary deactivate-account"><a href="adEvent">삭제</a></button>
-                      </form>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            
-            <hr class="my-5" />
-
             <!-- footer section -->
          <jsp:include page="../footer/footer.jsp"></jsp:include>
           </div>
           <!-- Content wrapper -->
+        </div>
         <!-- / Layout page -->
 
       <!-- Overlay -->

@@ -17,7 +17,7 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>FAQ삭제</title>
+    <title>수업삭제</title>
 
     <meta name="description" content="" />
 

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -31,67 +31,29 @@
 <body>
 	<!-- header section -->
 	<jsp:include page="header/header.jsp"></jsp:include>
-
-    <!-- Categories Section Begin -->
-    <section class="categories">
-        <div class="container-fluid">
-			<!-- Change Text Color and Shadow End -->
-            <div class="row">
-                <div class="col-lg-6 p-0">
-                    <div class="categories__item categories__large__item set-bg"
-	                    data-setbg="/addedImg/main_yoga.jpg">
-	                    <div class="categories__text">
-	                        <h1>Exercising Class info</h1>
-	                        <p>Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore
-	                        edolore magna aliquapendisse ultrices gravida.</p>
-	                        <a href="class">지금 바로 나에게 맞는 수업 조회</a>
-	                    </div>
+	
+	<!-- Banner Section Begin -->
+	<section class="banner set-bg" data-setbg="/addedImg/banner.jpg">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-xl-7 col-lg-8 m-auto">
+	                <div class="banner__slider owl-carousel" id="eventList">
+	                		<c:forEach var="eventDTO" items="${eventList }">
+		                    <div class="banner__item">
+		                        <div class="banner__text">
+		                            <h1>${eventDTO.eventTitle }</h1>
+		                            <h4>${eventDTO.eventStartDt } ~ ${eventDTO.eventEndDt }</h4>
+		                            <a href="eventDetail?eventNo=${eventDTO.eventNo }">예약하러가기</a>
+		                        </div>
+		                    </div>
+	                    </c:forEach>
 	                </div>
 	            </div>
-	            <div class="col-lg-6">
-	                <div class="row">
-	                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-	                        <div class="categories__item set-bg" data-setbg="/addedImg/main_baseball.jpg">
-	                            <div class="categories__text">
-	                                <h4>Competent Trainer</h4>
-	                                <p>358 items</p>
-	                                <a href="teacher">믿고 맏기는 강사 찾기</a>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-	                        <div class="categories__item set-bg" data-setbg="/addedImg/main_diet.jpg">
-	                            <div class="categories__text">
-	                                <h4>Calendar</h4>
-	                                <p>273 items</p>
-	                                <a href="calendar">수업 일정과 식단 관리하기</a>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-	                        <div class="categories__item set-bg" data-setbg="/addedImg/main_review.jpg">
-	                            <div class="categories__text">
-	                                <h4>Reviews</h4>
-	                                <p>159 items</p>
-	                                <a href="review">사용자들의 솔직한 리뷰 확인하기</a>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-	                        <div class="categories__item set-bg" data-setbg="/addedImg/main_plan.jpg">
-	                            <div class="categories__text">
-	                                <h4>Notice</h4>
-	                                <p>792 items</p>
-	                                <a href="notice">공지사항 확인하기</a>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	         </div>
-        </div>
+	        </div>
+	    </div>
 	</section>
-	<!-- Categories Section End --> 
+	<!-- Banner Section End -->
+
 
 	<!-- Product Section Begin -->
 	<section class="product spad">
@@ -335,39 +297,7 @@
 	</section>
 	<!-- Services Section End -->
 
-	<!-- Banner Section Begin -->
-	<section class="banner set-bg" data-setbg="/addedImg/banner.jpg">
-	    <div class="container">
-	        <div class="row">
-	            <div class="col-xl-7 col-lg-8 m-auto">
-	                <div class="banner__slider owl-carousel">
-	                    <div class="banner__item">
-	                        <div class="banner__text">
-	                            <span>강남역 다이어트 캠프</span>
-	                            <h1>2월 신규 개강</h1>
-	                            <a href="#">Shop now</a>
-	                        </div>
-	                    </div>
-	                    <div class="banner__item">
-	                        <div class="banner__text">
-	                            <span>코어근육 단련 1:1 PT</span>
-	                            <h1>20% OFF</h1>
-	                            <a href="#">Shop now</a>
-	                        </div>
-	                    </div>
-	                    <div class="banner__item">
-	                        <div class="banner__text">
-	                            <span>전직 국가대표 강사</span>
-	                            <h1>6개월반 모집</h1>
-	                            <a href="#">Shop now</a>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-	</section>
-	<!-- Banner Section End -->
+	
 	
 	<!-- footer section -->
 	<jsp:include page="footer/footer.jsp"></jsp:include>

@@ -16,6 +16,6 @@ public interface ClassService {
 	public List<TeacherDTO> getTeacherList();
 	public TeacherDTO getTeacherDetail();
 	public List<ClassDTO> getClassSearchList(Map<String, String> searchMap);
-	public List<ClassDTO> getClassCheckList(String[] categoryArray);
+	public List<ClassDTO> getClassCheckList(String[] categotyArrayl);
 
 }

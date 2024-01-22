@@ -66,7 +66,10 @@
 								classList += "<i class='fa fa-star'></i>";
 								classList += "</div>";
 								classList += "<div class='product__price'>";
-								classList += this.classPrice;
+								
+								let formattedPrice = new Intl.NumberFormat('en-US').format(this.classPrice);
+								
+							    classList += formattedPrice;
 								classList += "</div>";
 								classList += "</div>";
 								classList += "</div>";
@@ -83,62 +86,59 @@
 				
 			});
 			
-			
-			classCategoryYn();
-			
 		});
 		
 		function classCategoryYn() {
 			
 			var param = "";
 
-			if ($("[name='bigGropClass']").is(":checked")) {
-				param += ",bigGropClass";
+			if ($("[name='단체수업']").is(":checked")) {
+				param += ",단체수업";
 			}
 			
-			if ($("[name='smallGroupClass']").is(":checked")) {
-				param += ",smallGroupClass";
+			if ($("[name='소그룹수업']").is(":checked")) {
+				param += ",소그룹수업";
 			}
 			
-			if ($("[name='individualClass']").is(":checked")) {
-				param += ",individualClass";
+			if ($("[name='개인수업']").is(":checked")) {
+				param += ",개인수업";
 			}
 			
-			if ($("[name='facilityUse']").is(":checked")) {
-				param += ",facilityUse";
+			if ($("[name='시설이용']").is(":checked")) {
+				param += ",시설이용";
 			}
-			alert(param);
-            $.ajax({
+
+			$.ajax({
                 type: "get",
                 url: "/checkClass",
-                data: param,
-                traditional: true,
+                data: {"param" : param},
                 success: function(data) {
                 	
                 		var classList = "";
                 		
                 		$(data).each(function() {
                 			
-                            if (param == this.classCategory) {
-                                classList += "<div class='col-lg-4 col-md-6'>";
-                                classList += "<div class='product__item'>";
-                                classList += "<img src='/addedImg/pt_1.jpg'/>";
-                                classList += "<div class='product__item__text'>";
-                                classList += "<h6><a href='classDetail?classNo=" + this.classNo + "'>" + this.classNm + "</a></h6>";
-                                classList += "<div class='rating'>";
-                                classList += "<i class='fa fa-star'></i>";
-                                classList += "<i class='fa fa-star px-1'></i>";
-                                classList += "<i class='fa fa-star'></i>";
-                                classList += "<i class='fa fa-star px-1'></i>";
-                                classList += "<i class='fa fa-star'></i>";
-                                classList += "</div>";
-                                classList += "<div class='product__price'>";
-                                classList += this.classPrice;
-                                classList += "</div>";
-                                classList += "</div>";
-                                classList += "</div>";
-                                classList += "</div>";
-                            }
+                               classList += "<div class='col-lg-4 col-md-6'>";
+                               classList += "<div class='product__item'>";
+                               classList += "<img src='/addedImg/pt_1.jpg'/>";
+                               classList += "<div class='product__item__text'>";
+                               classList += "<h6><a href='classDetail?classNo=" + this.classNo + "'>" + this.classNm + "</a></h6>";
+                               classList += "<div class='rating'>";
+                               classList += "<i class='fa fa-star'></i>";
+                               classList += "<i class='fa fa-star px-1'></i>";
+                               classList += "<i class='fa fa-star'></i>";
+                               classList += "<i class='fa fa-star px-1'></i>";
+                               classList += "<i class='fa fa-star'></i>";
+                               classList += "</div>";
+                               classList += "<div class='product__price'>";
+							
+                               let formattedPrice = new Intl.NumberFormat('en-US').format(this.classPrice);
+                               classList += formattedPrice;
+						   	
+                               classList += "</div>";
+                               classList += "</div>";
+                               classList += "</div>";
+                               classList += "</div>";
                         });
 
                         $("#classList").html(classList);
@@ -183,22 +183,22 @@
                             <div class="size__list">
                                 <label for="단체수업">
                                     단체 수업
-                                    <input type="checkbox" id="단체수업" name="bigGroupClass" onchange="classCategoryYn()">
+                                    <input type="checkbox" id="단체수업" name="단체수업" onchange="classCategoryYn()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="소그룹수업">
                                     소그룹 수업
-                                    <input type="checkbox" id="소그룹수업" name="smallGroupClass" onchange="classCategoryYn()">
+                                    <input type="checkbox" id="소그룹수업" name="소그룹수업" onchange="classCategoryYn()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="개인수업">
                                     개인 수업
-                                    <input type="checkbox" id="개인수업" name="individualClass" onchange="classCategoryYn()">
+                                    <input type="checkbox" id="개인수업" name="개인수업" onchange="classCategoryYn()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="시설이용">
                                     시설 이용
-                                    <input type="checkbox" id="시설이용" name="facilityUse" onchange="classCategoryYn()" value="facilityUse">
+                                    <input type="checkbox" id="시설이용" name="시설이용" onchange="classCategoryYn()" value="facilityUse">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>

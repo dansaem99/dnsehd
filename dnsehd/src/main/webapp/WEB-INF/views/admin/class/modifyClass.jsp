@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <!-- beautify ignore:start -->
 <html
@@ -84,44 +85,52 @@
                         <div class="row">
                           <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">운동명</label>
-	                        <input name="classNm" class="form-control" type="text" placeholder="${classDTO.classNm }" required />
+	                        <input name="classNm" class="form-control" type="text" value="${classDTO.classNm }" required />
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">가격</label>
-	                        <input name="classPrice" class="form-control" type="number" min="200000" step="10000" placeholder="${classDTO.classPrice }" required />
+	                        <input name="classPrice" class="form-control" type="number" min="200000" step="10000" value="${classDTO.classPrice }" required />
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">운동시간</label>
-	                        <input name="classTime" class="form-control" type="text" placeholder="${classDTO.classTime }" required/>
+	                        <input name="classTime" class="form-control" type="text" value="${classDTO.classTime }" required/>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">수강제한인원</label>
-	                        <input name="classLimit" class="form-control" type="number" min="1" max="30" placeholder="${classDTO.classLimit }" required/>
+	                        <input name="classLimit" class="form-control" type="number" min="1" max="30" value="${classDTO.classLimit }" required/>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultSelect" class="form-label">수업방식</label>
 	                        <select name="classCategory" class="form-select">
-	                          <option>전체수업</option>
-	                          <option>개인래슨</option>
-	                          <option>그룹수업</option>
-	                          <option>시설이용</option>
-	                          <option>할인혜택수업</option>
+	                        	  <option>${classDTO.classCategory }</option>
+	                          <script>
+							    const allCategories = ['단체수업', '소그룹수업', '개인수업', '시설이용'];
+							    const selectedCategory = "${classDTO.classCategory}";
+							
+							    const selectElement = document.querySelector('select[name="classCategory"]');
+
+							    allCategories.forEach(category => {
+							      if (category !== selectedCategory) {
+							        const optionElement = document.createElement('option');
+							        optionElement.value = category;
+							        optionElement.textContent = category;
+							        selectElement.appendChild(optionElement);
+							      }
+							    });
+							  </script>
 	                        </select>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
-	                      	
 	                        <label for="defaultInput" class="form-label">강사이름</label>
-	                        <select name="teacherNm" class="form-select">
-	                          <option>전체수업</option>
-	                          <option>개인래슨</option>
-	                          <option>그룹수업</option>
-	                          <option>시설이용</option>
-	                          <option>할인혜택수업</option>
+	                        <select name="teacherNo" class="form-select">
+	                          <c:forEach var="teacherDTO" items="${teacherList }">
+	                            <option value="${teacherDTO.teacherNo }">${teacherDTO.teacherNm }</option>
+	                          </c:forEach>
 	                        </select>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">내용</label>
-	                        <textarea rows="10" cols="50" name="classContent" class="form-control" placeholder="${classDTO.classContent }" required></textarea>
+	                        <textarea rows="10" cols="50" name="classContent" class="form-control" required>${classDTO.classContent }</textarea>
 	                      </div>
                       
 	                      <div class="mb-3 col-md-6">
@@ -130,7 +139,8 @@
 	                      </div>
 	                      <div class="mt-2">
 	                      	  <input type="hidden" name="adminId" value="${sessionScope.adminId }"/>
-	                          <input type="submit" class="btn btn-outline-primary me-2" value="추가하기"/>
+	                      	  <input type="hidden" name="teacherNo" value="${classDTO.teacherNo }">
+	                          <input type="submit" class="btn btn-outline-primary me-2" value="수정하기"/>
 	                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adClass'"/>
 	                      </div>   
                        </div>

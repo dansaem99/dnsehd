@@ -1,5 +1,6 @@
 package com.application.dnsehd.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -55,6 +56,7 @@ public class ClassController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/class/modifyClass");
 		mv.addObject("classDTO", classService.getClassDetail(classNo));
+		mv.addObject("teacherList", classService.getTeacherList());
 		
 		return mv;
 		
@@ -97,7 +99,7 @@ public class ClassController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/class/classDetail");
 		mv.addObject("classDTO", classService.getClassDetail(classNo));
-		mv.addObject("teacherDTO", classService.getTeacherDetail());
+		//mv.addObject("teacherDTO", classService.getTeacherDetail());
 		return mv;
 	}
 	
@@ -109,17 +111,20 @@ public class ClassController {
 	
 	@GetMapping("/checkClass")
 	@ResponseBody
-	public List<ClassDTO> checkClass(@RequestParam String param) {
+	public List<ClassDTO> checkClass(@RequestParam("param") String param) {
 		
 		String[] categoryArray = new String[1];
 		List<ClassDTO> checkClassList = null;
 		if (!param.equals("")) {
 			
 			categoryArray = param.split(",");
-			checkClassList = classService.getClassCheckList(categoryArray);
+			String[] categotyArrayl = Arrays.copyOfRange(categoryArray, 1, categoryArray.length);
+			checkClassList = classService.getClassCheckList(categotyArrayl);
 			for (ClassDTO classDTO : checkClassList) {
 				System.out.println(classDTO);
 			}
+		} else {
+			checkClassList = classService.getClassList();
 		}
 		
 		return checkClassList;

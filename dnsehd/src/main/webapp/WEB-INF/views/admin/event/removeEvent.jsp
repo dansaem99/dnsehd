@@ -3,21 +3,21 @@
 
 <!-- beautify ignore:start -->
 <html
-  lang="en"
-  class="light-style layout-menu-fixed"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="/admin/sneat/assets/"
-  data-template="vertical-menu-template-free"
+    lang="en"
+    class="light-style layout-menu-fixed"
+    dir="ltr"
+    data-theme="theme-default"
+    data-assets-path="/admin/sneat/assets/"
+    data-template="vertical-menu-template-free"
 >
   <head>
     <meta charset="utf-8" />
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>공지사항</title>
+    <title>이벤트삭제</title>
 
     <meta name="description" content="" />
 
@@ -51,61 +51,53 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/sneat/assets/js/config.js"></script>
-    <script src="/ckeditor/ckeditor.js"></script>
   </head>
 
   <body>
     <!-- Layout wrapper -->
 
-        <jsp:include page="../header/header.jsp"></jsp:include>
+    <jsp:include page="../header/header.jsp"></jsp:include>
 
-          <!-- Content wrapper -->
-          <div class="content-wrapper">
-            <!-- Content -->
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+      <!-- Content -->
 
-            <div class="container-xxl flex-grow-1 container-p-y">
-				<div class="row">
-                <div class="col-md-12">
-              <!-- Bootstrap Table with Caption -->
-                  <div class="card mb-4">
-                    <h2 class="card-header">공지사항</h2>
-                    <hr class="my-0" />
-                    <div class="card-body row">
-                    	<form action="/adModifyNotice" method="post">
-                      <div class="mb-3">
-                        <label for="defaultInput" class="form-label">제목</label>
-                        <input name="noticeTitle" class="form-control" type="text" value="${noticeDTO.noticeTitle }" />
-                      </div>
-                      <div class="mb-3">
-                        <label for="defaultInput" class="form-label">내용</label>
-                        <textarea rows="10" cols="50" name="noticeContent" class="form-control" required>${noticeDTO.noticeContent }</textarea>
-                      </div>
-                      <div class="mt-2">
-                      	  <input type="hidden" name="noticeNo" value="${noticeDTO.noticeNo }">
-                          <input type="submit" class="btn btn-outline-primary me-2" value="수정하기">
-                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='adNotice'">
-                        </div>
-                        </form>
-                        </div>    
-                    </div>
-                    <!-- /Account -->
-                  </div>
-                    </div>
+      <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Bootstrap Table with Caption -->
+            <div class="card">
+              <h5 class="card-header">이벤트삭제</h5>
+              <div class="card-body">
+                <div class="mb-3 col-12 mb-0">
+                  <div class="alert alert-warning">
+                    <h6 class="alert-heading fw-bold mb-1">정말로 이벤트를 삭제하시겠습니까?</h6>
+                    <p class="mb-0">이벤트를 삭제하면 되돌릴 수 없습니다. 확실하게 해주세요.</p>
                   </div>
                 </div>
-              <!-- Bootstrap Table with Caption -->
+                <form action="/adRemoveEvent" method="post">
+                  <input type="hidden" name="eventNo" value="${eventNo }">
+                  <input type="submit" value="삭제하기" class="btn btn-outline-secondary deactivate-account">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Bootstrap Table with Caption -->
 
-              <hr class="my-5" />
+      <hr class="my-5" />
 
-            <!-- footer section -->
-         <jsp:include page="../footer/footer.jsp"></jsp:include>
+      <!-- footer section -->
+      <jsp:include page="../footer/footer.jsp"></jsp:include>
 
-            <div class="content-backdrop fade"></div>
-          <!-- Content wrapper -->
-        <!-- / Layout page -->
+      <div class="content-backdrop fade"></div>
+    </div>
+    <!-- Content wrapper -->
+    <!-- Layout page -->
 
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
     <!-- / Layout wrapper -->
 
     <!-- Core JS -->

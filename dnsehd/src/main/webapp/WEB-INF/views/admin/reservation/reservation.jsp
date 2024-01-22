@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -113,156 +115,19 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>00001</td>
-                        <td>user</td>
-                        <td>2024-01-03</td>
-                        <td>350,000원</td>
-                        <td>
-                          <div>
-                           		<a href="adReservationDetail">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adReservationDetail">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adReservationDetail">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adReservationDetail">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adReservationDetail">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adReservationDetail">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adReservationDetail">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adReservationDetail">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adReservationDetail">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                        <td>user@gmail.com</td>
-                        <td>
-                          <div>
-                           		<a href="adReservationDetail">
-	                               <button type="button" class="btn btn-outline-primary">
-	                                 수정 & 삭제
-	                               </button>
-                                </a>
-                          </div>
-                        </td>
-                      </tr>
+                    	  <c:forEach var="reservationMap" items="${reservationList }">
+	                      <tr>
+	                        <td>${reservationMap.resvNo }</td>
+	                        <td>${reservationMap.memberId }</td>
+	                        <td>${reservationMap.resvDt }</td>
+	                        <td>${reservationMap.payment }</td>
+	                        <td>
+	                          <div>
+	                            <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveReservation?resvNo=${reservationMap.resvNo }'">
+	                          </div>
+	                        </td>
+	                      </tr>
+                      </c:forEach>
                     </tbody>
                   </table>
                 </div>

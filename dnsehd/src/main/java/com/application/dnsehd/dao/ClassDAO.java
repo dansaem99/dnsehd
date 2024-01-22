@@ -19,6 +19,6 @@ public interface ClassDAO {
 	public List<TeacherDTO> selectTeacherList();
 	public TeacherDTO selectTeacherDetail();
 	public List<ClassDTO> selectListSearchClass(Map<String, String> searchMap);
-	public List<ClassDTO> selectcheckClass(String[] categoryArray);
+	public List<ClassDTO> selectcheckClass(String[] categotyArrayl);
 
 }

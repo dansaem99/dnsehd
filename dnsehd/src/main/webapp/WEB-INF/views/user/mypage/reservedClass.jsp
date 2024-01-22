@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -29,6 +29,33 @@
 	
 	<script src="/jquery/jquery-3.6.1.min.js"></script>
   	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+  	
+  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+  	
+  	<script src="/jquery/jquery-3.6.1.min.js"></script>
+	<script>
+		function resvDelBtn() {
+			
+			var param = {
+					"resvNo" : $("[name='resvNo']").val()
+			}
+			
+			$.ajax({
+				type : "post",
+				url : "removeReservation",
+				data : param,
+				success : function(data) {
+					Swal.fire({
+					      icon: 'success',
+					      text: '취소했습니다.',
+				    });
+				}
+			});
+			
+			 
+		}
+	</script>
 	
 </head>
 
@@ -54,7 +81,7 @@
     <!-- List of Reserved Classes -->
     <section class="checkout spad">
         <div class="container">
-            <form action="#" class="checkout__form">
+            <form action="#" class="checkout__form" id="reservationList">
                 <div class="row">
                     <div class="col-lg-12">
                         <h5>예약한 수업 조회</h5>
@@ -71,62 +98,27 @@
 		                                </tr>
 		                            </thead>
 		                            <tbody>
-		                                <tr>
-		                                    <td class="notice__no">근력 향상 1:1 PT</td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__title">
-		                                            <h6>35만원/월</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__writer">
-		                                            <h6>2024-01-01</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__date" style="text-align: center;"><i class="fa fa-solid fa-ban"></i></td>
-		                                </tr>
-		                                <tr>
-		                                    <td class="notice__no">근력 향상 1:1 PT</td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__title">
-		                                            <h6>35만원/월</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__writer">
-		                                            <h6>2024-01-01</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__date" style="text-align: center;"><i class="fa fa-solid fa-ban"></i></td>
-		                                </tr>
-		                                <tr>
-		                                    <td class="notice__no">근력 향상 1:1 PT</td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__title">
-		                                            <h6>35만원/월</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__writer">
-		                                            <h6>2024-01-01</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__date" style="text-align: center;"><i class="fa fa-solid fa-ban"></i></td>
-		                                </tr>
-		                                <tr>
-		                                    <td class="notice__no">근력 향상 1:1 PT</td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__title">
-		                                            <h6>35만원/월</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__item">
-		                                        <div class="notice__item__writer">
-		                                            <h6>2024-01-01</h6>
-		                                        </div>
-		                                    </td>
-		                                    <td class="notice__date" style="text-align: center;"><i class="fa fa-solid fa-ban"></i></td>
-		                                </tr>
+		                            		<c:forEach var="reservationMap" items="${reservationList }">
+			                                <tr>
+			                                    <td class="notice__no">${reservationMap.classNm }</td>
+			                                    <td class="notice__item">
+			                                        <div class="notice__item__title">
+			                                            <h6>${reservationMap.payment }</h6>
+			                                            <input type="hidden" name="resvNo" value="${reservationMap.resvNo }"/>
+			                                        </div>
+			                                    </td>
+			                                    <td class="notice__item">
+			                                        <div class="notice__item__writer">
+			                                            <h6><fmt:formatDate pattern="yyyy.MM.dd" value="${reservationMap.resvDt}"/></h6>
+			                                        </div>
+			                                    </td>
+			                                    <td class="notice__date">
+			                                    		<div class="text-center">
+									                    <a href="javascript:resvDelBtn()" class="primary-btn load-btn"><i class="fa fa-solid fa-ban">취소하기</i></a>
+									                </div>
+			                                    </td>
+			                                </tr>
+		                                </c:forEach>
 		                            </tbody>
 		                        </table>
 		                    </div>

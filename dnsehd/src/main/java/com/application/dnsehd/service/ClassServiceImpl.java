@@ -60,8 +60,8 @@ public class ClassServiceImpl implements ClassService {
 	}
 	
 	@Override
-	public List<ClassDTO> getClassCheckList(String[] categoryArray) {
-		return classDAO.selectcheckClass(categoryArray);
+	public List<ClassDTO> getClassCheckList(String[] categotyArrayl) {
+		return classDAO.selectcheckClass(categotyArrayl);
 	}
 
 }

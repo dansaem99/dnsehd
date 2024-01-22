@@ -26,38 +26,6 @@
     <link rel="stylesheet" href="/ashion/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/ashion/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/ashion/css/style.css" type="text/css">
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
-    
-    <script src="/jquery/jquery-3.6.1.min.js"></script>
-	<script>
-		function reservationBtn() {
-			
-			var param = {
-					"payment" : "${classDTO.classPrice }",
-					"resvAlarm" : $("[name='resvAlarm']").val(),
-					"memberId" : $("[name='memberId']").val(),
-					"classNo" : "${classDTO.classNo}"
-					
-			}
-			
-			$.ajax({
-				type : "post",
-				url : "addReservation",
-				data : param,
-				success : function(data) {
-					Swal.fire({
-					      icon: 'success',
-					      text: '예약이 완료되었습니다.',
-				    });
-				}
-			});
-			
-			 
-		}
-	</script>
-    
 </head>
 
 <body>
@@ -71,8 +39,8 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
                         <a href="main"><i class="fa fa-home"></i> Home</a>
-                        <a href="class">Class </a>
-                        <span>${classDTO.classNm }</span>
+                        <a href="event">event </a>
+                        <span>${eventDTO.eventTitle }</span>
                     </div>
                 </div>
             </div>
@@ -95,7 +63,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>${classDTO.classNm } <span>강사명: ${teacherDTO.teacherNm }</span></h3>
+                        <h3>${eventDTO.eventTitle } <span>강사명:${teacherDTO.teacherNm } </span></h3>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -104,10 +72,13 @@
                             <i class="fa fa-star"></i>
                             <span>( 138 reviews )</span>
                         </div>
-                        <div class="product__details__price" style="color: blue;">
-                        		<fmt:formatNumber value="${classDTO.classPrice }"/>
+                        <div class="product__details__price">
+                        		<fmt:formatNumber value="${eventDTO.eventCost }"/>
+                        		<span><fmt:formatNumber value="${classDTO.classPrice }"/></span>
                         </div>
-                        <h4>${classDTO.classTime }</h4><br>
+                        <h5>수업시간 : ${classDTO.classTime }</h5>
+                        <span>${eventDTO.eventContent }</span>
+                        <br>
                         <div class="product__details__widget">
                             <ul>
                                 <li>
@@ -115,7 +86,7 @@
                                     <div class="stock__checkbox">
                                         <label for="counselYn">
                                             수업 1시간전에 알람을 받겠습니다.
-                                            <input type="checkbox" id="resvAlarm" name="resvAlarm" value="y" checked />
+                                            <input type="checkbox" id="counselYn">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -128,7 +99,7 @@
                         </div>
                         <br>
                         <div class="product__details__button">
-                            <a href="javascript:reservationBtn()" class="cart-btn"><span class="icon_bag_alt"></span> 수강 신청하기</a>
+                            <a href="#" class="cart-btn"><span class="icon_bag_alt"></span> 수강 신청하기</a>
                         </div>
                     </div>
                 </div>
@@ -163,7 +134,6 @@
                                     consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla
                                 consequat massa quis enim.</p>
                             </div>
-                            <input type="hidden" name="memberId" value="${sessionScope.memberId }"/>
                         </div>
                     </div>
                 </div>
