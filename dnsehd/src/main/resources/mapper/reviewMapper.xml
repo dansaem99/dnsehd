@@ -3,7 +3,7 @@
 
 <mapper namespace="com.application.dnsehd.dao.ReviewDAO">
 
-	<insert id="insertReview" parameterType="ReviewDTO">
+	<insert id="insertReview" parameterType="ReviewDTO" useGeneratedKeys="true" keyProperty="reviewNo">
 		INSERT INTO REVIEWS (
 			REVIEW_TITLE,
 			REVIEW_CONTENT,
@@ -18,8 +18,24 @@
 			now(),
 			#{memberId}
 		)
+		<selectKey keyColumn="GENERATED_KEY" keyProperty="reviewNo" order="AFTER" resultType="int">
+		    SELECT LAST_INSERT_ID()
+		</selectKey>
 	</insert>
-	
+
+	<insert id="insertReviewImg" parameterType="ReviewImgDTO">
+		INSERT INTO REVIEW_IMAGES (
+				REVIEW_NO,
+				REVIEW_IMG_NM,
+				REVIEW_IMG_UUID
+		)
+		VALUES (
+				#{reviewNo},
+				#{reviewImgNm},
+				#{reviewImgUUID}
+		)
+	</insert>
+		
 	<select id="selectReviewList" resultType="ReviewDTO">
 		SELECT 
 				*
@@ -57,10 +73,27 @@
 		WHERE
 				REVIEW_NO = #{reviewNo}
 	</update>
-	
+
+	<update id="updateMyReviewImg" parameterType="ReviewImgDTO">
+	    UPDATE 
+	    		REVIEW_IMAGES
+	    SET 
+	    		REVIEW_IMG_NM = #{reviewImgNm},
+	        	REVIEW_IMG_UUID = #{reviewImgUUID}
+	    WHERE 
+	    		REVIEW_NO = #{reviewNo}
+	</update>
+		
 	<delete id="deleteReview" parameterType="int">
 		DELETE FROM
 				REVIEWS
+		WHERE
+				REVIEW_NO = #{reviewNo}
+	</delete>
+	
+	<delete id="deleteReviewImg" parameterType="int">
+		DELETE FROM
+				REVIEW_IMAGES
 		WHERE
 				REVIEW_NO = #{reviewNo}
 	</delete>

@@ -76,7 +76,7 @@
                     <h6 class="coupon__link">수강한 수업이나 운동 시설은 어떠셨나요? 고객님의 생생한 후기를 남겨주세요!</h6>
                 </div>
             </div>
-            <form action="/modifyMyReview" method="post" class="checkout__form">
+            <form action="/modifyMyReview" method="post" class="checkout__form" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-lg-12">
                         <h5>${memberId } 님의 후기</h5>
@@ -129,6 +129,9 @@
                                     <p>사진 첨부</p>
                                     <input class="form-control" type="file" name="uploadProfile" id="uploadProfile" />
                                 </div>
+                                <div class="checkout__form__input">
+                                    <p>기존 사진</p>
+                                </div><br>
                                 <br><br>
 							    <div class="col-lg-12 text-center">
 							    	<input type="hidden" name="reviewNo" value="${reviewDTO.reviewNo }">

@@ -113,7 +113,7 @@
                                 </div><br>
                                 <div class="checkout__form__input">
                                     <p>사진 첨부</p>
-                                    <input class="form-control" type="file" name="uploadProfile" id="uploadProfile" />
+                                    <input class="form-control" type="file" name="uploadProfile" id="uploadProfile" required/>
                                 </div>
                                 <br><br>
 							    <div class="col-lg-12 text-center">
