@@ -50,7 +50,6 @@
 		<result column="PAYMENT" property="payment"/>
 		<result column="RESV_DT" property="resvDt"/>
 		<result column="RESV_ALARM" property="resvAlarm"/>
-		<result column="MEMBER_ID" property="memberId"/>
 		<result column="CLASS_NO" property="classNo"/>
 		<result column="CLASS_NM" property="classNm"/>
 		<result column="CLASS_CONTENT" property="classContent"/>
