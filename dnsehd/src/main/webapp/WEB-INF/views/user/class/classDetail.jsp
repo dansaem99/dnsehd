@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="/ashion/css/style.css" type="text/css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
     
     <script src="/jquery/jquery-3.6.1.min.js"></script>
 	<script>
