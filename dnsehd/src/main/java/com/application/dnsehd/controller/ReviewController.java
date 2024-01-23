@@ -75,6 +75,7 @@ public class ReviewController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/review/reviewDetail");
 		mv.addObject("reviewMap", reviewService.getReviewDetail(reviewNo));
+		mv.addObject("reviewList", reviewService.getReviewList());
 		
 		return mv;
 	}			

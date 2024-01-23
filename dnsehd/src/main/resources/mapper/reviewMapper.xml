@@ -50,7 +50,7 @@
 		WHERE
 				RESV.MEMBER_ID = #{memberId}
 		ORDER BY
-				RESV.RESV_NO DESC
+				RESV.RESV_DT DESC
 	</select>
 	
 	<insert id="insertReview" parameterType="ReviewDTO" useGeneratedKeys="true" keyProperty="reviewNo">

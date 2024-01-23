@@ -102,7 +102,7 @@
                       </div>
                       <div class="mt-2">
  	                      <input type="hidden" name="reviewNo" value="${reviewMap.reviewNo }"/>
-                          <input type="button" class="btn btn-outline-primary me-2" value="삭제하기" onclick="location.href='/adRemoveReview?reviewNo=${reviewDTO.reviewNo }'">
+                          <input type="button" class="btn btn-outline-primary me-2" value="삭제하기" onclick="location.href='/adRemoveReview?reviewNo=${reviewMap.reviewNo }'">
                           <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adReview'">
                       </div>
                     </div>
