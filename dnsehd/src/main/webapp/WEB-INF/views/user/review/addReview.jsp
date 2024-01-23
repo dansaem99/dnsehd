@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -78,6 +79,19 @@
 									<select name="classNo" class="checkout__form__select">
 										<c:forEach var="classDTO" items="${classList }">
 											<option value="${classDTO.classNo }">${classDTO.classNm }</option>
+										</c:forEach>
+									</select>
+                                </div>
+                                <div class="checkout__form__input">
+                                    <p>등록 정보 확인</p>
+									<select name="resvNo" class="checkout__form__select">
+										<c:forEach var="reservationMap" items="${myReservationList }">
+											<option value="${reservationMap.resvNo }">
+												수업명 : ${reservationMap.classNm } / 
+												수업 시간 : ${reservationMap.classTime } / 
+												등록일 : <fmt:formatDate value="${reservationMap.resvDt }" pattern="yyyy-MM-dd" /> /
+												수강료 : ${reservationMap.payment }
+											</option>
 										</c:forEach>
 									</select>
                                 </div>

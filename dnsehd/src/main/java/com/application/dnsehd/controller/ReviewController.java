@@ -49,7 +49,7 @@ public class ReviewController {
 		mv.setViewName("user/review/addReview");
 		mv.addObject("memberId", (String)session.getAttribute("memberId"));
 		mv.addObject("classList", reviewService.getClassList());
-		
+		mv.addObject("myReservationList", reviewService.getMyResvList((String)session.getAttribute("memberId")));
 		return mv;
 	}	
 	
@@ -93,12 +93,16 @@ public class ReviewController {
 	}
 	
 	@GetMapping("/modifyMyReview")
-	public ModelAndView modifyReview(@RequestParam("reviewNo") int reviewNo) {
-		
+	public ModelAndView modifyReview(@RequestParam("reviewNo") int reviewNo, HttpServletRequest request) {
+	
+		HttpSession session = request.getSession();		
+	
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/mypage/modifyMyReview");
+		mv.addObject("memberId", (String)session.getAttribute("memberId"));
 		mv.addObject("classList", reviewService.getClassList());
 		mv.addObject("reviewMap", reviewService.getReviewDetail(reviewNo));
+		mv.addObject("myReservationList", reviewService.getMyResvList((String)session.getAttribute("memberId")));
 		
 		return mv;
 	}

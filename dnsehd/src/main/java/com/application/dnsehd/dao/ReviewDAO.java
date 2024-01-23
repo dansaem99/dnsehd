@@ -13,6 +13,7 @@ import com.application.dnsehd.dto.ReviewImgDTO;
 public interface ReviewDAO {
 	
 	public List<ClassDTO> selectClassList();
+	public List<Map<String, Object>> selectMyResvList(String memberId);
 	public void insertReview(ReviewDTO reviewDTO);
 	public void insertReviewImg(ReviewImgDTO reviewImgDTO);
 	public List<Map<String, Object>> selectReviewList();

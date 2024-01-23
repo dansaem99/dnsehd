@@ -10,6 +10,49 @@
 				CLASS
 	</select>
 	
+	<resultMap type="hashmap" id="reservation">
+		<result column="RESV_NO" property="resvNo"/>
+		<result column="PAYMENT" property="payment"/>
+		<result column="RESV_DT" property="resvDt"/>
+		<result column="RESV_ALARM" property="resvAlarm"/>
+		<result column="MEMBER_ID" property="memberId"/>
+		<result column="CLASS_NO" property="classNo"/>
+		<result column="CLASS_NM" property="classNm"/>
+		<result column="CLASS_CONTENT" property="classContent"/>
+		<result column="CLASS_PRICE" property="classPrice"/>
+		<result column="CLASS_TIME" property="classTime"/>
+		<result column="CLASS_CATEGORY" property="classCategory"/>
+		<result column="CLASS_LIMIT" property="classLimit"/>
+		<result column="ADMIN_ID" property="adminId"/>
+		<result column="TEACHER_NO" property="teacherNo"/>
+	</resultMap>
+	
+	<select id="selectMyResvList" parameterType="String" resultMap="reservation">
+		SELECT
+				RESV.RESV_NO AS RESV_NO,
+				RESV.PAYMENT AS PAYMENT,
+				RESV.RESV_DT AS RESV_DT,
+				RESV.RESV_ALARM AS RESV_ALARM,
+				RESV.MEMBER_ID AS MEMBER_ID,
+				RESV.CLASS_NO AS CLASS_NO,
+				C.CLASS_NM AS CLASS_NM,
+				C.CLASS_CONTENT AS CLASS_CONTENT,
+				C.CLASS_PRICE AS CLASS_PRICE,
+				C.CLASS_TIME AS CLASS_TIME,
+				C.CLASS_CATEGORY AS CLASS_CATEGORY,
+				C.CLASS_LIMIT AS CLASS_LIMIT,
+				C.ADMIN_ID AS ADMIN_ID,
+				C.TEACHER_NO AS TEACHER_NO
+		FROM
+				RESERVATIONS RESV
+		JOIN	CLASS C
+		  ON	RESV.CLASS_NO = C.CLASS_NO
+		WHERE
+				RESV.MEMBER_ID = #{memberId}
+		ORDER BY
+				RESV.RESV_NO DESC
+	</select>
+	
 	<insert id="insertReview" parameterType="ReviewDTO" useGeneratedKeys="true" keyProperty="reviewNo">
 		INSERT INTO REVIEWS (
 			REVIEW_TITLE,
@@ -17,7 +60,8 @@
 			REVIEW_SCORE,
 			REVIEW_DT,
 			MEMBER_ID,
-			CLASS_NO
+			CLASS_NO,
+			RESV_NO
 		)
 		VALUES (
 			#{reviewTitle},
@@ -25,7 +69,8 @@
 			#{reviewScore},
 			now(),
 			#{memberId},
-			#{classNo}
+			#{classNo},
+			#{resvNo}
 		)
 		<selectKey keyColumn="GENERATED_KEY" keyProperty="reviewNo" order="AFTER" resultType="int">
 		    SELECT LAST_INSERT_ID()
@@ -156,7 +201,8 @@
 				REVIEW_SCORE = #{reviewScore},
 				REVIEW_DT = now(),
 				MEMBER_ID = #{memberId},
-				CLASS_NO = #{classNo}
+				CLASS_NO = #{classNo},
+				RESV_NO = #{resvNo}
 		WHERE
 				REVIEW_NO = #{reviewNo}
 	</update>
