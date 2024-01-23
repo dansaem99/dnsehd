@@ -107,21 +107,15 @@
                 </div>
                 <div class="col-lg-9 col-md-9" id="teacherList">
                     <div class="row">
-                    	<c:forEach var="teacherDTO" items="${teacherList }">
+                    	<c:forEach var="teacherMap" items="${teacherList }">
 	                        <div class="col-lg-4 col-md-6">
 	                            <div class="product__item">
-	                                <div class="product__item__pic set-bg" data-setbg="/addedImg/trainer_1.jpg">
-	                                <img src="/teacherImg?fileName=${teacherImgDTO.teacherImgUUID }" width="50" height="50" alt="사진">
-	                                <input type="hidden" name="teacherNo" value="${teacherDTO.teacherNo }"/>
-	                                    <ul class="product__hover">
-	                                        <li><a href="/addedImg/trainer_1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-	                                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-	                                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-	                                    </ul>
+	                                <div class="product__item__pic set-bg" data-setbg="/teacherImg?fileName=${teacherMap.teacherImgUUID }">
+	                                <input type="hidden" name="teacherNo" value="${teacherMap.teacherNo }"/>
 	                                </div>
 	                                <div class="product__item__text">
-	                                    <h6>${teacherDTO.teacherIntro } </h6>
-	                                    <div class="product__price"><a href="/teacherDetail?teacherNo=${teacherDTO.teacherNo }">${teacherDTO.teacherNm } 트레이너</a></div>
+	                                    <h6>${teacherMap.teacherIntro } </h6>
+	                                    <div class="product__price"><a href="/teacherDetail?teacherNo=${teacherMap.teacherNo }">${teacherMap.teacherNm } 트레이너</a></div>
 	                                </div>
 	                            </div>
 	                        </div>

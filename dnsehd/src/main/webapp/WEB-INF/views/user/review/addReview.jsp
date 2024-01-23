@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -31,7 +32,7 @@
  	.ck-editor__editable {
  		min-height: 300px;
  	}
- 	</style>    
+ 	</style>   
 </head>
 
 <body>
@@ -61,7 +62,7 @@
                     <h6 class="coupon__link">수강한 수업이나 운동 시설은 어떠셨나요? 고객님의 생생한 후기를 남겨주세요!</h6>
                 </div>
             </div>
-            <form action="/addReview" method="post" class="checkout__form">
+            <form action="/addReview" method="post" class="checkout__form" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-lg-12">
                         <h5>${memberId } 님의 후기</h5>
@@ -74,36 +75,45 @@
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>수강한 수업명</p>
-                                    <input type="text" placeholder=" 수강한 수업명 또는 사용 시설명을 입력해주세요." required>
+									<select name="classNo" class="checkout__form__select">
+										<option>보이는 용</option>
+										<c:forEach var="classDTO" items="${classList }">
+											<option>${classDTO.classNm }</option>
+										</c:forEach>
+									</select>
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>후기 평점</p>
                                 </div>
 								<div class="size__btn">
 								    <label for="1-btn" class="active">
-								        <input type="radio" id="1-btn" name="rating">
+								        <input type="radio" id="reviewScore" name="reviewScore" value="1">
 								        1점
 								    </label>
 								    <label for="2-btn">
-								        <input type="radio" id="2-btn" name="rating">
+								        <input type="radio" id="reviewScore" name="reviewScore" value="2">
 								        2점
 								    </label>
 								    <label for="3-btn">
-								        <input type="radio" id="3-btn" name="rating">
+								        <input type="radio" id="reviewScore" name="reviewScore" value="3">
 								        3점
 								    </label>
 								    <label for="4-btn">
-								        <input type="radio" id="4-btn" name="rating">
+								        <input type="radio" id="reviewScore" name="reviewScore" value="4">
 								        4점
 								    </label>
 								    <label for="5-btn">
-								        <input type="radio" id="5-btn" name="rating" checked>
+								        <input type="radio" id="reviewScore" name="reviewScore" value="5" checked="checked">
 								        5점
 								    </label>
 								</div><br>
                                 <div class="checkout__form__input">
                                     <p>* 수업, 운동시설, 강사님 등 자세한 이야기를 들려주세요. (욕설, 비방글은 삭제됩니다.)</p>
-									<textarea rows="10" cols="130" name="reviewContent" id="reviewContent" required></textarea>
+									<textarea rows="10" cols="125" name="reviewContent" id="reviewContent" required></textarea>
+                                </div><br>
+                                <div class="checkout__form__input">
+                                    <p>사진 첨부</p>
+                                    <input class="form-control" type="file" name="uploadProfile" id="uploadProfile" required/>
                                 </div>
                                 <br><br>
 							    <div class="col-lg-12 text-center">

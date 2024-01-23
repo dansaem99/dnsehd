@@ -39,7 +39,7 @@
                     <div class="breadcrumb__links">
                         <a href="main"><i class="fa fa-home"></i> Home</a>
                         <a href="teacher">Teacher </a>
-                        <span>${teacherDTO.teacherNm } 트레이너</span>
+                        <span>${teacherMap.teacherNm } 트레이너</span>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
 	                <div class="product__item">
-	                    <div class="product__item__trainer__pic set-bg" data-setbg="/addedImg/trainer_1.jpg">
+	                    <div class="product__item__trainer__pic set-bg" data-setbg="/teacherImg?fileName=${teacherMap.teacherImgUUID }">
 	                        <ul class="product__hover">
 	                            <li><a href="/addedImg/trainer_1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
 	                        </ul>
@@ -62,26 +62,23 @@
                 </div> 
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>${teacherDTO.teacherNm } 트레이너 </h3>
-                        <div class="product__details__price" style="color: blue;">${teacherDTO.teacherBirth}</div>
+                        <h3>${teacherMap.teacherNm } 트레이너 </h3>
+                        <div class="product__details__price" style="color: blue;">${teacherMap.teacherBirth}</div>
                         <span>* 강사 한줄 소개</span>
-                        <p>${teacherDTO.teacherIntro }</p>
+                        <p>${teacherMap.teacherIntro }</p>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">${teacherDTO.teacherNm } 강사의 이력</a>
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">${teacherMap.teacherNm } 강사의 이력</a>
                             </li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <h6>강사 이력</h6>
-                                <p>${teacherDTO.teacherCareer }</p>
-                                <p>2011 세계선수권에서 항목 3번의 기술을 처음 선보이며 1위</p>
-                                <p>2012 런던 올림픽 도마 종목에서 만 19세의 나이로 대한민국 체조 역사상 최초로 금메달을 획득</p>
-                            	<p>2018 선수 생활을 재개하여 전국체육대회와 제주 국제체조대회에서 금메달</p>
+                                <p>${teacherMap.teacherCareer }</p>
                             </div>
                         </div>
                     </div>
@@ -91,7 +88,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="related__title">
-                        <h5>${teacherDTO.teacherNm } 트레이너 님이 진행중인 수업을 알아보세요!</h5>
+                        <h5>${teacherMap.teacherNm } 트레이너 님이 진행중인 수업을 알아보세요!</h5>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">

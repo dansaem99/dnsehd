@@ -1,15 +1,20 @@
 package com.application.dnsehd.service;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.application.dnsehd.dto.ReviewDTO;
+import com.application.dnsehd.dto.ReviewImgDTO;
 
 public interface ReviewService {
 
-	public void addReview(ReviewDTO reviewDTO);
-	public List<ReviewDTO> getReviewList();
-	public ReviewDTO getReviewDetail(int reviewNo);
+	public void addReview(MultipartFile uploadProfile, ReviewDTO reviewDTO, ReviewImgDTO reviewImgDTO) throws IllegalStateException, IOException;
+	public List<Map<String, Object>> getReviewList();
+	public Map<String, Object> getReviewDetail(int reviewNo);
 	public List<ReviewDTO> getMyReviewList(String memberId);
-	public void modifyMyReviewDetail(ReviewDTO reviewDTO);	
+	public void modifyMyReviewDetail(MultipartFile uploadProfile, ReviewDTO reviewDTO, ReviewImgDTO reviewImgDTO) throws IllegalStateException, IOException;
 	public void removeMyReview(int reviewNo);
 }

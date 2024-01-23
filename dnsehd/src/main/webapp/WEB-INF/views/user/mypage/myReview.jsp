@@ -77,7 +77,7 @@
 			                                    <td class="notice__no" >${reviewDTO.reviewTitle }</td>
 			                                    <td class="notice__item">
 			                                        <div class="notice__item__title">
-			                                            <h6>5점</h6>
+			                                            <h6>${reviewDTO.reviewScore } 점</h6>
 			                                        </div>
 			                                    </td>
 			                                    <td class="notice__item">

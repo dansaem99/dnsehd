@@ -64,27 +64,59 @@
 				TEACHER
 	</select>
 
-	<select id="selectTeacherList" parameterType="hashmap" resultType="TeacherDTO">
+	<resultMap type="hashmap" id="teacher">
+		<result column="TEACHER_NO" property="teacherNo"/>
+		<result column="TEACHER_NM" property="teacherNm"/>
+		<result column="TEACHER_BIRTH" property="teacherBirth"/>
+		<result column="TEACHER_HP" property="teacherHp"/>
+		<result column="TEACHER_CAREER" property="teacherCareer"/>
+		<result column="TEACHER_INTRO" property="teacherIntro"/>
+		<result column="TEACHER_IMG_NO" property="teacherImgNo"/>
+		<result column="TEACHER_IMG_NM" property="teacherImgNm"/>
+		<result column="TEACHER_IMG_UUID" property="teacherImgUUID"/>
+	</resultMap>
+	
+	<select id="selectTeacherList" parameterType="hashmap" resultMap="teacher">
 		<choose>
 			<when test='searchWord.equals("")'>
 				SELECT
-						*
+						T.TEACHER_NO AS TEACHER_NO,
+						T.TEACHER_NM AS TEACHER_NM,
+						T.TEACHER_BIRTH AS TEACHER_BIRTH,
+						T.TEACHER_HP AS TEACHER_HP,
+						T.TEACHER_CAREER AS TEACHER_CAREER,
+						T.TEACHER_INTRO AS TEACHER_INTRO,
+						TI.TEACHER_IMG_NO AS TEACHER_IMG_NO,
+						TI.TEACHER_IMG_NM AS TEACHER_IMG_NM,
+						TI.TEACHER_IMG_UUID AS TEACHER_IMG_UUID
 				FROM
-						TEACHER
+						TEACHER AS T
+				JOIN 	TEACHER_IMAGES AS TI
+						ON T.TEACHER_NO = TI.TEACHER_NO
 				ORDER BY
-						TEACHER_NO DESC
+						T.TEACHER_NO DESC
 				LIMIT
 						#{startTeacherIdx},#{onePageViewCnt}
 			</when>
 			<otherwise>
 				SELECT
-						*
+						T.TEACHER_NO AS TEACHER_NO,
+						T.TEACHER_NM AS TEACHER_NM,
+						T.TEACHER_BIRTH AS TEACHER_BIRTH,
+						T.TEACHER_HP AS TEACHER_HP,
+						T.TEACHER_CAREER AS TEACHER_CAREER,
+						T.TEACHER_INTRO AS TEACHER_INTRO,
+						TI.TEACHER_IMG_NO AS TEACHER_IMG_NO,
+						TI.TEACHER_IMG_NM AS TEACHER_IMG_NM,
+						TI.TEACHER_IMG_UUID AS TEACHER_IMG_UUID
 				FROM
-						TEACHER
+						TEACHER AS T
+				JOIN 	TEACHER_IMAGES AS TI
+						ON T.TEACHER_NO = TI.TEACHER_NO
 				WHERE
 						TEACHER_NM LIKE CONCAT('%' , #{searchWord} , '%')
 				ORDER BY
-						TEACHER_NO DESC
+						T.TEACHER_NO DESC
 				LIMIT
 						#{startTeacherIdx},#{onePageViewCnt}
 			</otherwise>
@@ -92,13 +124,23 @@
 	</select>
 	
 	
-	<select id="selectTeacherDetail" parameterType="int" resultType="TeacherDTO">
+	<select id="selectTeacherDetail" parameterType="int" resultMap="teacher">
 		SELECT
-				*
+				T.TEACHER_NO AS TEACHER_NO,
+				T.TEACHER_NM AS TEACHER_NM,
+				T.TEACHER_BIRTH AS TEACHER_BIRTH,
+				T.TEACHER_HP AS TEACHER_HP,
+				T.TEACHER_CAREER AS TEACHER_CAREER,
+				T.TEACHER_INTRO AS TEACHER_INTRO,
+				TI.TEACHER_IMG_NO AS TEACHER_IMG_NO,
+				TI.TEACHER_IMG_NM AS TEACHER_IMG_NM,
+				TI.TEACHER_IMG_UUID AS TEACHER_IMG_UUID
 		FROM
-				TEACHER
+				TEACHER AS T
+		JOIN 	TEACHER_IMAGES AS TI
+				ON T.TEACHER_NO = TI.TEACHER_NO
 		WHERE
-				TEACHER_NO = #{teacherNo}
+				T.TEACHER_NO = #{teacherNo}
 	</select>
 	
 	

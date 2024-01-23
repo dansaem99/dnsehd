@@ -52,16 +52,17 @@
     <section class="blog spad">
         <div class="container">
             <div class="row">
-            	<c:forEach var="reviewDTO" items="${reviewList }">
+            	<c:forEach var="reviewMap" items="${reviewList }">
 	                <div class="col-lg-4 col-md-4 col-sm-6">
 	                    <div class="blog__item">
-	                        <div class="blog__item__pic large__item set-bg" data-setbg="/addedImg/pilates_1.jpg"></div>
+	                        <div class="blog__item__pic large__item set-bg" data-setbg="/reviewImg?fileName=${reviewMap.reviewImgUUID }"></div>
+	                        <input type="hidden" name="reviewNo" value="${reviewMap.reviewNo }">
 	                        <div class="blog__item__text">
-	                            <h6><a href="/reviewDetail?reviewNo=${reviewDTO.reviewNo }">${reviewDTO.reviewTitle }</a></h6>
+	                            <h6><a href="/reviewDetail?reviewNo=${reviewMap.reviewNo }">${reviewMap.reviewTitle }</a></h6>
 	                            <ul>
-	                                <li>작성자 <span>${reviewDTO.memberId }</span></li>
+	                                <li>작성자 <span>${reviewMap.memberId }</span></li>
 	                                <li>
-	                                	<fmt:formatDate value="${reviewDTO.reviewDt }" pattern="yyyy-MM-dd" />
+	                                	<fmt:formatDate value="${reviewMap.reviewDt }" pattern="yyyy-MM-dd" />
 	                                </li>
 	                            </ul>
 	                        </div>

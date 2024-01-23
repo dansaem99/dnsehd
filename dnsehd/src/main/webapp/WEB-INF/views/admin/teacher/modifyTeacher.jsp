@@ -68,32 +68,36 @@
               	<div class="card-body row">
 	                <div class="mb-3 col-md-6">
 	                  <label for="defaultInput" class="form-label">강사이름</label>
-	                  <input id="teacherNm" name="teacherNm" class="form-control" type="text" value="${teacherDTO.teacherNm }" required/>
+	                  <input id="teacherNm" name="teacherNm" class="form-control" type="text" value="${teacherMap.teacherNm }" required/>
 	                </div>
 	                <div class="mb-3 col-md-6">
 	                  <label for="defaultInput" class="form-label">생년월일</label>
-	                  <input id="teacherBirth" name="teacherBirth" class="form-control" type="date" value="${teacherDTO.teacherBirth }" required/>
+	                  <input id="teacherBirth" name="teacherBirth" class="form-control" type="date" value="${teacherMap.teacherBirth }" required/>
 	                </div>
 	                <div class="mb-3 col-md-6">
 	                  <label for="defaultInput" class="form-label">강사전화번호</label>
-	                  <input id="teacherHp" name="teacherHp" class="form-control" type="text" value="${teacherDTO.teacherHp }" required/>
+	                  <input id="teacherHp" name="teacherHp" class="form-control" type="text" value="${teacherMap.teacherHp }" required/>
 	                </div>
 	                <div class="mb-3 col-md-6">
-	                  <label for="formFileMultiple" class="form-label">사진</label>
+	                  <label for="formFileMultiple" class="form-label">새로운 사진 선택</label>
 	                  <input class="form-control" type="file" name="uploadProfile" id="uploadProfile" />
-	                  <input type="hidden" name="teacherImgUUID" value="${teacherImgDTO.teacherImgUUID }"/>
-	                  <input type="hidden" name="teacherImgNm" value="${teacherImgDTO.teacherImgNm }"/>
+	                  <input type="hidden" name="teacherImgUUID" value="${teacherMap.teacherImgUUID }"/>
+	                  <input type="hidden" name="teacherImgNm" value="${teacherMap.teacherImgNm }"/>
 	                </div>
                	    <div class="mb-3">
                        <label for="defaultInput" class="form-label">강사 한줄 소개</label>
-                       <input id="teacherIntro" name="teacherIntro" class="form-control" type="text" value="${teacherDTO.teacherIntro }" />
+                       <input id="teacherIntro" name="teacherIntro" class="form-control" type="text" value="${teacherMap.teacherIntro }" />
                      </div>
-	                <div class="mb-3">
+	                <div class="mb-3 col-md-6">
 	                  <label for="defaultInput" class="form-label">강사이력</label>
-	                  <textarea rows="10" cols="50" id="teacherCareer" name="teacherCareer" class="form-control" required>${teacherDTO.teacherCareer }</textarea>
+	                  <textarea rows="10" cols="50" id="teacherCareer" name="teacherCareer" class="form-control" required>${teacherMap.teacherCareer }</textarea>
+	                </div>
+	                <div class="mb-3 col-md-6">
+	                  <label for="defaultInput" class="form-label">기존 사진 확인하기</label>
+	                  <div><img src="/teacherImg?fileName=${teacherMap.teacherImgUUID }" width="250" height="250" alt="사진"></div>
 	                </div>
 	                <div class="mt-2">
-	                  <input type="hidden" name="teacherNo" value="${teacherDTO.teacherNo }"/>
+	                  <input type="hidden" name="teacherNo" value="${teacherMap.teacherNo }"/>
 	                  <input type="submit" class="btn btn-outline-primary me-2" value="수정하기" />
 	                  <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adTeacher'">
 	                </div>

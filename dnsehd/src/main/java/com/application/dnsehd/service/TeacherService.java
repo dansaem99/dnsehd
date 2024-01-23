@@ -13,9 +13,9 @@ public interface TeacherService {
 
 	public void addTeacherDetail(MultipartFile uploadProfile, TeacherDTO teacherDTO, TeacherImgDTO teacherImgDTO) throws IllegalStateException, IOException;
 	public List<TeacherDTO> adminTeacherList();
-	public List<TeacherDTO> getTeacherList(Map<String, Object> searchMap);
+	public List<Map<String, Object>> getTeacherList(Map<String, Object> searchMap);
 	public int getAllTeacherCnt(String searchWord);
-	public TeacherDTO getTeacherDetail(int teacherNo);
+	public Map<String, Object> getTeacherDetail(int teacherNo);
 	public void modifyTeacherDetail(MultipartFile uploadProfile, TeacherDTO teacherDTO, TeacherImgDTO teacherImgDTO) throws IllegalStateException, IOException;
 	public void removeOneTeacher(int teacherNo);
 	public void addTeacherDummy();
