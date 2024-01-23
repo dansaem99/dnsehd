@@ -13,6 +13,7 @@ public class ReviewDTO {
 	int reviewNo;
 	String reviewTitle;
 	String reviewContent;
+	int reviewScore;
 	Date reviewDt;
 	String memberId;
 //	int classNo;

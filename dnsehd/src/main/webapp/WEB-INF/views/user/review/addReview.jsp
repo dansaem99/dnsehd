@@ -81,23 +81,23 @@
                                 </div>
 								<div class="size__btn">
 								    <label for="1-btn" class="active">
-								        <input type="radio" id="1-btn" name="rating">
+								        <input type="radio" id="reviewScore" name="reviewScore" value="1">
 								        1점
 								    </label>
 								    <label for="2-btn">
-								        <input type="radio" id="2-btn" name="rating">
+								        <input type="radio" id="reviewScore" name="reviewScore" value="2">
 								        2점
 								    </label>
 								    <label for="3-btn">
-								        <input type="radio" id="3-btn" name="rating">
+								        <input type="radio" id="reviewScore" name="reviewScore" value="3">
 								        3점
 								    </label>
 								    <label for="4-btn">
-								        <input type="radio" id="4-btn" name="rating">
+								        <input type="radio" id="reviewScore" name="reviewScore" value="4">
 								        4점
 								    </label>
 								    <label for="5-btn">
-								        <input type="radio" id="5-btn" name="rating" checked>
+								        <input type="radio" id="reviewScore" name="reviewScore" value="5" checked="checked">
 								        5점
 								    </label>
 								</div><br>

@@ -7,12 +7,14 @@
 		INSERT INTO REVIEWS (
 			REVIEW_TITLE,
 			REVIEW_CONTENT,
+			REVIEW_SCORE,
 			REVIEW_DT,
 			MEMBER_ID
 		)
 		VALUES (
 			#{reviewTitle},
 			#{reviewContent},
+			#{reviewScore},
 			now(),
 			#{memberId}
 		)
