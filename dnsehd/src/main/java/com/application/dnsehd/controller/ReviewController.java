@@ -96,7 +96,7 @@ public class ReviewController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/mypage/modifyMyReview");
-		mv.addObject("reviewDTO", reviewService.getReviewDetail(reviewNo));
+		mv.addObject("reviewMap", reviewService.getReviewDetail(reviewNo));
 		
 		return mv;
 	}

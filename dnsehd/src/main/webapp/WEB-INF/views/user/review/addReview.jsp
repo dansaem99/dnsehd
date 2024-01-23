@@ -77,8 +77,8 @@
                                     <p>수강한 수업명</p>
 									<select name="classNo" class="checkout__form__select">
 										<option>보이는 용</option>
-										<c:forEach var="classDTO" items="${classList }">
-											<option>${classDTO.classNm }</option>
+										<c:forEach var="reviewMap" items="${reviewList }">
+											<option>${reviewMap.classNm }</option>
 										</c:forEach>
 									</select>
                                 </div>

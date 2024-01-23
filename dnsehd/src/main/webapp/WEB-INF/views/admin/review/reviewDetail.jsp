@@ -82,7 +82,7 @@
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">수업명</label>
-                        <input id="defaultInput" class="form-control" type="text" value="수정필!!!!" readonly/>
+                        <input id="defaultInput" class="form-control" type="text" value="${reviewMap.classNm }" readonly/>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultSelect" class="form-label">후기평점 (1~5)</label>

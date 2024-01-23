@@ -116,15 +116,15 @@
                 </tr>
               </thead>
               <tbody id="reviewList">
-              	<c:forEach var="reviewDTO" items="${reviewList }">
+              	<c:forEach var="reviewMap" items="${reviewList }">
 	                <tr>
-	                  <td>${reviewDTO.memberId }</td>
-	                  <td>${reviewDTO.reviewTitle }</td>
-	                  <td>수정필!!!!</td>
-	                  <td><fmt:formatDate value="${reviewDTO.reviewDt }" pattern="yyyy-MM-dd" /></td>
+	                  <td>${reviewMap.memberId }</td>
+	                  <td>${reviewMap.reviewTitle }</td>
+	                  <td>${reviewMap.classNm }</td>
+	                  <td><fmt:formatDate value="${reviewMap.reviewDt }" pattern="yyyy-MM-dd" /></td>
 	                  <td>
 	                    <div>
-	                        <input type="button" class="btn btn-outline-primary" value="상세정보" onclick="location.href='/adReviewDetail?reviewNo=${reviewDTO.reviewNo }'">
+	                        <input type="button" class="btn btn-outline-primary" value="상세정보" onclick="location.href='/adReviewDetail?reviewNo=${reviewMap.reviewNo }'">
 	                    </div>
 	                  </td>
 	                </tr>

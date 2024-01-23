@@ -46,6 +46,18 @@
 		<result column="REVIEW_IMG_NO" property="reviewImgNo"/>
 		<result column="REVIEW_IMG_NM" property="reviewImgNm"/>
 		<result column="REVIEW_IMG_UUID" property="reviewImgUUID"/>
+		<result column="RESV_NO" property="resvNo"/>
+		<result column="PAYMENT" property="payment"/>
+		<result column="RESV_DT" property="resvDt"/>
+		<result column="RESV_ALARM" property="resvAlarm"/>
+		<result column="MEMBER_ID" property="memberId"/>
+		<result column="CLASS_NO" property="classNo"/>
+		<result column="CLASS_NM" property="classNm"/>
+		<result column="CLASS_CONTENT" property="classContent"/>
+		<result column="CLASS_PRICE" property="classPrice"/>
+		<result column="CLASS_TIME" property="classTime"/>
+		<result column="CLASS_CATEGORY" property="classCategory"/>
+		<result column="CLASS_LIMIT" property="classLimit"/>
 	</resultMap>
 	
 	<select id="selectReviewList" resultMap="review">
@@ -58,14 +70,29 @@
 				R.MEMBER_ID AS MEMBER_ID,
 				RI.REVIEW_IMG_NO AS REVIEW_IMG_NO,
 				RI.REVIEW_IMG_NM AS REVIEW_IMG_NM,
-				RI.REVIEW_IMG_UUID AS REVIEW_IMG_UUID
+				RI.REVIEW_IMG_UUID AS REVIEW_IMG_UUID,
+				R.RESV_NO AS RESV_NO,
+				RESV.PAYMENT AS PAYMENT,
+				RESV.RESV_DT AS RESV_DT,
+				RESV.RESV_ALARM AS RESV_ALARM,
+				RESV.CLASS_NO AS CLASS_NO,
+				R.CLASS_NO AS CLASS_NO,
+				C.CLASS_NM AS CLASS_NM,
+				C.CLASS_CONTENT AS CLASS_CONTENT,
+				C.CLASS_PRICE AS CLASS_PRICE,
+				C.CLASS_TIME AS CLASS_TIME,
+				C.CLASS_CATEGORY AS CLASS_CATEGORY,
+				C.CLASS_LIMIT AS CLASS_LIMIT
 		FROM
-				REVIEWS AS R
-		JOIN    REVIEW_IMAGES AS RI
-				ON R.REVIEW_NO = RI.REVIEW_NO
+				REVIEWS R
+		JOIN    REVIEW_IMAGES RI
+		  ON 	R.REVIEW_NO = RI.REVIEW_NO
+		JOIN    RESERVATIONS RESV
+		  ON 	R.RESV_NO = RESV.RESV_NO
+		JOIN  	CLASS C
+		  ON	R.CLASS_NO = C.CLASS_NO
 		ORDER BY
 				R.REVIEW_NO DESC
-				
 	</select>
 	
 	<select id="selectReviewDetail" parameterType="int" resultMap="review">
@@ -78,11 +105,27 @@
 				R.MEMBER_ID AS MEMBER_ID,
 				RI.REVIEW_IMG_NO AS REVIEW_IMG_NO,
 				RI.REVIEW_IMG_NM AS REVIEW_IMG_NM,
-				RI.REVIEW_IMG_UUID AS REVIEW_IMG_UUID
+				RI.REVIEW_IMG_UUID AS REVIEW_IMG_UUID,
+				R.RESV_NO AS RESV_NO,
+				RESV.PAYMENT AS PAYMENT,
+				RESV.RESV_DT AS RESV_DT,
+				RESV.RESV_ALARM AS RESV_ALARM,
+				RESV.CLASS_NO AS CLASS_NO,
+				R.CLASS_NO AS CLASS_NO,
+				C.CLASS_NM AS CLASS_NM,
+				C.CLASS_CONTENT AS CLASS_CONTENT,
+				C.CLASS_PRICE AS CLASS_PRICE,
+				C.CLASS_TIME AS CLASS_TIME,
+				C.CLASS_CATEGORY AS CLASS_CATEGORY,
+				C.CLASS_LIMIT AS CLASS_LIMIT
 		FROM
-				REVIEWS AS R
-		JOIN    REVIEW_IMAGES AS RI
-				ON R.REVIEW_NO = RI.REVIEW_NO
+				REVIEWS R
+		JOIN    REVIEW_IMAGES RI
+		  ON 	R.REVIEW_NO = RI.REVIEW_NO
+		JOIN    RESERVATIONS RESV
+		  ON 	R.RESV_NO = RESV.RESV_NO
+		JOIN  	CLASS C
+		  ON	R.CLASS_NO = C.CLASS_NO
 		WHERE
 				R.REVIEW_NO = #{reviewNo}
 	</select>

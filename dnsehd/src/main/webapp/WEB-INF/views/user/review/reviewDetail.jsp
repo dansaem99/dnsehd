@@ -55,7 +55,7 @@
                 <div class="col-lg-8 col-md-8">
                     <div class="blog__details__content">
                         <div class="blog__details__item">
-                            <img src="/reviewImg?fileName=${reviewMap.reviewImgUUID }" alt="사진">
+                            <img src="/reviewImg?fileName=${reviewMap.reviewImgUUID }" alt="사진">f
                             <div class="blog__details__item__title">
                                 <span class="tip">Street style</span>
                                 <h4>${reviewMap.reviewTitle }</h4>
@@ -80,9 +80,8 @@
                                 <h4>수강한 수업 정보</h4>
                             </div>
                             <ul>
-                                <li><a href="#">수업명 <span>단체 필라테스 레슨</span></a></li>
-                                <li><a href="#">강사명 <span>기보배</span></a></li>
-                                <li><a href="#">수강료 <span>40만원/월</span></a></li>
+                                <li><a href="#">수업명 <span>${reviewMap.classNm }</span></a></li>
+                                <li><a href="#">수강료 <span><fmt:formatNumber type="number" value="${reviewMap.payment}" pattern="#,##0"/></span></a></li>
                             </ul>
                         </div>
                         <div class="blog__sidebar__item">
