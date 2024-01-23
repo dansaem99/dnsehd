@@ -73,7 +73,7 @@ public class ReviewController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/review/reviewDetail");
-		mv.addObject("reviewDTO", reviewService.getReviewDetail(reviewNo));
+		mv.addObject("reviewMap", reviewService.getReviewDetail(reviewNo));
 		
 		return mv;
 	}			
@@ -139,7 +139,7 @@ public class ReviewController {
 	
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/review/reviewDetail");
-		mv.addObject("reviewDTO", reviewService.getReviewDetail(reviewNo));
+		mv.addObject("reviewMap", reviewService.getReviewDetail(reviewNo));
 		
 		return mv;		
 	}

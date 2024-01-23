@@ -1,6 +1,7 @@
 package com.application.dnsehd.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,8 +13,8 @@ public interface ReviewDAO {
 	
 	public void insertReview(ReviewDTO reviewDTO);
 	public void insertReviewImg(ReviewImgDTO reviewImgDTO);
-	public List<ReviewDTO> selectReviewList();
-	public ReviewDTO selectReviewDetail(int reviewNo);
+	public List<Map<String, Object>> selectReviewList();
+	public Map<String, Object> selectReviewDetail(int reviewNo);
 	public List<ReviewDTO> selectMyReviewList();
 	public List<ReviewDTO> selectMyReviewList(String memberId);
 	public void updateMyReview(ReviewDTO reviewDTO);

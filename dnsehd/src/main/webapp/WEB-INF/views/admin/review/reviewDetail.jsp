@@ -74,11 +74,11 @@
                     <div class="card-body row">
                       <div class="mb-3">
                         <label for="defaultInput" class="form-label">후기제목</label>
-                        <input id="defaultInput" class="form-control" type="text" value="${reviewDTO.reviewTitle }" readonly/>
+                        <input id="defaultInput" class="form-control" type="text" value="${reviewMap.reviewTitle }" readonly/>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">아이디</label>
-                        <input id="defaultInput" class="form-control" type="text" value="${reviewDTO.memberId }" readonly/>
+                        <input id="defaultInput" class="form-control" type="text" value="${reviewMap.memberId }" readonly/>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">수업명</label>
@@ -86,18 +86,22 @@
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultSelect" class="form-label">후기평점 (1~5)</label>
-                        <input id="defaultInput" class="form-control" type="text" value="${reviewDTO.reviewScore }" readonly/>
+                        <input id="defaultInput" class="form-control" type="text" value="${reviewMap.reviewScore }" readonly/>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultSelect" class="form-label">등록날짜</label>
-                        <input id="defaultInput" class="form-control" type="text" value="<fmt:formatDate value='${reviewDTO.reviewDt}' pattern='yyyy-MM-dd' />" readonly/>
+                        <input id="defaultInput" class="form-control" type="text" value="<fmt:formatDate value='${reviewMap.reviewDt}' pattern='yyyy-MM-dd' />" readonly/>
                       </div>
-                      <div class="mb-3 col-md-12">
+                      <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">내용</label>
-                        <textarea rows="10" cols="50" id="reviewContent" name="reviewContent" class="form-control" readonly>${reviewDTO.reviewContent }</textarea>
+                        <textarea rows="10" cols="50" id="reviewContent" name="reviewContent" class="form-control" readonly>${reviewMap.reviewContent }</textarea>
+                      </div>
+                      <div class="mb-3 col-md-6">
+                        <label for="defaultInput" class="form-label">사진</label>
+                        <div><img src="/reviewImg?fileName=${reviewMap.reviewImgUUID }" width="300" height="200" alt="사진"></div>
                       </div>
                       <div class="mt-2">
- 	                      <input type="hidden" name="reviewNo" value="${reviewDTO.reviewNo }"/>
+ 	                      <input type="hidden" name="reviewNo" value="${reviewMap.reviewNo }"/>
                           <input type="button" class="btn btn-outline-primary me-2" value="삭제하기" onclick="location.href='/adRemoveReview?reviewNo=${reviewDTO.reviewNo }'">
                           <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adReview'">
                       </div>

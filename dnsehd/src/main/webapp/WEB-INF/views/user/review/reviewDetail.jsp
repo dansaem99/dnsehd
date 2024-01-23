@@ -40,7 +40,7 @@
                     <div class="breadcrumb__links">
                         <a href="main"><i class="fa fa-home"></i> Home</a>
                         <a href="review">Review</a>
-                        <span>${reviewDTO.reviewTitle }</span>
+                        <span>${reviewMap.reviewTitle }</span>
                     </div>
                 </div>
             </div>
@@ -55,21 +55,21 @@
                 <div class="col-lg-8 col-md-8">
                     <div class="blog__details__content">
                         <div class="blog__details__item">
-                            <img src="/addedImg/pilates_1.jpg" alt="">
+                            <img src="/reviewImg?fileName=${reviewMap.reviewImgUUID }" alt="사진">
                             <div class="blog__details__item__title">
                                 <span class="tip">Street style</span>
-                                <h4>${reviewDTO.reviewTitle }</h4>
+                                <h4>${reviewMap.reviewTitle }</h4>
                                 <ul>
-                                    <li>작성자 <span>${reviewDTO.memberId }</span></li>
+                                    <li>작성자 <span>${reviewMap.memberId }</span></li>
                                     <li>
-	                                    <fmt:formatDate value="${reviewDTO.reviewDt }" pattern="yyyy-MM-dd" />
+	                                    <fmt:formatDate value="${reviewMap.reviewDt }" pattern="yyyy-MM-dd" />
                                     </li>
-                                    <li>수업 및 시설 평점 <span>${reviewDTO.reviewScore } 점</span></li>
+                                    <li>수업 및 시설 평점 <span>${reviewMap.reviewScore } 점</span></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="blog__details__desc">
-                            <p>${reviewDTO.reviewContent }</p>
+                            <p>${reviewMap.reviewContent }</p>
                         </div>
                     </div>
                 </div>

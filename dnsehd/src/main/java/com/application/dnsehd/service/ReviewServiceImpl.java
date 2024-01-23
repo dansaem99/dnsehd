@@ -3,6 +3,7 @@ package com.application.dnsehd.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,13 +48,13 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public List<ReviewDTO> getReviewList() {
+	public List<Map<String, Object>> getReviewList() {
 		return reviewDAO.selectReviewList();
 	}
 
 	@Override
 	@Transactional
-	public ReviewDTO getReviewDetail(int reviewNo) {
+	public Map<String, Object> getReviewDetail(int reviewNo) {
 		return reviewDAO.selectReviewDetail(reviewNo);
 	}
 

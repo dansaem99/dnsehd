@@ -36,20 +36,55 @@
 		)
 	</insert>
 		
-	<select id="selectReviewList" resultType="ReviewDTO">
+	<resultMap type="hashmap" id="review">
+		<result column="REVIEW_NO" property="reviewNo"/>
+		<result column="REVIEW_TITLE" property="reviewTitle"/>
+		<result column="REVIEW_CONTENT" property="reviewContent"/>
+		<result column="REVIEW_SCORE" property="reviewScore"/>
+		<result column="REVIEW_DT" property="reviewDt"/>
+		<result column="MEMBER_ID" property="memberId"/>
+		<result column="REVIEW_IMG_NO" property="reviewImgNo"/>
+		<result column="REVIEW_IMG_NM" property="reviewImgNm"/>
+		<result column="REVIEW_IMG_UUID" property="reviewImgUUID"/>
+	</resultMap>
+	
+	<select id="selectReviewList" resultMap="review">
 		SELECT 
-				*
+				R.REVIEW_NO AS REVIEW_NO,
+				R.REVIEW_TITLE AS REVIEW_TITLE,
+				R.REVIEW_CONTENT AS REVIEW_CONTENT,
+				R.REVIEW_SCORE AS REVIEW_SCORE,
+				R.REVIEW_DT AS REVIEW_DT,
+				R.MEMBER_ID AS MEMBER_ID,
+				RI.REVIEW_IMG_NO AS REVIEW_IMG_NO,
+				RI.REVIEW_IMG_NM AS REVIEW_IMG_NM,
+				RI.REVIEW_IMG_UUID AS REVIEW_IMG_UUID
 		FROM
-				REVIEWS
+				REVIEWS AS R
+		JOIN    REVIEW_IMAGES AS RI
+				ON R.REVIEW_NO = RI.REVIEW_NO
+		ORDER BY
+				R.REVIEW_NO DESC
+				
 	</select>
 	
-	<select id="selectReviewDetail" parameterType="int" resultType="ReviewDTO">
-		SELECT
-				*
+	<select id="selectReviewDetail" parameterType="int" resultMap="review">
+		SELECT 
+				R.REVIEW_NO AS REVIEW_NO,
+				R.REVIEW_TITLE AS REVIEW_TITLE,
+				R.REVIEW_CONTENT AS REVIEW_CONTENT,
+				R.REVIEW_SCORE AS REVIEW_SCORE,
+				R.REVIEW_DT AS REVIEW_DT,
+				R.MEMBER_ID AS MEMBER_ID,
+				RI.REVIEW_IMG_NO AS REVIEW_IMG_NO,
+				RI.REVIEW_IMG_NM AS REVIEW_IMG_NM,
+				RI.REVIEW_IMG_UUID AS REVIEW_IMG_UUID
 		FROM
-				REVIEWS
+				REVIEWS AS R
+		JOIN    REVIEW_IMAGES AS RI
+				ON R.REVIEW_NO = RI.REVIEW_NO
 		WHERE
-				REVIEW_NO = #{reviewNo}
+				R.REVIEW_NO = #{reviewNo}
 	</select>
 	
 	<select id="selectMyReviewList" parameterType="String" resultType="ReviewDTO">
