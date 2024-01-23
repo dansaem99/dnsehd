@@ -131,11 +131,13 @@ CREATE TABLE SCHEDULE (
     SCHEDULE_NO INT AUTO_INCREMENT,
     ENROLL_DT DATE,
     MEMO VARCHAR(500),
-    CLASS_AGV INT,
-    CLASS_NO INT,
+    BREAKFAST VARCHAR(50),
+	LUNCH VARCHAR(50),
+	DINNER VARCHAR(50),
+	SNACK VARCHAR(50),
+	MIDNIGHT_SNACK VARCHAR(50),
     MEMBER_ID VARCHAR(20),
     PRIMARY KEY (SCHEDULE_NO),
-    FOREIGN KEY (CLASS_NO) REFERENCES CLASS(CLASS_NO),
     FOREIGN KEY (MEMBER_ID) REFERENCES MEMBER(MEMBER_ID)
 );
 
@@ -154,21 +156,6 @@ VALUES
 ('수업 후기는 투명하게 관리되고 있는 것 맞나요?', '네 맞습니다. DNSEHD 서비스는 외부로부터 사례를 받아 가짜 후기를 작성하는 행위는 금지하고 있습니다. 실제 사용자들의 생생한 후기를 보실 수 있습니다.'),
 ('작성한 후기에 개인적인 이야기가 너무 많아서 삭제하고 싶은데 어떻게 하나요?', '우측 상단의 사람 모양 아이콘 > 내가 작성한 후기에서 삭제 가능합니다.'),
 ('탈퇴하면 개인정보는 언제까지 보관되나요?', '탈퇴한 날로부터 90일이 지나면 일괄 삭제됩니다.');
-
-CREATE TABLE DIET (
-    DIET_ID INT,
-    DIET_DT DATE,
-    BREAKFAST VARCHAR(50),
-    LUNCH VARCHAR(50),
-    DINNER VARCHAR(50),
-    SNACK VARCHAR(50),
-    DIET_FOODITEM VARCHAR(100),
-    DIET_CALORIES INT,
-    TOTAL_CALORIES INT,
-    SCHEDULE_NO INT,
-    PRIMARY KEY (DIET_ID),
-    FOREIGN KEY (SCHEDULE_NO) REFERENCES SCHEDULE(SCHEDULE_NO)
-);
 
 CREATE TABLE EVENT (
 	EVENT_NO INT AUTO_INCREMENT,
