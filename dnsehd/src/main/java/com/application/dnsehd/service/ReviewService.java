@@ -6,11 +6,13 @@ import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.application.dnsehd.dto.ClassDTO;
 import com.application.dnsehd.dto.ReviewDTO;
 import com.application.dnsehd.dto.ReviewImgDTO;
 
 public interface ReviewService {
 
+	public List<ClassDTO> getClassList();
 	public void addReview(MultipartFile uploadProfile, ReviewDTO reviewDTO, ReviewImgDTO reviewImgDTO) throws IllegalStateException, IOException;
 	public List<Map<String, Object>> getReviewList();
 	public Map<String, Object> getReviewDetail(int reviewNo);

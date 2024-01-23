@@ -3,20 +3,29 @@
 
 <mapper namespace="com.application.dnsehd.dao.ReviewDAO">
 
+	<select id="selectClassList" resultType="ClassDTO">
+		SELECT  
+				*
+		FROM	
+				CLASS
+	</select>
+	
 	<insert id="insertReview" parameterType="ReviewDTO" useGeneratedKeys="true" keyProperty="reviewNo">
 		INSERT INTO REVIEWS (
 			REVIEW_TITLE,
 			REVIEW_CONTENT,
 			REVIEW_SCORE,
 			REVIEW_DT,
-			MEMBER_ID
+			MEMBER_ID,
+			CLASS_NO
 		)
 		VALUES (
 			#{reviewTitle},
 			#{reviewContent},
 			#{reviewScore},
 			now(),
-			#{memberId}
+			#{memberId},
+			#{classNo}
 		)
 		<selectKey keyColumn="GENERATED_KEY" keyProperty="reviewNo" order="AFTER" resultType="int">
 		    SELECT LAST_INSERT_ID()
@@ -146,7 +155,8 @@
 				REVIEW_CONTENT = #{reviewContent},
 				REVIEW_SCORE = #{reviewScore},
 				REVIEW_DT = now(),
-				MEMBER_ID = #{memberId}
+				MEMBER_ID = #{memberId},
+				CLASS_NO = #{classNo}
 		WHERE
 				REVIEW_NO = #{reviewNo}
 	</update>

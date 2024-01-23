@@ -48,6 +48,7 @@ public class ReviewController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/review/addReview");
 		mv.addObject("memberId", (String)session.getAttribute("memberId"));
+		mv.addObject("classList", reviewService.getClassList());
 		
 		return mv;
 	}	
@@ -96,6 +97,7 @@ public class ReviewController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/mypage/modifyMyReview");
+		mv.addObject("classList", reviewService.getClassList());
 		mv.addObject("reviewMap", reviewService.getReviewDetail(reviewNo));
 		
 		return mv;
