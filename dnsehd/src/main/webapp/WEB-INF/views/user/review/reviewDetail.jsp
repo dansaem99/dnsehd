@@ -64,74 +64,12 @@
                                     <li>
 	                                    <fmt:formatDate value="${reviewDTO.reviewDt }" pattern="yyyy-MM-dd" />
                                     </li>
-                                    <li>39 Comments</li>
+                                    <li>수업 및 시설 평점 <span>${reviewDTO.reviewScore } 점</span></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="blog__details__desc">
                             <p>${reviewDTO.reviewContent }</p>
-                        </div>
-                        <div class="blog__details__btns">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="blog__details__btn__item">
-                                        <h6><a href="#"><i class="fa fa-angle-left"></i> 이전 게시물</a></h6>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="blog__details__btn__item blog__details__btn__item--next">
-                                        <h6><a href="#">다음 게시물 <i class="fa fa-angle-right"></i></a></h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog__details__comment">
-                            <h5>리뷰에 대해 궁금한 점이 있으신가요?</h5>
-                            <a href="#" class="leave-btn">댓글을 남겨보세요.</a>
-                            <div class="blog__comment__item">
-                                <div class="blog__comment__item__pic">
-                                    <i class="fa fa-regular fa-user" style="font-size: 46px;"></i>
-                                </div>
-                                <div class="blog__comment__item__text">
-                                    <h6>유저1</h6>
-                                    <p>여기 시설 좋은가요?</p>
-                                    <ul>
-                                        <li><i class="fa fa-clock-o"></i> Seb 17, 2019</li>
-                                        <li><i class="fa fa-heart-o"></i> 12</li>
-                                        <li><i class="fa fa-share"></i> 1</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="blog__comment__item blog__comment__item--reply">
-                                <div class="blog__comment__item__pic">
-                                    <i class="fa fa-regular fa-user" style="font-size: 46px;"></i>
-                                </div>
-                                <div class="blog__comment__item__text">
-                                    <h6>유저2</h6>
-                                    <p>아침 일찍 수업 듣고 회사갑니다.
-                                    시설 괜찮고, 강사분 친절하세요ㅎㅎ</p>
-                                    <ul>
-                                        <li><i class="fa fa-clock-o"></i> Seb 17, 2019</li>
-                                        <li><i class="fa fa-heart-o"></i> 12</li>
-                                        <li><i class="fa fa-share"></i> 1</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="blog__comment__item">
-                                <div class="blog__comment__item__pic">
-                                    <i class="fa fa-regular fa-user" style="font-size: 46px;"></i>
-                                </div>
-                                <div class="blog__comment__item__text">
-                                    <h6>유저3</h6>
-                                    <p>지인 추천 받아서 갔는데, 생각보다 그냥 그렇습니다.
-                                    수강 등록한 것만 듣고 마무리 예정..</p>
-                                    <ul>
-                                        <li><i class="fa fa-clock-o"></i> Seb 17, 2019</li>
-                                        <li><i class="fa fa-heart-o"></i> 12</li>
-                                        <li><i class="fa fa-share"></i> 1</li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

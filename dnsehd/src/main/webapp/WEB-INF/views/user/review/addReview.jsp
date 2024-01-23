@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -31,7 +32,7 @@
  	.ck-editor__editable {
  		min-height: 300px;
  	}
- 	</style>    
+ 	</style>   
 </head>
 
 <body>
@@ -74,7 +75,12 @@
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>수강한 수업명</p>
-                                    <input type="text" placeholder=" 수강한 수업명 또는 사용 시설명을 입력해주세요." required>
+									<select name="classNo" class="checkout__form__select">
+										<option>보이는 용</option>
+										<c:forEach var="classDTO" items="${classList }">
+											<option>${classDTO.classNm }</option>
+										</c:forEach>
+									</select>
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>후기 평점</p>

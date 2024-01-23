@@ -72,17 +72,21 @@
                     <h2 class="card-header">리뷰 상세정보</h2>
                     <hr class="my-0" />
                     <div class="card-body row">
+                      <div class="mb-3">
+                        <label for="defaultInput" class="form-label">후기제목</label>
+                        <input id="defaultInput" class="form-control" type="text" value="${reviewDTO.reviewTitle }" readonly/>
+                      </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">아이디</label>
                         <input id="defaultInput" class="form-control" type="text" value="${reviewDTO.memberId }" readonly/>
                       </div>
                       <div class="mb-3 col-md-6">
-                        <label for="defaultInput" class="form-label">후기제목</label>
-                        <input id="defaultInput" class="form-control" type="text" value="${reviewDTO.reviewTitle }" readonly/>
-                      </div>
-                      <div class="mb-3 col-md-6">
                         <label for="defaultInput" class="form-label">수업명</label>
                         <input id="defaultInput" class="form-control" type="text" value="수정필!!!!" readonly/>
+                      </div>
+                      <div class="mb-3 col-md-6">
+                        <label for="defaultSelect" class="form-label">후기평점 (1~5)</label>
+                        <input id="defaultInput" class="form-control" type="text" value="${reviewDTO.reviewScore }" readonly/>
                       </div>
                       <div class="mb-3 col-md-6">
                         <label for="defaultSelect" class="form-label">등록날짜</label>

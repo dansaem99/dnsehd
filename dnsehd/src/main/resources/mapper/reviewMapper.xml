@@ -51,6 +51,7 @@
 		SET
 				REVIEW_TITLE = #{reviewTitle},
 				REVIEW_CONTENT = #{reviewContent},
+				REVIEW_SCORE = #{reviewScore},
 				REVIEW_DT = now(),
 				MEMBER_ID = #{memberId}
 		WHERE
