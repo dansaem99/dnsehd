@@ -150,6 +150,7 @@ public class TeacherController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/teacher/teacherDetail");
 		mv.addObject("teacherMap", teacherService.getTeacherDetail(teacherNo));
+		mv.addObject("classList", teacherService.getTeacherOwnClassList(teacherNo));
 		
 		return mv;
 	}	

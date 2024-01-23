@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -91,96 +92,24 @@
                         <h5>${teacherMap.teacherNm } 트레이너 님이 진행중인 수업을 알아보세요!</h5>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="/addedImg/pt_1.jpg">
-                            <div class="label new">New</div>
-                            <ul class="product__hover">
-                                <li><a href="/addedImg/pt_1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">근력 향상 1:1 PT</a></h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">40만원/월</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="/addedImg/pt_2.jpg">
-                            <ul class="product__hover">
-                                <li><a href="/addedImg/pt_2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">신나는 단체 PT</a></h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">30만원/월</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="/addedImg/squash_1.jpg">
-                            <div class="label stockout">out of stock</div>
-                            <ul class="product__hover">
-                                <li><a href="/addedImg/squash_1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">주3회 스쿼시 자유이용</a></h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">20만원/월</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="/addedImg/squash_2.jpg">
-                            <ul class="product__hover">
-                                <li><a href="/addedImg/squash_2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">커플 스쿼시 레슨</a></h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">30만원/월</div>
-                        </div>
-                    </div>
-                </div>
+                <c:forEach var="classDTO" items="${classList }" begin="0" end="3">
+	                <div class="col-lg-3 col-md-4 col-sm-6">
+	                    <div class="product__item">
+	                        <div class="product__item__pic set-bg" data-setbg="/teacherDetail?classNo=${classDTO.classNo}" ></div>
+	                        <div class="product__item__text">
+	                            <h6><a href="#">${classDTO.classNm }</a></h6>
+	                            <div class="rating">
+	                                <i class="fa fa-star"></i>
+	                                <i class="fa fa-star"></i>
+	                                <i class="fa fa-star"></i>
+	                                <i class="fa fa-star"></i>
+	                                <i class="fa fa-star"></i>
+	                            </div>
+	                            <div class="product__price"><fmt:formatNumber type="number" value="${classDTO.classPrice }" pattern="#,##0"/></div>
+	                        </div>
+	                    </div>
+	                </div>
+                </c:forEach>
             </div>
         </div>
     </section>
