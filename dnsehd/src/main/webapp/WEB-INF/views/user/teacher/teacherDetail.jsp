@@ -54,11 +54,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
 	                <div class="product__item">
-	                    <div class="product__item__trainer__pic set-bg" data-setbg="/teacherImg?fileName=${teacherMap.teacherImgUUID }">
-	                        <ul class="product__hover">
-	                            <li><a href="/addedImg/trainer_1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-	                        </ul>
-	                    </div>
+	                    <div class="product__item__trainer__pic set-bg" data-setbg="/teacherImg?fileName=${teacherMap.teacherImgUUID }"></div>
 	                </div>
                 </div> 
                 <div class="col-lg-6">
