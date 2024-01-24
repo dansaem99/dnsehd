@@ -75,7 +75,7 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <h6>강사 이력</h6>
-                                <p>${teacherMap.teacherCareer }</p>
+                                <p><pre><c:out value="${teacherMap.teacherCareer }" /></pre></p>
                             </div>
                         </div>
                     </div>
