@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -55,7 +56,7 @@
                 <div class="col-lg-8 col-md-8">
                     <div class="blog__details__content">
                         <div class="blog__details__item">
-                            <img src="/reviewImg?fileName=${reviewMap.reviewImgUUID }" alt="사진">
+                            <img src="/reviewImg?fileName=${reviewMap.reviewImgUUID }" alt="사진">f
                             <div class="blog__details__item__title">
                                 <span class="tip">Street style</span>
                                 <h4>${reviewMap.reviewTitle }</h4>
@@ -80,42 +81,26 @@
                                 <h4>수강한 수업 정보</h4>
                             </div>
                             <ul>
-                                <li><a href="#">수업명 <span>단체 필라테스 레슨</span></a></li>
-                                <li><a href="#">강사명 <span>기보배</span></a></li>
-                                <li><a href="#">수강료 <span>40만원/월</span></a></li>
+                                <li><a href="#">수업명 <span>${reviewMap.classNm }</span></a></li>
+                                <li><a href="#">수강료 <span><fmt:formatNumber type="number" value="${reviewMap.payment}" pattern="#,##0"/></span></a></li>
                             </ul>
                         </div>
                         <div class="blog__sidebar__item">
                             <div class="section-title">
-                                <h4>베스트 리뷰</h4>
+                                <h4>최신 리뷰</h4>
                             </div>
-                            <a href="#" class="blog__feature__item">
-                                <div class="blog__feature__item__pic">
-                                    <img src="/ashion/img/blog/sidebar/fp-1.jpg" alt="">
-                                </div>
-                                <div class="blog__feature__item__text">
-                                    <h6>강남역 필라테스 수업 듣고 체중 5Kg 감량!</h6>
-                                    <span>Seb 17, 2019</span>
-                                </div>
-                            </a>
-                            <a href="#" class="blog__feature__item">
-                                <div class="blog__feature__item__pic">
-                                    <img src="/ashion/img/blog/sidebar/fp-2.jpg" alt="">
-                                </div>
-                                <div class="blog__feature__item__text">
-                                    <h6>식단 관리 효과 쏠쏠하네요ㅋㅋ</h6>
-                                    <span>Seb 17, 2019</span>
-                                </div>
-                            </a>
-                            <a href="#" class="blog__feature__item">
-                                <div class="blog__feature__item__pic">
-                                    <img src="/ashion/img/blog/sidebar/fp-3.jpg" alt="">
-                                </div>
-                                <div class="blog__feature__item__text">
-                                    <h6>운동 부족 직장인, 이제 운동합니다!!</h6>
-                                    <span>Seb 17, 2019</span>
-                                </div>
-                            </a>
+                            <c:forEach var="reviewMap" items="${reviewList }" begin="0" end="2">
+	                            <a href="/reviewDetail?reviewNo=${reviewMap.reviewNo}" class="blog__feature__item">
+	                                <div class="blog__feature__item__pic">
+	                                    <img src="/reviewImg?fileName=${reviewMap.reviewImgUUID }" width="100" height="80" alt="사진" >
+	                                </div>
+	                                <div class="blog__feature__item__text">
+	                                    <h6>${reviewMap.reviewTitle }</h6>
+	                                    <span>작성일 ${reviewMap.reviewDt }</span>
+	                                    <span>작성자 ${reviewMap.memberId }</span>
+	                                </div>
+	                            </a>
+	                         </c:forEach>
                         </div>
                     </div>
                 </div>

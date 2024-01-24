@@ -16,7 +16,7 @@ public class ReviewDTO {
 	int reviewScore;
 	Date reviewDt;
 	String memberId;
-//	int classNo;
-//	int resvNo;
+	int classNo;
+	int resvNo;
 	
 }

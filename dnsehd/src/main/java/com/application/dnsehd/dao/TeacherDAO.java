@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.application.dnsehd.dto.ClassDTO;
 import com.application.dnsehd.dto.TeacherDTO;
 import com.application.dnsehd.dto.TeacherImgDTO;
 
@@ -21,5 +22,6 @@ public interface TeacherDAO {
 	public void updateTeacherImg(TeacherImgDTO teacherImgDTO);
 	public void deleteTeacher(int teacherNo);
 	public void deleteTeacherImg(int teacherNo);
+	public List<ClassDTO> selectTeacherOwnClassList(int teacherNo);
 	public void insertTeacherDummy(List<TeacherDTO> dummyTeacherList);
 }

@@ -5,12 +5,15 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.application.dnsehd.dto.ClassDTO;
 import com.application.dnsehd.dto.ReviewDTO;
 import com.application.dnsehd.dto.ReviewImgDTO;
 
 @Mapper
 public interface ReviewDAO {
 	
+	public List<ClassDTO> selectClassList();
+	public List<Map<String, Object>> selectMyResvList(String memberId);
 	public void insertReview(ReviewDTO reviewDTO);
 	public void insertReviewImg(ReviewImgDTO reviewImgDTO);
 	public List<Map<String, Object>> selectReviewList();

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -84,15 +85,27 @@
                             <div class="col-lg-12">
                                 <div class="checkout__form__input">
                                     <p>후기 제목</p>
-                                    <input type="text" name="reviewTitle" id="reviewTitle" value="${reviewDTO.reviewTitle }" required>
+                                    <input type="text" name="reviewTitle" id="reviewTitle" value="${reviewMap.reviewTitle }" required>
                                     <input type="hidden" name="memberId" id="memberId" value="${sessionScope.memberId }">
                                 </div>
-                                <div class="checkout__form__input">
-                                    <p>수강한 수업명</p>
+								<div class="checkout__form__input">
+								  <p>수강한 수업명</p>
 									<select name="classNo" class="checkout__form__select">
-										<option>보이는 용</option>
 										<c:forEach var="classDTO" items="${classList }">
-											<option>${classDTO.classNm }</option>
+											<option value="${classDTO.classNo }">${classDTO.classNm }</option>
+										</c:forEach>
+									</select>
+								</div>
+								<div class="checkout__form__input">
+                                    <p>등록 정보 확인</p>
+									<select name="resvNo" class="checkout__form__select">
+										<c:forEach var="reservationMap" items="${myReservationList }">
+											<option value="${reservationMap.resvNo }">
+												수업명 : ${reservationMap.classNm } / 
+												수업 시간 : ${reservationMap.classTime } / 
+												등록일 : <fmt:formatDate value="${reservationMap.resvDt }" pattern="yyyy-MM-dd" /> /
+												수강료 : ${reservationMap.payment }
+											</option>
 										</c:forEach>
 									</select>
                                 </div>
@@ -100,30 +113,122 @@
                                     <p>후기 평점</p>
                                 </div>
 								<div class="size__btn">
-								    <label for="1-btn" class="active">
-								        <input type="radio" id="reviewScore" name="reviewScore" value="1">
-								        1점
-								    </label>
-								    <label for="2-btn">
-								        <input type="radio" id="reviewScore" name="reviewScore" value="2">
-								        2점
-								    </label>
-								    <label for="3-btn">
-								        <input type="radio" id="reviewScore" name="reviewScore" value="3">
-								        3점
-								    </label>
-								    <label for="4-btn">
-								        <input type="radio" id="reviewScore" name="reviewScore" value="4">
-								        4점
-								    </label>
-								    <label for="5-btn">
-								        <input type="radio" id="reviewScore" name="reviewScore" value="5">
-								        5점
-								    </label>
+									<c:choose>
+										<c:when test="${reviewMap.reviewScore == 1 }">
+										    <label for="1-btn" class="active">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="1" checked="checked">
+										        1점
+										    </label>
+										    <label for="2-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="2">
+										        2점
+										    </label>
+										    <label for="3-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="3">
+										        3점
+										    </label>
+										    <label for="4-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="4">
+										        4점
+										    </label>
+										    <label for="5-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="5">
+										        5점
+										    </label>
+									    </c:when>
+										<c:when test="${reviewMap.reviewScore == 2 }">
+										    <label for="1-btn" class="active">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="1">
+										        1점
+										    </label>
+										    <label for="2-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="2" checked="checked">
+										        2점
+										    </label>
+										    <label for="3-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="3">
+										        3점
+										    </label>
+										    <label for="4-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="4">
+										        4점
+										    </label>
+										    <label for="5-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="5">
+										        5점
+										    </label>
+									    </c:when>
+										<c:when test="${reviewMap.reviewScore == 3 }">
+										    <label for="1-btn" class="active">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="1">
+										        1점
+										    </label>
+										    <label for="2-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="2">
+										        2점
+										    </label>
+										    <label for="3-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="3" checked="checked">
+										        3점
+										    </label>
+										    <label for="4-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="4">
+										        4점
+										    </label>
+										    <label for="5-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="5">
+										        5점
+										    </label>
+									    </c:when>
+										<c:when test="${reviewMap.reviewScore == 4 }">
+										    <label for="1-btn" class="active">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="1">
+										        1점
+										    </label>
+										    <label for="2-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="2">
+										        2점
+										    </label>
+										    <label for="3-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="3">
+										        3점
+										    </label>
+										    <label for="4-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="4" checked="checked">
+										        4점
+										    </label>
+										    <label for="5-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="5">
+										        5점
+										    </label>
+									    </c:when>
+										<c:when test="${reviewMap.reviewScore == 5 }">
+										    <label for="1-btn" class="active">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="1">
+										        1점
+										    </label>
+										    <label for="2-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="2">
+										        2점
+										    </label>
+										    <label for="3-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="3">
+										        3점
+										    </label>
+										    <label for="4-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="4">
+										        4점
+										    </label>
+										    <label for="5-btn">
+										        <input type="radio" id="reviewScore" name="reviewScore" value="5" checked="checked">
+										        5점
+										    </label>
+									    </c:when>
+								    </c:choose>
 								</div><br>
                                 <div class="checkout__form__input">
                                     <p>* 수업, 운동시설, 강사님 등 자세한 이야기를 들려주세요. (욕설, 비방글은 삭제됩니다.)</p>
-									<textarea rows="10" cols="125" name="reviewContent" id="reviewContent" required></textarea>
+									<textarea rows="10" cols="125" name="reviewContent" id="reviewContent" required>${reviewMap.reviewContent }</textarea>
                                 </div><br>
                                 <div class="checkout__form__input">
                                     <p>사진 첨부</p>
@@ -131,12 +236,13 @@
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>기존 사진</p>
+                                    <div><img src="/reviewImg?fileName=${reviewMap.reviewImgUUID }" width="300" height="200" alt="사진"></div>
                                 </div><br>
                                 <br><br>
 							    <div class="col-lg-12 text-center">
-							    	<input type="hidden" name="reviewNo" value="${reviewDTO.reviewNo }">
+							    	<input type="hidden" name="reviewNo" value="${reviewMap.reviewNo }">
 							        <input type="submit" value="후기 수정" class="site-btn">
-							        <input type="button" value="후기 삭제" class="site-btn" onclick="location.href='/removeMyReview?reviewNo=${reviewDTO.reviewNo }'">
+							        <input type="button" value="후기 삭제" class="site-btn" onclick="location.href='/removeMyReview?reviewNo=${reviewMap.reviewNo }'">
 							    </div>
                             </div>
                         </div>

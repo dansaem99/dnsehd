@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.application.dnsehd.dao.ReviewDAO;
+import com.application.dnsehd.dto.ClassDTO;
+import com.application.dnsehd.dto.ReservationDTO;
 import com.application.dnsehd.dto.ReviewDTO;
 import com.application.dnsehd.dto.ReviewImgDTO;
 
@@ -25,6 +27,16 @@ public class ReviewServiceImpl implements ReviewService {
 	
 	@Autowired
 	private ReviewDAO reviewDAO;
+
+	@Override
+	public List<ClassDTO> getClassList() {
+		return reviewDAO.selectClassList();
+	}	
+	
+	@Override
+	public List<Map<String, Object>> getMyResvList(String memberId) {
+		return reviewDAO.selectMyResvList(memberId);
+	}
 
 	@Override
 	public void addReview(MultipartFile uploadProfile, ReviewDTO reviewDTO, ReviewImgDTO reviewImgDTO) throws IllegalStateException, IOException {
@@ -89,6 +101,6 @@ public class ReviewServiceImpl implements ReviewService {
 	public void removeMyReview(int reviewNo) {
 		reviewDAO.deleteReviewImg(reviewNo);
 		reviewDAO.deleteReview(reviewNo);
-	}	
+	}
 
 }

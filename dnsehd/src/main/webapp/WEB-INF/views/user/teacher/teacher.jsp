@@ -70,10 +70,12 @@
     <!-- Breadcrumb End -->
 
 	<!-- create test data -->
+<!-- 
 	<p align="center">
 		<input type="button" value="테스트 데이터 생성" onclick="location.href='/addTeacherDummy'">
 	</p>
-    
+ -->
+     
     <!-- Shop Section Begin -->
     <section class="shop spad">
         <div class="container">

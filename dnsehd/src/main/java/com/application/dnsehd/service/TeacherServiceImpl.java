@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.application.dnsehd.dao.TeacherDAO;
+import com.application.dnsehd.dto.ClassDTO;
 import com.application.dnsehd.dto.TeacherDTO;
 import com.application.dnsehd.dto.TeacherImgDTO;
 
@@ -95,6 +96,11 @@ public class TeacherServiceImpl implements TeacherService {
 	public void removeOneTeacher(int teacherNo) {
 		teacherDAO.deleteTeacherImg(teacherNo);
 		teacherDAO.deleteTeacher(teacherNo);
+	}
+	
+	@Override
+	public List<ClassDTO> getTeacherOwnClassList(int teacherNo) {
+		return teacherDAO.selectTeacherOwnClassList(teacherNo);
 	}
 
 	@Override
