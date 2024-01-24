@@ -1,25 +1,41 @@
 package com.application.dnsehd.controller;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.application.dnsehd.dto.ClassDTO;
+import com.application.dnsehd.dto.ClassImgDTO;
 import com.application.dnsehd.service.ClassService;
 
 @Controller
 public class ClassController {
 	
+	@Value("${file.repo.path}")
+	private String fileRepositoryPath;
+	
 	@Autowired
 	public ClassService classService;
+	
+	// image
+	@GetMapping("/classImg")
+	@ResponseBody
+	public Resource classImg(@RequestParam("fileName") String fileName) throws IOException{
+		return new UrlResource("file:" + fileRepositoryPath + fileName);
+	}
 
 	// admin
 	
@@ -45,8 +61,8 @@ public class ClassController {
 	}
 	
 	@PostMapping("/adAddClass")
-	public String addClass(ClassDTO classDTO) {
-		classService.addClass(classDTO);
+	public String addClass(@RequestParam("uploadProfile") MultipartFile uploadProfile, ClassDTO classDTO, ClassImgDTO classImgDTO) throws IllegalStateException, IOException{
+		classService.addClass(uploadProfile, classDTO, classImgDTO);
 		return "redirect:/adClass";
 	}
 	
