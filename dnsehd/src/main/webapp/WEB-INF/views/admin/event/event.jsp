@@ -53,6 +53,17 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/sneat/assets/js/config.js"></script>
+    
+    <style>
+	  .fixed-table {
+	    table-layout: fixed;
+	  }
+	
+	  .fixed-table th, .fixed-table td {
+	    overflow: hidden; 
+	    text-overflow: ellipsis;
+	  }
+	</style>
   </head>
 
   <body>
@@ -78,7 +89,7 @@
                  </a>     
                  </h5>
                 <div class="table-responsive text-nowrap">
-                  <table class="table">
+                  <table class="table fixed-table">
                     <caption class="ms-4">
                       <nav aria-label="Page navigation">
                           <ul class="pagination justify-content-center">
