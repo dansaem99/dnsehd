@@ -8,12 +8,12 @@ import lombok.Data;
 @Component
 public class TeacherDTO {
 
-	int teacherNo;
-	String teacherNm;
-	String teacherBirth;
-	String teacherHp;
-	String teacherCareer;
-	String teacherIntro;
-	String adminId;
+	private int teacherNo;
+	private String teacherNm;
+	private String teacherBirth;
+	private String teacherHp;
+	private String teacherCareer;
+	private String teacherIntro;
+	private String adminId;
 	
 }

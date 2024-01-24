@@ -8,9 +8,9 @@ import lombok.Data;
 @Component
 public class ReviewImgDTO {
 	
-	int reviewImgNo;
-	String reviewImgNm;
-	String reviewImgUUID;
-	int reviewNo;
+	private int reviewImgNo;
+	private String reviewImgNm;
+	private String reviewImgUUID;
+	private int reviewNo;
 
 }
