@@ -39,7 +39,7 @@
 	function getTeacherList(currentPageNumber) {
 		var url = "/teacher"
 			url += "?searchWord=" + $("#searchWord").val();
-			url += "&onePageViewCnt=" + $("#onePageViewCnt").val();
+			url += "&onePageViewCnt=9";
 			if (currentPageNumber != null) {
 				url += "&currentPageNumber=" + currentPageNumber;
 			}
@@ -83,16 +83,6 @@
                 <div class="col-lg-3 col-md-3">
                     <div class="shop__sidebar">
                         <div class="sidebar__sizes">
-                            <div class="section-title">
-                                <h4>한 페이지 당 강사 수</h4>
-                            </div>
-							<div class="footer__newslatter">
-								<select id="onePageViewCnt" onchange="getTeacherList()" >
-									<option>6</option>
-									<option>9</option>
-									<option>12</option>
-								</select>
-							</div>
                             <div class="section-title">
                                 <h4>원하는 강사명 검색</h4>
                             </div>

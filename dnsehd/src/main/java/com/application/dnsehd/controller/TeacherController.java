@@ -102,7 +102,7 @@ public class TeacherController {
 	// for user
 	@GetMapping("/teacher")
 	public ModelAndView teacherList(@RequestParam(name="searchWord" , defaultValue = "") String searchWord,
-									@RequestParam(name="onePageViewCnt" , defaultValue = "10") int onePageViewCnt,
+									@RequestParam(name="onePageViewCnt" , defaultValue = "9") int onePageViewCnt,
 									@RequestParam(name="currentPageNumber" , defaultValue = "1") int currentPageNumber) {
 		
 		ModelAndView mv = new ModelAndView();
