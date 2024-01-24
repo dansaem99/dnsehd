@@ -174,7 +174,7 @@ function checkFormValidation() {
 	                  </div>
 	                  <div class="mb-3">
 	                    <label for="element6" class="form-label">생년월일</label>
-	                    <input type="text" class="form-control" name="dateBirth" id="dateBirth" placeholder="yyyy-MM-dd" aria-describedby="textHelp" required/>
+	                    <input type="date" class="form-control" name="dateBirth" id="dateBirth" placeholder="yyyy-MM-dd" aria-describedby="textHelp" required/>
 	                  </div>			
 	                  <div class="mb-3">
 	                    <label for="element7" class="form-label">핸드폰 번호</label>
