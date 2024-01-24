@@ -12,6 +12,5 @@ public class ClassImgDTO {
 	private String classImgNm;
 	private String classImgUUID;
 	private int classNo;
-	
-}
 
+}

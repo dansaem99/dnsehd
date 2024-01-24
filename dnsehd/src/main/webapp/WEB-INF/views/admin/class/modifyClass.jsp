@@ -81,31 +81,31 @@
                     <!-- 회원수정 -->
                     <hr class="my-0" />
                     <div class="card-body">
-                      <form id="/adModifyClass" method="post">
+                      <form id="/adModifyClass" method="post" enctype="multipart/form-data">
                         <div class="row">
                           <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">운동명</label>
-	                        <input name="classNm" class="form-control" type="text" value="${classDTO.classNm }" required />
+	                        <input name="classNm" class="form-control" type="text" value="${classMap.classNm }" required />
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">가격</label>
-	                        <input name="classPrice" class="form-control" type="number" min="200000" step="10000" value="${classDTO.classPrice }" required />
+	                        <input name="classPrice" class="form-control" type="number" min="200000" step="10000" value="${classMap.classPrice }" required />
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">운동시간</label>
-	                        <input name="classTime" class="form-control" type="text" value="${classDTO.classTime }" required/>
+	                        <input name="classTime" class="form-control" type="text" value="${classMap.classTime }" required/>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">수강제한인원</label>
-	                        <input name="classLimit" class="form-control" type="number" min="1" max="30" value="${classDTO.classLimit }" required/>
+	                        <input name="classLimit" class="form-control" type="number" min="1" max="30" value="${classMap.classLimit }" required/>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultSelect" class="form-label">수업방식</label>
 	                        <select name="classCategory" class="form-select">
-	                        	  <option>${classDTO.classCategory }</option>
+	                        	  <option>${classMap.classCategory }</option>
 	                          <script>
 							    const allCategories = ['단체수업', '소그룹수업', '개인수업', '시설이용'];
-							    const selectedCategory = "${classDTO.classCategory}";
+							    const selectedCategory = "${classMap.classCategory}";
 							
 							    const selectElement = document.querySelector('select[name="classCategory"]');
 
@@ -130,16 +130,22 @@
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">내용</label>
-	                        <textarea rows="10" cols="50" name="classContent" class="form-control" required>${classDTO.classContent }</textarea>
+	                        <textarea rows="10" cols="50" name="classContent" class="form-control" required>${classMap.classContent }</textarea>
 	                      </div>
                       
 	                      <div class="mb-3 col-md-6">
 	                        <label for="formFileMultiple" class="form-label">사진</label>
-	                        <input class="form-control" type="file" id="formFileMultiple" multiple />
+	                        <input class="form-control" type="file" name="uploadProfile" id="uploadProfile" required/>
+	                        <input type="hidden" name="teacherImgUUID" value="${classMap.classImgUUID }"/>
+	                  		<input type="hidden" name="teacherImgNm" value="${classMap.classImgNm }"/>
 	                      </div>
+	                      <div class="mb-3 col-md-6">
+		                  	<label for="defaultInput" class="form-label">기존 사진 확인하기</label>
+		                  	<div><img src="/classImg?fileName=${classMap.classImgUUID }" width="250" height="250" alt="사진"></div>
+		                	  </div>
 	                      <div class="mt-2">
 	                      	  <input type="hidden" name="adminId" value="${sessionScope.adminId }"/>
-	                      	  <input type="hidden" name="teacherNo" value="${classDTO.teacherNo }">
+	                      	  <input type="hidden" name="teacherNo" value="${classMap.teacherNo }">
 	                          <input type="submit" class="btn btn-outline-primary me-2" value="수정하기"/>
 	                          <input type="button" class="btn btn-outline-secondary" value="뒤로가기" onclick="location.href='/adClass'"/>
 	                      </div>   

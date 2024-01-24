@@ -1,5 +1,6 @@
 package com.application.dnsehd.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -11,14 +12,16 @@ import com.application.dnsehd.dto.TeacherDTO;
 
 public interface ClassService {
 
-	public List<ClassDTO> getClassList();
-	public void addClass(MultipartFile uploadProfile, ClassDTO classDTO, ClassImgDTO classImgDTO);
-	public ClassDTO getClassDetail(int classNo);
-	public void modifyClassDetail(ClassDTO classDTO);
+	public void addClass(MultipartFile uploadProfile, ClassDTO classDTO, ClassImgDTO classImgDTO) throws IllegalStateException, IOException;
+	public List<Map<String, Object>> adminClassList();
+	public List<Map<String, Object>> getClassList(Map<String, Object> searchMap);
+	public int getAllClassCnt();
+	public Map<String, Object> getClassDetail(int classNo);
+	public void modifyClassDetail(MultipartFile uploadProfile, ClassDTO classDTO, ClassImgDTO classImgDTO) throws IllegalStateException, IOException;
 	public void removeOneClass(int classNo);
 	public List<TeacherDTO> getTeacherList();
 	public TeacherDTO getTeacherDetail();
-	public List<ClassDTO> getClassSearchList(Map<String, String> searchMap);
-	public List<ClassDTO> getClassCheckList(String[] categotyArrayl);
+	public List<Map<String, Object>> getClassSearchList(Map<String, String> searchMap);
+	public List<Map<String, Object>> getClassCheckList(String[] categotyArrayl);
 
 }

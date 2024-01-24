@@ -6,19 +6,25 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.application.dnsehd.dto.ClassDTO;
+import com.application.dnsehd.dto.ClassImgDTO;
 import com.application.dnsehd.dto.TeacherDTO;
 
 @Mapper
 public interface ClassDAO {
 
-	public List<ClassDTO> selectClassList();
-	public void insertClass(ClassDTO classDTO);
-	public ClassDTO selectClassDetail(int classNo);
+	public int getAllClassCnt();//
+	public void insertClass(ClassDTO classDTO);//
+	public void insertClassImg(ClassImgDTO classImgDTO);//
+	public List<Map<String, Object>> selectAdminClassList();
+	public List<Map<String, Object>> selectClassList(Map<String, Object> searchMap);
+	public Map<String, Object> selectClassDetail(int classNo);
 	public void updateClass(ClassDTO classDTO);
+	public void updateClassImg(ClassImgDTO classImgDTO);
 	public void deleteClass(int classNo);
+	public void deleteClassImg(int classNo);
 	public List<TeacherDTO> selectTeacherList();
 	public TeacherDTO selectTeacherDetail();
-	public List<ClassDTO> selectListSearchClass(Map<String, String> searchMap);
-	public List<ClassDTO> selectcheckClass(String[] categotyArrayl);
+	public List<Map<String, Object>> selectListSearchClass(Map<String, String> searchMap);
+	public List<Map<String, Object>> selectcheckClass(String[] categotyArrayl);
 
 }

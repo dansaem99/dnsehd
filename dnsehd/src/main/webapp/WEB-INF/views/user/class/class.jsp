@@ -53,19 +53,30 @@
 							$(data).each(function(){
 								
 								classList += "<div class='col-lg-4 col-md-6'>";
-								classList += "<div class='product__item'>";
-								//classList += "<div class='product__item__pic set-bg' data-setbg='/addedImg/pt_1.jpg'></div>";
-								classList += "<img src='/addedImg/pt_1.jpg'/>";
-								classList += "<div class='product__item__text'>";
-								classList += "<h6><a href='classDetail?classNo="+ this.classNo + "'>"+ this.classNm +"</a></h6>";
-								classList += "<div class='rating'>";
-								classList += "<i class='fa fa-star'></i>";
-								classList += "<i class='fa fa-star px-1'></i>";
-								classList += "<i class='fa fa-star'></i>";
-								classList += "<i class='fa fa-star px-1'></i>";
-								classList += "<i class='fa fa-star'></i>";
-								classList += "</div>";
-								classList += "<div class='product__price'>";
+	                               classList += "<div class='product__item'>";
+	                               classList += "<div class='product__item__pic set-bg' data-setbg='/classImg?fileName="+ this.classImgUUID +"'>";
+	                               classList += "<input type='hidden' name='classNo' value='" + this.classNo + "'/>";
+	                               classList += "</div>";
+	                            // 이미지 로딩 완료 후 처리
+	                               var $img = $('<img>');
+	                               $img.on('load', function () {
+	                                   // 이미지가 로드된 후에 실행되는 부분
+	                                   // 예: 이미지가 로드되면 해당 클래스를 보이게 처리
+	                                   $(this).closest('.product__item__pic').show();
+	                               }).on('error', function () {
+	                                   // 이미지 로드 중에 에러가 발생한 경우 처리
+	                                   console.error('Error loading image:', this.src);
+	                               }).attr('src', '/classImg?fileName=' + this.classImgUUID);
+	                               classList += "<div class='product__item__text'>";
+	                               classList += "<h6><a href='classDetail?classNo=" + this.classNo + "'>" + this.classNm + "</a></h6>";
+	                               classList += "<div class='rating'>";
+	                               classList += "<i class='fa fa-star'></i>";
+	                               classList += "<i class='fa fa-star px-1'></i>";
+	                               classList += "<i class='fa fa-star'></i>";
+	                               classList += "<i class='fa fa-star px-1'></i>";
+	                               classList += "<i class='fa fa-star'></i>";
+	                               classList += "</div>";
+	                               classList += "<div class='product__price'>";
 								
 								let formattedPrice = new Intl.NumberFormat('en-US').format(this.classPrice);
 								
@@ -120,7 +131,22 @@
                 			
                                classList += "<div class='col-lg-4 col-md-6'>";
                                classList += "<div class='product__item'>";
-                               classList += "<img src='/addedImg/pt_1.jpg'/>";
+                               classList += "<div class='product__item__pic set-bg' data-setbg='/classImg?fileName="+ this.classImgUUID +"'>";
+                               classList += "<input type='hidden' name='classNo' value='" + this.classNo + "'/>";
+                               classList += "</div>";
+                               
+                               // 이미지 로딩 완료 후 처리
+                               var $img = $('<img>');
+                               $img.on('load', function () {
+                                   // 이미지가 로드된 후에 실행되는 부분
+                                   // 예: 이미지가 로드되면 해당 클래스를 보이게 처리
+                                   $(this).closest('.product__item__pic').show();
+                               }).on('error', function () {
+                                   // 이미지 로드 중에 에러가 발생한 경우 처리
+                                   console.error('Error loading image:', this.src);
+                               }).attr('src', '/classImg?fileName=' + this.classImgUUID);
+
+                               
                                classList += "<div class='product__item__text'>";
                                classList += "<h6><a href='classDetail?classNo=" + this.classNo + "'>" + this.classNm + "</a></h6>";
                                classList += "<div class='rating'>";
@@ -224,12 +250,14 @@
 		                    		</div>
 		                    </c:when>
 		                    <c:otherwise>
-			                    	<c:forEach var="classDTO" items="${classList }">
+			                    	<c:forEach var="classMap" items="${classList }">
 			                        <div class="col-lg-4 col-md-6">
 			                            <div class="product__item">
-			                                <div class="product__item__pic set-bg" data-setbg="/addedImg/pt_1.jpg"></div>
+			                                <div class="product__item__pic set-bg" data-setbg="/classImg?fileName=${classMap.classImgUUID }">
+			                                		<input type="hidden" name="classNo" value="${classMap.classNo }"/>
+			                                </div>
 			                                <div class="product__item__text">
-			                                    <h6><a href="classDetail?classNo=${classDTO.classNo }">${classDTO.classNm }</a></h6>
+			                                    <h6><a href="classDetail?classNo=${classMap.classNo }">${classMap.classNm }</a></h6>
 			                                    <div class="rating">
 			                                        <i class="fa fa-star"></i>
 			                                        <i class="fa fa-star"></i>
@@ -238,7 +266,7 @@
 			                                        <i class="fa fa-star"></i>
 			                                    </div>
 			                                    <div class="product__price">
-			                                    		<fmt:formatNumber value="${classDTO.classPrice }"/>
+			                                    		<fmt:formatNumber value="${classMap.classPrice }"/>
 			                                    </div>
 			                                </div>
 			                            </div>
@@ -248,10 +276,15 @@
                     </c:choose>
                     <div class="col-lg-12 text-center">
                         <div class="pagination__option">
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#"><i class="fa fa-angle-right"></i></a>
+                        	<c:if test="${startPage > 10}">
+                            	<a href="javascript:getClassList(${startPage - 10})"><i class="fa fa-angle-left"></i></a>
+                            </c:if>
+                            <c:forEach var="i" begin="${startPage }" end="${endPage }">
+	                            <a href="javascript:getClassList(${i })">${i }</a>
+	                        </c:forEach>
+	                        <c:if test="${endPage != allPageCnt && endPage >= 10}">
+                            	<a href="javascript:getClassList(${startPage + 10})"><i class="fa fa-angle-right"></i></a>
+                            </c:if>
                         </div>
                     </div>
                  </div>

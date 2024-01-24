@@ -75,7 +75,7 @@
                           <p class="mb-0">수업을 삭제하면 되돌릴 수 없습니다. 확실하게 해주세요.</p>
                         </div>
                       </div>
-                      <form action="/adRemoveClass" method="post">
+                      <form action="/adRemoveClass" method="post" enctype="multipart/form-data">
 	                    <input type="hidden" name="classNo" value="${classNo }">
 	                    <input type="submit" value="삭제하기" class="btn btn-outline-secondary deactivate-account">
 	                  </form>
