@@ -118,18 +118,6 @@
 		                          	  <li>"${sessionScope.memberId}"님 환영합니다.</li>
 		                              <li>
 				                          <ul>
-				                              <li><i class="fa fa-solid fa-bell"></i>
-				                                 <ul class="dropdown">
-													 <li><a href="#">새로운 수업</a></li>
-                                         	     	 <li><a href="#">필독 공지사항 확인 바랍니다.</a></li>
-                                           	  		 <li><a href="#">후기 게시판에 글을 남겨보십시오.</a></li>
-                                         			 <li><a href="#">가입일로부터 1년이 지났습니다.</a></li>
-				                                 </ul>
-				                              </li>
-				                          </ul>
-		                              </li>
-		                              <li>
-				                          <ul>
 				                              <li><i class="fa fa-solid fa-user"></i>
 				                                 <ul class="dropdown">
 				                                    <li><a href="/mypage">마이페이지</a></li>
