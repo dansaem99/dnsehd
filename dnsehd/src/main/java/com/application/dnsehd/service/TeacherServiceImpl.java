@@ -99,7 +99,7 @@ public class TeacherServiceImpl implements TeacherService {
 	}
 	
 	@Override
-	public List<ClassDTO> getTeacherOwnClassList(int teacherNo) {
+	public List<Map<String, Object>> getTeacherOwnClassList(int teacherNo) {
 		return teacherDAO.selectTeacherOwnClassList(teacherNo);
 	}
 

@@ -19,7 +19,7 @@ public interface TeacherService {
 	public Map<String, Object> getTeacherDetail(int teacherNo);
 	public void modifyTeacherDetail(MultipartFile uploadProfile, TeacherDTO teacherDTO, TeacherImgDTO teacherImgDTO) throws IllegalStateException, IOException;
 	public void removeOneTeacher(int teacherNo);
-	public List<ClassDTO> getTeacherOwnClassList(int teacherNo);
+	public List<Map<String, Object>> getTeacherOwnClassList(int teacherNo);
 	public void addTeacherDummy();
 	
 }

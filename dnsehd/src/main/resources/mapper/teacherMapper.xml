@@ -182,14 +182,41 @@
 		WHERE
 				TEACHER_NO = #{teacherNo}
 	</delete>
-	
-	<select id="selectTeacherOwnClassList" parameterType="int">
-		SELECT 
-				*
-		FROM
-				CLASS
+
+	<resultMap type="hashmap" id="class">
+		<result column="CLASS_NO" property="classNo"></result>
+		<result column="CLASS_NM" property="classNm"></result>
+		<result column="CLASS_CONTENT" property="classContent"></result>
+		<result column="CLASS_PRICE" property="classPrice"></result>
+		<result column="CLASS_TIME" property="classTime"></result>
+		<result column="CLASS_CATEGORY" property="classCategory"></result>
+		<result column="CLASS_LIMIT" property="classLimit"></result>
+		<result column="TEACHER_NO" property="teacherNo"></result>
+		<result column="CLASS_IMG_NO" property="classImgNo"></result>
+		<result column="CLASS_IMG_NM" property="classImgNm"></result>
+		<result column="CLASS_IMG_UUID" property="classImgUUID"></result>
+	</resultMap>
+		
+	<select id="selectTeacherOwnClassList" parameterType="int" resultMap="class">
+	    SELECT
+		        C.CLASS_NO,
+		        C.CLASS_NM,
+		        C.CLASS_CONTENT,
+		        C.CLASS_PRICE,
+		        C.CLASS_TIME,
+		        C.CLASS_CATEGORY,
+		        C.CLASS_LIMIT,
+		        C.TEACHER_NO,
+		        CI.CLASS_IMG_NO,
+		        CI.CLASS_IMG_NM,
+		        CI.CLASS_IMG_UUID
+	    FROM 	CLASS C
+	    JOIN 	CLASS_IMAGES CI 
+	      ON 	C.CLASS_NO = CI.CLASS_NO
 		WHERE
 				TEACHER_NO = #{teacherNo}
+	    ORDER BY 
+	    		C.CLASS_NO DESC
 	</select>
 
 	<insert id="insertTeacherDummy">

@@ -22,6 +22,6 @@ public interface TeacherDAO {
 	public void updateTeacherImg(TeacherImgDTO teacherImgDTO);
 	public void deleteTeacher(int teacherNo);
 	public void deleteTeacherImg(int teacherNo);
-	public List<ClassDTO> selectTeacherOwnClassList(int teacherNo);
+	public List<Map<String, Object>> selectTeacherOwnClassList(int teacherNo);
 	public void insertTeacherDummy(List<TeacherDTO> dummyTeacherList);
 }

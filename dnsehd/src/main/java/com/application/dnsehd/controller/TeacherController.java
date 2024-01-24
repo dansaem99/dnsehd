@@ -36,6 +36,7 @@ public class TeacherController {
 		return new UrlResource("file:" + fileRepositoryPath + fileName);
 	}
 	
+	
 	// for admin
 	@GetMapping("/adAddTeacher")
 	public String addTeacher() {

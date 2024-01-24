@@ -88,12 +88,12 @@
                         <h5>${teacherMap.teacherNm } 트레이너 님이 진행중인 수업을 알아보세요!</h5>
                     </div>
                 </div>
-                <c:forEach var="classDTO" items="${classList }" begin="0" end="3">
+                <c:forEach var="classMap" items="${classList }" begin="0" end="3">
 	                <div class="col-lg-3 col-md-4 col-sm-6">
 	                    <div class="product__item">
-	                        <div class="product__item__pic set-bg" data-setbg="/teacherDetail?classNo=${classDTO.classNo}" ></div>
+	                        <div class="product__item__pic set-bg" data-setbg="/classImg?fileName=${classMap.classImgUUID }" ></div>
 	                        <div class="product__item__text">
-	                            <h6><a href="#">${classDTO.classNm }</a></h6>
+	                            <h6><a href="#">${classMap.classNm }</a></h6>
 	                            <div class="rating">
 	                                <i class="fa fa-star"></i>
 	                                <i class="fa fa-star"></i>
@@ -101,7 +101,7 @@
 	                                <i class="fa fa-star"></i>
 	                                <i class="fa fa-star"></i>
 	                            </div>
-	                            <div class="product__price"><fmt:formatNumber type="number" value="${classDTO.classPrice }" pattern="#,##0"/></div>
+	                            <div class="product__price"><fmt:formatNumber type="number" value="${classMap.classPrice }" pattern="#,##0"/></div>
 	                        </div>
 	                    </div>
 	                </div>
