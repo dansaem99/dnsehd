@@ -2,6 +2,7 @@ package com.application.dnsehd.controller;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,17 +40,6 @@ public class ClassController {
 
 	// admin
 	
-	@GetMapping("/adClass")
-	public ModelAndView adClassList() {
-	
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("admin/class/class");
-		mv.addObject("classList", classService.getClassList());
-		
-		return mv;
-		
-	}
-	
 	@GetMapping("/adAddClass")
 	public ModelAndView addClass() {
 		
@@ -66,12 +56,23 @@ public class ClassController {
 		return "redirect:/adClass";
 	}
 	
+	@GetMapping("/adClass")
+	public ModelAndView adClassList() {
+	
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/class/class");
+		mv.addObject("classList", classService.adminClassList());
+		
+		return mv;
+		
+	}
+	
 	@GetMapping("/adModifyClass")
 	public ModelAndView modifyClass(@RequestParam("classNo") int classNo) {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/class/modifyClass");
-		mv.addObject("classDTO", classService.getClassDetail(classNo));
+		mv.addObject("classMap", classService.getClassDetail(classNo));
 		mv.addObject("teacherList", classService.getTeacherList());
 		
 		return mv;
@@ -79,8 +80,8 @@ public class ClassController {
 	}
 	
 	@PostMapping("/adModifyClass") 
-	public String modifyClass(ClassDTO classDTO) {
-		classService.modifyClassDetail(classDTO);
+	public String modifyClass(@RequestParam("uploadProfile") MultipartFile uploadProfile, ClassDTO classDTO, ClassImgDTO classImgDTO) throws IllegalStateException, IOException {
+		classService.modifyClassDetail(uploadProfile, classDTO, classImgDTO);
 		return "redirect:/adClass";
 	}
 	
@@ -103,10 +104,39 @@ public class ClassController {
 	
 	// user
 	@GetMapping("/class")
-	public ModelAndView classList() {
+	public ModelAndView classList(@RequestParam(name="onePageViewCnt" , defaultValue = "10") int onePageViewCnt,
+								 @RequestParam(name="currentPageNumber" , defaultValue = "1") int currentPageNumber) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/class/class");
-		mv.addObject("classList", classService.getClassList());
+		int allClassCnt = classService.getAllClassCnt();
+		
+		int allPageCnt = allClassCnt / onePageViewCnt + 1;
+		
+		if (allClassCnt % onePageViewCnt == 0) allPageCnt--;
+		
+		int startPage = (currentPageNumber - 1) / 10 * 10 + 1;
+		if (startPage == 0) {
+			startPage = 1;
+		}
+		
+		int endPage = startPage + 9;
+		
+		if (endPage > allPageCnt) endPage = allPageCnt;
+		
+		int startClassIdx = (currentPageNumber - 1) * onePageViewCnt;
+		
+		mv.addObject("startPage", startPage);
+		mv.addObject("endPage", endPage);
+		mv.addObject("allClassCnt", allClassCnt);
+		mv.addObject("allPageCnt", allPageCnt);
+		mv.addObject("onePageViewCnt", onePageViewCnt);
+		mv.addObject("currentPageNumber", currentPageNumber);
+		mv.addObject("startClassIdx", startClassIdx);
+		
+		Map<String, Object> searchMap = new HashMap<String, Object>();
+		searchMap.put("onePageViewCnt", onePageViewCnt);
+		searchMap.put("startClassIdx", startClassIdx);
+		mv.addObject("classList", classService.getClassList(searchMap));
 		return mv;
 	}	
 
@@ -114,33 +144,34 @@ public class ClassController {
 	public ModelAndView classDetail(@RequestParam("classNo") int classNo) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/class/classDetail");
-		mv.addObject("classDTO", classService.getClassDetail(classNo));
-		//mv.addObject("teacherDTO", classService.getTeacherDetail());
+		mv.addObject("classMap", classService.getClassDetail(classNo));
+		mv.addObject("teacherDTO", classService.getTeacherDetail());
 		return mv;
 	}
 	
 	@GetMapping("/searchClassList")
 	@ResponseBody
-	public List<ClassDTO> searchClassList(@RequestParam Map<String, String> searchMap) {
+	public List<Map<String, Object>> searchClassList(@RequestParam Map<String, String> searchMap) {
 		return classService.getClassSearchList(searchMap);
 	}
 	
 	@GetMapping("/checkClass")
 	@ResponseBody
-	public List<ClassDTO> checkClass(@RequestParam("param") String param) {
+	public List<Map<String, Object>> checkClass(@RequestParam("param") String param) {
 		
 		String[] categoryArray = new String[1];
-		List<ClassDTO> checkClassList = null;
+		List<Map<String, Object>> checkClassList = null;
+		
 		if (!param.equals("")) {
 			
 			categoryArray = param.split(",");
 			String[] categotyArrayl = Arrays.copyOfRange(categoryArray, 1, categoryArray.length);
 			checkClassList = classService.getClassCheckList(categotyArrayl);
-			for (ClassDTO classDTO : checkClassList) {
+			for (Map<String, Object> classDTO : checkClassList) {
 				System.out.println(classDTO);
 			}
 		} else {
-			checkClassList = classService.getClassList();
+			checkClassList = classService.getClassList(null);
 		}
 		
 		return checkClassList;

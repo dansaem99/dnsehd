@@ -73,7 +73,7 @@
                     <h2 class="card-header">수업추가</h2>
                     <hr class="my-0" />
                     <div class="card-body row" >
-                      <form action="/adAddClass" method="post">
+                      <form action="/adAddClass" method="post" enctype="multipart/form-data">
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">운동명</label>
 	                        <input name="classNm" class="form-control" type="text" placeholder="운동명을 입력하세요." required />
@@ -114,7 +114,7 @@
 	                      
 	                      <div class="mb-3 col-md-6">
 	                        <label for="formFileMultiple" class="form-label">사진</label>
-	                        <input class="form-control" type="file" id="formFileMultiple" multiple />
+	                        <input class="form-control" type="file"name="uploadProfile" id="uploadProfile" required />
 	                      </div>
 	                      <div class="mt-2">
 	                      	  <input type="hidden" name="teacherNo" value="${classDTO.teacherNo }">

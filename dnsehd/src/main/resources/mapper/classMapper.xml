@@ -1,13 +1,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.application.dnsehd.dao.ClassDAO">
-	
-	<select id="selectClassList" resultType="ClassDTO">
-		SELECT 	*
+
+	<select id="getAllClassCnt" parameterType="String" resultType="int">
+		SELECT 	COUNT(*)
 		FROM		CLASS
 	</select>
 	
-	<insert id="insertClass" parameterType="ClassDTO">
+	<insert id="insertClass" parameterType="ClassDTO" useGeneratedKeys="true" keyProperty="classNo">
 		INSERT INTO CLASS (
 			CLASS_NM,
 			CLASS_CONTENT,
@@ -28,13 +28,81 @@
 			#{adminId},
 			#{teacherNo}
 		)
+		<selectKey keyColumn="GENERATED_KEY" keyProperty="classNo" order="AFTER" resultType="int">
+		    SELECT LAST_INSERT_ID()
+		</selectKey>
 	</insert>
 	
-	<select id="selectClassDetail" parameterType="int" resultType="ClassDTO">
-		SELECT	*
-		FROM 	CLASS
-		WHERE	CLASS_NO = #{classNo}
+	<insert id="insertClassImg" parameterType="ClassImgDTO">
+		INSERT INTO CLASS_IMAGES (
+				CLASS_NO,
+				CLASS_IMG_NM,
+				CLASS_IMG_UUID
+		)
+		VALUES (
+				#{classNo},
+				#{classImgNm},
+				#{classImgUUID}
+		)
+	</insert>
+	
+	<select id="selectAdminClassList" resultType="ClassDTO">
+		SELECT 	*
+		FROM		CLASS
 	</select>
+	
+	<resultMap type="hashmap" id="class">
+		<result column="CLASS_NO" property="classNo"></result>
+		<result column="CLASS_NM" property="classNm"></result>
+		<result column="CLASS_CONTENT" property="classContent"></result>
+		<result column="CLASS_PRICE" property="classPrice"></result>
+		<result column="CLASS_TIME" property="classTime"></result>
+		<result column="CLASS_CATEGORY" property="classCategory"></result>
+		<result column="CLASS_LIMIT" property="classLimit"></result>
+		<result column="TEACHER_NO" property="teacherNo"></result>
+		<result column="CLASS_IMG_NO" property="classImgNo"></result>
+		<result column="CLASS_IMG_NM" property="classImgNm"></result>
+		<result column="CLASS_IMG_UUID" property="classImgUUID"></result>
+	</resultMap>
+	
+	<select id="selectClassList" parameterType="hashmap" resultMap="class">
+	    SELECT
+	        C.CLASS_NO,
+	        C.CLASS_NM,
+	        C.CLASS_CONTENT,
+	        C.CLASS_PRICE,
+	        C.CLASS_TIME,
+	        C.CLASS_CATEGORY,
+	        C.CLASS_LIMIT,
+	        C.TEACHER_NO,
+	        CI.CLASS_IMG_NO,
+	        CI.CLASS_IMG_NM,
+	        CI.CLASS_IMG_UUID
+	    FROM CLASS C
+	    JOIN CLASS_IMAGES CI ON C.CLASS_NO = CI.CLASS_NO
+	    ORDER BY C.CLASS_NO DESC
+	    LIMIT #{startClassIdx}, #{onePageViewCnt}
+	</select>
+
+	
+	<select id="selectClassDetail" parameterType="int" resultMap="class">
+	    SELECT
+	        C.CLASS_NO,
+	        C.CLASS_NM,
+	        C.CLASS_CONTENT,
+	        C.CLASS_PRICE,
+	        C.CLASS_TIME,
+	        C.CLASS_CATEGORY,
+	        C.CLASS_LIMIT,
+	        C.TEACHER_NO,
+	        CI.CLASS_IMG_NO,
+	        CI.CLASS_IMG_NM,
+	        CI.CLASS_IMG_UUID
+	    FROM CLASS C
+	    JOIN CLASS_IMAGES CI ON C.CLASS_NO = CI.CLASS_NO
+	    WHERE C.CLASS_NO = #{classNo}
+	</select>
+
 	
 	<update id="updateClass" parameterType="ClassDTO">
 		UPDATE	CLASS
@@ -47,8 +115,23 @@
 		WHERE 	CLASS_NO = #{classNo}
 	</update>
 	
+	<update id="updateClassImg" parameterType="ClassImgDTO">
+	    UPDATE 
+	    		CLASS_IMAGES
+	    SET 
+	    		CLASS_IMG_NM = #{classImgNm},
+	        	CLASS_IMG_UUID = #{classImgUUID}
+	    WHERE 
+	    		CLASS_NO = #{classNo}
+	</update>
+	
 	<delete id="deleteClass" parameterType="int">
 		DELETE FROM CLASS
+		WHERE 		CLASS_NO = #{classNo}
+	</delete>
+	
+	<delete id="deleteClassImg" parameterType="int">
+		DELETE FROM CLASS_IMAGES
 		WHERE 		CLASS_NO = #{classNo}
 	</delete>
 	
@@ -62,9 +145,21 @@
 		FROM 	TEACHER
 	</select>
 	
-	<select id="selectListSearchClass" resultType="ClassDTO" parameterType="hashMap">
-		SELECT 	*
-		FROM		CLASS
+	<select id="selectListSearchClass" resultMap="class" parameterType="hashMap">
+		SELECT
+	        C.CLASS_NO,
+	        C.CLASS_NM,
+	        C.CLASS_CONTENT,
+	        C.CLASS_PRICE,
+	        C.CLASS_TIME,
+	        C.CLASS_CATEGORY,
+	        C.CLASS_LIMIT,
+	        C.TEACHER_NO,
+	        CI.CLASS_IMG_NO,
+	        CI.CLASS_IMG_NM,
+	        CI.CLASS_IMG_UUID
+	    FROM CLASS C
+	    JOIN CLASS_IMAGES CI ON C.CLASS_NO = CI.CLASS_NO
 		WHERE	CLASS_NM LIKE CONCAT ('%' , #{searchWord}, '%')
 	</select>
 	

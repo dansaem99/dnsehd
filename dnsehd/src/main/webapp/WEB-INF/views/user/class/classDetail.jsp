@@ -72,7 +72,7 @@
                     <div class="breadcrumb__links">
                         <a href="main"><i class="fa fa-home"></i> Home</a>
                         <a href="class">Class </a>
-                        <span>${classDTO.classNm }</span>
+                        <span>${classMap.classNm }</span>
                     </div>
                 </div>
             </div>
@@ -86,16 +86,16 @@
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
 	                <div class="product__item">
-	                    <div class="product__item__trainer__pic set-bg" data-setbg="/addedImg/pt_1.jpg">
+	                    <div class="product__item__trainer__pic set-bg" data-setbg="/classImg?fileName=${classMap.classImgUUID }">
 	                        <ul class="product__hover">
-	                            <li><a href="/addedImg/pt_1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
+	                            <li><a href="/addedImg/trainer_1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
 	                        </ul>
 	                    </div>
 	                </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>${classDTO.classNm } <span>강사명: ${teacherDTO.teacherNm }</span></h3>
+                        <h3>${classMap.classNm } <span>강사명: ${teacherDTO.teacherNm }</span></h3>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -105,9 +105,9 @@
                             <span>( 138 reviews )</span>
                         </div>
                         <div class="product__details__price" style="color: blue;">
-                        		<fmt:formatNumber value="${classDTO.classPrice }"/>
+                        		<fmt:formatNumber value="${classMap.classPrice }"/>
                         </div>
-                        <h4>${classDTO.classTime }</h4><br>
+                        <h4>${classMap.classTime }</h4><br>
                         <div class="product__details__widget">
                             <ul>
                                 <li>
@@ -122,7 +122,7 @@
                                 </li>
                                 <li>
                                     <span>현재 수강신청 인원:</span>
-                                    <p>24 / ${classDTO.classLimit }</p>
+                                    <p>24 / ${classMap.classLimit }</p>
                                 </li>
                             </ul>
                         </div>
@@ -148,7 +148,7 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <h6>수업 상세 정보</h6>
-                                <p>${classDTO.classContent }</p>
+                                <p>${classMap.classContent }</p>
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <h6>강사 이력</h6>
