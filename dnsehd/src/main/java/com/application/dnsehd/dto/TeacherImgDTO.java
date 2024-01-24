@@ -8,9 +8,9 @@ import lombok.Data;
 @Component
 public class TeacherImgDTO {
 	
-	int teacherImgNo;
-	String teacherImgNm;
-	String teacherImgUUID;
-	int teacherNo;
+	private int teacherImgNo;
+	private String teacherImgNm;
+	private String teacherImgUUID;
+	private int teacherNo;
 	
 }

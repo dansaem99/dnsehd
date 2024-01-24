@@ -10,13 +10,13 @@ import lombok.Data;
 @Component
 public class ReviewDTO {
 	
-	int reviewNo;
-	String reviewTitle;
-	String reviewContent;
-	int reviewScore;
-	Date reviewDt;
-	String memberId;
-	int classNo;
-	int resvNo;
+	private int reviewNo;
+	private String reviewTitle;
+	private String reviewContent;
+	private int reviewScore;
+	private Date reviewDt;
+	private String memberId;
+	private int classNo;
+	private int resvNo;
 	
 }
