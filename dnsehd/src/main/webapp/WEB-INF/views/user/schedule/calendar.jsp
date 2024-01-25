@@ -122,10 +122,10 @@
                                     <input type="text" class="form-control" name="midnightSnack" id="midnightSnack">
                                 </li>
                                 <li>
+                                    <button type="button" id="seeButton" class="btn btn-primary">조회</button>
                                     <button type="button" id="saveButton" class="btn btn-primary">저장</button>
                                     <button type="button" id="modifyButton" class="btn btn-primary">수정</button>
                                     <button type="button" id="deleteButton" class="btn btn-primary">삭제</button>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
                                 </li>
                             </ul>
                         </div>
@@ -182,6 +182,41 @@
 	            }
 	        });
 
+	        function seeDataToServer() {
+	        	var enrollDt = document.getElementById("datetimepicker-dashboard").value;
+	        	var memberId = document.getElementById("memberId").value;
+	        	
+	            fetch("/calendar/" + enrollDt + "/" + memberId, {
+	                method: "GET",
+	                headers: {
+	                    "Content-Type": "application/json"
+	                },
+	            })
+	                .then(response => {
+	                    if (!response.ok) {
+	                        throw new Error("Network response was not ok");
+	                    }
+	                    return response.json();
+	                })
+	                .then(data => {
+	                    console.log("Data saved successfully:", data);
+	                    
+	                    document.getElementById("enrollDt").value = data.enrollDt;
+	                    document.getElementById("memo").value = data.memo;
+	                    document.getElementById("breakfast").value = data.breakfast;
+	                    document.getElementById("lunch").value = data.lunch;
+	                    document.getElementById("dinner").value = data.dinner;
+	                    document.getElementById("snack").value = data.snack;
+	                    document.getElementById("midnightSnack").value = data.midnightSnack;
+
+	                })
+	                .catch(error => {
+	                    console.error("There was a problem with the fetch operation:", error);
+	                });
+	        }
+	        
+	        document.getElementById("seeButton").addEventListener("click", seeDataToServer);
+	   
 	        function saveDataToServer() {
 	        	var enrollDt = document.getElementById("datetimepicker-dashboard").value;
 	            var data = {

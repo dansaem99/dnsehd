@@ -3,6 +3,15 @@
 
 <mapper namespace="com.application.dnsehd.dao.ScheduleDAO">
 
+	<select id="findSchedule" parameterType="hashmap" resultType="ScheduleDTO">
+		SELECT 
+				*
+		FROM
+				SCHEDULE
+		WHERE
+				ENROLL_DT = #{enrollDt} AND MEMBER_ID = #{memberId}
+	</select>
+	
 	<insert id="saveSchedule" parameterType="ScheduleDTO">
 		INSERT INTO SCHEDULE (
 			ENROLL_DT,

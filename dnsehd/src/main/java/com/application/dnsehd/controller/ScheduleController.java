@@ -1,8 +1,11 @@
 package com.application.dnsehd.controller;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +35,16 @@ public class ScheduleController {
         return mv;
     }
     
+    @GetMapping("/{enrollDt}/{memberId}")
+    public ScheduleDTO getScheduleByDateId(@PathVariable("enrollDt") String enrollDt,
+    		@PathVariable("memberId") String memberId) {
+
+    	HashMap<String, String> infoMap = new HashMap<>();
+    	infoMap.put("memberId", memberId);
+    	infoMap.put("enrollDt", enrollDt);
+    	return scheduleService.findSchedule(infoMap);
+    }
+    
     @PostMapping
     public void saveSchedule(@RequestBody ScheduleDTO scheduleDTO) {
     	scheduleService.saveSchedule(scheduleDTO);
@@ -39,7 +52,6 @@ public class ScheduleController {
     
     @PutMapping("/{enrollDt}/{memberId}")
     public void updateSchedule(@RequestBody ScheduleDTO scheduleDTO) {
-    	System.out.println(scheduleDTO);
     	scheduleService.updateSchedule(scheduleDTO);
     }
     
