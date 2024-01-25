@@ -20,8 +20,8 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
-	public void removeSchedule(Date enrollDt) {
-		scheduleDAO.removeSchedule(enrollDt);
+	public void removeSchedule(ScheduleDTO scheduleDTO) {
+		scheduleDAO.removeSchedule(scheduleDTO);
 	}
 
 	// 수민 언니가 한 부분 주석처리

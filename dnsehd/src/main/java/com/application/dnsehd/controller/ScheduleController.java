@@ -1,10 +1,13 @@
 package com.application.dnsehd.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,9 +42,11 @@ public class ScheduleController {
     }
     
     
-    @DeleteMapping("/delete")
+    @DeleteMapping("/calendar/{enrollDt}/{memberId}")
     public void deleteSchedule(@RequestBody ScheduleDTO scheduleDTO) {
-        scheduleService.removeSchedule(scheduleDTO.getEnrollDt());
+//		System.out.println(enrollDt);
+//		System.out.println(memberId);
+        scheduleService.removeSchedule(scheduleDTO);
     }
     
 	// 수민 언니가 한 부분 주석처리

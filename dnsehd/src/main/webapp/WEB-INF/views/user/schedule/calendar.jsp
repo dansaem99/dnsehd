@@ -71,7 +71,7 @@
                         <div class="card-body d-flex">
                             <div class="align-self-center w-100">
                                 <div class="chart">
-                                    <div id="datetimepicker-dashboard"></div>
+                                    <div id="datetimepicker-dashboard" class="datetimepicker-dashboard"></div>
                                 </div>
                             </div>
                         </div>
@@ -173,6 +173,7 @@
 	
 	                // 이곳에서 원하는 로직을 수행합니다.
 	                // 예: 선택된 날짜를 콘솔에 출력
+	                enrollDt = dateStr;
 	                console.log("Selected date: " + dateStr);
 	                document.getElementById("a").value = "ㅔㅔㅔㅔㅔ";
 	                document.getElementById("b").value = "bbbbb";
@@ -180,6 +181,7 @@
 	        });
 
 	        function saveDataToServer() {
+	        	var enrollDt = document.getElementById("datetimepicker-dashboard").value;
 	            var data = {
 	            	memberId: document.getElementById("memberId").value,
 	                memo: document.getElementById("memo").value,
@@ -187,7 +189,8 @@
 	                lunch: document.getElementById("lunch").value,
 	                dinner: document.getElementById("dinner").value,
 	                snack: document.getElementById("snack").value,
-	                midnightSnack: document.getElementById("midnightSnack").value
+	                midnightSnack: document.getElementById("midnightSnack").value,
+	                enrollDt: enrollDt
 	            };
 
 	            fetch("/calendar", {
@@ -215,12 +218,15 @@
 	    
 	        
 	        function deleteDataFromServer() {
-	            var data = {
-	                date: document.getElementById("datetimepicker-dashboard").value,
-	                memberId: document.getElementById("memberId").value
+	        	var enrollDt = document.getElementById("datetimepicker-dashboard").value;
+	        	var memberId = document.getElementById("memberId").value;
+	        	
+	        	var data = {
+	            	enrollDt: enrollDt,
+	                memberId: memberId
 	            };
 
-	            fetch("/api/schedule/delete", {
+	            fetch("/calendar/" + enrollDt + "/" + memberId, {
 	                method: "DELETE",
 	                headers: {
 	                    "Content-Type": "application/json"
