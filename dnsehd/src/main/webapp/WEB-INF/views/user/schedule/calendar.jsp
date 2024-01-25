@@ -82,7 +82,7 @@
                     <div class="checkout__order">
                         <div class="row">
                             <div class="col">
-                                <h4>제목</h4>
+                                <h4>다이어리</h4>
                             </div>
                             <div class="col" align="right">
                                 <h6>2024-01-12</h6>
@@ -199,16 +199,7 @@
 	                    return response.json();
 	                })
 	                .then(data => {
-	                    console.log("Data saved successfully:", data);
-	                    
-	                    document.getElementById("enrollDt").value = data.enrollDt;
-	                    document.getElementById("memo").value = data.memo;
-	                    document.getElementById("breakfast").value = data.breakfast;
-	                    document.getElementById("lunch").value = data.lunch;
-	                    document.getElementById("dinner").value = data.dinner;
-	                    document.getElementById("snack").value = data.snack;
-	                    document.getElementById("midnightSnack").value = data.midnightSnack;
-
+	                    console.log("Data showed successfully:", data);
 	                })
 	                .catch(error => {
 	                    console.error("There was a problem with the fetch operation:", error);
@@ -282,7 +273,7 @@
 	                    return response.text();
 	                })
 	                .then(data => {
-	                    console.log("Data saved successfully:", data);
+	                    console.log("Data modified successfully:", data);
 	                })
 	                .catch(error => {
 	                    console.error("There was a problem with the fetch operation:", error);
