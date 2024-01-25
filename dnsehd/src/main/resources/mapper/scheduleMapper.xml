@@ -46,35 +46,5 @@
 		WHERE
 				ENROLL_DT = #{enrollDt} AND MEMBER_ID = #{memberId}
 	</delete>
-<!-- 수민언니가 한 부분 주석처리
-	<insert id="insertSchedule" parameterType="ScheduleDTO">
-		INSERT INTO SCHEDULE (
-			ENROLL_DT,
-			MEMO,
-			BREAKFAST,
-			LUNCH,
-			DINNER,
-			SNACK,
-			MIDNIGHT_SNACK,
-			MEMBER_ID
-		)
-		VALUES (
-			DATE_FORMAT(NOW(), '%Y-%m-%d'),
-			#{memo},
-			#{breakfast},
-			#{lunch},
-			#{dinner},
-			#{snack},
-			#{midnightSnack},
-			#{memberId}
-		)
-	</insert>
-	
-	<delete id="deleteSchedule" parameterType="int">
-		DELETE FROM 	SCHEDULE
-		WHERE 		SCHEDULE_NO = #{scheduleNo}
-	</delete>
- -->
- 
  
 </mapper>
