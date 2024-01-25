@@ -15,7 +15,7 @@
 			MEMBER_ID
 		)
 		VALUES (
-			DATE_FORMAT(NOW(), '%Y-%m-%d'),
+			#{enrollDt},
 			#{memo},
 			#{breakfast},
 			#{lunch},
@@ -26,13 +26,11 @@
 		)	
 	</insert>
 	
-	<delete id="removeSchedule" parameterType="date">
-		DELETE
-				*
-		FROM	
+	<delete id="removeSchedule" parameterType="ScheduleDTO">
+		DELETE FROM	
 				SCHEDULE
 		WHERE
-				ENROLL_DT = #{enrollDt}
+				ENROLL_DT = #{enrollDt} AND MEMBER_ID = #{memberId}
 	</delete>
 <!-- 수민언니가 한 부분 주석처리
 	<insert id="insertSchedule" parameterType="ScheduleDTO">

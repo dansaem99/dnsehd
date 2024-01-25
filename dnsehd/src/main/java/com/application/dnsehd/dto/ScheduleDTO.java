@@ -10,7 +10,7 @@ import lombok.Data;
 public class ScheduleDTO {
 	
 	private int scheduleNo;
-	private Date enrollDt;
+	private String enrollDt;
 	private String memo;
 	private String breakfast;
 	private String lunch;
