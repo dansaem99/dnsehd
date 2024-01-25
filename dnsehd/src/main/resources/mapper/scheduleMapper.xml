@@ -1,7 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.application.dnsehd.dao.ScheduleDAO">
 
+	<insert id="saveOrUpdateSchedule" parameterType="ScheduleDTO">
+		INSERT INTO SCHEDULE (
+			ENROLL_DT,
+			MEMO,
+			BREAKFAST,
+			LUNCH,
+			DINNER,
+			SNACK,
+			MIDNIGHT_SNACK,
+			MEMBER_ID
+		)
+		VALUES (
+			DATE_FORMAT(NOW(), '%Y-%m-%d'),
+			#{memo},
+			#{breakfast},
+			#{lunch},
+			#{dinner},
+			#{snack},
+			#{midnightSnack},
+			#{memberId}
+		)	
+	</insert>
+	
+	<delete id="removeSchedule" parameterType="date">
+		DELETE
+				*
+		FROM	
+				SCHEDULE
+		WHERE
+				ENROLL_DT = #{enrollDt}
+	</delete>
+<!-- 수민언니가 한 부분 주석처리
 	<insert id="insertSchedule" parameterType="ScheduleDTO">
 		INSERT INTO SCHEDULE (
 			ENROLL_DT,
@@ -29,5 +62,7 @@
 		DELETE FROM 	SCHEDULE
 		WHERE 		SCHEDULE_NO = #{scheduleNo}
 	</delete>
-
+ -->
+ 
+ 
 </mapper>

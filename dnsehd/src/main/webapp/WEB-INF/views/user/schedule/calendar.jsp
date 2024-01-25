@@ -98,6 +98,7 @@
                                 <li>
                                     <label>수업 후 간단한 소감을 적어볼까요?</label>
                                     <textarea class="form-control" name="memo" id="memo"></textarea>
+                                    <input type="hidden" name="memberId" id="memberId" value="${sessionScope.memberId }">
                                 </li>
                                 <li>
                                     <label>아침</label>
@@ -120,7 +121,8 @@
                                     <input type="text" class="form-control" name="midnightSnack" id="midnightSnack">
                                 </li>
                                 <li>
-                                    <button type="submit" class="btn btn-primary" >저장</button>
+                                    <button type="button" id="saveButton" class="btn btn-primary">저장</button>
+                                    <button type="button" id="deleteButton" class="btn btn-primary">삭제</button>
                                     <button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
                                 </li>
                             </ul>
@@ -144,7 +146,7 @@
 	
 	        // 특정 날짜를 배열로 정의합니다 (예시: 'YYYY-MM-DD' 형식)
 	        var specialDates = ["2024-01-10", "2024-01-12", "2024-01-13"];
-	
+	        
 	        document.getElementById("datetimepicker-dashboard").flatpickr({
 	            inline: true,
 	            prevArrow: "<span title='Previous month'>&laquo;</span>",
@@ -176,6 +178,72 @@
 	                document.getElementById("b").value = "bbbbb";
 	            }
 	        });
+
+	        function saveDataToServer() {
+	            var data = {
+	            	memberId: document.getElementById("memberId").value,
+	                memo: document.getElementById("memo").value,
+	                breakfast: document.getElementById("breakfast").value,
+	                lunch: document.getElementById("lunch").value,
+	                dinner: document.getElementById("dinner").value,
+	                snack: document.getElementById("snack").value,
+	                midnightSnack: document.getElementById("midnightSnack").value
+	            };
+
+	            fetch("/calendar", {
+	                method: "POST",
+	                headers: {
+	                    "Content-Type": "application/json"
+	                },
+	                body: JSON.stringify(data)
+	            })
+	                .then(response => {
+	                    if (!response.ok) {
+	                        throw new Error("Network response was not ok");
+	                    }
+	                    return response.text();
+	                })
+	                .then(data => {
+	                    console.log("Data saved successfully:", data);
+	                })
+	                .catch(error => {
+	                    console.error("There was a problem with the fetch operation:", error);
+	                });
+	        }
+	        
+	        document.getElementById("saveButton").addEventListener("click", saveDataToServer);
+	    
+	        
+	        function deleteDataFromServer() {
+	            var data = {
+	                date: document.getElementById("datetimepicker-dashboard").value,
+	                memberId: document.getElementById("memberId").value
+	            };
+
+	            fetch("/api/schedule/delete", {
+	                method: "DELETE",
+	                headers: {
+	                    "Content-Type": "application/json"
+	                },
+	                body: JSON.stringify(data)
+	            })
+	                .then(response => {
+	                    if (!response.ok) {
+	                        throw new Error("Network response was not ok");
+	                    }
+	                    return response.text();
+	                })
+	                .then(data => {
+	                    console.log("Data deleted successfully:", data);
+	                })
+	                .catch(error => {
+	                    console.error("There was a problem with the fetch operation:", error);
+	                });
+	        }
+
+	        document.getElementById("deleteButton").addEventListener("click", deleteDataFromServer);
+	    
+	    
 	    });
 	</script>
 </body>
