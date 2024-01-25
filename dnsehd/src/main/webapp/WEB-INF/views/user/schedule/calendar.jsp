@@ -99,6 +99,7 @@
                                     <label>수업 후 간단한 소감을 적어볼까요?</label>
                                     <textarea class="form-control" name="memo" id="memo"></textarea>
                                     <input type="hidden" name="memberId" id="memberId" value="${sessionScope.memberId }">
+                                    <input type="hidden" name="scheduleNo" id="scheduleNo" >
                                 </li>
                                 <li>
                                     <label>아침</label>
@@ -122,6 +123,7 @@
                                 </li>
                                 <li>
                                     <button type="button" id="saveButton" class="btn btn-primary">저장</button>
+                                    <button type="button" id="modifyButton" class="btn btn-primary">수정</button>
                                     <button type="button" id="deleteButton" class="btn btn-primary">삭제</button>
                                     <button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
                                 </li>
@@ -215,6 +217,44 @@
 	        }
 	        
 	        document.getElementById("saveButton").addEventListener("click", saveDataToServer);
+
+	        function modifyDataToServer() {
+	        	var enrollDt = document.getElementById("datetimepicker-dashboard").value;
+	        	var memberId = document.getElementById("memberId").value;
+	        	
+	        	var data = {
+	            	memberId: memberId,
+	                memo: document.getElementById("memo").value,
+	                breakfast: document.getElementById("breakfast").value,
+	                lunch: document.getElementById("lunch").value,
+	                dinner: document.getElementById("dinner").value,
+	                snack: document.getElementById("snack").value,
+	                midnightSnack: document.getElementById("midnightSnack").value,
+	                enrollDt: enrollDt
+	            };
+
+	            fetch("/calendar/" + enrollDt + "/" + memberId,  {
+	                method: "PUT",
+	                headers: {
+	                    "Content-Type": "application/json"
+	                },
+	                body: JSON.stringify(data)
+	            })
+	                .then(response => {
+	                    if (!response.ok) {
+	                        throw new Error("Network response was not ok");
+	                    }
+	                    return response.text();
+	                })
+	                .then(data => {
+	                    console.log("Data saved successfully:", data);
+	                })
+	                .catch(error => {
+	                    console.error("There was a problem with the fetch operation:", error);
+	                });
+	        }
+	        
+	        document.getElementById("modifyButton").addEventListener("click", modifyDataToServer);
 	    
 	        
 	        function deleteDataFromServer() {
@@ -248,7 +288,6 @@
 	        }
 
 	        document.getElementById("deleteButton").addEventListener("click", deleteDataFromServer);
-	    
 	    
 	    });
 	</script>

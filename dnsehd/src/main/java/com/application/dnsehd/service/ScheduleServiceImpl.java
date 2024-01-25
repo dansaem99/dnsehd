@@ -15,10 +15,15 @@ public class ScheduleServiceImpl implements ScheduleService {
 	private ScheduleDAO scheduleDAO;
 
 	@Override
-	public void saveOrUpdateSchedule(ScheduleDTO scheduleDTO) {
-		scheduleDAO.saveOrUpdateSchedule(scheduleDTO);
+	public void saveSchedule(ScheduleDTO scheduleDTO) {
+		scheduleDAO.saveSchedule(scheduleDTO);
 	}
 
+	@Override
+	public void updateSchedule(ScheduleDTO scheduleDTO) {
+		scheduleDAO.updateSchedule(scheduleDTO);
+	}
+	
 	@Override
 	public void removeSchedule(ScheduleDTO scheduleDTO) {
 		scheduleDAO.removeSchedule(scheduleDTO);

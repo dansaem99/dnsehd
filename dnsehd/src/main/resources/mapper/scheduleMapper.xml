@@ -3,7 +3,7 @@
 
 <mapper namespace="com.application.dnsehd.dao.ScheduleDAO">
 
-	<insert id="saveOrUpdateSchedule" parameterType="ScheduleDTO">
+	<insert id="saveSchedule" parameterType="ScheduleDTO">
 		INSERT INTO SCHEDULE (
 			ENROLL_DT,
 			MEMO,
@@ -25,6 +25,20 @@
 			#{memberId}
 		)	
 	</insert>
+	
+	<update id="updateSchedule" parameterType="ScheduleDTO">
+		UPDATE
+				SCHEDULE
+		SET
+				MEMO = #{memo},
+				BREAKFAST = #{breakfast},
+				LUNCH = #{lunch},
+				DINNER = #{dinner},
+				SNACK = #{snack},
+				MIDNIGHT_SNACK = #{midnightSnack}
+		WHERE
+				ENROLL_DT = #{enrollDt} AND MEMBER_ID = #{memberId}
+	</update>
 	
 	<delete id="removeSchedule" parameterType="ScheduleDTO">
 		DELETE FROM	

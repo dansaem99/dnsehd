@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,12 +23,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @RestController
+@RequestMapping("/calendar")
 public class ScheduleController {
 	
 	@Autowired
 	public ScheduleService scheduleService;	
 	
-    @GetMapping("/calendar")
+    @GetMapping
     public ModelAndView viewCalendar(HttpServletRequest request) {
     	HttpSession session = request.getSession();
         ModelAndView mv = new ModelAndView();
@@ -36,16 +38,19 @@ public class ScheduleController {
         return mv;
     }
     
-    @PostMapping("/calendar")    
-    public void saveOrUpdateSchedule(@RequestBody ScheduleDTO scheduleDTO) {
-    	scheduleService.saveOrUpdateSchedule(scheduleDTO);
+    @PostMapping
+    public void saveSchedule(@RequestBody ScheduleDTO scheduleDTO) {
+    	scheduleService.saveSchedule(scheduleDTO);
     }
     
+    @PutMapping("/{enrollDt}/{memberId}")
+    public void updateSchedule(@RequestBody ScheduleDTO scheduleDTO) {
+    	System.out.println(scheduleDTO);
+    	scheduleService.updateSchedule(scheduleDTO);
+    }
     
-    @DeleteMapping("/calendar/{enrollDt}/{memberId}")
+    @DeleteMapping("/{enrollDt}/{memberId}")
     public void deleteSchedule(@RequestBody ScheduleDTO scheduleDTO) {
-//		System.out.println(enrollDt);
-//		System.out.println(memberId);
         scheduleService.removeSchedule(scheduleDTO);
     }
     

@@ -9,7 +9,8 @@ import com.application.dnsehd.dto.ScheduleDTO;
 @Mapper
 public interface ScheduleDAO {
 
-	public void saveOrUpdateSchedule(ScheduleDTO scheduleDTO);
+	public void saveSchedule(ScheduleDTO scheduleDTO);
+	public void updateSchedule(ScheduleDTO scheduleDTO);
 	public void removeSchedule(ScheduleDTO scheduleDTO);
 	// 수민 언니가 한 부분 주석처리
 //	public void insertSchedule(ScheduleDTO scheduleDTO);
