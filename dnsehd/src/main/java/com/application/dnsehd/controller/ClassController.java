@@ -104,10 +104,11 @@ public class ClassController {
 	
 	// user
 	@GetMapping("/class")
-	public ModelAndView classList(@RequestParam(name="onePageViewCnt" , defaultValue = "10") int onePageViewCnt,
+	public ModelAndView classList(@RequestParam(name="onePageViewCnt" , defaultValue = "9") int onePageViewCnt,
 								 @RequestParam(name="currentPageNumber" , defaultValue = "1") int currentPageNumber) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/class/class");
+		
 		int allClassCnt = classService.getAllClassCnt();
 		
 		int allPageCnt = allClassCnt / onePageViewCnt + 1;
