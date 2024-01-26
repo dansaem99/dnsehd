@@ -143,6 +143,8 @@
 	        var date = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
 	        var defaultDate = date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate();
 	
+	        var isDataAlreadyExists = false;  // 데이터가 이미 존재하는지 여부를 나타내는 변수
+	        
 	        // 특정 날짜를 배열로 정의합니다 (예시: 'YYYY-MM-DD' 형식)
 	        var specialDates = ["2024-01-10", "2024-01-12", "2024-01-13"];
 	
@@ -198,6 +200,9 @@
 	                    $("#dinner").val(data.dinner);
 	                    $("#snack").val(data.snack);
 	                    $("#midnightSnack").val(data.midnightSnack);
+	                    
+	                    isDataAlreadyExists = !!data.enrollDt;
+	                    updateButtonStatus();
 	                },
 	                error: function(error) {
 	                    console.error("There was a problem with the AJAX operation:", error);
@@ -205,9 +210,20 @@
 	            });
 	        }
 	
+	        function updateButtonStatus() {
+	            $("#saveButton").prop("disabled", isDataAlreadyExists);
+	            $("#modifyButton").prop("disabled", !isDataAlreadyExists);
+	            $("#deleteButton").prop("disabled", !isDataAlreadyExists);
+	        }
+	
 	        $("#seeButton").on("click", seeDataOnPage);
 	
 	        function saveDataToServer() {
+	            if (isDataAlreadyExists) {
+	                alert("이미 데이터가 존재합니다.");
+	                return;
+	            }
+	
 	            var enrollDt = $("#datetimepicker-dashboard").val();
 	            var data = {
 	                memberId: $("#memberId").val(),
@@ -227,6 +243,8 @@
 	                data: JSON.stringify(data),
 	                success: function(response) {
 	                    console.log("Data saved successfully:", response);
+	                    isDataAlreadyExists = true;
+	                    updateButtonStatus();
 	                },
 	                error: function(error) {
 	                    console.error("There was a problem with the AJAX operation:", error);
@@ -283,6 +301,8 @@
 	                data: JSON.stringify(data),
 	                success: function(response) {
 	                    console.log("Data deleted successfully:", response);
+	                    isDataAlreadyExists = false;
+	                    updateButtonStatus();
 	                },
 	                error: function(error) {
 	                    console.error("There was a problem with the AJAX operation:", error);
