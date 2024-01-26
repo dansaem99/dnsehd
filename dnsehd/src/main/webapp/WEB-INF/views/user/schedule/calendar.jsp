@@ -87,7 +87,7 @@
                                 <h4>다이어리</h4>
                             </div>
                             <div class="col" align="right">
-                                <h6>${scheduleDTO.enrollDt}</h6>
+                                <h6><span id="enrollDt"></span></h6>
                             </div>
                         </div>
                         <hr>
@@ -190,7 +190,15 @@
 	                contentType: "application/json",
 	                success: function(data) {
 	                    console.log("Data retrieved from server:", data);
-	                    // 여기에 데이터를 어떻게 처리할지 추가 로직 작성
+	                    
+	                    $("#enrollDt").text(data.enrollDt);
+	                    
+	                    $("#memo").val(data.memo);
+	                    $("#breakfast").val(data.breakfast);
+	                    $("#lunch").val(data.lunch);
+	                    $("#dinner").val(data.dinner);
+	                    $("#snack").val(data.snack);
+	                    $("#midnightSnack").val(data.midnightSnack);
 	                },
 	                error: function(error) {
 	                    console.error("There was a problem with the AJAX operation:", error);
