@@ -3,11 +3,33 @@
 
 <mapper namespace="com.application.dnsehd.dao.ReviewDAO">
 
-	<select id="selectClassList" resultType="ClassDTO">
-		SELECT  
-				*
-		FROM	
-				CLASS
+	<resultMap type="hashmap" id="class">
+		<result column="RESV_NO" property="resvNo"/>
+		<result column="PAYMENT" property="payment"/>
+		<result column="RESV_DT" property="resvDt"/>
+		<result column="RESV_ALARM" property="resvAlarm"/>
+		<result column="MEMBER_ID" property="memberId"/>
+		<result column="CLASS_NO" property="classNo"/>
+		<result column="CLASS_NM" property="classNm"/>
+	</resultMap>
+	
+	<select id="selectClassList" parameterType="String" resultMap="class">
+		SELECT
+				RESV.RESV_NO AS RESV_NO,
+				RESV.PAYMENT AS PAYMENT,
+				RESV.RESV_DT AS RESV_DT,
+				RESV.RESV_ALARM AS RESV_ALARM,
+				RESV.MEMBER_ID AS MEMBER_ID,
+				RESV.CLASS_NO AS CLASS_NO,
+				C.CLASS_NM AS CLASS_NM
+		FROM
+				RESERVATIONS RESV
+		JOIN	CLASS C
+		  ON	RESV.CLASS_NO = C.CLASS_NO
+		WHERE
+				RESV.MEMBER_ID = #{memberId}
+		ORDER BY
+				RESV.RESV_DT DESC
 	</select>
 	
 	<resultMap type="hashmap" id="reservation">

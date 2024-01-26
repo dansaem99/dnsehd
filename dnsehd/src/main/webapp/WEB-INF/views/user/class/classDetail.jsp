@@ -36,7 +36,6 @@
 			
 			var param = {
 					"payment" : "${classMap.classPrice }",
-					"resvAlarm" : $("[name='resvAlarm']").val(),
 					"memberId" : $("[name='memberId']").val(),
 					"classNo" : "${classMap.classNo}"
 					
@@ -110,16 +109,6 @@
                         <h4>${classMap.classTime }</h4><br>
                         <div class="product__details__widget">
                             <ul>
-                                <li>
-                                    <span>수업 1시간전 알람:</span>
-                                    <div class="stock__checkbox">
-                                        <label for="counselYn">
-                                            수업 1시간전에 알람을 받겠습니다.
-                                            <input type="checkbox" id="resvAlarm" name="resvAlarm" value="y" checked />
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                </li>
                                 <li>
                                     <span>현재 수강신청 인원:</span>
                                     <p>24 / ${classMap.classLimit }</p>

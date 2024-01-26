@@ -12,7 +12,7 @@ import com.application.dnsehd.dto.ReviewImgDTO;
 
 public interface ReviewService {
 
-	public List<ClassDTO> getClassList();
+	public List<ClassDTO> getClassList(String memberId);
 	public List<Map<String, Object>> getMyResvList(String memberId);
 	public void addReview(MultipartFile uploadProfile, ReviewDTO reviewDTO, ReviewImgDTO reviewImgDTO) throws IllegalStateException, IOException;
 	public List<Map<String, Object>> getReviewList();

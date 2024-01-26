@@ -69,9 +69,6 @@
 	                    </div>
 	                </div>
 	            </c:forEach>
-                <div class="col-lg-12 text-center">
-                    <a href="#" class="primary-btn load-btn">+ 더 많은 후기 보기</a>
-                </div>
             </div>
         </div>
     </section>
