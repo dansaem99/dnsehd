@@ -192,18 +192,24 @@
 	                    "Content-Type": "application/json"
 	                },
 	            })
-	                .then(response => {
-	                    if (!response.ok) {
-	                        throw new Error("Network response was not ok");
-	                    }
-	                    return response.json();
-	                })
-	                .then(data => {
-	                    console.log("Data showed successfully:", data);
-	                })
-	                .catch(error => {
-	                    console.error("There was a problem with the fetch operation:", error);
-	                });
+	            
+	            .then(response => {
+	                if (!response.ok) {
+	                    throw new Error("Network response was not ok");
+	                }
+	                return response.json();
+	            })
+	            .then(data => {
+	                if (!data || Object.keys(data).length === 0) {
+	                    throw new Error("Empty or invalid JSON data");
+	                }
+	                console.log("Data showed successfully:", data);
+	            })
+	            .catch(error => {
+	                console.error("There was a problem with the fetch operation:", error);
+	            });
+
+
 	        }
 	        
 	        document.getElementById("seeButton").addEventListener("click", seeDataToServer);
