@@ -43,6 +43,8 @@
     
     <link href="adminkit-3.1.0/static/css/app.css" rel="stylesheet">
     
+    <script src="/jquery/jquery-3.6.1.min.js"></script>
+    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
     <script>
@@ -85,7 +87,7 @@
                                 <h4>다이어리</h4>
                             </div>
                             <div class="col" align="right">
-                                <h6>2024-01-12</h6>
+                                <h6>${scheduleDTO.enrollDt}</h6>
                             </div>
                         </div>
                         <hr>
@@ -137,15 +139,15 @@
     
     <!-- Js For Calendar -->
     <script src="adminkit-3.1.0/static/js/app.js"></script>
-    <script>
-	    document.addEventListener("DOMContentLoaded", function() {
+	<script>
+	    $(document).ready(function() {
 	        var date = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
 	        var defaultDate = date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate();
 	
 	        // 특정 날짜를 배열로 정의합니다 (예시: 'YYYY-MM-DD' 형식)
 	        var specialDates = ["2024-01-10", "2024-01-12", "2024-01-13"];
-	        
-	        document.getElementById("datetimepicker-dashboard").flatpickr({
+	
+	        $("#datetimepicker-dashboard").flatpickr({
 	            inline: true,
 	            prevArrow: "<span title='Previous month'>&laquo;</span>",
 	            nextArrow: "<span title='Next month'>&raquo;</span>",
@@ -173,133 +175,115 @@
 	                // 예: 선택된 날짜를 콘솔에 출력
 	                enrollDt = dateStr;
 	                console.log("Selected date: " + dateStr);
-	                document.getElementById("a").value = "ㅔㅔㅔㅔㅔ";
-	                document.getElementById("b").value = "bbbbb";
+	                $("#a").val("ㅔㅔㅔㅔㅔ");
+	                $("#b").val("bbbbb");
 	            }
 	        });
-
+	
 	        function seeDataToServer() {
-	        	var enrollDt = document.getElementById("datetimepicker-dashboard").value;
-	        	var memberId = document.getElementById("memberId").value;
-	        	
-	            fetch("/calendar/" + enrollDt + "/" + memberId, {
-	                method: "GET",
-	                headers: {
-	                    "Content-Type": "application/json"
+	            var enrollDt = $("#datetimepicker-dashboard").val();
+	            var memberId = $("#memberId").val();
+	
+	            $.ajax({
+	                url: "/calendar/" + enrollDt + "/" + memberId,
+	                type: "GET",
+	                contentType: "application/json",
+	                success: function(data) {
+	                    console.log("Data retrieved from server:", data);
+	                    // 여기에 데이터를 어떻게 처리할지 추가 로직 작성
 	                },
-	            })
-	            
+	                error: function(error) {
+	                    console.error("There was a problem with the AJAX operation:", error);
+	                }
+	            });
 	        }
-	        
-	        document.getElementById("seeButton").addEventListener("click", seeDataToServer);
-	   
+	
+	        $("#seeButton").on("click", seeDataToServer);
+	
 	        function saveDataToServer() {
-	        	var enrollDt = document.getElementById("datetimepicker-dashboard").value;
+	            var enrollDt = $("#datetimepicker-dashboard").val();
 	            var data = {
-	            	memberId: document.getElementById("memberId").value,
-	                memo: document.getElementById("memo").value,
-	                breakfast: document.getElementById("breakfast").value,
-	                lunch: document.getElementById("lunch").value,
-	                dinner: document.getElementById("dinner").value,
-	                snack: document.getElementById("snack").value,
-	                midnightSnack: document.getElementById("midnightSnack").value,
+	                memberId: $("#memberId").val(),
+	                memo: $("#memo").val(),
+	                breakfast: $("#breakfast").val(),
+	                lunch: $("#lunch").val(),
+	                dinner: $("#dinner").val(),
+	                snack: $("#snack").val(),
+	                midnightSnack: $("#midnightSnack").val(),
 	                enrollDt: enrollDt
 	            };
-
-	            fetch("/calendar", {
-	                method: "POST",
-	                headers: {
-	                    "Content-Type": "application/json"
+	
+	            $.ajax({
+	                url: "/calendar",
+	                type: "POST",
+	                contentType: "application/json",
+	                data: JSON.stringify(data),
+	                success: function(response) {
+	                    console.log("Data saved successfully:", response);
 	                },
-	                body: JSON.stringify(data)
-	            })
-	                .then(response => {
-	                    if (!response.ok) {
-	                        throw new Error("Network response was not ok");
-	                    }
-	                    return response.text();
-	                })
-	                .then(data => {
-	                    console.log("Data saved successfully:", data);
-	                })
-	                .catch(error => {
-	                    console.error("There was a problem with the fetch operation:", error);
-	                });
+	                error: function(error) {
+	                    console.error("There was a problem with the AJAX operation:", error);
+	                }
+	            });
 	        }
-	        
-	        document.getElementById("saveButton").addEventListener("click", saveDataToServer);
-
+	
+	        $("#saveButton").on("click", saveDataToServer);
+	
 	        function modifyDataToServer() {
-	        	var enrollDt = document.getElementById("datetimepicker-dashboard").value;
-	        	var memberId = document.getElementById("memberId").value;
-	        	
-	        	var data = {
-	            	memberId: memberId,
-	                memo: document.getElementById("memo").value,
-	                breakfast: document.getElementById("breakfast").value,
-	                lunch: document.getElementById("lunch").value,
-	                dinner: document.getElementById("dinner").value,
-	                snack: document.getElementById("snack").value,
-	                midnightSnack: document.getElementById("midnightSnack").value,
+	            var enrollDt = $("#datetimepicker-dashboard").val();
+	            var memberId = $("#memberId").val();
+	
+	            var data = {
+	                memberId: memberId,
+	                memo: $("#memo").val(),
+	                breakfast: $("#breakfast").val(),
+	                lunch: $("#lunch").val(),
+	                dinner: $("#dinner").val(),
+	                snack: $("#snack").val(),
+	                midnightSnack: $("#midnightSnack").val(),
 	                enrollDt: enrollDt
 	            };
-
-	            fetch("/calendar/" + enrollDt + "/" + memberId,  {
-	                method: "PUT",
-	                headers: {
-	                    "Content-Type": "application/json"
+	
+	            $.ajax({
+	                url: "/calendar/" + enrollDt + "/" + memberId,
+	                type: "PUT",
+	                contentType: "application/json",
+	                data: JSON.stringify(data),
+	                success: function(response) {
+	                    console.log("Data modified successfully:", response);
 	                },
-	                body: JSON.stringify(data)
-	            })
-	                .then(response => {
-	                    if (!response.ok) {
-	                        throw new Error("Network response was not ok");
-	                    }
-	                    return response.text();
-	                })
-	                .then(data => {
-	                    console.log("Data modified successfully:", data);
-	                })
-	                .catch(error => {
-	                    console.error("There was a problem with the fetch operation:", error);
-	                });
+	                error: function(error) {
+	                    console.error("There was a problem with the AJAX operation:", error);
+	                }
+	            });
 	        }
-	        
-	        document.getElementById("modifyButton").addEventListener("click", modifyDataToServer);
-	    
-	        
+	
+	        $("#modifyButton").on("click", modifyDataToServer);
+	
 	        function deleteDataFromServer() {
-	        	var enrollDt = document.getElementById("datetimepicker-dashboard").value;
-	        	var memberId = document.getElementById("memberId").value;
-	        	
-	        	var data = {
-	            	enrollDt: enrollDt,
+	            var enrollDt = $("#datetimepicker-dashboard").val();
+	            var memberId = $("#memberId").val();
+	
+	            var data = {
+	                enrollDt: enrollDt,
 	                memberId: memberId
 	            };
-
-	            fetch("/calendar/" + enrollDt + "/" + memberId, {
-	                method: "DELETE",
-	                headers: {
-	                    "Content-Type": "application/json"
+	
+	            $.ajax({
+	                url: "/calendar/" + enrollDt + "/" + memberId,
+	                type: "DELETE",
+	                contentType: "application/json",
+	                data: JSON.stringify(data),
+	                success: function(response) {
+	                    console.log("Data deleted successfully:", response);
 	                },
-	                body: JSON.stringify(data)
-	            })
-	                .then(response => {
-	                    if (!response.ok) {
-	                        throw new Error("Network response was not ok");
-	                    }
-	                    return response.text();
-	                })
-	                .then(data => {
-	                    console.log("Data deleted successfully:", data);
-	                })
-	                .catch(error => {
-	                    console.error("There was a problem with the fetch operation:", error);
-	                });
+	                error: function(error) {
+	                    console.error("There was a problem with the AJAX operation:", error);
+	                }
+	            });
 	        }
-
-	        document.getElementById("deleteButton").addEventListener("click", deleteDataFromServer);
-	    
+	
+	        $("#deleteButton").on("click", deleteDataFromServer);
 	    });
 	</script>
 </body>

@@ -38,7 +38,8 @@ public class ScheduleController {
     @GetMapping("/{enrollDt}/{memberId}")
     public ScheduleDTO getScheduleByDateId(@PathVariable("enrollDt") String enrollDt,
     		@PathVariable("memberId") String memberId) {
-
+    	System.out.println(memberId);
+    	System.out.println(enrollDt);
     	HashMap<String, String> infoMap = new HashMap<>();
     	infoMap.put("memberId", memberId);
     	infoMap.put("enrollDt", enrollDt);
