@@ -96,11 +96,9 @@
                     <div class="product__details__text">
                         <h3>${classMap.classNm } <span>강사명: ${classMap.teacherNm }</span></h3>
                         <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                        		<c:forEach begin="1" end="${reviewScore }">
+                        			<i class="fa fa-star"></i>
+                        		</c:forEach>
                             <span>( 138 reviews )</span>
                         </div>
                         <div class="product__details__price" style="color: blue;">
@@ -145,13 +143,12 @@
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <h6>리뷰</h6>
-                                <c:forEach var="reviewList" items="${reviewList }">
-                                <h5>${reviewList.reviewTitle }</h5>
-                                <p>${reviewList.reviewContent }</p>
+                                <c:forEach var="reviewMap" items="${reviewList }">
+                                		<h5>${reviewMap.reviewTitle }</h5>
+                                		<p>${reviewMap.reviewContent }</p>
                                 </c:forEach>
                             </div>
                             <input type="hidden" name="memberId" value="${sessionScope.memberId }"/>
-                            <input type="hidden" name="reviewNo" value="${classMap.reviewNo }"/>
                         </div>
                     </div>
                 </div>

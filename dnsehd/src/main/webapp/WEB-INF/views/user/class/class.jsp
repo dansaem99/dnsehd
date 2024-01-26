@@ -252,11 +252,9 @@
 			                                <div class="product__item__text">
 			                                    <h6><a href="classDetail?classNo=${classMap.classNo }">${classMap.classNm }</a></h6>
 			                                    <div class="rating">
-			                                        <i class="fa fa-star"></i>
-			                                        <i class="fa fa-star"></i>
-			                                        <i class="fa fa-star"></i>
-			                                        <i class="fa fa-star"></i>
-			                                        <i class="fa fa-star"></i>
+			                                        <c:forEach begin="1" end="${classMap.reviewScore }">
+						                        			<i class="fa fa-star"></i>
+						                        		</c:forEach>
 			                                    </div>
 			                                    <div class="product__price">
 			                                    		<fmt:formatNumber value="${classMap.classPrice }"/>

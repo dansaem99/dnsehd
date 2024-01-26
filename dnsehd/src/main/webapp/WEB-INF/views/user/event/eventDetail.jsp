@@ -96,11 +96,9 @@
                     <div class="product__details__text">
                         <h3>${eventMap.eventTitle } <span>강사명:${eventMap.teacherNm } </span></h3>
                         <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                            <c:forEach begin="1" end="${reviewScore }">
+                        			<i class="fa fa-star"></i>
+                        		</c:forEach>
                             <span>( 138 reviews )</span>
                         </div>
                         <div class="product__details__price">

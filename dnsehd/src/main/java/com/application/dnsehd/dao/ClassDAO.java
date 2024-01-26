@@ -27,5 +27,6 @@ public interface ClassDAO {
 	public List<Map<String, Object>> selectListSearchClass(Map<String, String> searchMap);
 	public List<Map<String, Object>> selectcheckClass(String[] categotyArrayl);
 	public List<ReviewDTO> selectReviewList(int classNo);
+	public int selectReviewScore(int classNo);
 
 }

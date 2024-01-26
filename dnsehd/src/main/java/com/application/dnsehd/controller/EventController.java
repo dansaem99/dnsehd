@@ -86,7 +86,7 @@ public class EventController {
 		mv.setViewName("user/event/eventDetail");
 		mv.addObject("eventMap", eventService.getEventDetail(eventNo));
 		mv.addObject("reviewList", eventService.getReviewList(eventNo));
-		//mv.addObject("teacherDTO", eventService.getTeacherDetail());
+		mv.addObject("reviewScore", eventService.getReviewScore(eventNo));
 		return mv;
 	}
 	

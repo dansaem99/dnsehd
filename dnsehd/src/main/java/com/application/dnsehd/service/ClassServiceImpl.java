@@ -119,5 +119,10 @@ public class ClassServiceImpl implements ClassService {
 		return classDAO.selectReviewList(classNo);
 	}
 
+	@Override
+	public int getReviewScore(int classNo) {
+		return classDAO.selectReviewScore(classNo);
+	}
+
 
 }
