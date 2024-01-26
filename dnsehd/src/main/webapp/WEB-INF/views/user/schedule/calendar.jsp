@@ -92,10 +92,6 @@
                         <div class="checkout__order__product">
                             <ul>
                                 <li>
-                                    <label>수업명</label>
-                                    <input type="text" class="form-control" name="ename" id="a">
-                                </li>
-                                <li>
                                     <label>수업 후 간단한 소감을 적어볼까요?</label>
                                     <textarea class="form-control" name="memo" id="memo"></textarea>
                                     <input type="hidden" name="memberId" id="memberId" value="${sessionScope.memberId }">
