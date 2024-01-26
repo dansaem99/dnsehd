@@ -22,5 +22,6 @@ public interface EventDAO {
 	public TeacherDTO selectTeacherDetail();
 	public ClassDTO selectClassDetail(int eventNo);
 	public List<ReviewDTO> selectReviewList(int eventNo);
+	public int selectReviewScore(int eventNo);
 
 }

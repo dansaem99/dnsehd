@@ -19,5 +19,6 @@ public interface EventService {
 	public TeacherDTO getTeacherDetail();
 	public ClassDTO getClassDetail(int eventNo);
 	public List<ReviewDTO> getReviewList(int eventNo);
+	public int getReviewScore(int eventNo);
 
 }

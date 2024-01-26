@@ -52,6 +52,7 @@
 		<result column="REVIEW_NO" property="reviewNo"></result>
 		<result column="REVIEW_TITLE" property="reviewTitle"></result>
 		<result column="REVIEW_CONTENT" property="reviewContent"></result>
+		<result column="REVIEW_SCORE" property="reviewScore"></result>
 		<result column="TEACHER_NM" property="teacherNm"></result>
 		<result column="TEACHER_CAREER" property="teacherCareer"></result>
 	</resultMap>
@@ -73,16 +74,12 @@
 		        CI.CLASS_IMG_NO CLASS_IMG_NO,
 		        CI.CLASS_IMG_NM CLASS_IMG_NM,
 		        CI.CLASS_IMG_UUID CLASS_IMG_UUID,
-		        R.REVIEW_NO REVIEW_NO,
-		        R.REVIEW_TITLE REVIEW_TITLE,
-		        R.REVIEW_CONTENT REVIEW_CONTENT,
 		        T.TEACHER_NM TEACHER_NM,
 		        T.TEACHER_CAREER TEACHER_CAREER		
 		FROM		EVENT E
 		LEFT	 JOIN CLASS C ON C.CLASS_NO = E.CLASS_NO
 		JOIN	    CLASS_IMAGES CI ON C.CLASS_NO = CI.CLASS_NO
 		LEFT JOIN TEACHER T ON C.TEACHER_NO = T.TEACHER_NO
-		LEFT JOIN REVIEWS R ON C.CLASS_NO = R.CLASS_NO
 		WHERE 	EVENT_NO = #{eventNo}
 	</select>
 	
@@ -113,11 +110,19 @@
 	</select>
 	
 	<select id="selectReviewList" parameterType="int">
-    		SELECT 	R.*
-    		FROM		REVIEWS
-    		LEFT JOIN CLASS C ON C.CLASS_NO = R.CLASS_NO
-    		JOIN EVENT E ON C.CLASS_NO, E.EVENT_NO
+    		SELECT 	*
+    		FROM		REVIEWS R
+    		JOIN CLASS C ON C.CLASS_NO = R.CLASS_NO
+    		JOIN EVENT E ON C.CLASS_NO = E.EVENT_NO
     		WHERE 	C.CLASS_NO = #{classNo}
     </select>
-	
+    
+    <select id="selectReviewScore" parameterType="int" resultType="int">
+		SELECT 	ROUND(AVG(R.REVIEW_SCORE)) AVG_SCORE
+	    FROM		REVIEWS R
+	    LEFT JOIN CLASS C ON C.CLASS_NO = R.CLASS_NO
+    		JOIN EVENT E ON C.CLASS_NO = E.EVENT_NO
+	    WHERE	C.CLASS_NO = #{classNo}
+	</select>
+    
 </mapper>

@@ -66,6 +66,7 @@
 		<result column="REVIEW_NO" property="reviewNo"></result>
 		<result column="REVIEW_TITLE" property="reviewTitle"></result>
 		<result column="REVIEW_CONTENT" property="reviewContent"></result>
+		<result column="REVIEW_SCORE" property="reviewScore"></result>
 		<result column="TEACHER_NM" property="teacherNm"></result>
 		<result column="TEACHER_CAREER" property="teacherCareer"></result>
 	</resultMap>
@@ -82,9 +83,12 @@
 	        C.TEACHER_NO,
 	        CI.CLASS_IMG_NO,
 	        CI.CLASS_IMG_NM,
-	        CI.CLASS_IMG_UUID
+	        CI.CLASS_IMG_UUID,
+	        ROUND(AVG(R.REVIEW_SCORE)) REVIEW_SCORE
 	    FROM CLASS C
 	    JOIN CLASS_IMAGES CI ON C.CLASS_NO = CI.CLASS_NO
+	    LEFT JOIN REVIEWS R ON R.CLASS_NO = C.CLASS_NO
+	    GROUP BY CI.CLASS_IMG_NO
 	    ORDER BY C.CLASS_NO DESC
 	    LIMIT #{startClassIdx}, #{onePageViewCnt}
 	</select>
@@ -103,14 +107,10 @@
 	        CI.CLASS_IMG_NO CLASS_IMG_NO,
 	        CI.CLASS_IMG_NM CLASS_IMG_NM,
 	        CI.CLASS_IMG_UUID CLASS_IMG_UUID,
-	        R.REVIEW_NO REVIEW_NO,
-	        R.REVIEW_TITLE REVIEW_TITLE,
-	        R.REVIEW_CONTENT REVIEW_CONTENT,
 	        T.TEACHER_NM TEACHER_NM,
-	        T.TEACHER_CAREER
+	        T.TEACHER_CAREER TEACHER_CAREER
 	    FROM CLASS C
 	    LEFT JOIN CLASS_IMAGES CI ON C.CLASS_NO = CI.CLASS_NO
-    		LEFT JOIN REVIEWS R ON C.CLASS_NO = R.CLASS_NO
     		LEFT JOIN TEACHER T ON C.TEACHER_NO = T.TEACHER_NO
 	    WHERE C.CLASS_NO = #{classNo}
 	</select>
@@ -192,9 +192,16 @@
     </select>
     
     <select id="selectReviewList" parameterType="int">
-    		SELECT 	*
-    		FROM		REVIEWS
-    		WHERE	CLASS_NO = ${classNo}
-    </select>
+	    SELECT 	REVIEW_TITLE, REVIEW_CONTENT, REVIEW_SCORE
+	    FROM		REVIEWS
+	    WHERE	CLASS_NO = #{classNo}
+	</select>
+	
+	<select id="selectReviewScore" parameterType="int" resultType="int">
+		SELECT 	ROUND(AVG(REVIEW_SCORE)) AVG_SCORE
+	    FROM		REVIEWS
+	    WHERE	CLASS_NO = #{classNo}
+	</select>
+
 		
 </mapper>

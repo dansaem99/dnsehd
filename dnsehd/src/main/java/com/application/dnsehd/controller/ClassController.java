@@ -147,6 +147,7 @@ public class ClassController {
 		mv.setViewName("user/class/classDetail");
 		mv.addObject("classMap", classService.getClassDetail(classNo));
 		mv.addObject("reviewList", classService.getReviewList(classNo));
+		mv.addObject("reviewScore", classService.getReviewScore(classNo));
 		return mv;
 	}
 	

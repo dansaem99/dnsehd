@@ -24,5 +24,6 @@ public interface ClassService {
 	public List<Map<String, Object>> getClassSearchList(Map<String, String> searchMap);
 	public List<Map<String, Object>> getClassCheckList(String[] categotyArrayl);
 	public List<ReviewDTO> getReviewList(int classNo);
+	public int getReviewScore(int classNo);
 
 }

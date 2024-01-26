@@ -67,4 +67,9 @@ public class EventServiceImpl implements EventService {
 		return eventDAO.selectReviewList(eventNo);
 	}
 
+	@Override
+	public int getReviewScore(int eventNo) {
+		return eventDAO.selectReviewScore(eventNo);
+	}
+
 }
