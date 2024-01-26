@@ -84,7 +84,7 @@
                     <div class="checkout__order">
                         <div class="row">
                             <div class="col">
-                                <h4>다이어리</h4>
+                                <h4>건강 다이어리</h4>
                             </div>
                             <div class="col" align="right">
                                 <h6><span id="enrollDt"></span></h6>
@@ -120,7 +120,6 @@
                                     <input type="text" class="form-control" name="midnightSnack" id="midnightSnack">
                                 </li>
                                 <li>
-                                    <button type="button" id="seeButton" class="btn btn-primary">조회</button>
                                     <button type="button" id="saveButton" class="btn btn-primary">저장</button>
                                     <button type="button" id="modifyButton" class="btn btn-primary">수정</button>
                                     <button type="button" id="deleteButton" class="btn btn-primary">삭제</button>
@@ -175,12 +174,12 @@
 	                // 예: 선택된 날짜를 콘솔에 출력
 	                enrollDt = dateStr;
 	                console.log("Selected date: " + dateStr);
-	                $("#a").val("ㅔㅔㅔㅔㅔ");
-	                $("#b").val("bbbbb");
+
+	                seeDataOnPage();
 	            }
 	        });
 	
-	        function seeDataToServer() {
+	        function seeDataOnPage() {
 	            var enrollDt = $("#datetimepicker-dashboard").val();
 	            var memberId = $("#memberId").val();
 	
@@ -191,7 +190,7 @@
 	                success: function(data) {
 	                    console.log("Data retrieved from server:", data);
 	                    
-	                    $("#enrollDt").text(data.enrollDt);
+	                    $("#enrollDt").text(data.enrollDt || '');
 	                    
 	                    $("#memo").val(data.memo);
 	                    $("#breakfast").val(data.breakfast);
@@ -206,7 +205,7 @@
 	            });
 	        }
 	
-	        $("#seeButton").on("click", seeDataToServer);
+	        $("#seeButton").on("click", seeDataOnPage);
 	
 	        function saveDataToServer() {
 	            var enrollDt = $("#datetimepicker-dashboard").val();
