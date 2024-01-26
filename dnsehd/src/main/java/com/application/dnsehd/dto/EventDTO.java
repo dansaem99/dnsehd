@@ -15,6 +15,7 @@ public class EventDTO {
 	private String eventStartDt;
 	private String eventEndDt;
 	private int classNo;
+	private int teacherNo;
 	private String adminId;
 	
 }

@@ -52,6 +52,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/sneat/assets/js/config.js"></script>
+    
   </head>
 
   <body>
@@ -79,10 +80,10 @@
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">운동명 / 가격</label>
 	                        <select name="classNo" class="form-select">
-	                          <c:forEach var="classDTO" items="${classList }">
-	                            <option value="${classDTO.classNo }">운동명 : ${classDTO.classNm } &ensp; 가격 : ${classDTO.classPrice }</option>
-	                          </c:forEach>
-	                        </select>
+							    <c:forEach var="classDTO" items="${classList}">
+							        <option value="${classDTO.classNo}">운동명 : ${classDTO.classNm} &ensp; 가격 : ${classDTO.classPrice}</option>
+							    </c:forEach>
+							</select>
 	                      </div>
 	                      <div class="mb-3 col-md-6">
 	                        <label for="defaultInput" class="form-label">할인가격</label>

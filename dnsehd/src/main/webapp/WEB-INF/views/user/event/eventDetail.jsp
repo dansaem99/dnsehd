@@ -35,10 +35,10 @@
 		function reservationBtn() {
 			
 			var param = {
-					"payment" : "${classDTO.classPrice }",
+					"payment" : "${eventMap.classPrice }",
 					"resvAlarm" : $("[name='resvAlarm']").val(),
 					"memberId" : $("[name='memberId']").val(),
-					"classNo" : "${classDTO.classNo}"
+					"classNo" : "${eventMap.classNo}"
 					
 			}
 			
@@ -72,7 +72,7 @@
                     <div class="breadcrumb__links">
                         <a href="main"><i class="fa fa-home"></i> Home</a>
                         <a href="event">event </a>
-                        <span>${eventDTO.eventTitle }</span>
+                        <span>${eventMap.eventTitle }</span>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>${eventDTO.eventTitle } <span>강사명:${teacherDTO.teacherNm } </span></h3>
+                        <h3>${eventMap.eventTitle } <span>강사명:${eventMap.teacherNm } </span></h3>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -105,11 +105,11 @@
                             <span>( 138 reviews )</span>
                         </div>
                         <div class="product__details__price">
-                        		<fmt:formatNumber value="${eventDTO.eventCost }"/>
-                        		<span><fmt:formatNumber value="${classDTO.classPrice }"/></span>
+                        		<fmt:formatNumber value="${eventMap.eventCost }"/>
+                        		<span><fmt:formatNumber value="${eventMap.classPrice }"/></span>
                         </div>
-                        <h5>수업시간 : ${classDTO.classTime }</h5>
-                        <span>${eventDTO.eventContent }</span>
+                        <h5>수업시간 : ${eventMap.classTime }</h5>
+                        <span>${eventMap.eventContent }</span>
                         <br>
                         <div class="product__details__widget">
                             <ul>
@@ -125,7 +125,7 @@
                                 </li>
                                 <li>
                                     <span>현재 수강신청 인원:</span>
-                                    <p>24 / ${classDTO.classLimit }</p>
+                                    <p>24 / ${eventMap.classLimit }</p>
                                 </li>
                             </ul>
                         </div>
@@ -151,21 +151,21 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <h6>수업 상세 정보</h6>
-                                <p>${classDTO.classContent }</p>
+                                <p>${eventMap.classContent }</p>
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <h6>강사 이력</h6>
-                                <p>${teacherDTO.teacherCareer }</p>
+                                <p>${eventMap.teacherCareer }</p>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
-                                <h6>리뷰 ( 2 )</h6>
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed
-                                    quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret.
-                                    Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam
-                                    voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu
-                                    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla
-                                consequat massa quis enim.</p>
+                                <h6>리뷰</h6>
+                                <c:forEach var="reviewList" items="${reviewList }">
+                                <h5>${reviewList.reviewTitle }</h5>
+                                <p>${reviewList.reviewContent }</p>
+                                </c:forEach>
                             </div>
+                            <input type="hidden" name="memberId" value="${sessionScope.memberId }"/>
+                            <input type="hidden" name="reviewNo" value="${eventMap.reviewNo }"/>
                         </div>
                     </div>
                 </div>

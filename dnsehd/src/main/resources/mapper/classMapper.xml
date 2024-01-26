@@ -63,6 +63,11 @@
 		<result column="CLASS_IMG_NO" property="classImgNo"></result>
 		<result column="CLASS_IMG_NM" property="classImgNm"></result>
 		<result column="CLASS_IMG_UUID" property="classImgUUID"></result>
+		<result column="REVIEW_NO" property="reviewNo"></result>
+		<result column="REVIEW_TITLE" property="reviewTitle"></result>
+		<result column="REVIEW_CONTENT" property="reviewContent"></result>
+		<result column="TEACHER_NM" property="teacherNm"></result>
+		<result column="TEACHER_CAREER" property="teacherCareer"></result>
 	</resultMap>
 	
 	<select id="selectClassList" parameterType="hashmap" resultMap="class">
@@ -87,19 +92,26 @@
 	
 	<select id="selectClassDetail" parameterType="int" resultMap="class">
 	    SELECT
-	        C.CLASS_NO,
-	        C.CLASS_NM,
-	        C.CLASS_CONTENT,
-	        C.CLASS_PRICE,
-	        C.CLASS_TIME,
-	        C.CLASS_CATEGORY,
-	        C.CLASS_LIMIT,
-	        C.TEACHER_NO,
-	        CI.CLASS_IMG_NO,
-	        CI.CLASS_IMG_NM,
-	        CI.CLASS_IMG_UUID
+	        C.CLASS_NO CLASS_NO,
+	        C.CLASS_NM CLASS_NM,
+	        C.CLASS_CONTENT CLASS_CONTENT,
+	        C.CLASS_PRICE CLASS_PRICE,
+	        C.CLASS_TIME CLASS_TIME,
+	        C.CLASS_CATEGORY CLASS_CATEGORY,
+	        C.CLASS_LIMIT CLASS_LIMIT,
+	        C.TEACHER_NO TEACHER_NO,
+	        CI.CLASS_IMG_NO CLASS_IMG_NO,
+	        CI.CLASS_IMG_NM CLASS_IMG_NM,
+	        CI.CLASS_IMG_UUID CLASS_IMG_UUID,
+	        R.REVIEW_NO REVIEW_NO,
+	        R.REVIEW_TITLE REVIEW_TITLE,
+	        R.REVIEW_CONTENT REVIEW_CONTENT,
+	        T.TEACHER_NM TEACHER_NM,
+	        T.TEACHER_CAREER
 	    FROM CLASS C
-	    JOIN CLASS_IMAGES CI ON C.CLASS_NO = CI.CLASS_NO
+	    LEFT JOIN CLASS_IMAGES CI ON C.CLASS_NO = CI.CLASS_NO
+    		LEFT JOIN REVIEWS R ON C.CLASS_NO = R.CLASS_NO
+    		LEFT JOIN TEACHER T ON C.TEACHER_NO = T.TEACHER_NO
 	    WHERE C.CLASS_NO = #{classNo}
 	</select>
 
@@ -140,11 +152,6 @@
 		FROM 	TEACHER	
 	</select>
 	
-	<select id="selectTeacherDetail" resultType="teacherDTO">
-		SELECT	TEACHER_NM, TEACHER_CAREER
-		FROM 	TEACHER
-	</select>
-	
 	<select id="selectListSearchClass" resultMap="class" parameterType="hashMap">
 		SELECT
 	        C.CLASS_NO,
@@ -163,13 +170,31 @@
 		WHERE	CLASS_NM LIKE CONCAT ('%' , #{searchWord}, '%')
 	</select>
 	
-	<select id="selectcheckClass" resultType="ClassDTO">
-        SELECT * 
-        FROM CLASS
-        WHERE CLASS_CATEGORY IN
+	<select id="selectcheckClass" resultMap="class">
+        SELECT
+	        C.CLASS_NO,
+	        C.CLASS_NM,
+	        C.CLASS_CONTENT,
+	        C.CLASS_PRICE,
+	        C.CLASS_TIME,
+	        C.CLASS_CATEGORY,
+	        C.CLASS_LIMIT,
+	        C.TEACHER_NO,
+	        CI.CLASS_IMG_NO,
+	        CI.CLASS_IMG_NM,
+	        CI.CLASS_IMG_UUID
+	    FROM CLASS C
+	    JOIN CLASS_IMAGES CI ON C.CLASS_NO = CI.CLASS_NO
+        WHERE C.CLASS_CATEGORY IN
         <foreach collection="array" item="classCategory" open="(" separator="," close=")">
             #{classCategory}
         </foreach>
+    </select>
+    
+    <select id="selectReviewList" parameterType="int">
+    		SELECT 	*
+    		FROM		REVIEWS
+    		WHERE	CLASS_NO = ${classNo}
     </select>
 		
 </mapper>

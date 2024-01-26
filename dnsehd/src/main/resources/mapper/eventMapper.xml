@@ -8,7 +8,7 @@
 	</select>
 	
 	<select id="selectClassList" parameterType="int" resultType="ClassDTO">
-		SELECT 	CLASS_NO, CLASS_NM, CLASS_PRICE
+		SELECT 	CLASS_NO, CLASS_NM, CLASS_PRICE, TEACHER_NO
 		FROM 	CLASS
 	</select>
 	
@@ -33,9 +33,56 @@
 		)
 	</insert>
 	
-	<select id="selectEventDetail" parameterType="int" resultType="EventDTO">
-		SELECT	*
-		FROM		EVENT
+	<resultMap type="hashmap" id="class">
+		<result column="EVENT_NO" property="eventNo"></result>
+		<result column="EVENT_TITLE" property="eventTitle"></result>
+		<result column="EVENT_COST" property="eventCost"></result>
+		<result column="EVENT_CONTENT" property="eventContent"></result>
+		<result column="CLASS_NO" property="classNo"></result>
+		<result column="CLASS_NM" property="classNm"></result>
+		<result column="CLASS_CONTENT" property="classContent"></result>
+		<result column="CLASS_PRICE" property="classPrice"></result>
+		<result column="CLASS_TIME" property="classTime"></result>
+		<result column="CLASS_CATEGORY" property="classCategory"></result>
+		<result column="CLASS_LIMIT" property="classLimit"></result>
+		<result column="TEACHER_NO" property="teacherNo"></result>
+		<result column="CLASS_IMG_NO" property="classImgNo"></result>
+		<result column="CLASS_IMG_NM" property="classImgNm"></result>
+		<result column="CLASS_IMG_UUID" property="classImgUUID"></result>
+		<result column="REVIEW_NO" property="reviewNo"></result>
+		<result column="REVIEW_TITLE" property="reviewTitle"></result>
+		<result column="REVIEW_CONTENT" property="reviewContent"></result>
+		<result column="TEACHER_NM" property="teacherNm"></result>
+		<result column="TEACHER_CAREER" property="teacherCareer"></result>
+	</resultMap>
+	
+	<select id="selectEventDetail" parameterType="int" resultMap="class">
+		SELECT	
+				E.EVENT_NO EVENT_NO,
+				E.EVENT_TITLE EVENT_TITLE,
+				E.EVENT_COST EVENT_COST,
+				E.EVENT_CONTENT EVENT_CONTENT,
+				C.CLASS_NO CLASS_NO,
+		        C.CLASS_NM CLASS_NM,
+		        C.CLASS_CONTENT CLASS_CONTENT,
+		        C.CLASS_PRICE CLASS_PRICE,
+		        C.CLASS_TIME CLASS_TIME,
+		        C.CLASS_CATEGORY CLASS_CATEGORY,
+		        C.CLASS_LIMIT CLASS_LIMIT,
+		        C.TEACHER_NO TEACHER_NO,
+		        CI.CLASS_IMG_NO CLASS_IMG_NO,
+		        CI.CLASS_IMG_NM CLASS_IMG_NM,
+		        CI.CLASS_IMG_UUID CLASS_IMG_UUID,
+		        R.REVIEW_NO REVIEW_NO,
+		        R.REVIEW_TITLE REVIEW_TITLE,
+		        R.REVIEW_CONTENT REVIEW_CONTENT,
+		        T.TEACHER_NM TEACHER_NM,
+		        T.TEACHER_CAREER TEACHER_CAREER		
+		FROM		EVENT E
+		LEFT	 JOIN CLASS C ON C.CLASS_NO = E.CLASS_NO
+		JOIN	    CLASS_IMAGES CI ON C.CLASS_NO = CI.CLASS_NO
+		LEFT JOIN TEACHER T ON C.TEACHER_NO = T.TEACHER_NO
+		LEFT JOIN REVIEWS R ON C.CLASS_NO = R.CLASS_NO
 		WHERE 	EVENT_NO = #{eventNo}
 	</select>
 	
@@ -54,7 +101,7 @@
 		WHERE		EVENT_NO = #{eventNo}	
 	</delete>
 	
-	<select id="selectTeacherDetail" resultType="teacherDTO">
+	<select id="selectTeacherDetail" resultType="TeacherDTO">
 		SELECT 	TEACHER_NM, TEACHER_CAREER
 		FROM		TEACHER
 	</select>
@@ -64,5 +111,13 @@
 		FROM 	CLASS C JOIN EVENT E ON C.CLASS_NO = E.CLASS_NO
 		WHERE 	E.EVENT_NO = #{eventNo}
 	</select>
+	
+	<select id="selectReviewList" parameterType="int">
+    		SELECT 	R.*
+    		FROM		REVIEWS
+    		LEFT JOIN CLASS C ON C.CLASS_NO = R.CLASS_NO
+    		JOIN EVENT E ON C.CLASS_NO, E.EVENT_NO
+    		WHERE 	C.CLASS_NO = #{classNo}
+    </select>
 	
 </mapper>

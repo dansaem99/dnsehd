@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.application.dnsehd.dto.ClassDTO;
 import com.application.dnsehd.dto.ClassImgDTO;
+import com.application.dnsehd.dto.ReviewDTO;
 import com.application.dnsehd.dto.TeacherDTO;
 
 @Mapper
@@ -23,8 +24,8 @@ public interface ClassDAO {
 	public void deleteClass(int classNo);
 	public void deleteClassImg(int classNo);
 	public List<TeacherDTO> selectTeacherList();
-	public TeacherDTO selectTeacherDetail();
 	public List<Map<String, Object>> selectListSearchClass(Map<String, String> searchMap);
 	public List<Map<String, Object>> selectcheckClass(String[] categotyArrayl);
+	public List<ReviewDTO> selectReviewList(int classNo);
 
 }

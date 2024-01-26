@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.application.dnsehd.dao.ClassDAO;
 import com.application.dnsehd.dto.ClassDTO;
 import com.application.dnsehd.dto.ClassImgDTO;
+import com.application.dnsehd.dto.ReviewDTO;
 import com.application.dnsehd.dto.TeacherDTO;
 
 @Service
@@ -99,12 +100,6 @@ public class ClassServiceImpl implements ClassService {
 	}
 
 	@Override
-	@Transactional
-	public TeacherDTO getTeacherDetail() {
-		return classDAO.selectTeacherDetail();
-	}
-
-	@Override
 	public List<Map<String, Object>> getClassSearchList(Map<String, String> searchMap) {
 		return classDAO.selectListSearchClass(searchMap);
 	}
@@ -118,5 +113,11 @@ public class ClassServiceImpl implements ClassService {
 	public int getAllClassCnt() {
 		return classDAO.getAllClassCnt();
 	}
+
+	@Override
+	public List<ReviewDTO> getReviewList(int classNo) {
+		return classDAO.selectReviewList(classNo);
+	}
+
 
 }

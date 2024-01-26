@@ -146,7 +146,7 @@ public class ClassController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/class/classDetail");
 		mv.addObject("classMap", classService.getClassDetail(classNo));
-		mv.addObject("teacherDTO", classService.getTeacherDetail());
+		mv.addObject("reviewList", classService.getReviewList(classNo));
 		return mv;
 	}
 	

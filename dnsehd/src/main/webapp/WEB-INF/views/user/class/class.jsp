@@ -31,6 +31,9 @@
 	<script>
 		$().ready(function() {
 			
+			$("#onePageViewCnt").val("${onePageViewCnt}");
+			$("#searchKeyword").val("${searchKeyword}");
+			
 			$("[name='searchWord']").keyup(function(){
 				
 				var param = {
@@ -88,9 +91,6 @@
 				
 			});
 			
-			$("#onePageViewCnt").val("${onePageViewCnt}");
-			$("#searchKeyword").val("${searchKeyword}");
-			
 		});
 		
 		function classCategoryYn() {
@@ -112,7 +112,7 @@
 			if ($("[name='시설이용']").is(":checked")) {
 				param += ",시설이용";
 			}
-
+			
 			$.ajax({
                 type: "get",
                 url: "/checkClass",
@@ -157,7 +157,7 @@
 		
 		function getClassList(currentPageNumber) {
 			var url = "/class"
-				url += "&onePageViewCnt=9";
+				url += "?onePageViewCnt=9";
 				if (currentPageNumber != null) {
 					url += "&currentPageNumber=" + currentPageNumber;
 				}

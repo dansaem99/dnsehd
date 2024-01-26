@@ -1,22 +1,13 @@
 package com.application.dnsehd.controller;
 
-import java.io.IOException;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.application.dnsehd.dto.ClassDTO;
 import com.application.dnsehd.dto.EventDTO;
-import com.application.dnsehd.dto.EventImgDTO;
 import com.application.dnsehd.service.EventService;
 
 @Controller
@@ -93,9 +84,9 @@ public class EventController {
 	public ModelAndView eventDetail(@RequestParam("eventNo") int eventNo) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/event/eventDetail");
-		mv.addObject("eventDTO", eventService.getEventDetail(eventNo));
-		mv.addObject("classDTO", eventService.getClassDetail(eventNo));
-		mv.addObject("teacherDTO", eventService.getTeacherDetail());
+		mv.addObject("eventMap", eventService.getEventDetail(eventNo));
+		mv.addObject("reviewList", eventService.getReviewList(eventNo));
+		//mv.addObject("teacherDTO", eventService.getTeacherDetail());
 		return mv;
 	}
 	

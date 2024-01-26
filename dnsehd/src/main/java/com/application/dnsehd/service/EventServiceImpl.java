@@ -1,19 +1,16 @@
 package com.application.dnsehd.service;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.application.dnsehd.dao.EventDAO;
 import com.application.dnsehd.dto.ClassDTO;
 import com.application.dnsehd.dto.EventDTO;
-import com.application.dnsehd.dto.EventImgDTO;
+import com.application.dnsehd.dto.ReviewDTO;
 import com.application.dnsehd.dto.TeacherDTO;
 
 @Service
@@ -40,7 +37,8 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
-	public EventDTO getEventDetail(int eventNo) {
+	@Transactional
+	public Map<String, Object> getEventDetail(int eventNo) {
 		return eventDAO.selectEventDetail(eventNo);
 	}
 
@@ -62,6 +60,11 @@ public class EventServiceImpl implements EventService {
 	@Override
 	public ClassDTO getClassDetail(int eventNo) {
 		return eventDAO.selectClassDetail(eventNo);
+	}
+
+	@Override
+	public List<ReviewDTO> getReviewList(int eventNo) {
+		return eventDAO.selectReviewList(eventNo);
 	}
 
 }

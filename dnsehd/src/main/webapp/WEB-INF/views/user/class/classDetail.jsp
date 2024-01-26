@@ -35,10 +35,10 @@
 		function reservationBtn() {
 			
 			var param = {
-					"payment" : "${classDTO.classPrice }",
+					"payment" : "${classMap.classPrice }",
 					"resvAlarm" : $("[name='resvAlarm']").val(),
 					"memberId" : $("[name='memberId']").val(),
-					"classNo" : "${classDTO.classNo}"
+					"classNo" : "${classMap.classNo}"
 					
 			}
 			
@@ -95,7 +95,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>${classMap.classNm } <span>강사명: ${teacherDTO.teacherNm }</span></h3>
+                        <h3>${classMap.classNm } <span>강사명: ${classMap.teacherNm }</span></h3>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -142,7 +142,7 @@
                                 <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">강사 이력</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">리뷰 ( 2 )</a>
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">리뷰</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -152,18 +152,17 @@
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <h6>강사 이력</h6>
-                                <p>${teacherDTO.teacherCareer }</p>
+                                <p>${classMap.teacherCareer }</p>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
-                                <h6>리뷰 ( 2 )</h6>
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed
-                                    quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret.
-                                    Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam
-                                    voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu
-                                    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla
-                                consequat massa quis enim.</p>
+                                <h6>리뷰</h6>
+                                <c:forEach var="reviewList" items="${reviewList }">
+                                <h5>${reviewList.reviewTitle }</h5>
+                                <p>${reviewList.reviewContent }</p>
+                                </c:forEach>
                             </div>
                             <input type="hidden" name="memberId" value="${sessionScope.memberId }"/>
+                            <input type="hidden" name="reviewNo" value="${classMap.reviewNo }"/>
                         </div>
                     </div>
                 </div>
