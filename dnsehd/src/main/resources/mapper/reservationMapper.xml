@@ -10,17 +10,37 @@
 		<result column="MEMBER_ID" property="memberId"/>
 		<result column="CLASS_NO" property="classNo"/>
 		<result column="CLASS_NM" property="classNm"/>
+		<result column="REVIEW_NO" property="reviewNo"/>
+		<result column="REVIEW_DT" property="reviewDt"/>
 	</resultMap>
 
 	<select id="selectReservationList" resultMap="reservation" >
-		SELECT 	R.RESV_NO	AS RESV_NO,
-				R.PAYMENT	AS PAYMENT,
-				R.RESV_DT	AS RESV_DT,
-				R.MEMBER_ID	AS MEMBER_ID,
-				R.CLASS_NO	AS CLASS_NO,
-				C.CLASS_NM	AS CLASS_NM
-		FROM 	RESERVATIONS R, CLASS C 
-		WHERE	R.CLASS_NO = C.CLASS_NO
+	    SELECT 	R.RESV_NO AS RESV_NO,
+		        R.PAYMENT AS PAYMENT,
+		        R.RESV_DT AS RESV_DT,
+		        R.MEMBER_ID AS MEMBER_ID,
+		        R.CLASS_NO AS CLASS_NO,
+		        C.CLASS_NM AS CLASS_NM,
+		        RV.REVIEW_NO AS REVIEW_NO
+	    FROM 	RESERVATIONS R
+	    JOIN 	CLASS C ON R.CLASS_NO = C.CLASS_NO
+	    LEFT JOIN REVIEWS RV ON R.RESV_NO = RV.RESV_NO
+	</select>
+
+
+	
+	<select id="selectReservationDetail" resultMap="reservation" parameterType="String">
+		SELECT 	R.RESV_NO	 RESV_NO,
+				R.PAYMENT	 PAYMENT,
+				R.RESV_DT	 RESV_DT,
+				R.MEMBER_ID	 MEMBER_ID,
+				R.CLASS_NO	 CLASS_NO,
+				C.CLASS_NM	 CLASS_NM,
+        			RV.REVIEW_NO REVIEW_NO
+		FROM 	RESERVATIONS R
+		JOIN 	CLASS C ON R.CLASS_NO = C.CLASS_NO 
+		LEFT JOIN REVIEWS RV ON R.CLASS_NO = RV.CLASS_NO
+		WHERE	R.MEMBER_ID = #{memberId}
 	</select>
 	
 	<insert id="insertReservation" parameterType="ReservationDTO">
@@ -40,9 +60,25 @@
 		)
 	</insert>
 	
+	<delete id="deleteReviewImg" parameterType="int">
+		DELETE FROM
+				REVIEW_IMAGES
+		WHERE
+				REVIEW_NO = #{reviewNo}
+	</delete>
+	
+	<delete id="deleteReview" parameterType="int">
+		DELETE FROM
+				REVIEWS
+		WHERE
+				REVIEW_NO = #{reviewNo}
+	</delete>
+	
 	<delete id="deleteReservation" parameterType="int">
-		DELETE FROM RESERVATIONS
-		WHERE 		RESV_NO = #{resvNo}
+		DELETE FROM
+				RESERVATIONS
+		WHERE
+				RESV_NO = #{resvNo}
 	</delete>
 
 </mapper>

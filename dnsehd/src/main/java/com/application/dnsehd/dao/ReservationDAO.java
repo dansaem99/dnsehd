@@ -12,6 +12,9 @@ public interface ReservationDAO {
 
 	public List<Map<String,Object>> selectReservationList();
 	public void insertReservation(ReservationDTO reservationDTO);
+	public void deleteReviewImg(int reviewNo);
+	public void deleteReview(int reviewNo);
 	public void deleteReservation(int resvNo);
+	public List<ReservationDTO> selectReservationDetail(String memberId);
 
 }
