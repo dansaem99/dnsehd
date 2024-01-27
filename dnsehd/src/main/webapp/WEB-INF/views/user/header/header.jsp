@@ -121,7 +121,7 @@
 				                              <li><i class="fa fa-solid fa-user"></i>
 				                                 <ul class="dropdown">
 				                                    <li><a href="/mypage">마이페이지</a></li>
-				                                    <li><a href="/reservedClass">내가 예약한 수업</a></li>
+				                                    <li><a href="/reservedClass?memberId=${sessionScope.memberId }">내가 예약한 수업</a></li>
 												    <li><a href="/myReview">내가 작성한 후기</a></li>
 												    <li><a href="/logout">로그아웃</a></li>
 				                                 </ul>

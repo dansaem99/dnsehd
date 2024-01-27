@@ -75,8 +75,9 @@
                           <p class="mb-0">예약을 삭제하면 되돌릴 수 없습니다. 확실하게 해주세요.</p>
                         </div>
                       </div>
-                      <form action="/adRemoveReservation" method="post">
+                      <form action="/adRemoveReservation" method="post" enctype="multipart/form-data">
 	                    <input type="hidden" name="resvNo" value="${resvNo }">
+	                    <input type="hidden" name="reviewNo" value="${reviewNo }">
 	                    <input type="submit" value="삭제하기" class="btn btn-outline-secondary deactivate-account">
 	                  </form>
                     </div>

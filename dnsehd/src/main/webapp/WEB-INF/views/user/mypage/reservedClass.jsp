@@ -38,7 +38,8 @@
 		function resvDelBtn() {
 			
 			var param = {
-					"resvNo" : $("[name='resvNo']").val()
+					"resvNo" : $("[name='resvNo']").val(),
+					"reviewNo" : $("[name='reviewNo']").val()
 			}
 			
 			$.ajax({
@@ -110,6 +111,7 @@
 			                                    <td class="notice__item">
 			                                        <div class="notice__item__writer">
 			                                            <h6><fmt:formatDate pattern="yyyy.MM.dd" value="${reservationMap.resvDt}"/></h6>
+			                                            <input type="hidden" name="reviewNo" value="${reservationMap.reviewNo }"/>
 			                                        </div>
 			                                    </td>
 			                                    <td class="notice__date">
