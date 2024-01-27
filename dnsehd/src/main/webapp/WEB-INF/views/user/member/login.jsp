@@ -95,7 +95,7 @@
                     <div class="form-check">
                       <input class="form-check-input primary" type="checkbox" id="maintainLogin" name="maintainLogin" onchange="maintainIdYn()" value="y" checked/>
                       <label class="form-check-label text-dark" for="flexCheckChecked">
-                        로그인 상태 유지
+                        아이디 저장
                       </label>
                     </div>
                     <a class="text-primary fw-bold" href="findPassword">비밀번호를 잊으셨나요?</a>
