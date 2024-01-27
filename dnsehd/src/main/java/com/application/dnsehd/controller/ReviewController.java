@@ -104,7 +104,9 @@ public class ReviewController {
 		mv.addObject("classList", reviewService.getClassList((String)session.getAttribute("memberId")));
 		mv.addObject("reviewMap", reviewService.getReviewDetail(reviewNo));
 		mv.addObject("myReservationList", reviewService.getMyResvList((String)session.getAttribute("memberId")));
-		
+		mv.addObject("selectedResvNo", reviewService.getSelectedResvNo(reviewNo));
+		mv.addObject("selectedClassNo", reviewService.getSelectedResvNo(reviewNo));
+
 		return mv;
 	}
 	

@@ -12,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AddReview</title>
-    <script src="/ckeditor5-build-classic/ckeditor.js"></script>  
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
@@ -28,12 +27,7 @@
     <link rel="stylesheet" href="/ashion/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/ashion/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/ashion/css/style.css" type="text/css">
- 
- 	<style>
- 	.ck-editor__editable {
- 		min-height: 300px;
- 	}
- 	</style>   
+    
 </head>
 
 <body>
@@ -84,7 +78,7 @@
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>등록 정보 확인</p>
-									<select name="resvNo" class="checkout__form__select">
+									<select id="resvNo" name="resvNo" class="checkout__form__select">
 										<c:forEach var="reservationMap" items="${myReservationList }">
 											<option value="${reservationMap.resvNo }">
 												수업명 : ${reservationMap.classNm } / 
