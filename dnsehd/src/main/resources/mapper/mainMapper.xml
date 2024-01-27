@@ -6,5 +6,43 @@
 		SELECT	*
 		FROM 	EVENT
 	</select>
-	
+
+	<resultMap type="hashmap" id="class">
+		<result column="CLASS_NO" property="classNo"></result>
+		<result column="CLASS_NM" property="classNm"></result>
+		<result column="CLASS_CONTENT" property="classContent"></result>
+		<result column="CLASS_PRICE" property="classPrice"></result>
+		<result column="CLASS_TIME" property="classTime"></result>
+		<result column="CLASS_CATEGORY" property="classCategory"></result>
+		<result column="CLASS_LIMIT" property="classLimit"></result>
+		<result column="CLASS_IMG_NO" property="classImgNo"></result>
+		<result column="CLASS_IMG_NM" property="classImgNm"></result>
+		<result column="CLASS_IMG_UUID" property="classImgUUID"></result>
+		<result column="REVIEW_NO" property="reviewNo"></result>
+		<result column="REVIEW_TITLE" property="reviewTitle"></result>
+		<result column="REVIEW_CONTENT" property="reviewContent"></result>
+		<result column="REVIEW_SCORE" property="reviewScore"></result>
+	</resultMap>
+		
+	<select id="selectClassList" resultMap="class">
+	    SELECT
+	        C.CLASS_NO,
+	        C.CLASS_NM,
+	        C.CLASS_CONTENT,
+	        C.CLASS_PRICE,
+	        C.CLASS_TIME,
+	        C.CLASS_CATEGORY,
+	        C.CLASS_LIMIT,
+	        CI.CLASS_IMG_NO,
+	        CI.CLASS_IMG_NM,
+	        CI.CLASS_IMG_UUID,
+	        ROUND(AVG(R.REVIEW_SCORE)) REVIEW_SCORE
+	    FROM CLASS C
+	    JOIN CLASS_IMAGES CI ON C.CLASS_NO = CI.CLASS_NO
+	    LEFT JOIN REVIEWS R ON R.CLASS_NO = C.CLASS_NO
+	    GROUP BY CI.CLASS_IMG_NO
+	    ORDER BY C.CLASS_NO DESC
+	    LIMIT 8
+	</select>
+
 </mapper>

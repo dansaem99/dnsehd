@@ -39,6 +39,15 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
+	public int getSelectedResvNo(int reviewNo) {
+		return reviewDAO.getSelectedResvNo(reviewNo);
+	}
+	
+	public int getSelectedClassNo(int reviewNo) {
+		return reviewDAO.getSelectedClassNo(reviewNo);
+	}
+	
+	@Override
 	public void addReview(MultipartFile uploadProfile, ReviewDTO reviewDTO, ReviewImgDTO reviewImgDTO) throws IllegalStateException, IOException {
 		
 		if (!uploadProfile.getOriginalFilename().isEmpty()) {

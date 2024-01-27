@@ -14,6 +14,8 @@ public interface ReviewService {
 
 	public List<ClassDTO> getClassList(String memberId);
 	public List<Map<String, Object>> getMyResvList(String memberId);
+	public int getSelectedResvNo(int reviewNo);
+	public int getSelectedClassNo(int reviewNo);
 	public void addReview(MultipartFile uploadProfile, ReviewDTO reviewDTO, ReviewImgDTO reviewImgDTO) throws IllegalStateException, IOException;
 	public List<Map<String, Object>> getReviewList();
 	public Map<String, Object> getReviewDetail(int reviewNo);

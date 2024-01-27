@@ -75,6 +75,24 @@
 				RESV.RESV_DT DESC
 	</select>
 	
+	<select id="getSelectedResvNo" parameterType="int" resultType="int">
+		SELECT
+				RESV_NO
+		FROM
+				REVIEWS
+		WHERE
+				REVIEW_NO = #{reviewNo}
+	</select>
+
+	<select id="getSelectedClassNo" parameterType="int" resultType="int">
+		SELECT
+				CLASS_NO
+		FROM
+				REVIEWS
+		WHERE
+				REVIEW_NO = #{reviewNo}
+	</select>
+	
 	<insert id="insertReview" parameterType="ReviewDTO" useGeneratedKeys="true" keyProperty="reviewNo">
 		INSERT INTO REVIEWS (
 			REVIEW_TITLE,

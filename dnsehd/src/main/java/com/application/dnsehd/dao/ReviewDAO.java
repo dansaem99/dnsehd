@@ -14,6 +14,8 @@ public interface ReviewDAO {
 	
 	public List<ClassDTO> selectClassList(String memberId);
 	public List<Map<String, Object>> selectMyResvList(String memberId);
+	public int getSelectedResvNo(int reviewNo);
+	public int getSelectedClassNo(int classNo);
 	public void insertReview(ReviewDTO reviewDTO);
 	public void insertReviewImg(ReviewImgDTO reviewImgDTO);
 	public List<Map<String, Object>> selectReviewList();

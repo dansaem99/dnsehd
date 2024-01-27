@@ -18,6 +18,7 @@ public class MainController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/main");
 		mv.addObject("eventList", mainService.getEventList());
+		mv.addObject("classList", mainService.getClassList());
 		return mv;
 	}	
 
