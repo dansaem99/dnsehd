@@ -12,5 +12,53 @@
 		WHERE
 				ADMIN_ID = #{adminId} AND ADMIN_PW = #{adminPw}
 	</select>
+	
+	<select id="selectMemberList" resultType="memberDTO">
+		SELECT 	MEMBER_ID, MEMBER_NM, DATE_BIRTH
+		FROM 	MEMBER
+		LIMIT	4
+	</select>
+	
+	<select id="selectClassList" resultType="ClassDTO">
+		SELECT 	CLASS_NM, CLASS_PRICE, CLASS_CATEGORY
+		FROM 	CLASS
+		LIMIT	4
+	</select>
+	
+	<select id="selectTeacherList" resultType="TeacherDTO">
+		SELECT 	TEACHER_NM, TEACHER_BIRTH, TEACHER_INTRO
+		FROM 	TEACHER
+		LIMIT	4
+	</select>
+	
+	<select id="selectReviewList" resultType="ReviewDTO">
+		SELECT 	REVIEW_TITLE, REVIEW_SCORE, REVIEW_DT
+		FROM 	REVIEWS
+		LIMIT	4
+	</select>
+
+	<select id="selectEventList" resultType="EventDTO">
+		SELECT 	EVENT_TITLE, EVENT_START_DT,EVENT_END_DT, EVENT_COST
+		FROM 	EVENT
+		LIMIT	4
+	</select>
+
+	<select id="selectResvList" resultType="ReservationDTO">
+		SELECT 	RESV_NO, MEMBER_ID, RESV_DT
+		FROM 	RESERVATIONS
+		LIMIT	4
+	</select>
+
+	<select id="selectNoticeList" resultType="NoticeDTO">
+		SELECT 	NOTICE_TITLE
+		FROM 	NOTICE
+		LIMIT	5
+	</select>
+
+	<select id="selectFaqList" resultType="FaqDTO">
+		SELECT 	FAQ_QUESTION
+		FROM 	FAQS
+		LIMIT	5
+	</select>
 
 </mapper>

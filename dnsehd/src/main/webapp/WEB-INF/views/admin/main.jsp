@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 
 <!-- beautify ignore:start -->
@@ -82,38 +84,25 @@
                       <div class="mb-3">
                         <div class="mt-3 mb-xl-0">
 	                      <div class="table-responsive text-nowrap">
-                  <table class="table mb-4">
-                    <thead>
-                      <tr>
-                        <th>아이디</th>
-                        <th>이름</th>
-                        <th>생년월일</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                      </tr>
-                      <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>2000-01-01</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+			                  <table class="table mb-4">
+			                    <thead>
+			                      <tr>
+			                        <th>아이디</th>
+			                        <th>이름</th>
+			                        <th>생년월일</th>
+			                      </tr>
+			                    </thead>
+			                    <tbody>
+			                    	  <c:forEach var="memberList" items="${memberList }">
+				                      <tr>
+				                        <td>${memberList.memberId }</td>
+				                        <td>${memberList.memberNm }</td>
+				                        <td>${memberList.dateBirth }</td>
+				                      </tr>
+			                      </c:forEach>
+			                    </tbody>
+			                  </table>
+			                </div>
 	                    </div>
                       </div>
                     </div>
@@ -136,22 +125,27 @@
                     </div>
                     <div class="card-body">
                       <div class="mb-3">
-                        <div class=" mb-4 mb-xl-0">
-	                      <div class="demo-inline-spacing mt-3">
-	                        <div class="list-group list-group-flush">
-	                          <a class="list-group-item"
-	                            >신규 회원은 알림 확인 바랍니다.</a>
-	                          <a class="list-group-item"
-	                            >휴면 회원 개인정보 약관입니다.</a>
-	                          <a class="list-group-item"
-	                            >1월 할인 이벤트 모음입니다.</a>
-	                          <a class="list-group-item"
-	                            >장기고객 감사 할인 혜택 안내입니다.</a>
-	                          <a class="list-group-item"
-	                            >공지사항</a
-	                          >
-	                        </div>
-	                      </div>
+                        <div class="mt-3 mb-xl-0">
+	                      <div class="table-responsive text-nowrap">
+			                  <table class="table mb-4">
+			                    <thead>
+			                      <tr>
+			                        <th>수업명</th>
+			                        <th>가격</th>
+			                        <th>수업방식</th>
+			                      </tr>
+			                    </thead>
+			                    <tbody>
+			                    	  <c:forEach var="classList" items="${classList }">
+				                      <tr>
+				                        <td>${classList.classNm }</td>
+				                        <td>${classList.classPrice }</td>
+				                        <td>${classList.classCategory }</td>
+				                      </tr>
+			                      </c:forEach>
+			                    </tbody>
+			                  </table>
+			                </div>
 	                    </div>
                       </div>
                     </div>
@@ -174,22 +168,27 @@
                     </div>
                     <div class="card-body">
                       <div class="mb-3">
-                        <div class=" mb-4 mb-xl-0">
-	                      <div class="demo-inline-spacing mt-3">
-	                        <div class="list-group list-group-flush">
-	                          <a class="list-group-item"
-	                            >신규 회원은 알림 확인 바랍니다.</a>
-	                          <a class="list-group-item"
-	                            >휴면 회원 개인정보 약관입니다.</a>
-	                          <a class="list-group-item"
-	                            >1월 할인 이벤트 모음입니다.</a>
-	                          <a class="list-group-item"
-	                            >장기고객 감사 할인 혜택 안내입니다.</a>
-	                          <a class="list-group-item"
-	                            >공지사항</a
-	                          >
-	                        </div>
-	                      </div>
+                        <div class="mt-3 mb-xl-0">
+	                      <div class="table-responsive text-nowrap">
+			                  <table class="table mb-4">
+			                    <thead>
+			                      <tr>
+			                        <th>강사명</th>
+			                        <th>생년월일</th>
+			                        <th>강사성격</th>
+			                      </tr>
+			                    </thead>
+			                    <tbody>
+			                    	  <c:forEach var="teacherList" items="${teacherList }">
+				                      <tr>
+				                        <td>${teacherList.teacherNm }</td>
+				                        <td>${teacherList.teacherBirth }</td>
+				                        <td>${teacherList.teacherIntro }</td>
+				                      </tr>
+			                      </c:forEach>
+			                    </tbody>
+			                  </table>
+			                </div>
 	                    </div>
                       </div>
                     </div>
@@ -212,22 +211,27 @@
                     </div>
                     <div class="card-body">
                       <div class="mb-3">
-                        <div class=" mb-4 mb-xl-0">
-	                      <div class="demo-inline-spacing mt-3">
-	                        <div class="list-group list-group-flush">
-	                          <a class="list-group-item"
-	                            >신규 회원은 알림 확인 바랍니다.</a>
-	                          <a class="list-group-item"
-	                            >휴면 회원 개인정보 약관입니다.</a>
-	                          <a class="list-group-item"
-	                            >1월 할인 이벤트 모음입니다.</a>
-	                          <a class="list-group-item"
-	                            >장기고객 감사 할인 혜택 안내입니다.</a>
-	                          <a class="list-group-item"
-	                            >공지사항</a
-	                          >
-	                        </div>
-	                      </div>
+                        <div class="mt-3 mb-xl-0">
+	                      <div class="table-responsive text-nowrap">
+			                  <table class="table mb-4">
+			                    <thead>
+			                      <tr>
+			                        <th>제목</th>
+			                        <th>평점</th>
+			                        <th>작성일</th>
+			                      </tr>
+			                    </thead>
+			                    <tbody>
+			                    	  <c:forEach var="reviewList" items="${reviewList }">
+				                      <tr>
+				                        <td>${reviewList.reviewTitle }</td>
+				                        <td>${reviewList.reviewScore }</td>
+				                        <td>${reviewList.reviewDt }</td>
+				                      </tr>
+			                      </c:forEach>
+			                    </tbody>
+			                  </table>
+			                </div>
 	                    </div>
                       </div>
                     </div>
@@ -250,22 +254,27 @@
                     </div>
                     <div class="card-body">
                       <div class="mb-3">
-                        <div class=" mb-4 mb-xl-0">
-	                      <div class="demo-inline-spacing mt-3">
-	                        <div class="list-group list-group-flush">
-	                          <a class="list-group-item"
-	                            >신규 회원은 알림 확인 바랍니다.</a>
-	                          <a class="list-group-item"
-	                            >휴면 회원 개인정보 약관입니다.</a>
-	                          <a class="list-group-item"
-	                            >1월 할인 이벤트 모음입니다.</a>
-	                          <a class="list-group-item"
-	                            >장기고객 감사 할인 혜택 안내입니다.</a>
-	                          <a class="list-group-item"
-	                            >공지사항</a
-	                          >
-	                        </div>
-	                      </div>
+                        <div class="mt-3 mb-xl-0">
+	                      <div class="table-responsive text-nowrap">
+			                  <table class="table mb-4">
+			                    <thead>
+			                      <tr>
+			                        <th>제목</th>
+			                        <th>날짜</th>
+			                        <th>할인가</th>
+			                      </tr>
+			                    </thead>
+			                    <tbody>
+			                    	  <c:forEach var="eventList" items="${eventList }">
+				                      <tr>
+				                        <td>${eventList.eventTitle }</td>
+				                        <td>${eventList.eventStartDt } ~ ${eventList.eventEndDt }</td>
+				                        <td>${eventList.eventCost }</td>
+				                      </tr>
+			                      </c:forEach>
+			                    </tbody>
+			                  </table>
+			                </div>
 	                    </div>
                       </div>
                     </div>
@@ -288,22 +297,27 @@
                     </div>
                     <div class="card-body">
                       <div class="mb-3">
-                        <div class=" mb-4 mb-xl-0">
-	                      <div class="demo-inline-spacing mt-3">
-	                        <div class="list-group list-group-flush">
-	                          <a class="list-group-item"
-	                            >신규 회원은 알림 확인 바랍니다.</a>
-	                          <a class="list-group-item"
-	                            >휴면 회원 개인정보 약관입니다.</a>
-	                          <a class="list-group-item"
-	                            >1월 할인 이벤트 모음입니다.</a>
-	                          <a class="list-group-item"
-	                            >장기고객 감사 할인 혜택 안내입니다.</a>
-	                          <a class="list-group-item"
-	                            >공지사항</a
-	                          >
-	                        </div>
-	                      </div>
+                        <div class="mt-3 mb-xl-0">
+	                      <div class="table-responsive text-nowrap">
+			                  <table class="table mb-4">
+			                    <thead>
+			                      <tr>
+			                        <th>후기번호</th>
+			                        <th>회원아이디</th>
+			                        <th>작성일</th>
+			                      </tr>
+			                    </thead>
+			                    <tbody>
+			                    	  <c:forEach var="resvList" items="${resvList }">
+				                      <tr>
+				                        <td>${resvList.resvNo }</td>
+				                        <td>${resvList.memberId }</td>
+				                        <td>${resvList.resvDt }</td>
+				                      </tr>
+			                      </c:forEach>
+			                    </tbody>
+			                  </table>
+			                </div>
 	                    </div>
                       </div>
                     </div>
@@ -329,17 +343,9 @@
                         <div class=" mb-4 mb-xl-0">
 	                      <div class="demo-inline-spacing mt-3">
 	                        <div class="list-group list-group-flush">
-	                          <a class="list-group-item"
-	                            >신규 회원은 알림 확인 바랍니다.</a>
-	                          <a class="list-group-item"
-	                            >휴면 회원 개인정보 약관입니다.</a>
-	                          <a class="list-group-item"
-	                            >1월 할인 이벤트 모음입니다.</a>
-	                          <a class="list-group-item"
-	                            >장기고객 감사 할인 혜택 안내입니다.</a>
-	                          <a class="list-group-item"
-	                            >공지사항</a
-	                          >
+	                        	  <c:forEach var="noticeList" items="${noticeList }">
+	                          	<a class="list-group-item">${noticeList.noticeTitle }</a>
+	                          </c:forEach>
 	                        </div>
 	                      </div>
 	                    </div>
@@ -367,17 +373,9 @@
                         <div class=" mb-4 mb-xl-0">
 	                      <div class="demo-inline-spacing mt-3">
 	                        <div class="list-group list-group-flush">
-	                          <a class="list-group-item"
-	                            >신규 회원은 알림 확인 바랍니다.</a>
-	                          <a class="list-group-item"
-	                            >휴면 회원 개인정보 약관입니다.</a>
-	                          <a class="list-group-item"
-	                            >1월 할인 이벤트 모음입니다.</a>
-	                          <a class="list-group-item"
-	                            >장기고객 감사 할인 혜택 안내입니다.</a>
-	                          <a class="list-group-item"
-	                            >공지사항</a
-	                          >
+	                        	  <c:forEach var="faqList" items="${faqList }">
+	                          	<a class="list-group-item">${faqList.faqQuestion }</a>
+	                          </c:forEach>
 	                        </div>
 	                      </div>
 	                    </div>

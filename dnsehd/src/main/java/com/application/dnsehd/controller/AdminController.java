@@ -27,6 +27,14 @@ public class AdminController {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("adminId") != null) {
 			mv.setViewName("admin/main");
+			mv.addObject("memberList", adminService.getMemberList());
+			mv.addObject("classList", adminService.getClassList());
+			mv.addObject("teacherList", adminService.getTeacherList());
+			mv.addObject("reviewList", adminService.getReviewList());
+			mv.addObject("eventList", adminService.getEventList());
+			mv.addObject("resvList", adminService.getResvList());
+			mv.addObject("noticeList", adminService.getNoticeList());
+			mv.addObject("faqList", adminService.getFaqList());
 		} else {
 			mv.setViewName("admin/login");
 		}
