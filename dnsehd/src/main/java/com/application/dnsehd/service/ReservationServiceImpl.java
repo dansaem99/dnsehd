@@ -28,13 +28,9 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	@Override
-	public void removeReview(int reviewNo) {
-		reservationDAO.deleteReviewImg(reviewNo);
-		reservationDAO.deleteReview(reviewNo);
-	}
-
-	@Override
 	public void removeReservation(int resvNo) {
+		reservationDAO.deleteReviewImg(resvNo);
+		reservationDAO.deleteReview(resvNo);
 		reservationDAO.deleteReservation(resvNo);
 	}
 

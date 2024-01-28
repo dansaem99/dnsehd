@@ -36,20 +36,18 @@ public class ReservationController {
 	}
 	
 	@GetMapping("/adRemoveReservation")
-	public ModelAndView adRemoveReservation(@RequestParam("resvNo") int resvNo,@RequestParam("reviewNo") int reviewNo) {
+	public ModelAndView adRemoveReservation(@RequestParam("resvNo") int resvNo) {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/reservation/removeReservation");
 		mv.addObject("resvNo", resvNo);
-		mv.addObject("reviewNo", reviewNo);
 		
 		return mv;
 		
 	}
 	
 	@PostMapping("/adRemoveReservation")
-	public String postRemoveReservation(@RequestParam("resvNo") int resvNo,@RequestParam("reviewNo") int reviewNo) {
-		reservationService.removeReview(reviewNo);
+	public String postRemoveReservation(@RequestParam("resvNo") int resvNo) {
 		reservationService.removeReservation(resvNo);
 		return "redirect:/adReservation";
 	}
@@ -81,8 +79,7 @@ public class ReservationController {
 	}
 	
 	@PostMapping("removeReservation")
-	public String removeReservation(@RequestParam("resvNo") int resvNo,@RequestParam("reviewNo") int reviewNo) {
-		reservationService.removeReview(reviewNo);
+	public String removeReservation(@RequestParam("resvNo") int resvNo) {
 		reservationService.removeReservation(resvNo);
 		return "redirect:reservedClass";
 	}

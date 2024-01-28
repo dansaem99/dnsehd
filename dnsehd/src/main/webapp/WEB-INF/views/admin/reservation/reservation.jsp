@@ -123,7 +123,7 @@
 	                        <td>${reservationMap.payment }</td>
 	                        <td>
 	                          <div>
-	                            <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveReservation?resvNo=${reservationMap.resvNo }&reviewNo=${reservationMap.reviewNo }'">
+	                            <input type="button" value="삭제" class="btn btn-outline-primary" onclick="location.href='/adRemoveReservation?resvNo=${reservationMap.resvNo }'">
 	                          </div>
 	                        </td>
 	                      </tr>

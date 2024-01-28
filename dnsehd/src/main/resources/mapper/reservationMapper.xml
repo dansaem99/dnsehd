@@ -20,11 +20,9 @@
 		        R.RESV_DT AS RESV_DT,
 		        R.MEMBER_ID AS MEMBER_ID,
 		        R.CLASS_NO AS CLASS_NO,
-		        C.CLASS_NM AS CLASS_NM,
-		        RV.REVIEW_NO AS REVIEW_NO
+		        C.CLASS_NM AS CLASS_NM
 	    FROM 	RESERVATIONS R
 	    JOIN 	CLASS C ON R.CLASS_NO = C.CLASS_NO
-	    LEFT JOIN REVIEWS RV ON R.RESV_NO = RV.RESV_NO
 	</select>
 
 
@@ -62,14 +60,16 @@
 		DELETE FROM
 				REVIEW_IMAGES
 		WHERE
-				REVIEW_NO = #{reviewNo}
+				REVIEW_NO IN (
+					SELET REVIEW_NO FROM REVIEWS WHERE RESV_NO = #{resvNo}
+				)
 	</delete>
 	
 	<delete id="deleteReview" parameterType="int">
 		DELETE FROM
 				REVIEWS
 		WHERE
-				REVIEW_NO = #{reviewNo}
+				RESV_NO = #{resvNo}
 	</delete>
 	
 	<delete id="deleteReservation" parameterType="int">
