@@ -151,13 +151,18 @@
 		DELETE FROM RESERVATIONS
 		WHERE 		CLASS_NO = #{classNo}
 	</delete>
+
+	<delete id="deleteReview" parameterType="int">
+		DELETE FROM REVIEWS
+		WHERE 		CLASS_NO = #{classNo}
+	</delete>
 	
 	<delete id="deleteReviewImg" parameterType="int">
-    DELETE FROM REVIEW_IMAGES
-    WHERE REVIEW_NO IN (
-        SELECT REVIEW_NO FROM REVIEWS WHERE CLASS_NO = #{classNo}
-    )
-</delete>
+	    DELETE FROM REVIEW_IMAGES
+	    WHERE REVIEW_NO IN (
+	        SELECT REVIEW_NO FROM REVIEWS WHERE CLASS_NO = #{classNo}
+	    )
+	</delete>
 
 	
 	<select id="selectTeacherList" resultType="teacherDTO">

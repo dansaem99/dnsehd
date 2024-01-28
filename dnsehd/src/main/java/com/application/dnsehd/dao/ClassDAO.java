@@ -21,6 +21,9 @@ public interface ClassDAO {
 	public Map<String, Object> selectClassDetail(int classNo);
 	public void updateClass(ClassDTO classDTO);
 	public void updateClassImg(ClassImgDTO classImgDTO);
+	public void deleteResv(int classNo);
+	public void deleteReview(int classNo);
+	public void deleteReviewImg(int classNo);
 	public void deleteClass(int classNo);
 	public void deleteClassImg(int classNo);
 	public List<TeacherDTO> selectTeacherList();
@@ -28,8 +31,5 @@ public interface ClassDAO {
 	public List<Map<String, Object>> selectcheckClass(String[] categotyArrayl);
 	public List<ReviewDTO> selectReviewList(int classNo);
 	public int selectReviewScore(int classNo);
-	public void deleteResv(int classNo);
-	public void deleteReview(int classNo);
-	public void deleteReviewImg(int classNo);
 
 }
