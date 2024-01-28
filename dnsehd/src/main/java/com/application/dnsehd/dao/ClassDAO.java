@@ -16,7 +16,7 @@ public interface ClassDAO {
 	public int getAllClassCnt();//
 	public void insertClass(ClassDTO classDTO);//
 	public void insertClassImg(ClassImgDTO classImgDTO);//
-	public List<Map<String, Object>> selectAdminClassList();
+	public List<ClassDTO> selectAdminClassList();
 	public List<Map<String, Object>> selectClassList(Map<String, Object> searchMap);
 	public Map<String, Object> selectClassDetail(int classNo);
 	public void updateClass(ClassDTO classDTO);
@@ -28,5 +28,8 @@ public interface ClassDAO {
 	public List<Map<String, Object>> selectcheckClass(String[] categotyArrayl);
 	public List<ReviewDTO> selectReviewList(int classNo);
 	public int selectReviewScore(int classNo);
+	public void deleteResv(int classNo);
+	public void deleteReview(int classNo);
+	public void deleteReviewImg(int classNo);
 
 }

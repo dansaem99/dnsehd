@@ -38,19 +38,21 @@
 		function resvDelBtn() {
 			
 			var param = {
-					"resvNo" : $("[name='resvNo']").val(),
-					"reviewNo" : $("[name='reviewNo']").val()
+					"reviewNo" : $("[name='reviewNo']").val(),
+					"resvNo" : $("[name='resvNo']").val()
 			}
 			
 			$.ajax({
 				type : "post",
-				url : "removeReservation",
+				url : "/removeReservation",
 				data : param,
 				success : function(data) {
 					Swal.fire({
 					      icon: 'success',
 					      text: '취소했습니다.',
-				    });
+				    }).then(function () {
+		                location.reload();
+		            });
 				}
 			});
 			
@@ -106,6 +108,7 @@
 			                                        <div class="notice__item__title">
 			                                            <h6>${reservationMap.payment }</h6>
 			                                            <input type="hidden" name="resvNo" value="${reservationMap.resvNo }"/>
+			                                            <input type="hidden" name="memberId" value="${reservationMap.memberId }"/>
 			                                        </div>
 			                                    </td>
 			                                    <td class="notice__item">

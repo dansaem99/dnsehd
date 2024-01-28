@@ -28,7 +28,7 @@ public class ClassServiceImpl implements ClassService {
 	private ClassDAO classDAO;
 	
 	@Override
-	public List<Map<String, Object>> adminClassList() {
+	public List<ClassDTO> adminClassList() {
 		return classDAO.selectAdminClassList();
 	}
 	
@@ -90,6 +90,9 @@ public class ClassServiceImpl implements ClassService {
 
 	@Override
 	public void removeOneClass(int classNo) {
+		classDAO.deleteReviewImg(classNo);
+		classDAO.deleteReview(classNo);
+		classDAO.deleteResv(classNo);
 		classDAO.deleteClassImg(classNo);
 		classDAO.deleteClass(classNo);
 	}
@@ -121,7 +124,7 @@ public class ClassServiceImpl implements ClassService {
 
 	@Override
 	public int getReviewScore(int classNo) {
-		return classDAO.selectReviewScore(classNo);
+        return classDAO.selectReviewScore(classNo);
 	}
 
 

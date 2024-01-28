@@ -55,6 +55,20 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/admin/sneat/assets/js/config.js"></script>
+    
+    <script src="/admin/sneat/assets/js/config.js"></script>
+    
+    <style>
+	  .fixed-table, .fixed-card {
+	    table-layout: fixed;
+	  }
+	
+	  .fixed-table th, .fixed-table td, .fixed-card a {
+	    overflow: hidden; 
+	    text-overflow: ellipsis;
+	  }
+	</style>
+        
   </head>
 
   <body>
@@ -256,7 +270,7 @@
                       <div class="mb-3">
                         <div class="mt-3 mb-xl-0">
 	                      <div class="table-responsive text-nowrap">
-			                  <table class="table mb-4">
+			                  <table class="table mb-4 fixed-table">
 			                    <thead>
 			                      <tr>
 			                        <th>제목</th>
@@ -312,7 +326,7 @@
 				                      <tr>
 				                        <td>${resvList.resvNo }</td>
 				                        <td>${resvList.memberId }</td>
-				                        <td>${resvList.resvDt }</td>
+				                        <td><fmt:formatDate value="${resvList.resvDt }" pattern="yyyy-MM-dd"/></td>
 				                      </tr>
 			                      </c:forEach>
 			                    </tbody>
@@ -342,7 +356,7 @@
                       <div class="mb-3">
                         <div class=" mb-4 mb-xl-0">
 	                      <div class="demo-inline-spacing mt-3">
-	                        <div class="list-group list-group-flush">
+	                        <div class="list-group list-group-flush fixed-table">
 	                        	  <c:forEach var="noticeList" items="${noticeList }">
 	                          	<a class="list-group-item">${noticeList.noticeTitle }</a>
 	                          </c:forEach>
@@ -372,7 +386,7 @@
                       <div class="mb-3">
                         <div class=" mb-4 mb-xl-0">
 	                      <div class="demo-inline-spacing mt-3">
-	                        <div class="list-group list-group-flush">
+	                        <div class="list-group list-group-flush fixed-card">
 	                        	  <c:forEach var="faqList" items="${faqList }">
 	                          	<a class="list-group-item">${faqList.faqQuestion }</a>
 	                          </c:forEach>

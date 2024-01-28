@@ -99,7 +99,6 @@
                         		<c:forEach begin="1" end="${reviewScore }">
                         			<i class="fa fa-star"></i>
                         		</c:forEach>
-                            <span>( 138 reviews )</span>
                         </div>
                         <div class="product__details__price" style="color: blue;">
                         		<fmt:formatNumber value="${classMap.classPrice }"/>

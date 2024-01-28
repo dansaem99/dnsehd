@@ -45,10 +45,9 @@
 				#{classImgUUID}
 		)
 	</insert>
-	
+
 	<select id="selectAdminClassList" resultType="ClassDTO">
-		SELECT 	*
-		FROM		CLASS
+		SELECT * FROM CLASS	
 	</select>
 	
 	<resultMap type="hashmap" id="class">
@@ -63,6 +62,7 @@
 		<result column="CLASS_IMG_NO" property="classImgNo"></result>
 		<result column="CLASS_IMG_NM" property="classImgNm"></result>
 		<result column="CLASS_IMG_UUID" property="classImgUUID"></result>
+		<result column="RESV_NO" property="resvNo"></result>
 		<result column="REVIEW_NO" property="reviewNo"></result>
 		<result column="REVIEW_TITLE" property="reviewTitle"></result>
 		<result column="REVIEW_CONTENT" property="reviewContent"></result>
@@ -70,7 +70,7 @@
 		<result column="TEACHER_NM" property="teacherNm"></result>
 		<result column="TEACHER_CAREER" property="teacherCareer"></result>
 	</resultMap>
-	
+
 	<select id="selectClassList" parameterType="hashmap" resultMap="class">
 	    SELECT
 	        C.CLASS_NO,
@@ -147,6 +147,19 @@
 		WHERE 		CLASS_NO = #{classNo}
 	</delete>
 	
+	<delete id="deleteResv" parameterType="int">
+		DELETE FROM RESERVATIONS
+		WHERE 		CLASS_NO = #{classNo}
+	</delete>
+	
+	<delete id="deleteReviewImg" parameterType="int">
+    DELETE FROM REVIEW_IMAGES
+    WHERE REVIEW_NO IN (
+        SELECT REVIEW_NO FROM REVIEWS WHERE CLASS_NO = #{classNo}
+    )
+</delete>
+
+	
 	<select id="selectTeacherList" resultType="teacherDTO">
 		SELECT 	TEACHER_NO ,TEACHER_NM
 		FROM 	TEACHER	
@@ -198,10 +211,11 @@
 	</select>
 	
 	<select id="selectReviewScore" parameterType="int" resultType="int">
-		SELECT 	ROUND(AVG(REVIEW_SCORE)) AVG_SCORE
-	    FROM		REVIEWS
-	    WHERE	CLASS_NO = #{classNo}
+	    SELECT COALESCE(ROUND(AVG(REVIEW_SCORE)), 0) AS AVG_SCORE
+	    FROM REVIEWS
+	    WHERE CLASS_NO = #{classNo}
 	</select>
+
 
 		
 </mapper>

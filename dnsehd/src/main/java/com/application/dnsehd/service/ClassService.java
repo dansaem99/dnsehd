@@ -14,7 +14,7 @@ import com.application.dnsehd.dto.TeacherDTO;
 public interface ClassService {
 
 	public void addClass(MultipartFile uploadProfile, ClassDTO classDTO, ClassImgDTO classImgDTO) throws IllegalStateException, IOException;
-	public List<Map<String, Object>> adminClassList();
+	public List<ClassDTO> adminClassList();
 	public List<Map<String, Object>> getClassList(Map<String, Object> searchMap);
 	public int getAllClassCnt();
 	public Map<String, Object> getClassDetail(int classNo);
