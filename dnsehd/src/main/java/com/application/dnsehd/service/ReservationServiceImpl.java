@@ -23,8 +23,6 @@ public class ReservationServiceImpl implements ReservationService {
 	@Override
 	public void addReservation(ReservationDTO reservationDTO) {
 		
-		if(reservationDTO.getResvAlarm() == null) reservationDTO.setResvAlarm("n");
-		
 		reservationDAO.insertReservation(reservationDTO);
 		
 	}

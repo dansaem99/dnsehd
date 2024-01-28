@@ -118,7 +118,7 @@
     </select>
     
     <select id="selectReviewScore" parameterType="int" resultType="int">
-		SELECT 	ROUND(AVG(R.REVIEW_SCORE)) AVG_SCORE
+		SELECT 	COALESCE(ROUND(AVG(REVIEW_SCORE)), 0) AVG_SCORE
 	    FROM		REVIEWS R
 	    LEFT JOIN CLASS C ON C.CLASS_NO = R.CLASS_NO
     		JOIN EVENT E ON C.CLASS_NO = E.EVENT_NO

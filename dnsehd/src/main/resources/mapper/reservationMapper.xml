@@ -46,14 +46,12 @@
 	<insert id="insertReservation" parameterType="ReservationDTO">
 		INSERT INTO RESERVATIONS (
 			PAYMENT,
-			RESV_ALARM,
 			RESV_DT,
 			CLASS_NO,
 			MEMBER_ID
 		)
 		VALUES (
 			#{payment},
-			#{resvAlarm},
 			DATE_FORMAT(NOW(), '%Y-%m-%d'),
 			#{classNo},
 			#{memberId}
