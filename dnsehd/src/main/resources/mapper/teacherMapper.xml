@@ -56,7 +56,7 @@
 				#{teacherImgUUID}
 		)
 	</insert>
-
+	
 	<select id="selectAdminTeacherList" resultType="TeacherDTO">
 		SELECT
 				*
@@ -168,6 +168,44 @@
 	    		TEACHER_NO = #{teacherNo}
 	</update>
 
+	<delete id="deleteCorespondReviewImg" parameterType="int">
+       DELETE FROM REVIEW_IMAGES
+       WHERE REVIEW_NO IN (
+           SELECT REVIEW_NO FROM REVIEWS R JOIN CLASS C ON R.CLASS_NO = C.CLASS_NO WHERE C.TEACHER_NO = #{teacherNo}
+       )
+	</delete> 
+
+	<delete id="deleteCorespondReview" parameterType="int">
+		DELETE FROM
+				REVIEWS
+		WHERE
+				CLASS_NO IN (
+					SELECT CLASS_NO FROM CLASS WHERE TEACHER_NO = #{teacherNo}
+				)
+	</delete> 
+
+	<delete id="deleteCorespondResv" parameterType="int">
+		DELETE FROM
+				RESERVATIONS
+		WHERE
+				CLASS_NO IN (
+					SELECT CLASS_NO FROM CLASS WHERE TEACHER_NO = #{teacherNo}
+				)
+	</delete> 
+
+	<delete id="deleteCorespondClass" parameterType="int">
+		DELETE FROM
+				CLASS
+		WHERE
+				TEACHER_NO = #{teacherNo}
+	</delete> 
+ 
+	<delete id="deleteCorespondClassImg" parameterType="int">
+       DELETE FROM CLASS_IMAGES
+       WHERE CLASS_NO IN (
+           SELECT CLASS_NO FROM CLASS WHERE TEACHER_NO = #{teacherNo}
+       )
+	</delete> 
 
 	<delete id="deleteTeacher" parameterType="int">
 		DELETE FROM
@@ -176,6 +214,7 @@
 				TEACHER_NO = #{teacherNo}
 	</delete>
 	
+
 	<delete id="deleteTeacherImg" parameterType="int">
 		DELETE FROM
 				TEACHER_IMAGES

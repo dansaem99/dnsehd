@@ -20,6 +20,11 @@ public interface TeacherDAO {
 	public Map<String, Object> selectTeacherDetail(int teacherNo);
 	public void updateTeacher(TeacherDTO teacherDTO);
 	public void updateTeacherImg(TeacherImgDTO teacherImgDTO);
+	public void deleteCorespondReviewImg(int teacherNo);
+	public void deleteCorespondReview(int teacherNo);
+	public void deleteCorespondResv(int teacherNo);
+	public void deleteCorespondClassImg(int teacherNo);
+	public void deleteCorespondClass(int teacherNo);
 	public void deleteTeacher(int teacherNo);
 	public void deleteTeacherImg(int teacherNo);
 	public List<Map<String, Object>> selectTeacherOwnClassList(int teacherNo);
