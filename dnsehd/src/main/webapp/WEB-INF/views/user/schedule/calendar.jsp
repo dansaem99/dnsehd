@@ -146,7 +146,7 @@
 	        var isDataAlreadyExists = false;  // 데이터가 이미 존재하는지 여부를 나타내는 변수
 	        
 	        // 특정 날짜를 배열로 정의합니다 (예시: 'YYYY-MM-DD' 형식)
-	        var specialDates = ["2024-01-10", "2024-01-12", "2024-01-13"];
+	        var specialDates = [];
 	
 	        $("#datetimepicker-dashboard").flatpickr({
 	            inline: true,
