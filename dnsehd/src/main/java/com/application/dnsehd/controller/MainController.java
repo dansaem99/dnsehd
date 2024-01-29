@@ -13,7 +13,7 @@ public class MainController {
 	@Autowired
 	private MainService mainService;
 
-	@GetMapping("/main")
+	@GetMapping
 	public ModelAndView main() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/main");
