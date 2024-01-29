@@ -18,7 +18,7 @@ import com.application.dnsehd.dto.TeacherDTO;
 public interface AdminDAO {
 
 	public List<AdminDTO> selectAdmin(String adminId);
-	public AdminDTO loginAdmin(String adminId, String adminPw);
+	public AdminDTO loginAdmin(String adminId);
 	public List<MemberDTO> selectMemberList();
 	public List<ClassDTO> selectClassList();
 	public List<TeacherDTO> selectTeacherList();
