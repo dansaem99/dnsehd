@@ -130,10 +130,8 @@
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                  <a class="nav-link dropdown-toggle hide-arrow" href="adMain" data-bs-toggle="dropdown">
-                    <div class="text-muted">
+                  <a class="nav-link dropdown-toggle hide-arrow text-muted" href="adMain" data-bs-toggle="dropdown">
                       admin
-                    </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
                     <li>
