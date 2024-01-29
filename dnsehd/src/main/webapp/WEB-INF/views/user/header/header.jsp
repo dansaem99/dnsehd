@@ -64,7 +64,7 @@
             </a></li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="/main"><img src="/addedImg/dnsehd_small_logo.png" alt=""></a>
+            <a href="/"><img src="/addedImg/dnsehd_small_logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
@@ -80,13 +80,13 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
-                        <a href="/main"><img src="/addedImg/dnsehd_small_logo.png" alt=""></a>
+                        <a href="/"><img src="/addedImg/dnsehd_small_logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xl-5 col-lg-6 text-center">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="/main">Home</a></li>
+                            <li class="active"><a href="/">Home</a></li>
                             <li><a href="/class">수업조회</a></li>
                             <li><a href="/teacher">강사조회</a></li>
                             <li><a href="/calendar">일정관리</a></li>

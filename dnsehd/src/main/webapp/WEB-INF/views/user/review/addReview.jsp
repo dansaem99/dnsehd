@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="main"><i class="fa fa-home"></i> Home</a>
+                        <a href="/"><i class="fa fa-home"></i> Home</a>
                         <span>Post New Review</span>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                                 </div>
                                 <br><br>
 							    <div class="col-lg-12 text-center">
-							        <a href="main"><button type="submit" class="site-btn">후기 등록</button></a>
+							        <a href="/"><button type="submit" class="site-btn">후기 등록</button></a>
 							    </div>
                             </div>
                         </div>

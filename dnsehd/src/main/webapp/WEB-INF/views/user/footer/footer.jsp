@@ -49,7 +49,7 @@
 	            <div class="col-lg-4 col-md-6 col-sm-7">
 	                <div class="footer__about">
 	                    <div class="footer__logo">
-	                        <a href="main"><img src="/addedImg/dnsehd_small_logo.png" alt=""></a>
+	                        <a href="/"><img src="/addedImg/dnsehd_small_logo.png" alt=""></a>
 	                    </div>
 	                    <p>Physical fitness is not only one of the most important keys to a healthy body,
 	                    it is the basis of dynamic and creative intellectual activiy.</p>
@@ -59,7 +59,7 @@
 	                <div class="footer__widget text-right">
 	                    <h6>Quick links</h6>
 	                    <ul>
-	                        <li><a href="main">메인 화면</a></li>
+	                        <li><a href="/">메인 화면</a></li>
 	                        <li><a href="class">수업 조회</a></li>
 	                        <li><a href="teacher">강사 조회</a></li>
 	                    </ul>

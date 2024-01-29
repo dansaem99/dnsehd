@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="main"><i class="fa fa-home"></i> Home</a>
+                        <a href="/"><i class="fa fa-home"></i> Home</a>
                         <a href="review">Review</a>
                         <span>${reviewMap.reviewTitle }</span>
                     </div>
