@@ -33,8 +33,6 @@ public class AdminServiceImpl implements AdminService {
 
 		AdminDTO validateData = adminDAO.loginAdmin(adminDTO.getAdminId());
 		
-		System.out.println("validateData = " + validateData);
-		
 		if (validateData == null) {
 			return false;
 		} else {
