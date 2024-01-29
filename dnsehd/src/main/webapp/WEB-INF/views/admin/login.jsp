@@ -16,7 +16,7 @@
   	function login(){
   		let loginData = {
   				"adminId" : $("[name='adminId']").val(),
-  				"adminPw" : $("[name='adminPw']").val(),
+  				"adminPw" : $("[name='adminPw']").val()
   			}
   			$.ajax({
   				url : "/adMain",

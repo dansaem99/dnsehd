@@ -62,4 +62,14 @@ public class AdminController {
 		return isValidAdmin;
 	}
 	
+	@GetMapping("/adLogout")
+	public String logoutMember(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();		
+		session.invalidate();
+		
+		return "redirect:adMain";
+		
+	}
+	
 }

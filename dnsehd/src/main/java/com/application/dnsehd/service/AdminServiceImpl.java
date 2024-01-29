@@ -31,7 +31,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public boolean loginAdmin(AdminDTO adminDTO) {
 
-		AdminDTO validateData = adminDAO.loginAdmin(adminDTO.getAdminId());
+		AdminDTO validateData = adminDAO.loginAdmin(adminDTO.getAdminId(), adminDTO.getAdminPw());
 		
 		System.out.println("validateData = " + validateData);
 		
