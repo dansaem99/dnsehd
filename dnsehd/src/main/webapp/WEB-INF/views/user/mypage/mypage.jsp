@@ -189,26 +189,6 @@
                      </div>
                      <div class="col-lg-4">
                          <div class="checkout__order">
-                             <h5>수강료 관리</h5>
-                             <div class="checkout__order__product">
-                                 <ul>
-                                     <li>
-                                         <span class="top__text">등록한 수업</span>
-                                         <span class="top__text__right">수강료</span>
-                                     </li>
-                                     <li>01. 근력 향상 1:1 PT <span>35만원/월</span></li>
-                                     <li>02. 주3회 스쿼시 자유이용 <span>20만원/월</span></li>
-                                     <li>03. Something1 <span>0만원/월</span></li>
-                                     <li>04. Something2 <span>0만원/월</span></li>
-                                 </ul>
-                             </div>
-                             <div class="checkout__order__total">
-                                 <ul>
-                                     <li>총 수강료 <span>55만원/월</span></li>
-                                 </ul>
-                             </div>
-                         </div>
-                         <div class="checkout__order">
                              <h5>회원정보 관리</h5>
                              <input type="submit" class="site-btn" value="회원정보 수정">
                              <div class="mb-4"></div>
