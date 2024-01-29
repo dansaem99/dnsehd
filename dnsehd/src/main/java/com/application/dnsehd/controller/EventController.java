@@ -63,7 +63,7 @@ public class EventController {
 	}
 	
 	@GetMapping("/adRemoveEvent")
-	public ModelAndView getMethodName(@RequestParam("eventNo") int eventNo) {
+	public ModelAndView getRemoveEvent(@RequestParam("eventNo") int eventNo) {
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/event/removeEvent");
