@@ -128,7 +128,7 @@ function checkFormValidation() {
 
   <link rel="shortcut icon" type="image/png" href="/modernize/assets/images/logos/favicon.png" />
   <link rel="stylesheet" href="/modernize/assets/css/styles.min.css" />
-</head>
+</head>	
 
 <body>
 	  <!--  Body Wrapper -->

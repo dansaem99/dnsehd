@@ -37,7 +37,7 @@ public class MemberController {
 	@PostMapping("/register")
 	public String register(@ModelAttribute MemberDTO memberDTO) {
 		memberService.addMember(memberDTO);
-		return "redirect:main";
+		return "redirect:/";
 	}
 	
 	@PostMapping("/validId")
@@ -138,7 +138,7 @@ public class MemberController {
 		
 		session.invalidate();
 		
-		return "redirect:main";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/findPassword")
