@@ -93,7 +93,7 @@
 	                    <div class="product__item">
 	                        <div class="product__item__pic set-bg" data-setbg="/classImg?fileName=${classMap.classImgUUID }" ></div>
 	                        <div class="product__item__text">
-	                            <h6><a href="#">${classMap.classNm }</a></h6>
+	                            <h6><a href="/classDetail?classNo=${classMap.classNo }">${classMap.classNm }</a></h6>
 	                            <div class="rating">
 	                                <i class="fa fa-star"></i>
 	                                <i class="fa fa-star"></i>
