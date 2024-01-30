@@ -75,10 +75,10 @@
                         <a href="/"><img src="/addedImg/dnsehd_small_logo.png" alt=""></a>
                     </div>
                 </div>
-                <div class="col-xl-5 col-lg-6 text-center">
+                <div class="col-xl-5 col-lg-6 text-center pt-3">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="/">Home</a></li>
                             <li><a href="/class">수업조회</a></li>
                             <li><a href="/teacher">강사조회</a></li>
                             <li><a href="/calendar">일정관리</a></li>
@@ -97,7 +97,7 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-3" align="center">
+                <div class="col-lg-3 pt-3" align="center">
                      <nav class="header__menu">
                         <div class="header__right__auth">
                            <c:choose>

@@ -108,7 +108,7 @@
                             <ul>
                                 <li>
                                     <span>현재 수강신청 인원:</span>
-                                    <p>24 / ${classMap.classLimit }</p>
+                                    <p>3 / ${classMap.classLimit }</p>
                                 </li>
                             </ul>
                         </div>
