@@ -99,7 +99,7 @@ public class MemberController {
 		HttpSession session = request.getSession();		
 		session.invalidate();
 		
-		return "redirect:main";
+		return "redirect:/";
 		
 	}
 	
