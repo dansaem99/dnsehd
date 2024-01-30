@@ -56,21 +56,13 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__close">+</div>
         <ul class="offcanvas__widget">
-            <li><a href="#"><i class="fa fa-solid fa-bell"></i>
-                <div class="tip">2</div>
-            </a></li>
             <li><a href="/mypage"><i class="fa fa-solid fa-user"></i>
-                <div class="tip">2</div>
             </a></li>
         </ul>
         <div class="offcanvas__logo">
             <a href="/"><img src="/addedImg/dnsehd_small_logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__auth">
-            <a href="/login">로그인</a>
-            <a href="/register">회원가입</a>
-        </div>
     </div>
     <!-- Offcanvas Menu End -->
 
